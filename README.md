@@ -76,8 +76,6 @@ graph LR
     core_testing --> core_colors
     core_testing --> core_resources
     core_variants --> core_types
-
-    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
 *18 cross-module dependencies detected*
