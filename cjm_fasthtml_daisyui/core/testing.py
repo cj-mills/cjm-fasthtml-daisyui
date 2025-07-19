@@ -16,10 +16,14 @@ import asyncio
 from contextlib import contextmanager
 import time
 
+# Import cjm-tailwind-utils for dynamic CSS generation
+from cjm_tailwind_utils.all import TailwindBuilder
+
 # %% ../../nbs/core/testing.ipynb 3
 # Import our own modules
 from .resources import DaisyUIResources, ResourcePresets
 from .config import DaisyUIConfig, DaisyUITheme, ThemeConfig
+from .colors import SemanticColor, ColorUtility, ColorBuilder, apply_semantic_colors
 
 # %% ../../nbs/core/testing.ipynb 5
 class DisplayMode(str, Enum):
@@ -191,14 +195,18 @@ class ComponentTester:
             # Main content area
             Main(
                 Div(
-                    H1(self.title, cls="text-4xl font-bold mb-8"),
+                    H1(self.title, cls=TailwindBuilder().text(size="4xl", weight="bold").m(8, "b").build()),
                     
                     # Component examples
                     self._render_examples(),
                     
-                    cls="mx-auto px-4 py-8"
+                    cls=TailwindBuilder().m("auto", "x").p(4, "x").p(8, "y").build()
                 ),
-                cls="container min-h-screen bg-base-100"
+                cls=(TailwindBuilder()
+                     .add_class("container")
+                     .min_h("screen")
+                     .add_class(ColorUtility.BACKGROUND.with_color(SemanticColor.BASE_100))
+                     .build())
             ),
             
             # Footer with color palette
@@ -220,7 +228,7 @@ class ComponentTester:
         return Nav(
             Div(
                 # Logo/Title
-                A(self.title, cls="btn btn-ghost text-xl"),
+                A(self.title, cls=TailwindBuilder().add_class("btn btn-ghost").text(size="xl").build()),
                 
                 # Theme switcher
                 Div(
@@ -230,12 +238,16 @@ class ComponentTester:
                         cls="select select-bordered select-sm",
                         onchange="document.documentElement.setAttribute('data-theme', this.value)"
                     ),
-                    cls="flex items-center gap-2"
+                    cls=TailwindBuilder().flex().items("center").gap(2).build()
                 ),
                 
-                cls="navbar bg-base-200 px-4"
+                cls=(TailwindBuilder()
+                     .add_class("navbar")
+                     .add_class(ColorUtility.BACKGROUND.with_color(SemanticColor.BASE_200))
+                     .p(4, "x")
+                     .build())
             ),
-            cls="sticky top-0 z-50"
+            cls=TailwindBuilder().position("sticky").inset(0, "top").z(50).build()
         )
     
     def _render_examples(
@@ -245,7 +257,7 @@ class ComponentTester:
         if not self.examples:
             return Div(
                 P("No components added yet. Use .add() or .showcase() to add components."),
-                cls="text-base-content/70"
+                cls=TailwindBuilder().add_class("text-base-content/70").build()
             )
         
         sections = []
@@ -255,11 +267,15 @@ class ComponentTester:
         
         # Apply display mode
         container_cls = {
-            DisplayMode.INLINE: "flex flex-wrap gap-4",
-            DisplayMode.STACKED: "space-y-6",
-            DisplayMode.GRID: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
-            DisplayMode.SECTIONS: "space-y-8"
-        }.get(getattr(self, 'display_mode', DisplayMode.SECTIONS), "space-y-8")
+            DisplayMode.INLINE: TailwindBuilder().flex(wrap="wrap").gap(4).build(),
+            DisplayMode.STACKED: TailwindBuilder().space(6, "y").build(),
+            DisplayMode.GRID: (TailwindBuilder()
+                              .grid(cols=1)
+                              .add_class("md:grid-cols-2 lg:grid-cols-3")
+                              .gap(6)
+                              .build()),
+            DisplayMode.SECTIONS: TailwindBuilder().space(8, "y").build()
+        }.get(getattr(self, 'display_mode', DisplayMode.SECTIONS), TailwindBuilder().space(8, "y").build())
         
         return Div(*sections, cls=container_cls)
     
@@ -271,17 +287,24 @@ class ComponentTester:
         elements = []
         
         # Title
-        elements.append(H3(example.title, cls="text-xl font-semibold mb-2"))
+        elements.append(H3(example.title, cls=TailwindBuilder().text(size="xl", weight="semibold").m(2, "b").build()))
         
         # Description
         if example.description:
-            elements.append(P(example.description, cls="text-base-content/70 mb-4"))
+            elements.append(P(example.description, cls=(TailwindBuilder()
+                                                        .add_class("text-base-content/70")
+                                                        .m(4, "b")
+                                                        .build())))
         
         # Component preview
         elements.append(
             Div(
                 example.component,
-                cls="p-6 bg-base-200 rounded-lg"
+                cls=(TailwindBuilder()
+                     .p(6)
+                     .add_class(ColorUtility.BACKGROUND.with_color(SemanticColor.BASE_200))
+                     .rounded("lg")
+                     .build())
             )
         )
         
@@ -289,12 +312,12 @@ class ComponentTester:
         if example.code:
             elements.append(
                 Details(
-                    Summary("View Code", cls="cursor-pointer font-medium mt-4"),
+                    Summary("View Code", cls=TailwindBuilder().cursor("pointer").text(weight="medium").m(4, "t").build()),
                     Pre(
                         Code(example.code, cls="language-python"),
-                        cls="mockup-code mt-2"
+                        cls=TailwindBuilder().add_class("mockup-code").m(2, "t").build()
                     ),
-                    cls="mt-4"
+                    cls=TailwindBuilder().m(4, "t").build()
                 )
             )
         
@@ -306,9 +329,16 @@ class ComponentTester:
         """Render footer with color palette"""
         return Footer(
             Div(
-                H4("Color Palette", cls="text-lg font-semibold mb-4"),
+                H4("Color Palette", cls=TailwindBuilder().text(size="lg", weight="semibold").m(4, "b").build()),
                 self._render_color_palette(),
-                cls="footer footer-center p-8 bg-base-200 text-base-content"
+                cls=(TailwindBuilder()
+                     .add_class("footer footer-center")
+                     .p(8)
+                     .add_class(apply_semantic_colors(
+                         bg=SemanticColor.BASE_200,
+                         text=SemanticColor.BASE_CONTENT
+                     ))
+                     .build())
             )
         )
     
@@ -332,13 +362,13 @@ class ComponentTester:
         for color_class, label in colors:
             swatches.append(
                 Div(
-                    Div(cls=f"w-12 h-12 rounded-lg bg-{color_class}"),
-                    Span(label, cls="text-xs mt-1"),
-                    cls="flex flex-col items-center"
+                    Div(cls=TailwindBuilder().w(12).h(12).rounded("lg").add_class(f"bg-{color_class}").build()),
+                    Span(label, cls=TailwindBuilder().text(size="xs").m(1, "t").build()),
+                    cls=TailwindBuilder().flex(direction="col").items("center").build()
                 )
             )
         
-        return Div(*swatches, cls="flex flex-wrap gap-4 justify-center")
+        return Div(*swatches, cls=TailwindBuilder().flex(wrap="wrap").gap(4).justify("center").build())
     
     def start(
         self,

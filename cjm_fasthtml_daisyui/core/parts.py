@@ -9,7 +9,7 @@ __all__ = ['ComponentPart', 'HasParts']
 from typing import Dict, Any, Optional, List
 from dataclasses import dataclass, field
 from fasthtml.common import *
-from cjm_tailwind_utils.core import tw
+from cjm_tailwind_utils.all import TailwindBuilder
 
 # %% ../../nbs/core/parts.ipynb 5
 @dataclass
@@ -72,7 +72,13 @@ class HasParts:
         
         # Extract and merge classes
         cls = attrs.pop("cls", "")
-        attrs["class"] = tw.merge(part.class_name(), cls) if cls else part.class_name()
+        if cls:
+            # Use TailwindBuilder to merge classes
+            tb = TailwindBuilder()
+            tb.merge(part.class_name(), cls)
+            attrs["class"] = tb.build()
+        else:
+            attrs["class"] = part.class_name()
         
         # Get the tag to use
         tag = attrs.pop("tag", part.tag)

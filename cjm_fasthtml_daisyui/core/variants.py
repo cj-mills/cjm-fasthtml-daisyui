@@ -8,7 +8,6 @@ __all__ = ['Variant', 'HasVariants', 'CompoundVariant', 'HasCompoundVariants']
 # %% ../../nbs/core/variants.ipynb 3
 from typing import Dict, List, Optional, Any, Union
 from dataclasses import dataclass, field
-from cjm_tailwind_utils.core import tw
 
 # %% ../../nbs/core/variants.ipynb 5
 @dataclass

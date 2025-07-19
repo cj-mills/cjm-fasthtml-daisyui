@@ -13,6 +13,7 @@ from enum import Enum
 import re
 from .base import DaisyComponent
 from .colors import SemanticColor
+from cjm_tailwind_utils.all import TailwindBuilder
 
 # %% ../../nbs/core/validation.ipynb 4
 class ValidationLevel(str, Enum):

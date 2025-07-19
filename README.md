@@ -46,33 +46,43 @@ Total: 16 notebooks across 2 directories
 
 ``` mermaid
 graph LR
-    actions.button[actions.button<br/>Button]
-    core.animation[core.animation<br/>Animation & Transitions]
-    core.base[core.base<br/>Core Base Classes]
-    core.behaviors[core.behaviors<br/>Behavior States]
-    core.colors[core.colors<br/>Colors]
-    core.config[core.config<br/>Configuration]
-    core.factory[core.factory<br/>Component Factory]
-    core.htmx[core.htmx<br/>HTMX Integration]
-    core.modifiers[core.modifiers<br/>Style Modifiers]
-    core.parts[core.parts<br/>Component Parts]
-    core.placement[core.placement<br/>Placement & Direction]
-    core.resources[core.resources<br/>Resources]
-    core.testing[core.testing<br/>Testing]
-    core.validation[core.validation<br/>Validation]
-    core.variants[core.variants<br/>Variant System]
+    actions_button[actions.button<br/>Button]
+    core_animation[core.animation<br/>Animation & Transitions]
+    core_base[core.base<br/>Core Base Classes]
+    core_behaviors[core.behaviors<br/>Behavior States]
+    core_colors[core.colors<br/>Colors]
+    core_config[core.config<br/>Configuration]
+    core_factory[core.factory<br/>Component Factory]
+    core_htmx[core.htmx<br/>HTMX Integration]
+    core_modifiers[core.modifiers<br/>Style Modifiers]
+    core_parts[core.parts<br/>Component Parts]
+    core_placement[core.placement<br/>Placement & Direction]
+    core_resources[core.resources<br/>Resources]
+    core_testing[core.testing<br/>Testing]
+    core_validation[core.validation<br/>Validation]
+    core_variants[core.variants<br/>Variant System]
 
-    actions.button --> core
-    core.base --> core
-    core.factory --> core
-    core.htmx --> core
-    core.testing --> core
-    core.validation --> core
+    actions_button --> core_htmx
+    actions_button --> core_base
+    actions_button --> core_colors
+    actions_button --> core_modifiers
+    actions_button --> core_testing
+    actions_button --> core_behaviors
+    actions_button --> core_config
+    core_base --> core_colors
+    core_factory --> core_base
+    core_htmx --> core_base
+    core_htmx --> core_colors
+    core_testing --> core_config
+    core_testing --> core_colors
+    core_testing --> core_resources
+    core_validation --> core_base
+    core_validation --> core_colors
 
     classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
-*6 cross-module dependencies detected*
+*16 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -1605,7 +1615,6 @@ Returns:
 ``` python
 from cjm_fasthtml_daisyui.core.modifiers import (
     StyleType,
-    ButtonModifier,
     CardModifier,
     InputModifier,
     StyleModifier,
@@ -1618,11 +1627,6 @@ from cjm_fasthtml_daisyui.core.modifiers import (
 ``` python
 class StyleType(str, Enum):
     "Common style modifiers across components."
-```
-
-``` python
-class ButtonModifier(str, Enum):
-    "Button-specific modifiers."
 ```
 
 ``` python

@@ -10,8 +10,11 @@ from typing import Optional, Union, List, Any, Literal
 from enum import Enum
 from dataclasses import dataclass, field
 from fasthtml.common import *
+from cjm_tailwind_utils.all import TailwindBuilder
 from ..core.base import DaisyComponent, DaisySize
-from ..core.colors import SemanticColor
+from cjm_fasthtml_daisyui.core.colors import (
+    SemanticColor, ColorUtility, ColorBuilder, apply_semantic_colors
+)
 from ..core.behaviors import InteractiveMixin, FormControlMixin
 from ..core.modifiers import StyleType, HasStyles
 from ..core.htmx import HTMXComponent, HTMXAttrs
@@ -382,15 +385,18 @@ class ButtonGroup:
         justify: str = "end"
     ) -> FT:  # TODO: Add return description
         """Create an actions button group (commonly used in cards/modals)"""
-        justify_class = {
-            "start": "justify-start",
-            "center": "justify-center", 
-            "end": "justify-end",
-            "between": "justify-between",
-            "around": "justify-around"
-        }.get(justify, "justify-end")
+        justify_map = {
+            "start": "start",
+            "center": "center", 
+            "end": "end",
+            "between": "between",
+            "around": "around"
+        }
         
-        return Div(*buttons, cls=f"flex gap-2 {justify_class}")
+        tb = TailwindBuilder()
+        tb.flex().gap(2).justify(justify_map.get(justify, "end"))
+        
+        return Div(*buttons, cls=tb.build())
     
     @staticmethod
     def toolbar(
@@ -398,9 +404,15 @@ class ButtonGroup:
         vertical: bool = False
     ) -> FT:  # TODO: Add return description
         """Create a toolbar-style button group"""
+        tb = TailwindBuilder()
+        if vertical:
+            tb.add_class("join join-vertical")
+        else:
+            tb.add_class("join join-horizontal")
+            
         return Div(
             *buttons,
-            cls=f"join {'join-vertical' if vertical else 'join-horizontal'}"
+            cls=tb.build()
         )
     
     @staticmethod

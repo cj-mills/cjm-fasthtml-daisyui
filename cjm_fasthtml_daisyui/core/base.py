@@ -10,7 +10,7 @@ from typing import Dict, Any, Optional, List, Union, Literal
 from dataclasses import dataclass, field
 from enum import Enum
 from fasthtml.common import *
-from cjm_tailwind_utils.core import tw
+from cjm_tailwind_utils.all import TailwindBuilder
 from cjm_fasthtml_daisyui.core.colors import (
     SemanticColor, ColorUtility, ColorBuilder, ColorMixin,
     apply_semantic_colors, get_color_classes
@@ -149,44 +149,45 @@ class DaisyComponent(ColorMixin):
         self
     ) -> str:  # TODO: Add return description
         """Build complete class string with deduplication."""
+        # Start with component classes
         classes = [self.component_class()]
         classes.extend(self.modifier_classes())
         
-        # Build Tailwind utility classes
-        tw_classes = []
+        # Create TailwindBuilder instance
+        tb = TailwindBuilder()
         
-        # Add padding/margin
+        # Add component classes first
+        tb.add_class(" ".join(classes))
+        
+        # Add padding/margin using TailwindBuilder methods
         if self.tw_padding is not None:
-            tw_classes.append(tw.p(self.tw_padding))
+            tb.p(self.tw_padding)
         if self.tw_margin is not None:
-            tw_classes.append(tw.m(self.tw_margin))
+            tb.m(self.tw_margin)
             
         # Add responsive visibility
         if self.responsive_hide:
             for bp in self.responsive_hide:
-                tw_classes.append(f"{bp}:hidden")
+                tb.add_class(f"{bp}:hidden")
         if self.responsive_show:
             for bp in self.responsive_show:
-                tw_classes.append(f"{bp}:block")
+                tb.add_class(f"{bp}:block")
                 
         # Add raw utilities
         if self.tw_utilities:
-            tw_classes.extend(self.tw_utilities)
+            tb.add_class(" ".join(self.tw_utilities))
             
         # Add color mixin classes
         color_classes = self.get_color_classes()
         if color_classes:
-            tw_classes.extend(color_classes)
+            tb.add_class(" ".join(color_classes))
         
-        # Merge all classes
-        all_classes = [" ".join(classes)]
-        if tw_classes:
-            all_classes.extend(tw_classes)
+        # Add custom classes last
         if self.cls:
-            all_classes.append(self.cls)
+            tb.add_class(self.cls)
             
-        # Use tw.merge for proper deduplication
-        return tw.merge(*all_classes)
+        # Build and return the deduplicated class string
+        return tb.build()
     
     def render_attrs(
         self

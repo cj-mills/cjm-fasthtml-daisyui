@@ -8,7 +8,6 @@ __all__ = ['create_simple_component']
 # %% ../../nbs/core/factory.ipynb 3
 from typing import Type, Dict, Any, Optional, Callable
 from fasthtml.common import *
-from cjm_tailwind_utils.core import tw
 from .base import DaisyComponent
 
 # %% ../../nbs/core/factory.ipynb 5

@@ -8,7 +8,7 @@ __all__ = ['AnimationType', 'TransitionProperty', 'HasAnimation', 'LoadingAnimat
 # %% ../../nbs/core/animation.ipynb 3
 from typing import Optional, List, Dict, Any
 from enum import Enum
-from cjm_tailwind_utils.core import tw
+from cjm_tailwind_utils.all import TailwindBuilder
 
 # %% ../../nbs/core/animation.ipynb 5
 class AnimationType(str, Enum):
@@ -44,28 +44,30 @@ class HasAnimation:
         self
     ) -> List[str]:  # TODO: Add return description
         """Get animation-related classes."""
-        classes = []
+        tb = TailwindBuilder()
         
         # Add animation
         if self.animate:
-            classes.append(tw.animate(self.animate.value))
+            tb.animate(self.animate.value)
             
         # Add transition
         if self.transition:
             if self.transition == TransitionProperty.ALL:
-                classes.append("transition-all")
+                tb.add_class("transition-all")
             else:
-                classes.append(f"transition-{self.transition.value}")
+                tb.add_class(f"transition-{self.transition.value}")
                 
         # Add duration
         if self.duration is not None:
-            classes.append(f"duration-{self.duration}")
+            tb.add_class(f"duration-{self.duration}")
             
         # Add delay
         if self.delay is not None:
-            classes.append(f"delay-{self.delay}")
+            tb.add_class(f"delay-{self.delay}")
             
-        return classes
+        # Build and return as list
+        result = tb.build()
+        return result.split() if result else []
     
     def with_animation(self, 
                       animate: Optional[AnimationType] = None,  # TODO: Add description
