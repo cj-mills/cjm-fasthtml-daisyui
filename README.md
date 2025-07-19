@@ -58,13 +58,13 @@ graph LR
     core_utils[core.utils<br/>Utilities]
     core_variants[core.variants<br/>Variant System]
 
+    actions_button --> core_variants
+    actions_button --> core_colors
+    actions_button --> core_config
+    actions_button --> core_base
     actions_button --> core_testing
     actions_button --> core_behaviors
     actions_button --> core_htmx
-    actions_button --> core_variants
-    actions_button --> core_colors
-    actions_button --> core_base
-    actions_button --> core_config
     core_base --> core_colors
     core_behaviors --> core_types
     core_colors --> core_types
@@ -72,12 +72,10 @@ graph LR
     core_htmx --> core_base
     core_parts --> core_utils
     core_placement --> core_types
-    core_testing --> core_config
-    core_testing --> core_colors
     core_testing --> core_resources
+    core_testing --> core_colors
+    core_testing --> core_config
     core_variants --> core_types
-
-    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
 *18 cross-module dependencies detected*
