@@ -17,10 +17,6 @@ from cjm_fasthtml_daisyui.core.colors import (
 )
 
 # %% ../../nbs/core/base.ipynb 5
-# DaisyColor has been replaced by SemanticColor from cjm_fasthtml_daisyui.core.colors
-# which provides more comprehensive color support including content colors
-
-# %% ../../nbs/core/base.ipynb 6
 class DaisyPosition(str, Enum):
     """Common position values."""
     TOP = "top"
@@ -32,7 +28,7 @@ class DaisyPosition(str, Enum):
     END = "end"
     MIDDLE = "middle"
 
-# %% ../../nbs/core/base.ipynb 7
+# %% ../../nbs/core/base.ipynb 6
 class DaisyBreakpoint(str, Enum):
     """Responsive breakpoints."""
     SM = "sm"
@@ -41,7 +37,7 @@ class DaisyBreakpoint(str, Enum):
     XL = "xl"
     XXL = "2xl"
 
-# %% ../../nbs/core/base.ipynb 8
+# %% ../../nbs/core/base.ipynb 7
 class DaisySize(str, Enum):
     """Common size variants across components."""
     XS = "xs"
@@ -50,7 +46,7 @@ class DaisySize(str, Enum):
     LG = "lg"
     XL = "xl"
 
-# %% ../../nbs/core/base.ipynb 10
+# %% ../../nbs/core/base.ipynb 9
 @dataclass
 class DaisyComponent(ColorMixin):
     """Base class for all daisyUI components.

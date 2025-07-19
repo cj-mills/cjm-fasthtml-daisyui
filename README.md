@@ -24,13 +24,11 @@ pip install cjm-fasthtml-daisyui
     nbs/
     ├── actions/ (1)
     │   └── button.ipynb             # Buttons allow the user to take actions or make choices.
-    └── core/ (15)
-        ├── animation.ipynb          # Support for component animations and transitions
+    └── core/ (12)
         ├── base.ipynb               # Base classes and types for all daisyUI components
         ├── behaviors.ipynb          # Mixin for components with behavior states (active, disabled, loading)
         ├── colors.ipynb             # Semantic color system for daisyUI components
         ├── config.ipynb             # daisyUI configuration management for FastHTML projects
-        ├── factory.ipynb            # Factory functions for creating daisyUI components
         ├── htmx.ipynb               # HTMX patterns and helpers for daisyUI components in FastHTML
         ├── parts.ipynb              # System for handling component parts (e.g., card-body, modal-box)
         ├── placement.ipynb          # Mixins for component placement and direction options
@@ -38,22 +36,19 @@ pip install cjm-fasthtml-daisyui
         ├── testing.ipynb            # Standardized testing framework for daisyUI components in Jupyter notebooks
         ├── types.ipynb              # Common types and type aliases for daisyUI components
         ├── utils.ipynb              # Shared utility functions for daisyUI components
-        ├── validation.ipynb         # Enforcing daisyUI 5 usage rules and best practices
         └── variants.ipynb           # System for handling component variants and states
 
-Total: 17 notebooks across 2 directories
+Total: 14 notebooks across 2 directories
 
 ## Module Dependencies
 
 ``` mermaid
 graph LR
     actions_button[actions.button<br/>Button]
-    core_animation[core.animation<br/>Animation & Transitions]
     core_base[core.base<br/>Core Base Classes]
     core_behaviors[core.behaviors<br/>Behavior States]
     core_colors[core.colors<br/>Colors]
     core_config[core.config<br/>Configuration]
-    core_factory[core.factory<br/>Component Factory]
     core_htmx[core.htmx<br/>HTMX Integration]
     core_parts[core.parts<br/>Component Parts]
     core_placement[core.placement<br/>Placement & Direction]
@@ -61,37 +56,31 @@ graph LR
     core_testing[core.testing<br/>Testing]
     core_types[core.types<br/>Types]
     core_utils[core.utils<br/>Utilities]
-    core_validation[core.validation<br/>Validation]
     core_variants[core.variants<br/>Variant System]
 
+    actions_button --> core_testing
+    actions_button --> core_behaviors
     actions_button --> core_htmx
     actions_button --> core_variants
     actions_button --> core_colors
-    actions_button --> core_config
     actions_button --> core_base
-    actions_button --> core_behaviors
-    actions_button --> core_testing
-    core_animation --> core_types
+    actions_button --> core_config
     core_base --> core_colors
     core_behaviors --> core_types
     core_colors --> core_types
-    core_factory --> core_base
-    core_factory --> core_utils
-    core_htmx --> core_base
     core_htmx --> core_colors
+    core_htmx --> core_base
     core_parts --> core_utils
     core_placement --> core_types
-    core_testing --> core_colors
     core_testing --> core_config
+    core_testing --> core_colors
     core_testing --> core_resources
-    core_validation --> core_base
-    core_validation --> core_colors
     core_variants --> core_types
 
     classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
-*23 cross-module dependencies detected*
+*18 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -100,95 +89,6 @@ No CLI commands found in this project.
 ## Module Overview
 
 Detailed documentation for each module in the project:
-
-### Animation & Transitions (`animation.ipynb`)
-
-> Support for component animations and transitions
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.animation import (
-    AnimationType,
-    TransitionProperty,
-    HasAnimation,
-    LoadingAnimation,
-    SwapAnimation
-)
-```
-
-#### Classes
-
-``` python
-class AnimationType(str, Enum):
-    "Common animation types."
-```
-
-``` python
-class TransitionProperty(str, Enum):
-    "Transition properties."
-```
-
-``` python
-class HasAnimation(CSSContributor):
-    """
-    Mixin for components with animation support.
-    
-    This provides animation and transition utilities for components.
-    """
-    
-    def get_css_classes(self) -> CSSClasses:
-            """Get animation-related classes.
-            
-            Returns:
-                List of CSS class strings for animations
-            """
-            tb = TailwindBuilder()
-            
-            # Add animation
-            if self.animate
-        "Get animation-related classes.
-
-Returns:
-    List of CSS class strings for animations"
-    
-    def with_animation(self,
-                          animate: Optional[AnimationType] = None,  # TODO: Add description
-                          transition: Optional[TransitionProperty] = None,  # TODO: Add description
-                          duration: Optional[int] = None,  # TODO: Add description
-                          delay: Optional[int] = None) -> 'HasAnimation'
-        "Configure animation and return self for chaining."
-```
-
-``` python
-class LoadingAnimation:
-    "Animation patterns for loading states."
-    
-    def spinner(
-        ) -> List[str]:  # TODO: Add return description
-        "Spinning loader animation."
-    
-    def dots(
-        ) -> List[str]:  # TODO: Add return description
-        "Pulsing dots animation."
-    
-    def skeleton(
-        ) -> List[str]:  # TODO: Add return description
-        "Skeleton loading animation."
-```
-
-``` python
-class SwapAnimation:
-    "Animation patterns for swap components."
-    
-    def rotate(
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Rotation swap animation."
-    
-    def flip(
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Flip swap animation."
-```
 
 ### Core Base Classes (`base.ipynb`)
 
@@ -424,8 +324,7 @@ class FormControlMixin:
 ``` python
 from cjm_fasthtml_daisyui.actions.button import (
     ButtonShape,
-    Btn,
-    ButtonGroup
+    Btn
 )
 ```
 
@@ -630,32 +529,6 @@ Returns:
             **kwargs
         ) -> 'Btn':  # TODO: Add return description
         "Create a cancel button"
-```
-
-``` python
-@dataclass
-class ButtonGroup:
-    "Helper class for creating button groups"
-    
-    def actions(
-            *buttons: Btn,
-            justify: str = "end"
-        ) -> FT:  # TODO: Add return description
-        "Create an actions button group (commonly used in cards/modals)"
-    
-    def toolbar(
-            *buttons: Btn,
-            vertical: bool = False
-        ) -> FT:  # TODO: Add return description
-        "Create a toolbar-style button group"
-    
-    def pagination(
-            current: int,  # TODO: Add description
-            total: int,  # TODO: Add description
-            on_page: Optional[str] = None,  # TODO: Add description
-            size: DaisySize = DaisySize.MD  # TODO: Add description
-        ) -> FT:  # TODO: Add return description
-        "Create a pagination button group"
 ```
 
 ### Colors (`colors.ipynb`)
@@ -1168,32 +1041,6 @@ class ConfigManager:
         "Combine configuration with custom themes"
 ```
 
-### Component Factory (`factory.ipynb`)
-
-> Factory functions for creating daisyUI components
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.factory import (
-    create_simple_component
-)
-```
-
-#### Functions
-
-``` python
-def create_simple_component(
-    component_name: str,    # The daisyUI class name (e.g., 'badge', 'kbd')
-    tag: str = "div",    # HTML tag to use (default: 'div')
-    supports_color: bool = False,    # Whether component supports color modifiers
-    supports_size: bool = False,    # Whether component supports size modifiers
-    default_attrs: Optional[Dict[str, Any]] = None,
-    class_name: Optional[str] = None    # Optional class name (defaults to PascalCase of component_name)
-) -> Type[DaisyComponent]:  # A DaisyComponent subclass
-    "Factory for creating simple daisyUI components. This factory creates a component class for simple daisyUI components that don't require complex logic."
-```
-
 ### HTMX Integration (`htmx.ipynb`)
 
 > HTMX patterns and helpers for daisyUI components in FastHTML
@@ -1206,10 +1053,6 @@ from cjm_fasthtml_daisyui.core.htmx import (
     HTMXSwap,
     HTMXAttrs,
     HTMXComponent,
-    HTMXPatterns,
-    HTMXModal,
-    HTMXDropdown,
-    HTMXForm,
     htmx_attrs,
     loading_indicator,
     oob_alert
@@ -1414,233 +1257,6 @@ Returns:
             self
         ) -> Dict[str, Any]:  # TODO: Add return description
         "Build all HTML attributes including HTMX"
-```
-
-``` python
-class HTMXPatterns:
-    "Common HTMX patterns for daisyUI components"
-    
-    def live_search(
-            input_id: str,  # TODO: Add description
-            results_id: str,  # TODO: Add description
-            endpoint: str,  # TODO: Add description
-            min_length: int = 2,  # TODO: Add description
-            delay: str = "500ms"  # TODO: Add description
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Create live search pattern
-
-Args:
-    input_id: ID for the search input
-    results_id: ID for the results container
-    endpoint: Search endpoint URL
-    min_length: Minimum characters before searching
-    delay: Debounce delay
-    
-Returns:
-    Dictionary of attributes for the input element"
-    
-    def infinite_scroll(
-            container_id: str,  # TODO: Add description
-            next_page_endpoint: str,  # TODO: Add description
-            threshold: str = "100px"  # TODO: Add description
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Create infinite scroll pattern
-
-Args:
-    container_id: ID of the container element
-    next_page_endpoint: Endpoint for next page
-    threshold: How far from bottom to trigger
-    
-Returns:
-    Dictionary of attributes for the sentinel element"
-    
-    def click_to_edit(
-            display_id: str,  # TODO: Add description
-            edit_endpoint: str,  # TODO: Add description
-            update_endpoint: str  # TODO: Add description
-        ) -> Tuple[Dict[str, Any], Dict[str, Any]]:  # TODO: Add return description
-        "Create click-to-edit pattern
-
-Args:
-    display_id: ID of the display element
-    edit_endpoint: Endpoint to get edit form
-    update_endpoint: Endpoint to save changes
-    
-Returns:
-    Tuple of (display_attrs, form_attrs)"
-    
-    def delete_with_confirm(
-            element_id: str,  # TODO: Add description
-            delete_endpoint: str,  # TODO: Add description
-            confirm_message: str = "Are you sure you want to delete this?"  # TODO: Add description
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Create delete with confirmation pattern
-
-Args:
-    element_id: ID of element to delete
-    delete_endpoint: Delete endpoint URL
-    confirm_message: Confirmation message
-    
-Returns:
-    Dictionary of attributes for delete button"
-    
-    def poll_for_updates(
-            element_id: str,  # TODO: Add description
-            poll_endpoint: str,  # TODO: Add description
-            interval: str = "2s"  # TODO: Add description
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Create polling pattern for live updates
-
-Args:
-    element_id: ID of element to update
-    poll_endpoint: Endpoint to poll
-    interval: Polling interval
-    
-Returns:
-    Dictionary of attributes"
-```
-
-``` python
-class HTMXModal:
-    "HTMX patterns for modal components"
-    
-    def trigger_button(
-            modal_id: str,  # TODO: Add description
-            text: str,  # TODO: Add description
-            endpoint: Optional[str] = None,  # TODO: Add description
-            button_class: str = "btn btn-primary"  # TODO: Add description
-        ) -> FT:  # TODO: Add return description
-        "Create a button that opens a modal
-
-Args:
-    modal_id: ID of the modal dialog element
-    text: Button text
-    endpoint: Optional endpoint to load modal content
-    button_class: CSS classes for button
-    
-Returns:
-    Button element with proper attributes"
-    
-    def close_button(
-            modal_id: str,  # TODO: Add description
-            text: str = "Close",  # TODO: Add description
-            button_class: str = "btn"  # TODO: Add description
-        ) -> FT:  # TODO: Add return description
-        "Create a close button for modal
-
-Args:
-    modal_id: ID of the modal to close
-    text: Button text
-    button_class: CSS classes
-    
-Returns:
-    Close button element"
-    
-    def async_modal(
-            modal_id: str,  # TODO: Add description
-            title: str,  # TODO: Add description
-            content_endpoint: str  # TODO: Add description
-        ) -> FT:  # TODO: Add return description
-        "Create a modal that loads content asynchronously
-
-Args:
-    modal_id: ID for the modal
-    title: Modal title
-    content_endpoint: Endpoint to load content from
-    
-Returns:
-    Modal dialog element"
-```
-
-``` python
-class HTMXDropdown:
-    "HTMX patterns for dropdown components"
-    
-    def lazy_dropdown(
-            dropdown_id: str,  # TODO: Add description
-            button_text: str,  # TODO: Add description
-            content_endpoint: str,  # TODO: Add description
-            button_class: str = "btn"  # TODO: Add description
-        ) -> FT:  # TODO: Add return description
-        "Create dropdown that loads content on first open
-
-Args:
-    dropdown_id: ID for the dropdown
-    button_text: Text for dropdown button
-    content_endpoint: Endpoint to load content
-    button_class: CSS classes for button
-    
-Returns:
-    Dropdown element"
-    
-    def search_dropdown(
-            dropdown_id: str,  # TODO: Add description
-            search_endpoint: str,  # TODO: Add description
-            placeholder: str = "Search..."  # TODO: Add description
-        ) -> FT:  # TODO: Add return description
-        "Create dropdown with search functionality
-
-Args:
-    dropdown_id: ID for the dropdown
-    search_endpoint: Endpoint for search
-    placeholder: Search input placeholder
-    
-Returns:
-    Searchable dropdown element"
-```
-
-``` python
-class HTMXForm:
-    "HTMX patterns for form components"
-    
-    def ajax_form(
-            form_id: str,  # TODO: Add description
-            endpoint: str,  # TODO: Add description
-            method: str = "post",  # TODO: Add description
-            success_target: Optional[str] = None,  # TODO: Add description
-            loading_text: str = "Submitting..."  # TODO: Add description
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Create AJAX form attributes
-
-Args:
-    form_id: ID for the form
-    endpoint: Form submission endpoint
-    method: HTTP method
-    success_target: Target for success response
-    loading_text: Text to show while submitting
-    
-Returns:
-    Dictionary of form attributes"
-    
-    def inline_validation(
-            input_id: str,  # TODO: Add description
-            validation_endpoint: str,  # TODO: Add description
-            error_target: str  # TODO: Add description
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Create inline validation pattern
-
-Args:
-    input_id: ID of input to validate
-    validation_endpoint: Validation endpoint
-    error_target: Where to show errors
-    
-Returns:
-    Dictionary of input attributes"
-    
-    def submit_button_with_loading(
-            text: str = "Submit",  # TODO: Add description
-            loading_text: str = "Submitting...",  # TODO: Add description
-            button_class: str = "btn btn-primary"  # TODO: Add description
-        ) -> FT:  # TODO: Add return description
-        "Create submit button with loading state
-
-Args:
-    text: Button text
-    loading_text: Text during loading
-    button_class: CSS classes
-    
-Returns:
-    Button element with loading indicator"
 ```
 
 ### Component Parts (`parts.ipynb`)
@@ -2431,212 +2047,6 @@ def create_element(
         >>> create_element('div', 'Hello', cls='container')
         >>> create_element('button', 'Click me', type='submit')
     """
-```
-
-### Validation (`validation.ipynb`)
-
-> Enforcing daisyUI 5 usage rules and best practices
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.validation import (
-    ValidationLevel,
-    ValidationMessage,
-    ValidationResult,
-    DaisyUIRules,
-    ComponentValidators,
-    validate_classes,
-    assert_valid,
-    ValidatedComponent
-)
-```
-
-#### Functions
-
-``` python
-def validate_classes(classes: Union[str, List[str]], 
-                    strict: bool = False) -> ValidationResult
-    "Quick validation of CSS classes"
-```
-
-``` python
-def assert_valid(component: DaisyComponent, 
-                message: str = "Component validation failed")
-    "Assert that a component is valid, raising an exception if not"
-```
-
-#### Classes
-
-``` python
-class ValidationLevel(str, Enum):
-    "Severity levels for validation messages"
-    
-    def symbol(
-            self
-        ) -> str:  # TODO: Add return description
-        "Get symbol for this level"
-```
-
-``` python
-@dataclass
-class ValidationMessage:
-    "A single validation message"
-    
-    level: ValidationLevel
-    message: str
-    rule: str  # Which daisyUI rule this relates to
-    suggestion: Optional[str]
-    context: Optional[Dict[str, Any]]
-    
-```
-
-``` python
-@dataclass
-class ValidationResult:
-    "Result of validating a component or set of classes"
-    
-    messages: List[ValidationMessage] = field(...)
-    
-    def is_valid(
-            self
-        ) -> bool:  # TODO: Add return description
-        "Check if validation passed (no errors)"
-    
-    def has_warnings(
-            self
-        ) -> bool:  # TODO: Add return description
-        "Check if there are any warnings"
-    
-    def add(self, level: ValidationLevel, message: str, rule: str,
-                suggestion: Optional[str] = None, context: Optional[Dict[str, Any]] = None)
-        "Add a validation message"
-    
-    def get_by_level(
-            self,
-            level: ValidationLevel  # TODO: Add description
-        ) -> List[ValidationMessage]:  # TODO: Add return description
-        "Get all messages of a specific level"
-    
-    def summary(
-            self
-        ) -> str:  # TODO: Add return description
-        "Get a summary of validation results"
-```
-
-``` python
-class DaisyUIRules:
-    """
-    Enforces daisyUI 5 usage rules
-    
-    Based on the official daisyUI 5 usage rules:
-    1. Components need component class + optional part/modifier classes
-    2. Customization via Tailwind utilities (use ! for specificity issues)
-    3. Create custom components with Tailwind if not in daisyUI
-    4. Responsive layouts should use Tailwind responsive prefixes
-    5. Use daisyUI or Tailwind classes only
-    6. Prefer semantic colors over hardcoded Tailwind colors
-    7. Avoid hardcoded colors that won't adapt to themes
-    """
-    
-    def validate_color_usage(
-            cls,  # TODO: Add type hint and description
-            classes: Union[str, List[str]]  # TODO: Add description
-        ) -> ValidationResult:  # TODO: Add return description
-        "Validate color usage (Rules 6-9)
-
-Checks for:
-- Hardcoded Tailwind colors that won't adapt to themes
-- Suggests semantic colors instead"
-    
-    def validate_component_structure(
-            cls,  # TODO: Add type hint and description
-            component: DaisyComponent  # TODO: Add description
-        ) -> ValidationResult:  # TODO: Add return description
-        "Validate component structure (Rule 1)
-
-Checks for:
-- Proper component class naming
-- Valid modifier usage"
-    
-    def suggest_responsive(
-            cls,  # TODO: Add type hint and description
-            classes: Union[str, List[str]]  # TODO: Add description
-        ) -> ValidationResult:  # TODO: Add return description
-        "Suggest responsive improvements (Rule 4)
-
-Checks for:
-- Components that might benefit from responsive modifiers"
-    
-    def validate_custom_css(cls, classes: Union[str, List[str]],
-                               allow_arbitrary: bool = True) -> ValidationResult
-        "Validate against custom CSS (Rules 5-7)
-
-Checks for:
-- Non-daisyUI/Tailwind classes
-- Arbitrary values (which are allowed but tracked)"
-    
-    def validate_all(cls, component: DaisyComponent,
-                        check_responsive: bool = True) -> ValidationResult
-        "Run all validation rules on a component
-
-Args:
-    component: The component to validate
-    check_responsive: Whether to check for responsive suggestions
-    
-Returns:
-    Combined validation results"
-```
-
-``` python
-class ComponentValidators:
-    "Validators for specific component types"
-    
-    def validate_button(
-            classes: str  # TODO: Add description
-        ) -> ValidationResult:  # TODO: Add return description
-        "Validate button-specific rules"
-    
-    def validate_form_control(
-            classes: str,  # TODO: Add description
-            component_type: str  # TODO: Add description
-        ) -> ValidationResult:  # TODO: Add return description
-        "Validate form control components (input, select, textarea)"
-    
-    def validate_modal(
-            classes: str,  # TODO: Add description
-            has_trigger: bool = False  # TODO: Add description
-        ) -> ValidationResult:  # TODO: Add return description
-        "Validate modal component structure"
-```
-
-``` python
-class ValidatedComponent:
-    def __init__(self, *args, validate_on_init: bool = True, **kwargs):
-        "TODO: Add function description"
-        super().__init__(*args, **kwargs)
-        self.validate_on_init = validate_on_init
-        
-        if validate_on_init
-    """
-    Base class for components with automatic validation
-    
-    Subclasses will have their output validated automatically
-    to ensure compliance with daisyUI rules.
-    """
-    
-    def __init__(self, *args, validate_on_init: bool = True, **kwargs):
-            "TODO: Add function description"
-            super().__init__(*args, **kwargs)
-            self.validate_on_init = validate_on_init
-            
-            if validate_on_init
-        "TODO: Add function description"
-    
-    def build_classes(
-            self
-        ) -> str:  # TODO: Add return description
-        "Build classes with validation"
 ```
 
 ### Variant System (`variants.ipynb`)
