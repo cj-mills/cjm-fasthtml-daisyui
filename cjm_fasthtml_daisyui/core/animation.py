@@ -9,6 +9,7 @@ __all__ = ['AnimationType', 'TransitionProperty', 'HasAnimation', 'LoadingAnimat
 from typing import Optional, List, Dict, Any
 from enum import Enum
 from cjm_tailwind_utils.all import TailwindBuilder
+from .types import CSSContributor, CSSClasses
 
 # %% ../../nbs/core/animation.ipynb 5
 class AnimationType(str, Enum):
@@ -28,7 +29,7 @@ class TransitionProperty(str, Enum):
     TRANSFORM = "transform"
 
 # %% ../../nbs/core/animation.ipynb 8
-class HasAnimation:
+class HasAnimation(CSSContributor):
     """Mixin for components with animation support.
     
     This provides animation and transition utilities for components.
@@ -40,10 +41,12 @@ class HasAnimation:
     duration: Optional[int] = None  # Duration in ms
     delay: Optional[int] = None  # Delay in ms
     
-    def animation_classes(
-        self
-    ) -> List[str]:  # TODO: Add return description
-        """Get animation-related classes."""
+    def get_css_classes(self) -> CSSClasses:
+        """Get animation-related classes.
+        
+        Returns:
+            List of CSS class strings for animations
+        """
         tb = TailwindBuilder()
         
         # Add animation

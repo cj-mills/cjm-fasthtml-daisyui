@@ -9,6 +9,7 @@ __all__ = ['create_simple_component']
 from typing import Type, Dict, Any, Optional, Callable
 from fasthtml.common import *
 from .base import DaisyComponent
+from .utils import create_element
 
 # %% ../../nbs/core/factory.ipynb 5
 def create_simple_component(
@@ -61,34 +62,8 @@ def create_simple_component(
                 for k, v in default_attrs.items():
                     attrs.setdefault(k, v)
             
-            # Create the appropriate element
-            if tag.lower() == "div":
-                return Div(*children, **attrs)
-            elif tag.lower() == "span":
-                return Span(*children, **attrs)
-            elif tag.lower() == "button":
-                return Button(*children, **attrs)
-            elif tag.lower() == "a":
-                return A(*children, **attrs)
-            elif tag.lower() == "label":
-                return Label(*children, **attrs)
-            elif tag.lower() == "ul":
-                return Ul(*children, **attrs)
-            elif tag.lower() == "li":
-                return Li(*children, **attrs)
-            elif tag.lower() == "section":
-                return Section(*children, **attrs)
-            elif tag.lower() == "article":
-                return Article(*children, **attrs)
-            elif tag.lower() == "nav":
-                return Nav(*children, **attrs)
-            elif tag.lower() == "header":
-                return Header(*children, **attrs)
-            elif tag.lower() == "footer":
-                return Footer(*children, **attrs)
-            else:
-                # For other tags, use eval
-                return eval(tag.title())(*children, **attrs)
+            # Use the shared create_element utility
+            return create_element(tag, *children, **attrs)
     
     # Set the class name
     SimpleComponent.__name__ = class_name

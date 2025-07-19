@@ -10,6 +10,7 @@ from typing import Dict, Any, Optional, List
 from dataclasses import dataclass, field
 from fasthtml.common import *
 from cjm_tailwind_utils.all import TailwindBuilder
+from .utils import create_element
 
 # %% ../../nbs/core/parts.ipynb 5
 @dataclass
@@ -83,33 +84,5 @@ class HasParts:
         # Get the tag to use
         tag = attrs.pop("tag", part.tag)
         
-        # Create the appropriate FastHTML element
-        if tag.lower() == "div":
-            return Div(*children, **attrs)
-        elif tag.lower() == "span":
-            return Span(*children, **attrs)
-        elif tag.lower() == "section":
-            return Section(*children, **attrs)
-        elif tag.lower() == "figure":
-            return Figure(*children, **attrs)
-        elif tag.lower() == "h1":
-            return H1(*children, **attrs)
-        elif tag.lower() == "h2":
-            return H2(*children, **attrs)
-        elif tag.lower() == "h3":
-            return H3(*children, **attrs)
-        elif tag.lower() == "h4":
-            return H4(*children, **attrs)
-        elif tag.lower() == "h5":
-            return H5(*children, **attrs)
-        elif tag.lower() == "h6":
-            return H6(*children, **attrs)
-        elif tag.lower() == "p":
-            return P(*children, **attrs)
-        elif tag.lower() == "ul":
-            return Ul(*children, **attrs)
-        elif tag.lower() == "li":
-            return Li(*children, **attrs)
-        else:
-            # For any other tag, use eval (be careful with this)
-            return eval(tag.title())(*children, **attrs)
+        # Use the shared create_element utility
+        return create_element(tag, *children, **attrs)

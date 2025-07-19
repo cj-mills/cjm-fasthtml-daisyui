@@ -7,9 +7,10 @@ __all__ = ['HasBehaviors', 'InteractiveMixin', 'FormControlMixin']
 
 # %% ../../nbs/core/behaviors.ipynb 3
 from typing import List, Dict, Any, Optional
+from .types import CSSContributor, CSSClasses
 
 # %% ../../nbs/core/behaviors.ipynb 5
-class HasBehaviors:
+class HasBehaviors(CSSContributor):
     """Mixin for components with behavior states.
     
     This mixin provides functionality for interactive components
@@ -23,10 +24,12 @@ class HasBehaviors:
     open: bool = False  # For modals, dropdowns, etc.
     checked: bool = False  # For checkboxes, toggles, etc.
     
-    def behavior_classes(
-        self
-    ) -> List[str]:  # TODO: Add return description
-        """Return behavior state classes."""
+    def get_css_classes(self) -> CSSClasses:
+        """Get behavior state classes.
+        
+        Returns:
+            List of CSS class strings for behavior states
+        """
         classes = []
         base = self.component_class()
         
@@ -109,11 +112,13 @@ class InteractiveMixin(HasBehaviors):
     focus: bool = False
     hover: bool = False
     
-    def interactive_classes(
-        self
-    ) -> List[str]:  # TODO: Add return description
-        """Return all interactive state classes."""
-        classes = self.behavior_classes()
+    def get_css_classes(self) -> CSSClasses:
+        """Get all interactive state classes.
+        
+        Returns:
+            List of CSS class strings for interactive states
+        """
+        classes = super().get_css_classes()
         base = self.component_class()
         
         if self.focus and hasattr(self, 'supports_focus') and self.supports_focus():

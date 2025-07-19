@@ -11,6 +11,7 @@ from typing import Union, Optional, List, Dict, Tuple, Literal
 from enum import Enum
 from dataclasses import dataclass
 from functools import lru_cache
+from .types import CSSContributor, CSSClasses
 
 # %% ../../nbs/core/colors.ipynb 4
 class SemanticColor(str, Enum):
@@ -403,7 +404,7 @@ def with_opacity(
     return f"{color_class}/{opacity_value}"
 
 # %% ../../nbs/core/colors.ipynb 27
-class ColorMixin:
+class ColorMixin(CSSContributor):
     """
     Mixin to add semantic color support to components
     
@@ -463,8 +464,10 @@ class ColorMixin:
         
         return self
     
-    def get_color_classes(
-        self
-    ) -> List[str]:  # TODO: Add return description
-        """Get all color classes applied to this component"""
+    def get_css_classes(self) -> CSSClasses:
+        """Get all color classes applied to this component
+        
+        Returns:
+            List of CSS class strings for colors
+        """
         return getattr(self, '_color_classes', [])

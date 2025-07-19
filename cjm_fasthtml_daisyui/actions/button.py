@@ -16,7 +16,7 @@ from cjm_fasthtml_daisyui.core.colors import (
     SemanticColor, ColorUtility, ColorBuilder, apply_semantic_colors
 )
 from ..core.behaviors import InteractiveMixin, FormControlMixin
-from ..core.modifiers import StyleType, HasStyles
+from ..core.variants import HasVariants, StyleType, create_style_variant
 from ..core.htmx import HTMXComponent, HTMXAttrs
 
 # %% ../../nbs/actions/button.ipynb 5
@@ -30,7 +30,7 @@ class ButtonShape(str, Enum):
 
 # %% ../../nbs/actions/button.ipynb 6
 @dataclass
-class Btn(HTMXComponent, HasStyles, InteractiveMixin, FormControlMixin):
+class Btn(HTMXComponent, HasVariants, InteractiveMixin, FormControlMixin):
     """
     daisyUI Button component with full feature support.
     
@@ -67,6 +67,9 @@ class Btn(HTMXComponent, HasStyles, InteractiveMixin, FormControlMixin):
     type: Optional[str] = None
     form: Optional[str] = None
     
+    # Style property for convenient access
+    style: Optional[Union[StyleType, str]] = None
+    
     def __init__(self, *children, **kwargs):
         "TODO: Add function description"
         # Extract children from args
@@ -80,8 +83,11 @@ class Btn(HTMXComponent, HasStyles, InteractiveMixin, FormControlMixin):
         self.href = kwargs.pop('href', None)
         self.target = kwargs.pop('target', None)
         
-        # Extract style for HasStyles mixin
+        # Extract style and handle variant
         self.style = kwargs.pop('style', None)
+        
+        # Initialize variant values for HasVariants
+        self.variant_values = kwargs.pop('variant_values', {})
         
         # Extract InteractiveMixin properties
         self.active = kwargs.pop('active', False)
@@ -104,6 +110,22 @@ class Btn(HTMXComponent, HasStyles, InteractiveMixin, FormControlMixin):
         
         # Initialize parent classes
         super().__init__(**kwargs)
+        
+        # Set the style variant if provided
+        if self.style:
+            style_value = self.style.value if isinstance(self.style, StyleType) else self.style
+            self.set_variant("style", style_value)
+    
+    @classmethod
+    def variants(cls) -> Dict[str, Any]:
+        """Define available variants for buttons.
+        
+        Returns:
+            Dictionary of variant definitions
+        """
+        return {
+            "style": create_style_variant("btn")
+        }
     
     def component_class(
         self
@@ -147,28 +169,18 @@ class Btn(HTMXComponent, HasStyles, InteractiveMixin, FormControlMixin):
         "TODO: Add function description"
         return True
     
-    def get_style_modifiers(
-        self
-    ) -> List[StyleType]:  # TODO: Add return description
-        """Get applicable style modifiers"""
-        return [StyleType]
-    
     def modifier_classes(
         self
     ) -> List[str]:  # TODO: Add return description
         """Build all modifier classes"""
         classes = super().modifier_classes()
         
-        # Add style modifier
-        if self.style:
-            classes.append(f"btn-{self.style.value}")
-        
         # Add shape modifier
         if self.shape and self.shape != ButtonShape.DEFAULT:
             classes.append(f"btn-{self.shape.value}")
         
         # Add behavior classes from InteractiveMixin
-        classes.extend(self.behavior_classes())
+        # Note: These are now handled by get_css_classes() from InteractiveMixin
         
         # Add no-animation
         if self.no_animation:

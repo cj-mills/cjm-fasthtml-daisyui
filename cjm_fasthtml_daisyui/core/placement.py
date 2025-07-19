@@ -7,9 +7,10 @@ __all__ = ['HasPlacement', 'HasDirection', 'HasPlacementAndDirection']
 
 # %% ../../nbs/core/placement.ipynb 3
 from typing import Optional, List, Literal, Union
+from .types import CSSContributor, CSSClasses
 
 # %% ../../nbs/core/placement.ipynb 5
-class HasPlacement:
+class HasPlacement(CSSContributor):
     """Mixin for components with placement options.
     
     This mixin provides functionality for components that can be
@@ -18,10 +19,12 @@ class HasPlacement:
     
     placement: Optional[str] = None
     
-    def placement_classes(
-        self
-    ) -> List[str]:  # TODO: Add return description
-        """Return placement classes."""
+    def get_css_classes(self) -> CSSClasses:
+        """Get placement classes.
+        
+        Returns:
+            List of CSS class strings for placement
+        """
         if not self.placement:
             return []
             
@@ -54,7 +57,7 @@ class HasPlacement:
         return ["start", "center", "end", "top", "middle", "bottom"]
 
 # %% ../../nbs/core/placement.ipynb 7
-class HasDirection:
+class HasDirection(CSSContributor):
     """Mixin for components with direction options.
     
     This mixin provides functionality for components that can have
@@ -63,10 +66,12 @@ class HasDirection:
     
     direction: Optional[Literal["horizontal", "vertical"]] = None
     
-    def direction_classes(
-        self
-    ) -> List[str]:  # TODO: Add return description
-        """Return direction classes."""
+    def get_css_classes(self) -> CSSClasses:
+        """Get direction classes.
+        
+        Returns:
+            List of CSS class strings for direction
+        """
         if not self.direction:
             return []
             
@@ -93,11 +98,16 @@ class HasPlacementAndDirection(HasPlacement, HasDirection):
     support both placement and direction options.
     """
     
-    def placement_and_direction_classes(
-        self
-    ) -> List[str]:  # TODO: Add return description
-        """Return combined placement and direction classes."""
+    def get_css_classes(self) -> CSSClasses:
+        """Get combined placement and direction classes.
+        
+        Returns:
+            List of CSS class strings for placement and direction
+        """
         classes = []
-        classes.extend(self.placement_classes())
-        classes.extend(self.direction_classes())
+        # Call parent classes' get_css_classes methods
+        placement_classes = HasPlacement.get_css_classes(self)
+        direction_classes = HasDirection.get_css_classes(self)
+        classes.extend(placement_classes)
+        classes.extend(direction_classes)
         return classes

@@ -24,7 +24,7 @@ pip install cjm-fasthtml-daisyui
     nbs/
     ├── actions/ (1)
     │   └── button.ipynb             # Buttons allow the user to take actions or make choices.
-    └── core/ (14)
+    └── core/ (15)
         ├── animation.ipynb          # Support for component animations and transitions
         ├── base.ipynb               # Base classes and types for all daisyUI components
         ├── behaviors.ipynb          # Mixin for components with behavior states (active, disabled, loading)
@@ -32,15 +32,16 @@ pip install cjm-fasthtml-daisyui
         ├── config.ipynb             # daisyUI configuration management for FastHTML projects
         ├── factory.ipynb            # Factory functions for creating daisyUI components
         ├── htmx.ipynb               # HTMX patterns and helpers for daisyUI components in FastHTML
-        ├── modifiers.ipynb          # System for handling style modifiers (outline, ghost, soft, etc.)
         ├── parts.ipynb              # System for handling component parts (e.g., card-body, modal-box)
         ├── placement.ipynb          # Mixins for component placement and direction options
         ├── resources.ipynb          # Managing daisyUI and Tailwind CSS resources for FastHTML projects
         ├── testing.ipynb            # Standardized testing framework for daisyUI components in Jupyter notebooks
+        ├── types.ipynb              # Common types and type aliases for daisyUI components
+        ├── utils.ipynb              # Shared utility functions for daisyUI components
         ├── validation.ipynb         # Enforcing daisyUI 5 usage rules and best practices
         └── variants.ipynb           # System for handling component variants and states
 
-Total: 16 notebooks across 2 directories
+Total: 17 notebooks across 2 directories
 
 ## Module Dependencies
 
@@ -54,35 +55,43 @@ graph LR
     core_config[core.config<br/>Configuration]
     core_factory[core.factory<br/>Component Factory]
     core_htmx[core.htmx<br/>HTMX Integration]
-    core_modifiers[core.modifiers<br/>Style Modifiers]
     core_parts[core.parts<br/>Component Parts]
     core_placement[core.placement<br/>Placement & Direction]
     core_resources[core.resources<br/>Resources]
     core_testing[core.testing<br/>Testing]
+    core_types[core.types<br/>Types]
+    core_utils[core.utils<br/>Utilities]
     core_validation[core.validation<br/>Validation]
     core_variants[core.variants<br/>Variant System]
 
     actions_button --> core_htmx
-    actions_button --> core_base
+    actions_button --> core_variants
     actions_button --> core_colors
-    actions_button --> core_modifiers
-    actions_button --> core_testing
-    actions_button --> core_behaviors
     actions_button --> core_config
+    actions_button --> core_base
+    actions_button --> core_behaviors
+    actions_button --> core_testing
+    core_animation --> core_types
     core_base --> core_colors
+    core_behaviors --> core_types
+    core_colors --> core_types
     core_factory --> core_base
+    core_factory --> core_utils
     core_htmx --> core_base
     core_htmx --> core_colors
-    core_testing --> core_config
+    core_parts --> core_utils
+    core_placement --> core_types
     core_testing --> core_colors
+    core_testing --> core_config
     core_testing --> core_resources
     core_validation --> core_base
     core_validation --> core_colors
+    core_variants --> core_types
 
     classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
-*16 cross-module dependencies detected*
+*23 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -121,17 +130,27 @@ class TransitionProperty(str, Enum):
 ```
 
 ``` python
-class HasAnimation:
+class HasAnimation(CSSContributor):
     """
     Mixin for components with animation support.
     
     This provides animation and transition utilities for components.
     """
     
-    def animation_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Get animation-related classes."
+    def get_css_classes(self) -> CSSClasses:
+            """Get animation-related classes.
+            
+            Returns:
+                List of CSS class strings for animations
+            """
+            tb = TailwindBuilder()
+            
+            # Add animation
+            if self.animate
+        "Get animation-related classes.
+
+Returns:
+    List of CSS class strings for animations"
     
     def with_animation(self,
                           animate: Optional[AnimationType] = None,  # TODO: Add description
@@ -179,9 +198,7 @@ class SwapAnimation:
 
 ``` python
 from cjm_fasthtml_daisyui.core.base import (
-    DaisyGlass,
     DaisyPosition,
-    DaisyAlign,
     DaisyBreakpoint,
     DaisySize,
     DaisyComponent
@@ -191,18 +208,8 @@ from cjm_fasthtml_daisyui.core.base import (
 #### Classes
 
 ``` python
-class DaisyGlass(str, Enum):
-    "Glass effect modifier."
-```
-
-``` python
 class DaisyPosition(str, Enum):
     "Common position values."
-```
-
-``` python
-class DaisyAlign(str, Enum):
-    "Alignment values for components."
 ```
 
 ``` python
@@ -318,7 +325,7 @@ from cjm_fasthtml_daisyui.core.behaviors import (
 #### Classes
 
 ``` python
-class HasBehaviors:
+class HasBehaviors(CSSContributor):
     """
     Mixin for components with behavior states.
     
@@ -326,10 +333,20 @@ class HasBehaviors:
     that can be active, disabled, loading, etc.
     """
     
-    def behavior_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Return behavior state classes."
+    def get_css_classes(self) -> CSSClasses:
+            """Get behavior state classes.
+            
+            Returns:
+                List of CSS class strings for behavior states
+            """
+            classes = []
+            base = self.component_class()
+            
+            if self.active and self.supports_active()
+        "Get behavior state classes.
+
+Returns:
+    List of CSS class strings for behavior states"
     
     def supports_active(
             self
@@ -366,10 +383,20 @@ class InteractiveMixin(HasBehaviors):
     commonly needed for buttons, inputs, and other interactive elements.
     """
     
-    def interactive_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Return all interactive state classes."
+    def get_css_classes(self) -> CSSClasses:
+            """Get all interactive state classes.
+            
+            Returns:
+                List of CSS class strings for interactive states
+            """
+            classes = super().get_css_classes()
+            base = self.component_class()
+            
+            if self.focus and hasattr(self, 'supports_focus') and self.supports_focus()
+        "Get all interactive state classes.
+
+Returns:
+    List of CSS class strings for interactive states"
 ```
 
 ``` python
@@ -439,9 +466,23 @@ class Btn:
     target: Optional[str]
     type: Optional[str]
     form: Optional[str]
+    style: Optional[Union[StyleType, str]]
     
     def __init__(self, *children, **kwargs)
         "TODO: Add function description"
+    
+    def variants(cls) -> Dict[str, Any]:
+            """Define available variants for buttons.
+            
+            Returns:
+                Dictionary of variant definitions
+            """
+            return {
+                "style": create_style_variant("btn")
+        "Define available variants for buttons.
+
+Returns:
+    Dictionary of variant definitions"
     
     def component_class(
             self
@@ -477,11 +518,6 @@ class Btn:
             self
         ) -> bool:  # TODO: Add return description
         "TODO: Add function description"
-    
-    def get_style_modifiers(
-            self
-        ) -> List[StyleType]:  # TODO: Add return description
-        "Get applicable style modifiers"
     
     def modifier_classes(
             self
@@ -877,7 +913,7 @@ class OpacityLevel(int, Enum):
 ```
 
 ``` python
-class ColorMixin:
+class ColorMixin(CSSContributor):
     """
     Mixin to add semantic color support to components
     
@@ -903,10 +939,11 @@ class ColorMixin:
         ) -> "ColorMixin":  # TODO: Add return description
         "Apply state colors with appropriate text color"
     
-    def get_color_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Get all color classes applied to this component"
+    def get_css_classes(self) -> CSSClasses
+        "Get all color classes applied to this component
+
+Returns:
+    List of CSS class strings for colors"
 ```
 
 ### Configuration (`config.ipynb`)
@@ -1606,87 +1643,6 @@ Returns:
     Button element with loading indicator"
 ```
 
-### Style Modifiers (`modifiers.ipynb`)
-
-> System for handling style modifiers (outline, ghost, soft, etc.)
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.modifiers import (
-    StyleType,
-    CardModifier,
-    InputModifier,
-    StyleModifier,
-    HasStyles
-)
-```
-
-#### Classes
-
-``` python
-class StyleType(str, Enum):
-    "Common style modifiers across components."
-```
-
-``` python
-class CardModifier(str, Enum):
-    "Card-specific modifiers."
-```
-
-``` python
-class InputModifier(str, Enum):
-    "Input-specific modifiers."
-```
-
-``` python
-@dataclass
-class StyleModifier:
-    """
-    Represents a style modifier (outline, ghost, soft, etc.).
-    
-    Style modifiers change the visual appearance of a component
-    while maintaining its core functionality.
-    """
-    
-    name: str  # Modifier name (e.g., 'outline', 'ghost', 'soft')
-    component: str  # Component this applies to (e.g., 'btn', 'badge')
-    conflicts_with: List[str] = field(...)  # Other styles this conflicts with
-    description: Optional[str]  # Optional description
-    
-    def class_name(
-            self
-        ) -> str:  # TODO: Add return description
-        "Return the full class name for this modifier."
-```
-
-``` python
-class HasStyles:
-    """
-    Mixin for components with style variants.
-    
-    This mixin provides functionality for components that have
-    different visual styles like outline, ghost, soft, etc.
-    """
-    
-    def styles(
-            cls  # TODO: Add type hint and description
-        ) -> Dict[str, StyleModifier]:  # TODO: Add return description
-        "Return available style modifiers.
-
-Subclasses should override this to define their styles."
-    
-    def style_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Return style modifier classes."
-    
-    def has_conflicting_styles(
-            self
-        ) -> bool:  # TODO: Add return description
-        "Check if the current style conflicts with others."
-```
-
 ### Component Parts (`parts.ipynb`)
 
 > System for handling component parts (e.g., card-body, modal-box)
@@ -1773,7 +1729,7 @@ from cjm_fasthtml_daisyui.core.placement import (
 #### Classes
 
 ``` python
-class HasPlacement:
+class HasPlacement(CSSContributor):
     """
     Mixin for components with placement options.
     
@@ -1781,10 +1737,17 @@ class HasPlacement:
     positioned in different locations (start, center, end, top, bottom, etc.).
     """
     
-    def placement_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Return placement classes."
+    def get_css_classes(self) -> CSSClasses:
+            """Get placement classes.
+            
+            Returns:
+                List of CSS class strings for placement
+            """
+            if not self.placement
+        "Get placement classes.
+
+Returns:
+    List of CSS class strings for placement"
     
     def uses_standard_placement(
             self
@@ -1803,7 +1766,7 @@ class HasPlacement:
 ```
 
 ``` python
-class HasDirection:
+class HasDirection(CSSContributor):
     """
     Mixin for components with direction options.
     
@@ -1811,10 +1774,17 @@ class HasDirection:
     different directional layouts (horizontal, vertical).
     """
     
-    def direction_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Return direction classes."
+    def get_css_classes(self) -> CSSClasses:
+            """Get direction classes.
+            
+            Returns:
+                List of CSS class strings for direction
+            """
+            if not self.direction
+        "Get direction classes.
+
+Returns:
+    List of CSS class strings for direction"
     
     def is_horizontal(
             self
@@ -1836,10 +1806,11 @@ class HasPlacementAndDirection(HasPlacement, HasDirection):
     support both placement and direction options.
     """
     
-    def placement_and_direction_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Return combined placement and direction classes."
+    def get_css_classes(self) -> CSSClasses
+        "Get combined placement and direction classes.
+
+Returns:
+    List of CSS class strings for placement and direction"
 ```
 
 ### Resources (`resources.ipynb`)
@@ -2265,6 +2236,203 @@ class TestData:
         "Generate table data"
 ```
 
+### Types (`types.ipynb`)
+
+> Common types and type aliases for daisyUI components
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.core.types import (
+    CSSClasses,
+    CSSClass,
+    HTMLAttrs,
+    Children,
+    ComponentProps,
+    ResponsiveDict,
+    ColorValue,
+    SizeValue,
+    EventHandler,
+    ComponentFactory,
+    HTMXValue,
+    DirectionType,
+    PlacementType,
+    HTTPMethod,
+    ColorSchemeType,
+    BrandType,
+    StateType,
+    CommonSizeType,
+    CSSContributor,
+    FeatureSupport,
+    ComponentProtocol,
+    ensure_list,
+    ensure_dict
+)
+```
+
+#### Functions
+
+``` python
+def ensure_list(value: Union[str, List[str]]) -> List[str]:
+    """Ensure a value is a list of strings.
+    
+    Args:
+        value: String or list of strings
+        
+    Returns:
+        List of strings
+    """
+    if isinstance(value, str)
+    """
+    Ensure a value is a list of strings.
+    
+    Args:
+        value: String or list of strings
+        
+    Returns:
+        List of strings
+    """
+```
+
+``` python
+def ensure_dict(value: Union[str, Dict[str, Any]]) -> Dict[str, Any]:
+    """Ensure a value is a dictionary.
+    
+    Args:
+        value: String (JSON) or dictionary
+        
+    Returns:
+        Dictionary
+    """
+    if isinstance(value, str)
+    """
+    Ensure a value is a dictionary.
+    
+    Args:
+        value: String (JSON) or dictionary
+        
+    Returns:
+        Dictionary
+    """
+```
+
+#### Classes
+
+``` python
+class CSSContributor(Protocol):
+    """
+    Protocol for mixins that contribute CSS classes.
+    
+    This standardizes the interface for all mixins that add CSS classes
+    to components, replacing the various `*_classes()` methods.
+    """
+    
+    def get_css_classes(self) -> CSSClasses
+        "Return CSS classes from this contributor.
+
+Returns:
+    List of CSS class strings"
+```
+
+``` python
+class FeatureSupport(Protocol):
+    """
+    Protocol for components with feature support.
+    
+    This standardizes the pattern of checking what features
+    a component supports (color, size, glass, etc.).
+    """
+    
+    def get_supported_features(self) -> Dict[str, bool]
+        "Return dictionary of supported features.
+
+Returns:
+    Dictionary mapping feature names to support status
+    
+Example:
+    {
+        'color': True,
+        'size': True,
+        'glass': False,
+        'active': True,
+        'disabled': True,
+        'loading': False
+    }"
+```
+
+``` python
+class ComponentProtocol(Protocol):
+    """
+    Base protocol for all daisyUI components.
+    
+    Defines the minimum interface that all components must implement.
+    """
+    
+    def component_class(self) -> str:
+            """Return the base component class name."""
+            ...
+        
+        def build_classes(self) -> str
+        "Return the base component class name."
+    
+    def build_classes(self) -> str:
+            """Build complete class string."""
+            ...
+        
+        def render_attrs(self) -> HTMLAttrs
+        "Build complete class string."
+    
+    def render_attrs(self) -> HTMLAttrs
+        "Build all HTML attributes for rendering."
+```
+
+#### Variables
+
+``` python
+ColorValue  # Forward reference
+SizeValue  # Forward reference
+```
+
+### Utilities (`utils.ipynb`)
+
+> Shared utility functions for daisyUI components
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.core.utils import (
+    create_element
+)
+```
+
+#### Functions
+
+``` python
+def create_element(
+    tag: str,  # HTML tag name (e.g., 'div', 'span', 'button')
+    *children,  # Child elements
+    **attrs  # HTML attributes
+) -> FT:  # FastHTML element
+    """
+    Create a FastHTML element from a tag name.
+    
+    This function provides a centralized way to create HTML elements,
+    avoiding duplication across modules.
+    
+    Args:
+        tag: The HTML tag name (case-insensitive)
+        *children: Child elements to include
+        **attrs: HTML attributes for the element
+        
+    Returns:
+        A FastHTML element of the specified type
+        
+    Examples:
+        >>> create_element('div', 'Hello', cls='container')
+        >>> create_element('button', 'Click me', type='submit')
+    """
+```
+
 ### Validation (`validation.ipynb`)
 
 > Enforcing daisyUI 5 usage rules and best practices
@@ -2479,14 +2647,42 @@ class ValidatedComponent:
 
 ``` python
 from cjm_fasthtml_daisyui.core.variants import (
+    STYLE_VARIANT,
+    StyleType,
     Variant,
     HasVariants,
     CompoundVariant,
-    HasCompoundVariants
+    HasCompoundVariants,
+    create_style_variant
 )
 ```
 
+#### Functions
+
+``` python
+def create_style_variant(component_prefix: str) -> Variant
+    """
+    Create a style variant with component-specific class names.
+    
+    Args:
+        component_prefix: The component prefix (e.g., 'btn', 'badge')
+        
+    Returns:
+        Variant with component-specific style classes
+    """
+```
+
 #### Classes
+
+``` python
+class StyleType(str, Enum):
+    """
+    Common style modifiers across components.
+    
+    These were previously in modifiers.ipynb but are now part of the
+    unified variant system.
+    """
+```
 
 ``` python
 @dataclass
@@ -2510,7 +2706,7 @@ class Variant:
 ```
 
 ``` python
-class HasVariants:
+class HasVariants(CSSContributor):
     """
     Mixin for components with variant support.
     
@@ -2525,10 +2721,20 @@ class HasVariants:
 
 Subclasses should override this to define their variants."
     
-    def variant_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Get all classes from variants."
+    def get_css_classes(self) -> CSSClasses:
+            """Get all classes from variants.
+            
+            Returns:
+                List of CSS class strings from variants
+            """
+            classes = []
+            variants = self.variants()
+            
+            for variant_name, variant in variants.items()
+        "Get all classes from variants.
+
+Returns:
+    List of CSS class strings from variants"
     
     def set_variant(
             self,
@@ -2569,8 +2775,24 @@ class HasCompoundVariants(HasVariants):
 
 Subclasses should override this to define compound variants."
     
-    def variant_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Get all classes from variants including compound variants."
+    def get_css_classes(self) -> CSSClasses:
+            """Get all classes from variants including compound variants.
+            
+            Returns:
+                List of CSS class strings from variants and compound variants
+            """
+            classes = super().get_css_classes()
+            
+            # Check compound variants
+            for compound in self.compound_variants()
+        "Get all classes from variants including compound variants.
+
+Returns:
+    List of CSS class strings from variants and compound variants"
+```
+
+#### Variables
+
+``` python
+STYLE_VARIANT
 ```
