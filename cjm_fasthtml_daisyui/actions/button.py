@@ -11,12 +11,12 @@ from enum import Enum
 from dataclasses import dataclass, field
 from fasthtml.common import *
 from cjm_tailwind_utils.all import TailwindBuilder
-from ..core.base import DaisyComponent, DaisySize
+from ..core.base import DaisySize, HasSize
 from cjm_fasthtml_daisyui.core.colors import (
     SemanticColor, ColorUtility, ColorBuilder, apply_semantic_colors
 )
 from ..core.behaviors import InteractiveMixin, FormControlMixin
-from ..core.variants import HasVariants, StyleType, create_style_variant
+from ..core.variants import HasVariants, HasGlass, StyleType, create_style_variant
 from ..core.htmx import HTMXComponent, HTMXAttrs
 
 # %% ../../nbs/actions/button.ipynb 5
@@ -30,7 +30,7 @@ class ButtonShape(str, Enum):
 
 # %% ../../nbs/actions/button.ipynb 6
 @dataclass
-class Btn(HTMXComponent, HasVariants, InteractiveMixin, FormControlMixin):
+class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormControlMixin):
     """
     daisyUI Button component with full feature support.
     
@@ -50,6 +50,9 @@ class Btn(HTMXComponent, HasVariants, InteractiveMixin, FormControlMixin):
     
     # Content
     children: List[Any] = field(default_factory=list)
+    
+    # Component-specific color modifier
+    color: Optional[Union[SemanticColor, str]] = None
     
     # Button specific
     shape: Optional[ButtonShape] = None
@@ -75,6 +78,9 @@ class Btn(HTMXComponent, HasVariants, InteractiveMixin, FormControlMixin):
         # Extract children from args
         self.children = list(children)
         
+        # Extract component-specific color
+        self.color = kwargs.pop('color', None)
+        
         # Extract button-specific attributes before parent init
         self.icon_start = kwargs.pop('icon_start', None)
         self.icon_end = kwargs.pop('icon_end', None)
@@ -88,6 +94,13 @@ class Btn(HTMXComponent, HasVariants, InteractiveMixin, FormControlMixin):
         
         # Initialize variant values for HasVariants
         self.variant_values = kwargs.pop('variant_values', {})
+        
+        # Extract HasSize properties
+        self.size = kwargs.pop('size', None)
+        self.responsive_size = kwargs.pop('responsive_size', None)
+        
+        # Extract HasGlass property
+        self.glass = kwargs.pop('glass', False)
         
         # Extract InteractiveMixin properties
         self.active = kwargs.pop('active', False)
@@ -133,54 +146,20 @@ class Btn(HTMXComponent, HasVariants, InteractiveMixin, FormControlMixin):
         "TODO: Add function description"
         return "btn"
     
-    def supports_color(
-        self
-    ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-        return True
-    
-    def supports_size(
-        self
-    ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-        return True
-    
-    def supports_glass(
-        self
-    ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-        return True
-    
-    def supports_active(
-        self
-    ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-        return True
-    
-    def supports_disabled(
-        self
-    ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-        return True
-    
-    def supports_loading(
-        self
-    ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-        return True
-    
     def modifier_classes(
         self
     ) -> List[str]:  # TODO: Add return description
         """Build all modifier classes"""
         classes = super().modifier_classes()
         
+        # Add component-specific color modifier
+        if self.color:
+            color_val = self.color.value if isinstance(self.color, SemanticColor) else self.color
+            classes.append(f"btn-{color_val}")
+        
         # Add shape modifier
         if self.shape and self.shape != ButtonShape.DEFAULT:
             classes.append(f"btn-{self.shape.value}")
-        
-        # Add behavior classes from InteractiveMixin
-        # Note: These are now handled by get_css_classes() from InteractiveMixin
         
         # Add no-animation
         if self.no_animation:

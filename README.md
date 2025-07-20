@@ -58,14 +58,15 @@ graph LR
     core_utils[core.utils<br/>Utilities]
     core_variants[core.variants<br/>Variant System]
 
-    actions_button --> core_testing
-    actions_button --> core_variants
-    actions_button --> core_htmx
     actions_button --> core_colors
+    actions_button --> core_variants
     actions_button --> core_base
-    actions_button --> core_behaviors
     actions_button --> core_config
+    actions_button --> core_htmx
+    actions_button --> core_behaviors
+    actions_button --> core_testing
     core_base --> core_colors
+    core_base --> core_types
     core_behaviors --> core_types
     core_colors --> core_types
     core_htmx --> core_colors
@@ -78,7 +79,7 @@ graph LR
     core_variants --> core_types
 ```
 
-*18 cross-module dependencies detected*
+*19 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -99,6 +100,7 @@ from cjm_fasthtml_daisyui.core.base import (
     DaisyPosition,
     DaisyBreakpoint,
     DaisySize,
+    HasSize,
     DaisyComponent
 )
 ```
@@ -122,6 +124,35 @@ class DaisySize(str, Enum):
 
 ``` python
 @dataclass
+class HasSize(CSSContributor):
+    """
+    Mixin for components that support size modifiers.
+    
+    This mixin provides size support for daisyUI components,
+    including responsive size variations.
+    """
+    
+    size: Optional[Union[DaisySize, str]]
+    responsive_size: Optional[Dict[str, str]]  # e.g., {"md": "lg", "lg": "xl"}
+    
+    def get_css_classes(self) -> CSSClasses:
+            """Get size-related CSS classes.
+            
+            Returns:
+                List of CSS class strings for size modifiers
+            """
+            classes = []
+            
+            # Add size modifier
+            if self.size
+        "Get size-related CSS classes.
+
+Returns:
+    List of CSS class strings for size modifiers"
+```
+
+``` python
+@dataclass
 class DaisyComponent(ColorMixin):
     """
     Base class for all daisyUI components.
@@ -136,10 +167,6 @@ class DaisyComponent(ColorMixin):
     id: Optional[str]
     cls: Optional[str]  # Additional custom classes
     attrs: Dict[str, Any] = field(...)
-    color: Optional[Union[SemanticColor, str]]
-    size: Optional[Union[DaisySize, str]]
-    glass: bool = False  # Glass effect modifier
-    responsive_size: Optional[Dict[str, str]]
     responsive_hide: Optional[List[str]]  # Breakpoints to hide at
     responsive_show: Optional[List[str]]  # Breakpoints to show at
     tw_padding: Optional[Union[int, str]]
@@ -155,21 +182,6 @@ class DaisyComponent(ColorMixin):
             self
         ) -> List[str]:  # TODO: Add return description
         "Return all modifier classes for this component."
-    
-    def supports_color(
-            self
-        ) -> bool:  # TODO: Add return description
-        "Whether this component supports color modifiers."
-    
-    def supports_size(
-            self
-        ) -> bool:  # TODO: Add return description
-        "Whether this component supports size modifiers."
-    
-    def supports_glass(
-            self
-        ) -> bool:  # TODO: Add return description
-        "Whether this component supports glass effect."
     
     def build_classes(
             self
@@ -355,6 +367,7 @@ class Btn:
     """
     
     children: List[Any] = field(...)
+    color: Optional[Union[SemanticColor, str]]
     shape: Optional[ButtonShape]
     no_animation: bool = False  # Disable click animation
     icon_start: Optional[FT]
@@ -384,36 +397,6 @@ Returns:
     def component_class(
             self
         ) -> str:  # TODO: Add return description
-        "TODO: Add function description"
-    
-    def supports_color(
-            self
-        ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-    
-    def supports_size(
-            self
-        ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-    
-    def supports_glass(
-            self
-        ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-    
-    def supports_active(
-            self
-        ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-    
-    def supports_disabled(
-            self
-        ) -> bool:  # TODO: Add return description
-        "TODO: Add function description"
-    
-    def supports_loading(
-            self
-        ) -> bool:  # TODO: Add return description
         "TODO: Add function description"
     
     def modifier_classes(
@@ -2057,6 +2040,7 @@ def create_element(
 from cjm_fasthtml_daisyui.core.variants import (
     STYLE_VARIANT,
     StyleType,
+    HasGlass,
     Variant,
     HasVariants,
     CompoundVariant,
@@ -2090,6 +2074,31 @@ class StyleType(str, Enum):
     These were previously in modifiers.ipynb but are now part of the
     unified variant system.
     """
+```
+
+``` python
+@dataclass
+class HasGlass(CSSContributor):
+    """
+    Mixin for components that support glass morphism effect.
+    
+    This mixin provides the glass effect styling for daisyUI components.
+    The glass effect creates a frosted glass appearance.
+    """
+    
+    glass: bool = False
+    
+    def get_css_classes(self) -> CSSClasses:
+            """Get glass effect CSS classes.
+            
+            Returns:
+                List of CSS class strings for glass effect
+            """
+            if self.glass
+        "Get glass effect CSS classes.
+
+Returns:
+    List of CSS class strings for glass effect"
 ```
 
 ``` python
