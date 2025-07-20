@@ -21,9 +21,10 @@ from cjm_tailwind_utils.all import TailwindBuilder
 
 # %% ../../nbs/core/testing.ipynb 3
 # Import our own modules
+from .types import SemanticColor, ColorUtility
 from .resources import DaisyUIResources, ResourcePresets
 from .config import DaisyUIConfig, DaisyUITheme, ThemeConfig
-from .colors import SemanticColor, ColorUtility, ColorBuilder, apply_semantic_colors
+from .colors import ColorBuilder, apply_semantic_colors
 
 # %% ../../nbs/core/testing.ipynb 5
 class DisplayMode(str, Enum):

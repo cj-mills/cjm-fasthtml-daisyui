@@ -5,8 +5,10 @@
 # %% auto 0
 __all__ = ['CSSClasses', 'CSSClass', 'HTMLAttrs', 'Children', 'ComponentProps', 'ResponsiveDict', 'ColorValue', 'SizeValue',
            'EventHandler', 'ComponentFactory', 'HTMXValue', 'DirectionType', 'PlacementType', 'HTTPMethod',
-           'ColorSchemeType', 'BrandType', 'StateType', 'CommonSizeType', 'CSSContributor', 'FeatureSupport',
-           'ComponentProtocol', 'ensure_list', 'ensure_dict']
+           'ColorSchemeType', 'BrandType', 'StateType', 'CommonSizeType', 'SurfaceLevelType', 'BinaryType',
+           'CSSContributor', 'FeatureSupport', 'ComponentProtocol', 'DaisyPosition', 'DaisyBreakpoint', 'DaisySize',
+           'Direction', 'SemanticColor', 'ColorUtility', 'OpacityLevel', 'StyleType', 'HTMXTrigger', 'HTMXSwap',
+           'DaisyUITheme', 'ExcludeFeature', 'CDNProvider', 'ensure_list', 'ensure_dict']
 
 # %% ../../nbs/core/types.ipynb 3
 from typing import (
@@ -106,28 +108,343 @@ class ComponentProtocol(Protocol):
         ...
 
 # %% ../../nbs/core/types.ipynb 11
-# Direction literals
-DirectionType = Literal["horizontal", "vertical"]
+DirectionType = Literal["horizontal", "vertical"] # # Direction literals
 
-# Placement literals
-PlacementType = Literal["start", "center", "end", "top", "middle", "bottom", "left", "right"]
-
-# HTTP method literals
-HTTPMethod = Literal["get", "post", "put", "patch", "delete"]
-
-# Theme color scheme
-ColorSchemeType = Literal["light", "dark"]
-
-# Brand types
-BrandType = Literal["primary", "secondary", "accent", "neutral"]
-
-# State types  
-StateType = Literal["info", "success", "warning", "error"]
-
-# Size types (commonly used)
-CommonSizeType = Literal["xs", "sm", "md", "lg", "xl"]
+# %% ../../nbs/core/types.ipynb 12
+PlacementType = Literal["start", "center", "end", "top", "middle", "bottom", "left", "right"] # Placement literals
 
 # %% ../../nbs/core/types.ipynb 13
+HTTPMethod = Literal["get", "post", "put", "patch", "delete"] # HTTP method literals
+
+# %% ../../nbs/core/types.ipynb 14
+ColorSchemeType = Literal["light", "dark"] # Theme color scheme
+
+# %% ../../nbs/core/types.ipynb 15
+BrandType = Literal["primary", "secondary", "accent", "neutral"] # Brand types
+
+# %% ../../nbs/core/types.ipynb 16
+StateType = Literal["info", "success", "warning", "error"] # State types  
+
+# %% ../../nbs/core/types.ipynb 17
+CommonSizeType = Literal["xs", "sm", "md", "lg", "xl"] # Size types (commonly used)
+
+# %% ../../nbs/core/types.ipynb 18
+SurfaceLevelType = Literal[100, 200, 300] # Surface level literals (for base colors)
+
+# %% ../../nbs/core/types.ipynb 19
+BinaryType = Literal[0, 1] # Binary value literals (for theme design tokens)
+
+# %% ../../nbs/core/types.ipynb 21
+class DaisyPosition(str, Enum):
+    """Common position values."""
+    TOP = "top"
+    BOTTOM = "bottom"
+    LEFT = "left"
+    RIGHT = "right"
+    START = "start"
+    CENTER = "center"
+    END = "end"
+    MIDDLE = "middle"
+
+# %% ../../nbs/core/types.ipynb 22
+class DaisyBreakpoint(str, Enum):
+    """Responsive breakpoints."""
+    SM = "sm"
+    MD = "md"
+    LG = "lg"
+    XL = "xl"
+    XXL = "2xl"
+
+# %% ../../nbs/core/types.ipynb 23
+class DaisySize(str, Enum):
+    """Common size variants across components."""
+    XS = "xs"
+    SM = "sm"
+    MD = "md"
+    LG = "lg"
+    XL = "xl"
+
+# %% ../../nbs/core/types.ipynb 24
+class Direction(str, Enum):
+   """Component direction options."""
+   HORIZONTAL = "horizontal"
+   VERTICAL = "vertical"
+
+# %% ../../nbs/core/types.ipynb 27
+class SemanticColor(str, Enum):
+    """
+    daisyUI semantic colors that adapt to themes
+    
+    These colors change based on the active theme, providing
+    consistent semantic meaning across different visual styles.
+    """
+    # Brand colors
+    PRIMARY = "primary"
+    SECONDARY = "secondary"
+    ACCENT = "accent"
+    NEUTRAL = "neutral"
+    
+    # Base colors for surfaces
+    BASE_100 = "base-100"  # Main background
+    BASE_200 = "base-200"  # Slightly darker
+    BASE_300 = "base-300"  # Even darker
+    BASE_CONTENT = "base-content"  # Text on base colors
+    
+    # State colors
+    INFO = "info"
+    SUCCESS = "success"
+    WARNING = "warning"
+    ERROR = "error"
+    
+    # Content colors (for text on colored backgrounds)
+    PRIMARY_CONTENT = "primary-content"
+    SECONDARY_CONTENT = "secondary-content"
+    ACCENT_CONTENT = "accent-content"
+    NEUTRAL_CONTENT = "neutral-content"
+    INFO_CONTENT = "info-content"
+    SUCCESS_CONTENT = "success-content"
+    WARNING_CONTENT = "warning-content"
+    ERROR_CONTENT = "error-content"
+    
+    def with_content(
+        self
+    ) -> "SemanticColor":  # TODO: Add return description
+        """Get the corresponding content color for this semantic color"""
+        content_map = {
+            self.PRIMARY: self.PRIMARY_CONTENT,
+            self.SECONDARY: self.SECONDARY_CONTENT,
+            self.ACCENT: self.ACCENT_CONTENT,
+            self.NEUTRAL: self.NEUTRAL_CONTENT,
+            self.INFO: self.INFO_CONTENT,
+            self.SUCCESS: self.SUCCESS_CONTENT,
+            self.WARNING: self.WARNING_CONTENT,
+            self.ERROR: self.ERROR_CONTENT,
+        }
+        return content_map.get(self, self.BASE_CONTENT)
+    
+    def is_brand_color(
+        self
+    ) -> bool:  # TODO: Add return description
+        """Check if this is a brand color"""
+        return self in {self.PRIMARY, self.SECONDARY, self.ACCENT, self.NEUTRAL}
+    
+    def is_state_color(
+        self
+    ) -> bool:  # TODO: Add return description
+        """Check if this is a state/semantic color"""
+        return self in {self.INFO, self.SUCCESS, self.WARNING, self.ERROR}
+    
+    def is_base_color(
+        self
+    ) -> bool:  # TODO: Add return description
+        """Check if this is a base/surface color"""
+        return self in {self.BASE_100, self.BASE_200, self.BASE_300, self.BASE_CONTENT}
+    
+    def is_content_color(
+        self
+    ) -> bool:  # TODO: Add return description
+        """Check if this is a content/text color"""
+        return self.value.endswith("-content")
+
+# %% ../../nbs/core/types.ipynb 28
+class ColorUtility(str, Enum):
+    """CSS utility prefixes that work with semantic colors"""
+    BACKGROUND = "bg"
+    TEXT = "text"
+    BORDER = "border"
+    RING = "ring"
+    RING_OFFSET = "ring-offset"
+    DIVIDE = "divide"
+    OUTLINE = "outline"
+    DECORATION = "decoration"
+    FILL = "fill"
+    STROKE = "stroke"
+    
+    def with_color(
+        self,
+        color: Union[SemanticColor, str]  # TODO: Add description
+    ) -> str:  # TODO: Add return description
+        """Generate a utility class with a color"""
+        color_value = color.value if isinstance(color, SemanticColor) else color
+        return f"{self.value}-{color_value}"
+
+# %% ../../nbs/core/types.ipynb 29
+class OpacityLevel(int, Enum):
+    """Standard opacity levels"""
+    OPACITY_0 = 0
+    OPACITY_5 = 5
+    OPACITY_10 = 10
+    OPACITY_20 = 20
+    OPACITY_25 = 25
+    OPACITY_30 = 30
+    OPACITY_40 = 40
+    OPACITY_50 = 50
+    OPACITY_60 = 60
+    OPACITY_70 = 70
+    OPACITY_75 = 75
+    OPACITY_80 = 80
+    OPACITY_90 = 90
+    OPACITY_95 = 95
+    OPACITY_100 = 100
+
+# %% ../../nbs/core/types.ipynb 30
+class StyleType(str, Enum):
+    """Common style modifiers across components.
+    
+    These were previously in modifiers.ipynb but are now part of the
+    unified variant system.
+    """
+    OUTLINE = "outline"
+    GHOST = "ghost"
+    SOFT = "soft"
+    DASH = "dash"
+    BORDER = "border"
+    LINK = "link"
+    GLASS = "glass"
+
+# %% ../../nbs/core/types.ipynb 32
+class HTMXTrigger(str, Enum):
+    """Common HTMX trigger events"""
+    CLICK = "click"
+    CHANGE = "change"
+    SUBMIT = "submit"
+    LOAD = "load"
+    REVEALED = "revealed"
+    INTERSECT = "intersect"
+    EVERY = "every"
+    KEYUP = "keyup"
+    FOCUS = "focus"
+    BLUR = "blur"
+    
+    def with_modifier(
+        self,
+        modifier: str  # TODO: Add description
+    ) -> str:  # TODO: Add return description
+        """Add modifier to trigger (e.g., 'click once')"""
+        return f"{self.value} {modifier}"
+    
+    def delayed(
+        self,
+        delay: str  # TODO: Add description
+    ) -> str:  # TODO: Add return description
+        """Add delay to trigger (e.g., 'keyup delay:500ms')"""
+        return f"{self.value} delay:{delay}"
+    
+    def changed(
+        self
+    ) -> str:  # TODO: Add return description
+        """Add changed modifier (e.g., 'keyup changed')"""
+        return f"{self.value} changed"
+
+# %% ../../nbs/core/types.ipynb 33
+class HTMXSwap(str, Enum):
+    """HTMX swap strategies"""
+    INNER_HTML = "innerHTML"
+    OUTER_HTML = "outerHTML"
+    BEFORE_BEGIN = "beforebegin"
+    AFTER_BEGIN = "afterbegin"
+    BEFORE_END = "beforeend"
+    AFTER_END = "afterend"
+    DELETE = "delete"
+    NONE = "none"
+    
+    def with_modifier(
+        self,
+        modifier: str  # TODO: Add description
+    ) -> str:  # TODO: Add return description
+        """Add swap modifier (e.g., 'innerHTML swap:500ms')"""
+        return f"{self.value} {modifier}"
+    
+    def with_transition(
+        self,
+        duration: str = "500ms"  # TODO: Add description
+    ) -> str:  # TODO: Add return description
+        """Add swap transition"""
+        return f"{self.value} swap:{duration}"
+
+# %% ../../nbs/core/types.ipynb 36
+class DaisyUITheme(str, Enum):
+    """Built-in daisyUI themes"""
+    # Light themes
+    LIGHT = "light"
+    CUPCAKE = "cupcake"
+    BUMBLEBEE = "bumblebee"
+    EMERALD = "emerald"
+    CORPORATE = "corporate"
+    RETRO = "retro"
+    CYBERPUNK = "cyberpunk"
+    VALENTINE = "valentine"
+    GARDEN = "garden"
+    LOFI = "lofi"
+    PASTEL = "pastel"
+    FANTASY = "fantasy"
+    WIREFRAME = "wireframe"
+    CMYK = "cmyk"
+    AUTUMN = "autumn"
+    ACID = "acid"
+    LEMONADE = "lemonade"
+    WINTER = "winter"
+    NORD = "nord"
+    
+    # Dark themes
+    DARK = "dark"
+    SYNTHWAVE = "synthwave"
+    HALLOWEEN = "halloween"
+    FOREST = "forest"
+    AQUA = "aqua"
+    BLACK = "black"
+    LUXURY = "luxury"
+    DRACULA = "dracula"
+    BUSINESS = "business"
+    NIGHT = "night"
+    COFFEE = "coffee"
+    DIM = "dim"
+    SUNSET = "sunset"
+    
+    # New v5 themes
+    CARAMELLATTE = "caramellatte"
+    ABYSS = "abyss"
+    SILK = "silk"
+
+# %% ../../nbs/core/types.ipynb 37
+class ExcludeFeature(str, Enum):
+    """Features that can be excluded from daisyUI"""
+    ROOT_SCROLL_GUTTER = "rootscrollgutter"
+    CHECKBOX = "checkbox"
+    RADIO = "radio"
+    TOGGLE = "toggle"
+    BUTTON = "button"
+    INPUT = "input"
+    SELECT = "select"
+    TEXTAREA = "textarea"
+    CARD = "card"
+    MODAL = "modal"
+    DRAWER = "drawer"
+    DROPDOWN = "dropdown"
+    
+    # Component groups
+    ALL_FORMS = "forms"
+    ALL_COMPONENTS = "components"
+
+# %% ../../nbs/core/types.ipynb 39
+class CDNProvider(str, Enum):
+    """Supported CDN providers for daisyUI and Tailwind CSS"""
+    JSDELIVR = "jsdelivr"
+    UNPKG = "unpkg"
+    CDNJS = "cdnjs"
+    
+    def get_base_url(
+        self
+    ) -> str:  # TODO: Add return description
+        """Get the base URL for the CDN provider"""
+        urls = {
+            self.JSDELIVR: "https://cdn.jsdelivr.net/npm",
+            self.UNPKG: "https://unpkg.com",
+            self.CDNJS: "https://cdnjs.cloudflare.com/ajax/libs"
+        }
+        return urls[self]
+
+# %% ../../nbs/core/types.ipynb 42
 def ensure_list(value: Union[str, List[str]]) -> List[str]:
     """Ensure a value is a list of strings.
     

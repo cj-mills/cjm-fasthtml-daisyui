@@ -60,26 +60,30 @@ graph LR
 
     actions_button --> core_colors
     actions_button --> core_variants
-    actions_button --> core_base
-    actions_button --> core_config
+    actions_button --> core_types
     actions_button --> core_htmx
-    actions_button --> core_behaviors
     actions_button --> core_testing
-    core_base --> core_colors
+    actions_button --> core_base
+    actions_button --> core_behaviors
+    actions_button --> core_config
     core_base --> core_types
+    core_base --> core_colors
     core_behaviors --> core_types
     core_colors --> core_types
-    core_htmx --> core_colors
+    core_config --> core_types
+    core_htmx --> core_types
     core_htmx --> core_base
     core_parts --> core_utils
     core_placement --> core_types
-    core_testing --> core_colors
+    core_resources --> core_types
     core_testing --> core_config
     core_testing --> core_resources
+    core_testing --> core_types
+    core_testing --> core_colors
     core_variants --> core_types
 ```
 
-*19 cross-module dependencies detected*
+*23 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -97,30 +101,12 @@ Detailed documentation for each module in the project:
 
 ``` python
 from cjm_fasthtml_daisyui.core.base import (
-    DaisyPosition,
-    DaisyBreakpoint,
-    DaisySize,
     HasSize,
     DaisyComponent
 )
 ```
 
 #### Classes
-
-``` python
-class DaisyPosition(str, Enum):
-    "Common position values."
-```
-
-``` python
-class DaisyBreakpoint(str, Enum):
-    "Responsive breakpoints."
-```
-
-``` python
-class DaisySize(str, Enum):
-    "Common size variants across components."
-```
 
 ``` python
 @dataclass
@@ -520,14 +506,11 @@ Returns:
 
 ``` python
 from cjm_fasthtml_daisyui.core.colors import (
-    SemanticColor,
-    ColorUtility,
     ColorClasses,
     ColorBuilder,
     get_color_classes,
     apply_semantic_colors,
     ColorMapping,
-    OpacityLevel,
     with_opacity,
     ColorMixin
 )
@@ -562,52 +545,6 @@ def with_opacity(
 ```
 
 #### Classes
-
-``` python
-class SemanticColor(str, Enum):
-    """
-    daisyUI semantic colors that adapt to themes
-    
-    These colors change based on the active theme, providing
-    consistent semantic meaning across different visual styles.
-    """
-    
-    def with_content(
-            self
-        ) -> "SemanticColor":  # TODO: Add return description
-        "Get the corresponding content color for this semantic color"
-    
-    def is_brand_color(
-            self
-        ) -> bool:  # TODO: Add return description
-        "Check if this is a brand color"
-    
-    def is_state_color(
-            self
-        ) -> bool:  # TODO: Add return description
-        "Check if this is a state/semantic color"
-    
-    def is_base_color(
-            self
-        ) -> bool:  # TODO: Add return description
-        "Check if this is a base/surface color"
-    
-    def is_content_color(
-            self
-        ) -> bool:  # TODO: Add return description
-        "Check if this is a content/text color"
-```
-
-``` python
-class ColorUtility(str, Enum):
-    "CSS utility prefixes that work with semantic colors"
-    
-    def with_color(
-            self,
-            color: Union[SemanticColor, str]  # TODO: Add description
-        ) -> str:  # TODO: Add return description
-        "Generate a utility class with a color"
-```
 
 ``` python
 @dataclass
@@ -762,11 +699,6 @@ class ColorMapping:
 ```
 
 ``` python
-class OpacityLevel(int, Enum):
-    "Standard opacity levels"
-```
-
-``` python
 class ColorMixin(CSSContributor):
     """
     Mixin to add semantic color support to components
@@ -808,9 +740,7 @@ Returns:
 
 ``` python
 from cjm_fasthtml_daisyui.core.config import (
-    DaisyUITheme,
     ThemeConfig,
-    ExcludeFeature,
     DaisyUIConfig,
     ConfigPresets,
     ColorScheme,
@@ -821,11 +751,6 @@ from cjm_fasthtml_daisyui.core.config import (
 ```
 
 #### Classes
-
-``` python
-class DaisyUITheme(str, Enum):
-    "Built-in daisyUI themes"
-```
 
 ``` python
 @dataclass
@@ -840,11 +765,6 @@ class ThemeConfig:
             self
         ) -> str:  # TODO: Add return description
         "Convert to daisyUI config string format"
-```
-
-``` python
-class ExcludeFeature(str, Enum):
-    "Features that can be excluded from daisyUI"
 ```
 
 ``` python
@@ -1030,8 +950,6 @@ class ConfigManager:
 
 ``` python
 from cjm_fasthtml_daisyui.core.htmx import (
-    HTMXTrigger,
-    HTMXSwap,
     HTMXAttrs,
     HTMXComponent,
     htmx_attrs,
@@ -1069,45 +987,6 @@ def oob_alert(
 ```
 
 #### Classes
-
-``` python
-class HTMXTrigger(str, Enum):
-    "Common HTMX trigger events"
-    
-    def with_modifier(
-            self,
-            modifier: str  # TODO: Add description
-        ) -> str:  # TODO: Add return description
-        "Add modifier to trigger (e.g., 'click once')"
-    
-    def delayed(
-            self,
-            delay: str  # TODO: Add description
-        ) -> str:  # TODO: Add return description
-        "Add delay to trigger (e.g., 'keyup delay:500ms')"
-    
-    def changed(
-            self
-        ) -> str:  # TODO: Add return description
-        "Add changed modifier (e.g., 'keyup changed')"
-```
-
-``` python
-class HTMXSwap(str, Enum):
-    "HTMX swap strategies"
-    
-    def with_modifier(
-            self,
-            modifier: str  # TODO: Add description
-        ) -> str:  # TODO: Add return description
-        "Add swap modifier (e.g., 'innerHTML swap:500ms')"
-    
-    def with_transition(
-            self,
-            duration: str = "500ms"  # TODO: Add description
-        ) -> str:  # TODO: Add return description
-        "Add swap transition"
-```
 
 ``` python
 @dataclass
@@ -1418,7 +1297,6 @@ Returns:
 
 ``` python
 from cjm_fasthtml_daisyui.core.resources import (
-    CDNProvider,
     ResourceVersions,
     DaisyUIResources,
     ResourcePresets,
@@ -1428,16 +1306,6 @@ from cjm_fasthtml_daisyui.core.resources import (
 ```
 
 #### Classes
-
-``` python
-class CDNProvider(str, Enum):
-    "Supported CDN providers for daisyUI and Tailwind CSS"
-    
-    def get_base_url(
-            self
-        ) -> str:  # TODO: Add return description
-        "Get the base URL for the CDN provider"
-```
 
 ``` python
 @dataclass
@@ -1859,9 +1727,24 @@ from cjm_fasthtml_daisyui.core.types import (
     BrandType,
     StateType,
     CommonSizeType,
+    SurfaceLevelType,
+    BinaryType,
     CSSContributor,
     FeatureSupport,
     ComponentProtocol,
+    DaisyPosition,
+    DaisyBreakpoint,
+    DaisySize,
+    Direction,
+    SemanticColor,
+    ColorUtility,
+    OpacityLevel,
+    StyleType,
+    HTMXTrigger,
+    HTMXSwap,
+    DaisyUITheme,
+    ExcludeFeature,
+    CDNProvider,
     ensure_list,
     ensure_dict
 )
@@ -1983,11 +1866,160 @@ class ComponentProtocol(Protocol):
         "Build all HTML attributes for rendering."
 ```
 
+``` python
+class DaisyPosition(str, Enum):
+    "Common position values."
+```
+
+``` python
+class DaisyBreakpoint(str, Enum):
+    "Responsive breakpoints."
+```
+
+``` python
+class DaisySize(str, Enum):
+    "Common size variants across components."
+```
+
+``` python
+class Direction(str, Enum):
+    "Component direction options."
+```
+
+``` python
+class SemanticColor(str, Enum):
+    """
+    daisyUI semantic colors that adapt to themes
+    
+    These colors change based on the active theme, providing
+    consistent semantic meaning across different visual styles.
+    """
+    
+    def with_content(
+            self
+        ) -> "SemanticColor":  # TODO: Add return description
+        "Get the corresponding content color for this semantic color"
+    
+    def is_brand_color(
+            self
+        ) -> bool:  # TODO: Add return description
+        "Check if this is a brand color"
+    
+    def is_state_color(
+            self
+        ) -> bool:  # TODO: Add return description
+        "Check if this is a state/semantic color"
+    
+    def is_base_color(
+            self
+        ) -> bool:  # TODO: Add return description
+        "Check if this is a base/surface color"
+    
+    def is_content_color(
+            self
+        ) -> bool:  # TODO: Add return description
+        "Check if this is a content/text color"
+```
+
+``` python
+class ColorUtility(str, Enum):
+    "CSS utility prefixes that work with semantic colors"
+    
+    def with_color(
+            self,
+            color: Union[SemanticColor, str]  # TODO: Add description
+        ) -> str:  # TODO: Add return description
+        "Generate a utility class with a color"
+```
+
+``` python
+class OpacityLevel(int, Enum):
+    "Standard opacity levels"
+```
+
+``` python
+class StyleType(str, Enum):
+    """
+    Common style modifiers across components.
+    
+    These were previously in modifiers.ipynb but are now part of the
+    unified variant system.
+    """
+```
+
+``` python
+class HTMXTrigger(str, Enum):
+    "Common HTMX trigger events"
+    
+    def with_modifier(
+            self,
+            modifier: str  # TODO: Add description
+        ) -> str:  # TODO: Add return description
+        "Add modifier to trigger (e.g., 'click once')"
+    
+    def delayed(
+            self,
+            delay: str  # TODO: Add description
+        ) -> str:  # TODO: Add return description
+        "Add delay to trigger (e.g., 'keyup delay:500ms')"
+    
+    def changed(
+            self
+        ) -> str:  # TODO: Add return description
+        "Add changed modifier (e.g., 'keyup changed')"
+```
+
+``` python
+class HTMXSwap(str, Enum):
+    "HTMX swap strategies"
+    
+    def with_modifier(
+            self,
+            modifier: str  # TODO: Add description
+        ) -> str:  # TODO: Add return description
+        "Add swap modifier (e.g., 'innerHTML swap:500ms')"
+    
+    def with_transition(
+            self,
+            duration: str = "500ms"  # TODO: Add description
+        ) -> str:  # TODO: Add return description
+        "Add swap transition"
+```
+
+``` python
+class DaisyUITheme(str, Enum):
+    "Built-in daisyUI themes"
+```
+
+``` python
+class ExcludeFeature(str, Enum):
+    "Features that can be excluded from daisyUI"
+```
+
+``` python
+class CDNProvider(str, Enum):
+    "Supported CDN providers for daisyUI and Tailwind CSS"
+    
+    def get_base_url(
+            self
+        ) -> str:  # TODO: Add return description
+        "Get the base URL for the CDN provider"
+```
+
 #### Variables
 
 ``` python
 ColorValue  # Forward reference
 SizeValue  # Forward reference
+DirectionType  # # Direction literals
+PlacementType  # Placement literals
+HTTPMethod  # HTTP method literals
+ColorSchemeType  # Theme color scheme
+BrandType  # Brand types
+StateType  # State types
+CommonSizeType  # Size types (commonly used)
+SurfaceLevelType  # Surface level literals (for base colors)
+BinaryType  # Binary value literals (for theme design tokens)
 ```
 
 ### Utilities (`utils.ipynb`)
@@ -2039,7 +2071,6 @@ def create_element(
 ``` python
 from cjm_fasthtml_daisyui.core.variants import (
     STYLE_VARIANT,
-    StyleType,
     HasGlass,
     Variant,
     HasVariants,
@@ -2065,16 +2096,6 @@ def create_style_variant(component_prefix: str) -> Variant
 ```
 
 #### Classes
-
-``` python
-class StyleType(str, Enum):
-    """
-    Common style modifiers across components.
-    
-    These were previously in modifiers.ipynb but are now part of the
-    unified variant system.
-    """
-```
 
 ``` python
 @dataclass

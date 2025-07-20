@@ -11,12 +11,16 @@ from enum import Enum
 from dataclasses import dataclass, field
 from fasthtml.common import *
 from cjm_tailwind_utils.all import TailwindBuilder
-from ..core.base import DaisySize, HasSize
+from cjm_fasthtml_daisyui.core.types import (
+    DaisySize, StyleType,
+    SemanticColor, ColorUtility
+) 
+from ..core.base import HasSize
 from cjm_fasthtml_daisyui.core.colors import (
-    SemanticColor, ColorUtility, ColorBuilder, apply_semantic_colors
+    ColorBuilder, apply_semantic_colors
 )
 from ..core.behaviors import InteractiveMixin, FormControlMixin
-from ..core.variants import HasVariants, HasGlass, StyleType, create_style_variant
+from ..core.variants import HasVariants, HasGlass, create_style_variant
 from ..core.htmx import HTMXComponent, HTMXAttrs
 
 # %% ../../nbs/actions/button.ipynb 5
