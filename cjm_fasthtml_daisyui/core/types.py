@@ -6,9 +6,9 @@
 __all__ = ['CSSClasses', 'CSSClass', 'HTMLAttrs', 'Children', 'ComponentProps', 'ResponsiveDict', 'ColorValue', 'SizeValue',
            'EventHandler', 'ComponentFactory', 'HTMXValue', 'DirectionType', 'PlacementType', 'HTTPMethod',
            'ColorSchemeType', 'BrandType', 'StateType', 'CommonSizeType', 'SurfaceLevelType', 'BinaryType',
-           'CSSContributor', 'FeatureSupport', 'ComponentProtocol', 'DaisyPosition', 'DaisyBreakpoint', 'DaisySize',
-           'Direction', 'SemanticColor', 'ColorUtility', 'OpacityLevel', 'StyleType', 'HTMXTrigger', 'HTMXSwap',
-           'DaisyUITheme', 'ExcludeFeature', 'CDNProvider', 'ensure_list', 'ensure_dict']
+           'CSSContributor', 'FeatureSupport', 'ComponentProtocol', 'DaisyComponentType', 'DaisyPosition',
+           'DaisyBreakpoint', 'DaisySize', 'Direction', 'SemanticColor', 'ColorUtility', 'OpacityLevel', 'StyleType',
+           'HTMXTrigger', 'HTMXSwap', 'DaisyUITheme', 'ExcludeFeature', 'CDNProvider', 'ensure_list', 'ensure_dict']
 
 # %% ../../nbs/core/types.ipynb 3
 from typing import (
@@ -135,6 +135,166 @@ SurfaceLevelType = Literal[100, 200, 300] # Surface level literals (for base col
 BinaryType = Literal[0, 1] # Binary value literals (for theme design tokens)
 
 # %% ../../nbs/core/types.ipynb 21
+class DaisyComponentType(str, Enum):
+    """All available daisyUI component types with their CSS class names.
+    
+    This enum provides type-safe access to all daisyUI components,
+    organized by category and mapping to their actual CSS class names.
+    """
+    # Actions
+    BUTTON = "btn"
+    DROPDOWN = "dropdown"
+    MODAL = "modal"
+    SWAP = "swap"
+    THEME_CONTROLLER = "theme-controller"
+    
+    # Data Display
+    ACCORDION = "collapse"  # Note: accordion uses collapse class
+    AVATAR = "avatar"
+    BADGE = "badge"
+    CARD = "card"
+    CAROUSEL = "carousel"
+    CHAT = "chat"
+    COLLAPSE = "collapse"
+    COUNTDOWN = "countdown"
+    DIFF = "diff"
+    KBD = "kbd"
+    LIST = "list"
+    STAT = "stats"  # Note: container uses 'stats', individual items use 'stat'
+    STATUS = "status"
+    TABLE = "table"
+    TIMELINE = "timeline"
+    
+    # Data Input
+    CALENDAR = "calendar"  # Base type, actual classes: cally, pika-single, react-day-picker
+    CHECKBOX = "checkbox"
+    FIELDSET = "fieldset"
+    FILE_INPUT = "file-input"
+    FILTER = "filter"
+    LABEL = "label"  # Also includes floating-label
+    RADIO = "radio"
+    RANGE = "range"
+    RATING = "rating"
+    SELECT = "select"
+    TEXT_INPUT = "input"
+    TEXTAREA = "textarea"
+    TOGGLE = "toggle"
+    VALIDATOR = "validator"
+    
+    # Feedback
+    ALERT = "alert"
+    LOADING = "loading"
+    PROGRESS = "progress"
+    RADIAL_PROGRESS = "radial-progress"
+    SKELETON = "skeleton"
+    TOAST = "toast"
+    TOOLTIP = "tooltip"  # Note: tooltip might not have a specific class in daisyUI 5
+    
+    # Layout
+    DIVIDER = "divider"
+    DRAWER = "drawer"
+    FOOTER = "footer"
+    HERO = "hero"
+    INDICATOR = "indicator"
+    JOIN = "join"
+    MASK = "mask"
+    STACK = "stack"
+    
+    # Mockup
+    MOCKUP_BROWSER = "mockup-browser"
+    MOCKUP_CODE = "mockup-code"
+    MOCKUP_PHONE = "mockup-phone"
+    MOCKUP_WINDOW = "mockup-window"
+    
+    # Navigation
+    BREADCRUMBS = "breadcrumbs"
+    DOCK = "dock"
+    LINK = "link"
+    MENU = "menu"
+    NAVBAR = "navbar"
+    PAGINATION = "join"  # Note: pagination uses join component
+    STEPS = "steps"
+    TAB = "tabs"  # Note: container uses 'tabs', individual items use 'tab'
+    
+    @classmethod
+    def get_actions(cls) -> List['DaisyComponentType']:
+        """Get all action components."""
+        return [cls.BUTTON, cls.DROPDOWN, cls.MODAL, cls.SWAP, cls.THEME_CONTROLLER]
+    
+    @classmethod
+    def get_data_display(cls) -> List['DaisyComponentType']:
+        """Get all data display components."""
+        return [
+            cls.ACCORDION, cls.AVATAR, cls.BADGE, cls.CARD, cls.CAROUSEL,
+            cls.CHAT, cls.COLLAPSE, cls.COUNTDOWN, cls.DIFF, cls.KBD,
+            cls.LIST, cls.STAT, cls.STATUS, cls.TABLE, cls.TIMELINE
+        ]
+    
+    @classmethod
+    def get_data_input(cls) -> List['DaisyComponentType']:
+        """Get all data input components."""
+        return [
+            cls.CALENDAR, cls.CHECKBOX, cls.FIELDSET, cls.FILE_INPUT,
+            cls.FILTER, cls.LABEL, cls.RADIO, cls.RANGE, cls.RATING,
+            cls.SELECT, cls.TEXT_INPUT, cls.TEXTAREA, cls.TOGGLE, cls.VALIDATOR
+        ]
+    
+    @classmethod
+    def get_feedback(cls) -> List['DaisyComponentType']:
+        """Get all feedback components."""
+        return [
+            cls.ALERT, cls.LOADING, cls.PROGRESS, cls.RADIAL_PROGRESS,
+            cls.SKELETON, cls.TOAST, cls.TOOLTIP
+        ]
+    
+    @classmethod
+    def get_layout(cls) -> List['DaisyComponentType']:
+        """Get all layout components."""
+        return [
+            cls.DIVIDER, cls.DRAWER, cls.FOOTER, cls.HERO,
+            cls.INDICATOR, cls.JOIN, cls.MASK, cls.STACK
+        ]
+    
+    @classmethod
+    def get_mockup(cls) -> List['DaisyComponentType']:
+        """Get all mockup components."""
+        return [
+            cls.MOCKUP_BROWSER, cls.MOCKUP_CODE,
+            cls.MOCKUP_PHONE, cls.MOCKUP_WINDOW
+        ]
+    
+    @classmethod
+    def get_navigation(cls) -> List['DaisyComponentType']:
+        """Get all navigation components."""
+        return [
+            cls.BREADCRUMBS, cls.DOCK, cls.LINK, cls.MENU,
+            cls.NAVBAR, cls.PAGINATION, cls.STEPS, cls.TAB
+        ]
+    
+    def get_component_class(self) -> str:
+        """Get the base CSS class name for this component type."""
+        return self.value
+    
+    def get_category(self) -> str:
+        """Get the category this component belongs to."""
+        if self in self.get_actions():
+            return "actions"
+        elif self in self.get_data_display():
+            return "data_display"
+        elif self in self.get_data_input():
+            return "data_input"
+        elif self in self.get_feedback():
+            return "feedback"
+        elif self in self.get_layout():
+            return "layout"
+        elif self in self.get_mockup():
+            return "mockup"
+        elif self in self.get_navigation():
+            return "navigation"
+        else:
+            return "unknown"
+
+# %% ../../nbs/core/types.ipynb 22
 class DaisyPosition(str, Enum):
     """Common position values."""
     TOP = "top"
@@ -146,7 +306,7 @@ class DaisyPosition(str, Enum):
     END = "end"
     MIDDLE = "middle"
 
-# %% ../../nbs/core/types.ipynb 22
+# %% ../../nbs/core/types.ipynb 23
 class DaisyBreakpoint(str, Enum):
     """Responsive breakpoints."""
     SM = "sm"
@@ -155,7 +315,7 @@ class DaisyBreakpoint(str, Enum):
     XL = "xl"
     XXL = "2xl"
 
-# %% ../../nbs/core/types.ipynb 23
+# %% ../../nbs/core/types.ipynb 24
 class DaisySize(str, Enum):
     """Common size variants across components."""
     XS = "xs"
@@ -164,13 +324,13 @@ class DaisySize(str, Enum):
     LG = "lg"
     XL = "xl"
 
-# %% ../../nbs/core/types.ipynb 24
+# %% ../../nbs/core/types.ipynb 25
 class Direction(str, Enum):
    """Component direction options."""
    HORIZONTAL = "horizontal"
    VERTICAL = "vertical"
 
-# %% ../../nbs/core/types.ipynb 27
+# %% ../../nbs/core/types.ipynb 28
 class SemanticColor(str, Enum):
     """
     daisyUI semantic colors that adapt to themes
@@ -246,7 +406,7 @@ class SemanticColor(str, Enum):
         """Check if this is a content/text color"""
         return self.value.endswith("-content")
 
-# %% ../../nbs/core/types.ipynb 28
+# %% ../../nbs/core/types.ipynb 29
 class ColorUtility(str, Enum):
     """CSS utility prefixes that work with semantic colors"""
     BACKGROUND = "bg"
@@ -268,7 +428,7 @@ class ColorUtility(str, Enum):
         color_value = color.value if isinstance(color, SemanticColor) else color
         return f"{self.value}-{color_value}"
 
-# %% ../../nbs/core/types.ipynb 29
+# %% ../../nbs/core/types.ipynb 30
 class OpacityLevel(int, Enum):
     """Standard opacity levels"""
     OPACITY_0 = 0
@@ -287,7 +447,7 @@ class OpacityLevel(int, Enum):
     OPACITY_95 = 95
     OPACITY_100 = 100
 
-# %% ../../nbs/core/types.ipynb 30
+# %% ../../nbs/core/types.ipynb 31
 class StyleType(str, Enum):
     """Common style modifiers across components.
     
@@ -302,7 +462,7 @@ class StyleType(str, Enum):
     LINK = "link"
     GLASS = "glass"
 
-# %% ../../nbs/core/types.ipynb 32
+# %% ../../nbs/core/types.ipynb 33
 class HTMXTrigger(str, Enum):
     """Common HTMX trigger events"""
     CLICK = "click"
@@ -336,7 +496,7 @@ class HTMXTrigger(str, Enum):
         """Add changed modifier (e.g., 'keyup changed')"""
         return f"{self.value} changed"
 
-# %% ../../nbs/core/types.ipynb 33
+# %% ../../nbs/core/types.ipynb 34
 class HTMXSwap(str, Enum):
     """HTMX swap strategies"""
     INNER_HTML = "innerHTML"
@@ -362,7 +522,7 @@ class HTMXSwap(str, Enum):
         """Add swap transition"""
         return f"{self.value} swap:{duration}"
 
-# %% ../../nbs/core/types.ipynb 36
+# %% ../../nbs/core/types.ipynb 37
 class DaisyUITheme(str, Enum):
     """Built-in daisyUI themes"""
     # Light themes
@@ -406,7 +566,7 @@ class DaisyUITheme(str, Enum):
     ABYSS = "abyss"
     SILK = "silk"
 
-# %% ../../nbs/core/types.ipynb 37
+# %% ../../nbs/core/types.ipynb 38
 class ExcludeFeature(str, Enum):
     """Features that can be excluded from daisyUI"""
     ROOT_SCROLL_GUTTER = "rootscrollgutter"
@@ -426,7 +586,7 @@ class ExcludeFeature(str, Enum):
     ALL_FORMS = "forms"
     ALL_COMPONENTS = "components"
 
-# %% ../../nbs/core/types.ipynb 39
+# %% ../../nbs/core/types.ipynb 40
 class CDNProvider(str, Enum):
     """Supported CDN providers for daisyUI and Tailwind CSS"""
     JSDELIVR = "jsdelivr"
@@ -444,7 +604,7 @@ class CDNProvider(str, Enum):
         }
         return urls[self]
 
-# %% ../../nbs/core/types.ipynb 42
+# %% ../../nbs/core/types.ipynb 43
 def ensure_list(value: Union[str, List[str]]) -> List[str]:
     """Ensure a value is a list of strings.
     

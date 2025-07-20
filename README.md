@@ -58,13 +58,13 @@ graph LR
     core_utils[core.utils<br/>Utilities]
     core_variants[core.variants<br/>Variant System]
 
-    actions_button --> core_colors
-    actions_button --> core_variants
-    actions_button --> core_types
-    actions_button --> core_htmx
-    actions_button --> core_testing
-    actions_button --> core_base
     actions_button --> core_behaviors
+    actions_button --> core_base
+    actions_button --> core_testing
+    actions_button --> core_types
+    actions_button --> core_variants
+    actions_button --> core_colors
+    actions_button --> core_htmx
     actions_button --> core_config
     core_base --> core_types
     core_base --> core_colors
@@ -76,10 +76,10 @@ graph LR
     core_parts --> core_utils
     core_placement --> core_types
     core_resources --> core_types
-    core_testing --> core_config
-    core_testing --> core_resources
     core_testing --> core_types
+    core_testing --> core_config
     core_testing --> core_colors
+    core_testing --> core_resources
     core_variants --> core_types
 ```
 
@@ -1732,6 +1732,7 @@ from cjm_fasthtml_daisyui.core.types import (
     CSSContributor,
     FeatureSupport,
     ComponentProtocol,
+    DaisyComponentType,
     DaisyPosition,
     DaisyBreakpoint,
     DaisySize,
@@ -1864,6 +1865,103 @@ class ComponentProtocol(Protocol):
     
     def render_attrs(self) -> HTMLAttrs
         "Build all HTML attributes for rendering."
+```
+
+``` python
+class DaisyComponentType(str, Enum):
+    """
+    All available daisyUI component types with their CSS class names.
+    
+    This enum provides type-safe access to all daisyUI components,
+    organized by category and mapping to their actual CSS class names.
+    """
+    
+    def get_actions(cls) -> List['DaisyComponentType']:
+            """Get all action components."""
+            return [cls.BUTTON, cls.DROPDOWN, cls.MODAL, cls.SWAP, cls.THEME_CONTROLLER]
+        
+        @classmethod
+        def get_data_display(cls) -> List['DaisyComponentType']
+        "Get all action components."
+    
+    def get_data_display(cls) -> List['DaisyComponentType']:
+            """Get all data display components."""
+            return [
+                cls.ACCORDION, cls.AVATAR, cls.BADGE, cls.CARD, cls.CAROUSEL,
+                cls.CHAT, cls.COLLAPSE, cls.COUNTDOWN, cls.DIFF, cls.KBD,
+                cls.LIST, cls.STAT, cls.STATUS, cls.TABLE, cls.TIMELINE
+            ]
+        
+        @classmethod
+        def get_data_input(cls) -> List['DaisyComponentType']
+        "Get all data display components."
+    
+    def get_data_input(cls) -> List['DaisyComponentType']:
+            """Get all data input components."""
+            return [
+                cls.CALENDAR, cls.CHECKBOX, cls.FIELDSET, cls.FILE_INPUT,
+                cls.FILTER, cls.LABEL, cls.RADIO, cls.RANGE, cls.RATING,
+                cls.SELECT, cls.TEXT_INPUT, cls.TEXTAREA, cls.TOGGLE, cls.VALIDATOR
+            ]
+        
+        @classmethod
+        def get_feedback(cls) -> List['DaisyComponentType']
+        "Get all data input components."
+    
+    def get_feedback(cls) -> List['DaisyComponentType']:
+            """Get all feedback components."""
+            return [
+                cls.ALERT, cls.LOADING, cls.PROGRESS, cls.RADIAL_PROGRESS,
+                cls.SKELETON, cls.TOAST, cls.TOOLTIP
+            ]
+        
+        @classmethod
+        def get_layout(cls) -> List['DaisyComponentType']
+        "Get all feedback components."
+    
+    def get_layout(cls) -> List['DaisyComponentType']:
+            """Get all layout components."""
+            return [
+                cls.DIVIDER, cls.DRAWER, cls.FOOTER, cls.HERO,
+                cls.INDICATOR, cls.JOIN, cls.MASK, cls.STACK
+            ]
+        
+        @classmethod
+        def get_mockup(cls) -> List['DaisyComponentType']
+        "Get all layout components."
+    
+    def get_mockup(cls) -> List['DaisyComponentType']:
+            """Get all mockup components."""
+            return [
+                cls.MOCKUP_BROWSER, cls.MOCKUP_CODE,
+                cls.MOCKUP_PHONE, cls.MOCKUP_WINDOW
+            ]
+        
+        @classmethod
+        def get_navigation(cls) -> List['DaisyComponentType']
+        "Get all mockup components."
+    
+    def get_navigation(cls) -> List['DaisyComponentType']:
+            """Get all navigation components."""
+            return [
+                cls.BREADCRUMBS, cls.DOCK, cls.LINK, cls.MENU,
+                cls.NAVBAR, cls.PAGINATION, cls.STEPS, cls.TAB
+            ]
+        
+        def get_component_class(self) -> str
+        "Get all navigation components."
+    
+    def get_component_class(self) -> str:
+            """Get the base CSS class name for this component type."""
+            return self.value
+        
+        def get_category(self) -> str
+        "Get the base CSS class name for this component type."
+    
+    def get_category(self) -> str:
+            """Get the category this component belongs to."""
+            if self in self.get_actions()
+        "Get the category this component belongs to."
 ```
 
 ``` python
