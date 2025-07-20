@@ -21,9 +21,24 @@ from cjm_tailwind_utils.all import TailwindBuilder
 
 # %% ../../nbs/core/testing.ipynb 3
 # Import our own modules
-from .types import SemanticColor, ColorUtility
+from cjm_fasthtml_daisyui.core.types import (
+    # Enums and main types
+    SemanticColor, ColorUtility, DaisyUITheme, DaisyComponentType,
+    DaisyPosition, DaisyBreakpoint, DaisySize, Direction,
+    HTMXTrigger, HTMXSwap, StyleType,
+    # Type aliases
+    CSSClasses, CSSClass, HTMLAttrs, Children, ComponentProps,
+    ResponsiveDict, ColorValue, SizeValue, EventHandler, 
+    ComponentFactory, HTMXValue,
+    # Literal types
+    DirectionType, PlacementType, HTTPMethod, ColorSchemeType,
+    # Protocols
+    CSSContributor, FeatureSupport, ComponentProtocol,
+    # Utility functions
+    ensure_list, ensure_dict
+)
 from .resources import DaisyUIResources, ResourcePresets
-from .config import DaisyUIConfig, DaisyUITheme, ThemeConfig
+from .config import DaisyUIConfig, ThemeConfig
 from .colors import ColorBuilder, apply_semantic_colors
 
 # %% ../../nbs/core/testing.ipynb 5
@@ -42,7 +57,8 @@ class ComponentExample:
     title: str
     description: Optional[str] = None
     code: Optional[str] = None
-    props: Optional[Dict[str, Any]] = None
+    props: Optional[ComponentProps] = None
+    component_type: Optional[DaisyComponentType] = None
 
 # %% ../../nbs/core/testing.ipynb 7
 class ComponentTester:
@@ -55,11 +71,11 @@ class ComponentTester:
     
     def __init__(
         self,
-        title: str = "Component Showcase",  # TODO: Add description
-        pico: bool = False,  # TODO: Add description
-        config: Optional[DaisyUIConfig] = None,  # TODO: Add description
-        use_cdn: bool = True,  # TODO: Add description
-        port: Optional[int] = 8000,  # TODO: Add description
+        title: str = "Component Showcase",  # Title for the showcase page
+        pico: bool = False,  # Whether to include Pico CSS (should be False for daisyUI)
+        config: Optional[DaisyUIConfig] = None,  # daisyUI configuration (only used with local resources)
+        use_cdn: bool = True,  # Whether to use CDN resources (vs local)
+        port: Optional[int] = 8000,  # Port for the test server
         available_themes: Optional[List[Union[DaisyUITheme, str]]] = None
     ):
         """
@@ -100,8 +116,8 @@ class ComponentTester:
     
     def _extract_themes_from_config(
         self,
-        config: DaisyUIConfig  # TODO: Add description
-    ) -> List[str]:  # TODO: Add return description
+        config: DaisyUIConfig
+    ) -> List[str]:
         """Extract theme names from configuration"""
         themes = []
         for theme in config.themes:
@@ -114,31 +130,26 @@ class ComponentTester:
                 themes.append(str(theme))
         return themes
     
-    def _setup_routes(
-        self
-    ): # TODO: Add type hint
+    def _setup_routes(self) -> None:
         """Set up default routes"""
         @self.rt('/')
-        def index(
-        ): # TODO: Add type hint
-            "TODO: Add function description"
+        def index() -> FT:
             return self._render_showcase()
         
         @self.rt('/theme/{theme}')
-        def set_theme(
-            theme: str  # TODO: Add description
-        ): # TODO: Add type hint
+        def set_theme(theme: str) -> FT:
             """Route to change theme dynamically"""
             return Script(f'document.documentElement.setAttribute("data-theme", "{theme}")')
     
     def add(
         self,
-        component: Union[FT, Callable[[], FT]],
-        title: str,  # TODO: Add description
-        description: Optional[str] = None,  # TODO: Add description
-        code: Optional[str] = None,  # TODO: Add description
-        **props
-    ) -> "ComponentTester":  # TODO: Add return description
+        component: Union[FT, ComponentFactory],
+        title: str,
+        description: Optional[str] = None,
+        code: Optional[str] = None,
+        component_type: Optional[DaisyComponentType] = None,
+        **props: Any
+    ) -> "ComponentTester":
         """
         Add a component example to the showcase
         
@@ -147,6 +158,7 @@ class ComponentTester:
             title: Title for this example
             description: Optional description
             code: Optional code snippet to display
+            component_type: Optional component type for validation
             **props: Properties passed to the component if it's a function
         """
         if callable(component):
@@ -159,7 +171,8 @@ class ComponentTester:
             title=title,
             description=description,
             code=code,
-            props=props
+            props=props,
+            component_type=component_type
         ))
         return self
     
@@ -168,7 +181,7 @@ class ComponentTester:
         *components: FT,
         mode: DisplayMode = DisplayMode.SECTIONS,
         titles: Optional[List[str]] = None
-    ) -> "ComponentTester":  # TODO: Add return description
+    ) -> "ComponentTester":
         """
         Quick method to add multiple components
         
@@ -184,9 +197,7 @@ class ComponentTester:
         self.display_mode = mode
         return self
     
-    def _render_showcase(
-        self
-    ) -> FT:  # TODO: Add return description
+    def _render_showcase(self) -> FT:
         """Render the complete showcase page"""
         # Note: FastHTML app already includes headers, so we just return the body content
         return Div(
@@ -214,9 +225,7 @@ class ComponentTester:
             self._render_footer()
         )
     
-    def _render_navbar(
-        self
-    ) -> FT:  # TODO: Add return description
+    def _render_navbar(self) -> FT:
         """Render navigation bar with theme switcher"""
         # Get theme names as strings
         theme_names = []
@@ -251,9 +260,7 @@ class ComponentTester:
             cls=TailwindBuilder().position("sticky").inset(0, "top").z(50).build()
         )
     
-    def _render_examples(
-        self
-    ) -> FT:  # TODO: Add return description
+    def _render_examples(self) -> FT:
         """Render all component examples"""
         if not self.examples:
             return Div(
@@ -280,15 +287,21 @@ class ComponentTester:
         
         return Div(*sections, cls=container_cls)
     
-    def _render_example(
-        self,
-        example: ComponentExample  # TODO: Add description
-    ) -> FT:  # TODO: Add return description
+    def _render_example(self, example: ComponentExample) -> FT:
         """Render a single component example"""
         elements = []
         
         # Title
         elements.append(H3(example.title, cls=TailwindBuilder().text(size="xl", weight="semibold").m(2, "b").build()))
+        
+        # Component type badge if provided
+        if example.component_type:
+            elements.append(
+                Span(
+                    f"{example.component_type.get_category()} / {example.component_type.name}",
+                    cls=TailwindBuilder().add_class("badge badge-neutral badge-sm").m(2, "b").build()
+                )
+            )
         
         # Description
         if example.description:
@@ -324,9 +337,7 @@ class ComponentTester:
         
         return Section(*elements, cls="")
     
-    def _render_footer(
-        self
-    ) -> FT:  # TODO: Add return description
+    def _render_footer(self) -> FT:
         """Render footer with color palette"""
         return Footer(
             Div(
@@ -343,9 +354,7 @@ class ComponentTester:
             )
         )
     
-    def _render_color_palette(
-        self
-    ) -> FT:  # TODO: Add return description
+    def _render_color_palette(self) -> FT:
         """Render the current theme's color palette"""
         colors = [
             ("primary", "Primary"),
@@ -371,10 +380,7 @@ class ComponentTester:
         
         return Div(*swatches, cls=TailwindBuilder().flex(wrap="wrap").gap(4).justify("center").build())
     
-    def start(
-        self,
-        open_browser: bool = False  # TODO: Add description
-    ) -> "ComponentTester":  # TODO: Add return description
+    def start(self, open_browser: bool = False) -> "ComponentTester":
         """Start the test server"""
         if not self.server:
             self.server = JupyUvi(self.app, port=self.port)
@@ -382,9 +388,7 @@ class ComponentTester:
                 HTMX()  # This will display the link in Jupyter
         return self
     
-    def stop(
-        self
-    ): # TODO: Add type hint
+    def stop(self) -> None:
         """Stop the test server"""
         if self.server:
             self.server.stop()
@@ -394,12 +398,7 @@ class ComponentTester:
         """Context manager support"""
         return self.start()
     
-    def __exit__(
-        self,
-        exc_type,  # TODO: Add type hint and description
-        exc_val,  # TODO: Add type hint and description
-        exc_tb  # TODO: Add type hint and description
-    ):
+    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
         """Context manager cleanup"""
         self.stop()
 
@@ -415,9 +414,9 @@ def quick_test(
 
 # %% ../../nbs/core/testing.ipynb 10
 def test_variants(
-    component_fn: Callable,  # Function that creates the component
+    component_fn: ComponentFactory,  # Function that creates the component
     variants: Dict[str, List[Any]],
-    base_props: Optional[Dict[str, Any]] = None,
+    base_props: Optional[ComponentProps] = None,
     title: str = "Variant Testing"  # Title for the test page
 ) -> ComponentTester:  # Started ComponentTester instance
     "Test multiple variants of a component"
@@ -473,30 +472,23 @@ def theme_test(
 class ComponentBuilder:
     """Interactive component builder for notebooks"""
     
-    def __init__(
-        self,
-        title: str = "Component Builder"  # TODO: Add description
-    ):
-        "TODO: Add function description"
+    def __init__(self, title: str = "Component Builder"):
         self.tester = ComponentTester(title=title)
         self.current_component = None
-        self.component_history = []
+        self.component_history: List[FT] = []
     
     def create(
         self,
-        tag: str = "div",  # TODO: Add description
-        *children,
-        **attrs
-    ) -> "ComponentBuilder":  # TODO: Add return description
+        tag: str = "div",
+        *children: Any,
+        **attrs: Any
+    ) -> "ComponentBuilder":
         """Create a new component"""
         self.current_component = NotStr(tag, *children, **attrs)
         self.component_history.append(self.current_component)
         return self
     
-    def add_class(
-        self,
-        *classes: str
-    ) -> "ComponentBuilder":  # TODO: Add return description
+    def add_class(self, *classes: CSSClass) -> "ComponentBuilder":
         """Add classes to the current component"""
         if self.current_component and hasattr(self.current_component, 'attrs'):
             current_cls = self.current_component.attrs.get('cls', '')
@@ -504,34 +496,24 @@ class ComponentBuilder:
             self.current_component.attrs['cls'] = new_cls
         return self
     
-    def add_child(
-        self,
-        child: FT  # TODO: Add description
-    ) -> "ComponentBuilder":  # TODO: Add return description
+    def add_child(self, child: FT) -> "ComponentBuilder":
         """Add a child to the current component"""
         if self.current_component:
             self.current_component.children = list(self.current_component.children) + [child]
         return self
     
-    def preview(
-        self,
-        title: Optional[str] = None  # TODO: Add description
-    ) -> "ComponentBuilder":  # TODO: Add return description
+    def preview(self, title: Optional[str] = None) -> "ComponentBuilder":
         """Preview the current component"""
         if self.current_component:
             title = title or f"Component {len(self.component_history)}"
             self.tester.add(self.current_component, title)
         return self
     
-    def show(
-        self
-    ) -> ComponentTester:  # TODO: Add return description
+    def show(self) -> ComponentTester:
         """Show all previewed components"""
         return self.tester.start()
     
-    def reset(
-        self
-    ) -> "ComponentBuilder":  # TODO: Add return description
+    def reset(self) -> "ComponentBuilder":
         """Reset the builder"""
         self.current_component = None
         self.component_history = []
@@ -543,9 +525,7 @@ class TestData:
     """Generate test data for components"""
     
     @staticmethod
-    def lorem(
-        words: int = 10  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+    def lorem(words: int = 10) -> str:
         """Generate lorem ipsum text"""
         lorem_words = [
             "lorem", "ipsum", "dolor", "sit", "amet", "consectetur",
@@ -559,39 +539,26 @@ class TestData:
         return " ".join(result).capitalize() + "."
     
     @staticmethod
-    def image(
-        width: int = 300,  # TODO: Add description
-        height: int = 200,  # TODO: Add description
-        category: str = ""  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+    def image(width: int = 300, height: int = 200, category: str = "") -> str:
         """Generate placeholder image URL"""
         if category:
             return f"https://picsum.photos/{width}/{height}?{category}"
         return f"https://picsum.photos/{width}/{height}"
     
     @staticmethod
-    def avatar(
-        size: int = 100,  # TODO: Add description
-        seed: Optional[str] = None  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+    def avatar(size: int = 100, seed: Optional[str] = None) -> str:
         """Generate avatar URL"""
         if seed:
             return f"https://api.dicebear.com/7.x/avataaars/svg?seed={seed}&size={size}"
         return f"https://api.dicebear.com/7.x/avataaars/svg?size={size}"
     
     @staticmethod
-    def items(
-        count: int = 5,  # TODO: Add description
-        prefix: str = "Item"  # TODO: Add description
-    ) -> List[str]:  # TODO: Add return description
+    def items(count: int = 5, prefix: str = "Item") -> List[str]:
         """Generate list of items"""
         return [f"{prefix} {i+1}" for i in range(count)]
     
     @staticmethod
-    def table_data(
-        rows: int = 5,  # TODO: Add description
-        cols: int = 3  # TODO: Add description
-    ) -> List[List[str]]:  # TODO: Add return description
+    def table_data(rows: int = 5, cols: int = 3) -> List[List[str]]:
         """Generate table data"""
         headers = [f"Column {i+1}" for i in range(cols)]
         data = []

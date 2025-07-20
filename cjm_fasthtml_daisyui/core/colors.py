@@ -11,7 +11,7 @@ from typing import Union, Optional, List, Dict, Tuple, Literal
 from enum import Enum
 from dataclasses import dataclass
 from functools import lru_cache
-from .types import CSSContributor, CSSClasses, SemanticColor, ColorUtility, OpacityLevel
+from .types import CSSContributor, CSSClasses, SemanticColor, ColorUtility, OpacityLevel, SurfaceLevelType
 
 # %% ../../nbs/core/colors.ipynb 4
 @dataclass
@@ -146,7 +146,7 @@ class ColorBuilder:
     
     def surface_base(
         self,
-        level: Literal[100, 200, 300] = 100  # TODO: Add description
+        level: SurfaceLevelType = 100  # TODO: Add description
     ) -> "ColorBuilder":  # TODO: Add return description
         """Apply base surface colors"""
         base_color = {

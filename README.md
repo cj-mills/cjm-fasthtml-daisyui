@@ -23,22 +23,22 @@ pip install cjm-fasthtml-daisyui
 
     nbs/
     ├── actions/ (1)
-    │   └── button.ipynb             # Buttons allow the user to take actions or make choices.
+    │   └── button.ipynb  # Buttons allow the user to take actions or make choices.
     └── core/ (12)
-        ├── base.ipynb               # Base classes and types for all daisyUI components
-        ├── behaviors.ipynb          # Mixin for components with behavior states (active, disabled, loading)
-        ├── colors.ipynb             # Semantic color system for daisyUI components
-        ├── config.ipynb             # daisyUI configuration management for FastHTML projects
-        ├── htmx.ipynb               # HTMX patterns and helpers for daisyUI components in FastHTML
-        ├── parts.ipynb              # System for handling component parts (e.g., card-body, modal-box)
-        ├── placement.ipynb          # Mixins for component placement and direction options
-        ├── resources.ipynb          # Managing daisyUI and Tailwind CSS resources for FastHTML projects
-        ├── testing.ipynb            # Standardized testing framework for daisyUI components in Jupyter notebooks
-        ├── types.ipynb              # Common types and type aliases for daisyUI components
-        ├── utils.ipynb              # Shared utility functions for daisyUI components
-        └── variants.ipynb           # System for handling component variants and states
+        ├── base.ipynb       # Base classes and types for all daisyUI components
+        ├── behaviors.ipynb  # Mixin for components with behavior states (active, disabled, loading)
+        ├── colors.ipynb     # Semantic color system for daisyUI components
+        ├── config.ipynb     # daisyUI configuration management for FastHTML projects
+        ├── elements.ipynb   # HTML element creation utilities
+        ├── htmx.ipynb       # HTMX patterns and helpers for daisyUI components in FastHTML
+        ├── parts.ipynb      # System for handling component parts (e.g., card-body, modal-box)
+        ├── placement.ipynb  # Mixins for component placement and direction options
+        ├── resources.ipynb  # Managing daisyUI and Tailwind CSS resources for FastHTML projects
+        ├── testing.ipynb    # Standardized testing framework for daisyUI components in Jupyter notebooks
+        ├── types.ipynb      # Protocols, enums, type aliases, and utilities for type-safe daisyUI component development
+        └── variants.ipynb   # System for handling component variants and states
 
-Total: 14 notebooks across 2 directories
+Total: 13 notebooks across 2 directories
 
 ## Module Dependencies
 
@@ -49,41 +49,42 @@ graph LR
     core_behaviors[core.behaviors<br/>Behavior States]
     core_colors[core.colors<br/>Colors]
     core_config[core.config<br/>Configuration]
+    core_elements[core.elements<br/>Elements]
     core_htmx[core.htmx<br/>HTMX Integration]
     core_parts[core.parts<br/>Component Parts]
     core_placement[core.placement<br/>Placement & Direction]
     core_resources[core.resources<br/>Resources]
     core_testing[core.testing<br/>Testing]
     core_types[core.types<br/>Types]
-    core_utils[core.utils<br/>Utilities]
     core_variants[core.variants<br/>Variant System]
 
-    actions_button --> core_behaviors
-    actions_button --> core_base
     actions_button --> core_testing
+    actions_button --> core_htmx
+    actions_button --> core_config
     actions_button --> core_types
     actions_button --> core_variants
     actions_button --> core_colors
-    actions_button --> core_htmx
-    actions_button --> core_config
-    core_base --> core_types
+    actions_button --> core_base
+    actions_button --> core_behaviors
     core_base --> core_colors
+    core_base --> core_types
     core_behaviors --> core_types
     core_colors --> core_types
     core_config --> core_types
     core_htmx --> core_types
     core_htmx --> core_base
-    core_parts --> core_utils
+    core_parts --> core_types
+    core_parts --> core_elements
     core_placement --> core_types
     core_resources --> core_types
     core_testing --> core_types
-    core_testing --> core_config
-    core_testing --> core_colors
     core_testing --> core_resources
+    core_testing --> core_colors
+    core_testing --> core_config
     core_variants --> core_types
 ```
 
-*23 cross-module dependencies detected*
+*24 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -102,7 +103,8 @@ Detailed documentation for each module in the project:
 ``` python
 from cjm_fasthtml_daisyui.core.base import (
     HasSize,
-    DaisyComponent
+    DaisyComponent,
+    ValidatedDaisyComponent
 )
 ```
 
@@ -116,10 +118,13 @@ class HasSize(CSSContributor):
     
     This mixin provides size support for daisyUI components,
     including responsive size variations.
+    
+    Note: This mixin expects to be used with a class that has a
+    component_class() method (like DaisyComponent).
     """
     
     size: Optional[Union[DaisySize, str]]
-    responsive_size: Optional[Dict[str, str]]  # e.g., {"md": "lg", "lg": "xl"}
+    responsive_size: Optional[ResponsiveDict]  # e.g., {"md": "lg", "lg": "xl"}
     
     def get_css_classes(self) -> CSSClasses:
             """Get size-related CSS classes.
@@ -127,10 +132,7 @@ class HasSize(CSSContributor):
             Returns:
                 List of CSS class strings for size modifiers
             """
-            classes = []
-            
-            # Add size modifier
-            if self.size
+            classes: CSSClasses = []
         "Get size-related CSS classes.
 
 Returns:
@@ -139,7 +141,7 @@ Returns:
 
 ``` python
 @dataclass
-class DaisyComponent(ColorMixin):
+class DaisyComponent(ColorMixin, ComponentProtocol):
     """
     Base class for all daisyUI components.
     
@@ -148,50 +150,97 @@ class DaisyComponent(ColorMixin):
     - Custom class and attribute support
     - Integration with cjm-tailwind-utils for additional styling
     - Responsive modifier support
+    - Full implementation of ComponentProtocol interface
     """
     
     id: Optional[str]
     cls: Optional[str]  # Additional custom classes
-    attrs: Dict[str, Any] = field(...)
+    attrs: HTMLAttrs = field(...)
     responsive_hide: Optional[List[str]]  # Breakpoints to hide at
     responsive_show: Optional[List[str]]  # Breakpoints to show at
     tw_padding: Optional[Union[int, str]]
     tw_margin: Optional[Union[int, str]]
-    tw_utilities: Optional[List[str]]  # Raw Tailwind utilities
+    tw_utilities: Optional[CSSClasses]  # Raw Tailwind utilities
     
-    def component_class(
-            self
-        ) -> str:  # TODO: Add return description
-        "Return the base component class name (e.g., 'btn', 'card')."
+    def component_class(self) -> str:
+            """Return the base component class name (e.g., 'btn', 'card').
+            
+            Subclasses must implement this method.
+            """
+            raise NotImplementedError("Subclasses must implement component_class()")
+        
+        def modifier_classes(self) -> CSSClasses
+        "Return the base component class name (e.g., 'btn', 'card').
+
+Subclasses must implement this method."
     
-    def modifier_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Return all modifier classes for this component."
+    def modifier_classes(self) -> CSSClasses:
+            """Return all modifier classes for this component.
+            
+            Returns:
+                List of modifier CSS classes
+            """
+            # Subclasses should override this to add their specific modifiers
+            return []
+        
+        def build_classes(self) -> str
+        "Return all modifier classes for this component.
+
+Returns:
+    List of modifier CSS classes"
     
-    def build_classes(
-            self
-        ) -> str:  # TODO: Add return description
-        "Build complete class string with deduplication."
+    def build_classes(self) -> str:
+            """Build complete class string with deduplication.
+            
+            Returns:
+                Space-separated string of all CSS classes
+            """
+            # Use a set to collect all unique classes
+            all_classes = set()
+            
+            # Add component classes
+            all_classes.add(self.component_class())
+            all_classes.update(self.modifier_classes())
+            
+            # Add padding/margin
+            tb = TailwindBuilder()
+            if self.tw_padding is not None
+        "Build complete class string with deduplication.
+
+Returns:
+    Space-separated string of all CSS classes"
     
-    def render_attrs(
-            self
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Build all HTML attributes for rendering."
+    def render_attrs(self) -> HTMLAttrs:
+            """Build all HTML attributes for rendering.
+            
+            Returns:
+                Dictionary of HTML attributes
+            """
+            attrs: HTMLAttrs = {**self.attrs}
+        "Build all HTML attributes for rendering.
+
+Returns:
+    Dictionary of HTML attributes"
     
     def with_utilities(
             self,
             *utilities: str
-        ) -> 'DaisyComponent':  # TODO: Add return description
-        "Add Tailwind utilities and return self for chaining."
+        ) -> 'DaisyComponent'
+        "Add Tailwind utilities and return self for chaining.
+
+Args:
+    *utilities: Tailwind utility classes to add
+    
+Returns:
+    Self for method chaining"
     
     def with_semantic_colors(
             self,
             bg: Optional[Union[SemanticColor, str]] = None,
             text: Optional[Union[SemanticColor, str]] = None,
             border: Optional[Union[SemanticColor, str]] = None,
-            auto_content: bool = True  # TODO: Add description
-        ) -> 'DaisyComponent':  # TODO: Add return description
+            auto_content: bool = True
+        ) -> 'DaisyComponent'
         "Apply semantic colors with automatic content color selection.
 
 Args:
@@ -202,6 +251,43 @@ Args:
     
 Returns:
     Self for method chaining"
+```
+
+``` python
+@dataclass
+class ValidatedDaisyComponent(DaisyComponent):
+    """
+    Extended base class with component type validation.
+    
+    This optional base class adds validation to ensure component classes
+    match known daisyUI component types.
+    """
+    
+    component_type: Optional[DaisyComponentType]
+    
+    def component_class(self) -> str:
+            """Return the base component class name with validation.
+            
+            If component_type is set, returns its value.
+            Otherwise falls back to the standard implementation.
+            """
+            if self.component_type
+        "Return the base component class name with validation.
+
+If component_type is set, returns its value.
+Otherwise falls back to the standard implementation."
+    
+    def validate_component_type(self):
+            """Validate component type if specified.
+            
+            This should be called by subclasses after they've set up
+            their component_type and implemented component_class.
+            """
+            if self.component_type
+        "Validate component type if specified.
+
+This should be called by subclasses after they've set up
+their component_type and implemented component_class."
 ```
 
 ### Behavior States (`behaviors.ipynb`)
@@ -227,6 +313,9 @@ class HasBehaviors(CSSContributor):
     
     This mixin provides functionality for interactive components
     that can be active, disabled, loading, etc.
+    
+    Note: This mixin assumes it will be used with classes that provide
+    a `component_class()` method (typically components implementing ComponentProtocol).
     """
     
     def get_css_classes(self) -> CSSClasses:
@@ -266,7 +355,7 @@ Returns:
     
     def behavior_attrs(
             self
-        ) -> Dict[str, Any]:  # TODO: Add return description
+        ) -> HTMLAttrs:  # TODO: Add return description
         "Return HTML attributes for behavior states."
 ```
 
@@ -306,7 +395,7 @@ class FormControlMixin:
     
     def form_attrs(
             self
-        ) -> Dict[str, Any]:  # TODO: Add return description
+        ) -> HTMLAttrs:  # TODO: Add return description
         "Return form-related HTML attributes."
 ```
 
@@ -352,7 +441,7 @@ class Btn:
             Btn("Submit", loading=True, disabled=True)
     """
     
-    children: List[Any] = field(...)
+    children: Children = field(...)
     color: Optional[Union[SemanticColor, str]]
     shape: Optional[ButtonShape]
     no_animation: bool = False  # Disable click animation
@@ -365,7 +454,7 @@ class Btn:
     style: Optional[Union[StyleType, str]]
     
     def __init__(self, *children, **kwargs)
-        "TODO: Add function description"
+        "Initialize button with children and properties."
     
     def variants(cls) -> Dict[str, Any]:
             """Define available variants for buttons.
@@ -380,122 +469,177 @@ class Btn:
 Returns:
     Dictionary of variant definitions"
     
-    def component_class(
-            self
-        ) -> str:  # TODO: Add return description
-        "TODO: Add function description"
+    def component_class(self) -> str:
+            """Return the base component class name."""
+            return DaisyComponentType.BUTTON.value
+        
+        def modifier_classes(self) -> CSSClasses
+        "Return the base component class name."
     
-    def modifier_classes(
-            self
-        ) -> List[str]:  # TODO: Add return description
-        "Build all modifier classes"
+    def modifier_classes(self) -> CSSClasses:
+            """Build all modifier classes.
+            
+            Returns:
+                List of modifier CSS classes
+            """
+            classes = super().modifier_classes()
+            
+            # Add component-specific color modifier
+            if self.color
+        "Build all modifier classes.
+
+Returns:
+    List of modifier CSS classes"
     
-    def render_content(
-            self
-        ) -> List[FT]:  # TODO: Add return description
-        "Render button content with icons"
+    def render_content(self) -> Children:
+            """Render button content with icons.
+            
+            Returns:
+                List of FastHTML elements
+            """
+            content: Children = []
+        "Render button content with icons.
+
+Returns:
+    List of FastHTML elements"
     
-    def render_attrs(
-            self
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Build all HTML attributes including form and behavior attrs."
+    def render_attrs(self) -> HTMLAttrs:
+            """Build all HTML attributes including form and behavior attrs.
+            
+            Returns:
+                Dictionary of HTML attributes
+            """
+            attrs = super().render_attrs()
+            
+            # Add behavior attributes
+            attrs.update(self.behavior_attrs())
+            
+            # Add form attributes
+            if hasattr(self, 'form_attrs')
+        "Build all HTML attributes including form and behavior attrs.
+
+Returns:
+    Dictionary of HTML attributes"
     
-    def render(
-            self
-        ) -> FT:  # TODO: Add return description
-        "Render the button element"
+    def render(self) -> FT:
+            """Render the button element.
+            
+            Returns:
+                FastHTML element (Button or A)
+            """
+            attrs = self.render_attrs()
+            content = self.render_content()
+            
+            # Determine element type
+            if self.href
+        "Render the button element.
+
+Returns:
+    FastHTML element (Button or A)"
     
-    def primary(
-            cls,  # TODO: Add type hint and description
-            *children,
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create a primary button"
+    def primary(cls, *children, **kwargs) -> 'Btn':
+            """Create a primary button."""
+            return cls(*children, color=SemanticColor.PRIMARY, **kwargs)
+        
+        @classmethod
+        def secondary(cls, *children, **kwargs) -> 'Btn'
+        "Create a primary button."
     
-    def secondary(
-            cls,  # TODO: Add type hint and description
-            *children,
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create a secondary button"
+    def secondary(cls, *children, **kwargs) -> 'Btn':
+            """Create a secondary button."""
+            return cls(*children, color=SemanticColor.SECONDARY, **kwargs)
+        
+        @classmethod
+        def accent(cls, *children, **kwargs) -> 'Btn'
+        "Create a secondary button."
     
-    def accent(
-            cls,  # TODO: Add type hint and description
-            *children,
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create an accent button"
+    def accent(cls, *children, **kwargs) -> 'Btn':
+            """Create an accent button."""
+            return cls(*children, color=SemanticColor.ACCENT, **kwargs)
+        
+        @classmethod
+        def success(cls, *children, **kwargs) -> 'Btn'
+        "Create an accent button."
     
-    def success(
-            cls,  # TODO: Add type hint and description
-            *children,
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create a success button"
+    def success(cls, *children, **kwargs) -> 'Btn':
+            """Create a success button."""
+            return cls(*children, color=SemanticColor.SUCCESS, **kwargs)
+        
+        @classmethod
+        def error(cls, *children, **kwargs) -> 'Btn'
+        "Create a success button."
     
-    def error(
-            cls,  # TODO: Add type hint and description
-            *children,
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create an error/danger button"
+    def error(cls, *children, **kwargs) -> 'Btn':
+            """Create an error/danger button."""
+            return cls(*children, color=SemanticColor.ERROR, **kwargs)
+        
+        @classmethod
+        def warning(cls, *children, **kwargs) -> 'Btn'
+        "Create an error/danger button."
     
-    def warning(
-            cls,  # TODO: Add type hint and description
-            *children,
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create a warning button"
+    def warning(cls, *children, **kwargs) -> 'Btn':
+            """Create a warning button."""
+            return cls(*children, color=SemanticColor.WARNING, **kwargs)
+        
+        @classmethod
+        def info(cls, *children, **kwargs) -> 'Btn'
+        "Create a warning button."
     
-    def info(
-            cls,  # TODO: Add type hint and description
-            *children,
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create an info button"
+    def info(cls, *children, **kwargs) -> 'Btn':
+            """Create an info button."""
+            return cls(*children, color=SemanticColor.INFO, **kwargs)
+        
+        @classmethod
+        def ghost(cls, *children, **kwargs) -> 'Btn'
+        "Create an info button."
     
-    def ghost(
-            cls,  # TODO: Add type hint and description
-            *children,
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create a ghost button"
+    def ghost(cls, *children, **kwargs) -> 'Btn':
+            """Create a ghost button."""
+            kwargs['style'] = StyleType.GHOST
+            return cls(*children, **kwargs)
+        
+        @classmethod
+        def link(cls, *children, href: str, **kwargs) -> 'Btn'
+        "Create a ghost button."
     
-    def link(
-            cls,  # TODO: Add type hint and description
-            *children,
-            href: str,
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create a link-styled button"
+    def link(cls, *children, href: str, **kwargs) -> 'Btn':
+            """Create a link-styled button."""
+            kwargs['style'] = StyleType.LINK
+            kwargs['href'] = href
+            return cls(*children, **kwargs)
+        
+        @classmethod
+        def outline(cls, *children, **kwargs) -> 'Btn'
+        "Create a link-styled button."
     
-    def outline(
-            cls,  # TODO: Add type hint and description
-            *children,
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create an outline button"
+    def outline(cls, *children, **kwargs) -> 'Btn':
+            """Create an outline button."""
+            kwargs['style'] = StyleType.OUTLINE
+            return cls(*children, **kwargs)
+        
+        @classmethod
+        def icon(cls, icon: FT, **kwargs) -> 'Btn'
+        "Create an outline button."
     
-    def icon(
-            cls,  # TODO: Add type hint and description
-            icon: FT,  # TODO: Add description
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create an icon-only button (typically square or circle)"
+    def icon(cls, icon: FT, **kwargs) -> 'Btn':
+            """Create an icon-only button (typically square or circle)."""
+            kwargs.setdefault('shape', ButtonShape.SQUARE)
+            return cls(icon, **kwargs)
+        
+        @classmethod
+        def submit(cls, text: str = "Submit", **kwargs) -> 'Btn'
+        "Create an icon-only button (typically square or circle)."
     
-    def submit(
-            cls,  # TODO: Add type hint and description
-            text: str = "Submit",  # TODO: Add description
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create a submit button"
+    def submit(cls, text: str = "Submit", **kwargs) -> 'Btn':
+            """Create a submit button."""
+            return cls(text, type="submit", color=SemanticColor.PRIMARY, **kwargs)
+        
+        @classmethod
+        def cancel(cls, text: str = "Cancel", **kwargs) -> 'Btn'
+        "Create a submit button."
     
-    def cancel(
-            cls,  # TODO: Add type hint and description
-            text: str = "Cancel",  # TODO: Add description
-            **kwargs
-        ) -> 'Btn':  # TODO: Add return description
-        "Create a cancel button"
+    def cancel(cls, text: str = "Cancel", **kwargs) -> 'Btn'
+        "Create a cancel button."
 ```
 
 ### Colors (`colors.ipynb`)
@@ -655,7 +799,7 @@ class ColorBuilder:
     
     def surface_base(
             self,
-            level: Literal[100, 200, 300] = 100  # TODO: Add description
+            level: SurfaceLevelType = 100  # TODO: Add description
         ) -> "ColorBuilder":  # TODO: Add return description
         "Apply base surface colors"
     
@@ -742,7 +886,6 @@ Returns:
 from cjm_fasthtml_daisyui.core.config import (
     ThemeConfig,
     DaisyUIConfig,
-    ConfigPresets,
     ColorScheme,
     ThemeDesignTokens,
     CustomTheme,
@@ -816,40 +959,6 @@ class DaisyUIConfig:
 ```
 
 ``` python
-class ConfigPresets:
-    "Pre-configured daisyUI configurations for common use cases"
-    
-    def minimal(
-        ) -> DaisyUIConfig:  # TODO: Add return description
-        "Minimal configuration with just light theme"
-    
-    def default(
-        ) -> DaisyUIConfig:  # TODO: Add return description
-        "Default configuration with light and dark themes"
-    
-    def all_themes(
-        ) -> DaisyUIConfig:  # TODO: Add return description
-        "Configuration with all available themes"
-    
-    def corporate(
-        ) -> DaisyUIConfig:  # TODO: Add return description
-        "Professional configuration with corporate themes"
-    
-    def creative(
-        ) -> DaisyUIConfig:  # TODO: Add return description
-        "Creative configuration with colorful themes"
-    
-    def accessible(
-        ) -> DaisyUIConfig:  # TODO: Add return description
-        "High contrast configuration for accessibility"
-    
-    def prefixed(
-            prefix: str = "daisy-"  # TODO: Add description
-        ) -> DaisyUIConfig:  # TODO: Add return description
-        "Configuration with prefixed classes to avoid conflicts"
-```
-
-``` python
 @dataclass
 class ColorScheme:
     "Color scheme for a custom theme"
@@ -877,7 +986,7 @@ class ColorScheme:
     
     def to_css_vars(
             self
-        ) -> Dict[str, str]:  # TODO: Add return description
+        ) -> HTMLAttrs:  # TODO: Add return description
         "Convert to CSS variable format"
 ```
 
@@ -892,12 +1001,12 @@ class ThemeDesignTokens:
     size_selector: str = '0.25rem'  # Base size for selectors
     size_field: str = '0.25rem'  # Base size for fields
     border: str = '1px'  # Border width
-    depth: Literal[0, 1] = 1  # Shadow and 3D effect (0 or 1)
-    noise: Literal[0, 1] = 0  # Noise texture effect (0 or 1)
+    depth: BinaryType = 1  # Shadow and 3D effect (0 or 1)
+    noise: BinaryType = 0  # Noise texture effect (0 or 1)
     
     def to_css_vars(
             self
-        ) -> Dict[str, str]:  # TODO: Add return description
+        ) -> HTMLAttrs:  # TODO: Add return description
         "Convert to CSS variable format"
 ```
 
@@ -909,7 +1018,7 @@ class CustomTheme:
     name: str
     is_default: bool = False
     is_prefers_dark: bool = False
-    color_scheme: Literal['light', 'dark'] = 'light'
+    color_scheme: ColorSchemeType = 'light'
     colors: ColorScheme = field(...)
     tokens: ThemeDesignTokens = field(...)
     
@@ -942,6 +1051,46 @@ class ConfigManager:
         "Combine configuration with custom themes"
 ```
 
+### Elements (`elements.ipynb`)
+
+> HTML element creation utilities
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.core.elements import (
+    create_element
+)
+```
+
+#### Functions
+
+``` python
+def create_element(
+    tag: str,  # HTML tag name (e.g., 'div', 'span', 'button')
+    *children,  # Child elements
+    **attrs  # HTML attributes
+) -> FT:  # FastHTML element
+    """
+    Create a FastHTML element from a tag name.
+    
+    This function provides a centralized way to create HTML elements,
+    avoiding duplication across modules.
+    
+    Args:
+        tag: The HTML tag name (case-insensitive)
+        *children: Child elements to include
+        **attrs: HTML attributes for the element
+        
+    Returns:
+        A FastHTML element of the specified type
+        
+    Examples:
+        >>> create_element('div', 'Hello', cls='container')
+        >>> create_element('button', 'Click me', type='submit')
+    """
+```
+
 ### HTMX Integration (`htmx.ipynb`)
 
 > HTMX patterns and helpers for daisyUI components in FastHTML
@@ -961,10 +1110,29 @@ from cjm_fasthtml_daisyui.core.htmx import (
 #### Functions
 
 ``` python
-def htmx_attrs(
-    **kwargs
-) -> Dict[str, Any]:  # Dictionary with proper HTMX attribute names
-    "Convert keyword arguments to HTMX attributes Converts Python-style names to HTMX attribute names: - get -> hx-get - trigger -> hx-trigger - etc."
+def htmx_attrs(**kwargs) -> HTMLAttrs:
+    """Convert keyword arguments to HTMX attributes.
+    
+    Converts Python-style names to HTMX attribute names:
+    - get -> hx-get
+    - trigger -> hx-trigger
+    - etc.
+    
+    Returns:
+        Dictionary with proper HTMX attribute names
+    """
+    attrs: HTMLAttrs = {}
+    """
+    Convert keyword arguments to HTMX attributes.
+    
+    Converts Python-style names to HTMX attribute names:
+    - get -> hx-get
+    - trigger -> hx-trigger
+    - etc.
+    
+    Returns:
+        Dictionary with proper HTMX attribute names
+    """
 ```
 
 ``` python
@@ -991,7 +1159,7 @@ def oob_alert(
 ``` python
 @dataclass
 class HTMXAttrs:
-    "Container for HTMX attributes"
+    "Container for HTMX attributes with type-safe values."
     
     hx_get: Optional[str]
     hx_post: Optional[str]
@@ -1005,77 +1173,84 @@ class HTMXAttrs:
     hx_push_url: Optional[Union[bool, str]]
     hx_select: Optional[str]
     hx_select_oob: Optional[str]
-    hx_vals: Optional[Union[str, Dict[str, Any]]]
+    hx_vals: Optional[HTMXValue]  # Using HTMXValue type alias
     hx_confirm: Optional[str]
     hx_disable: Optional[bool]
     hx_disabled_elt: Optional[str]
     hx_include: Optional[str]
     hx_ext: Optional[str]
     
-    def to_dict(
-            self
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Convert to dictionary of attributes"
+    def to_dict(self) -> HTMLAttrs:
+            """Convert to dictionary of HTML attributes.
+            
+            Returns:
+                Dictionary with proper HTMX attribute names
+            """
+            attrs: HTMLAttrs = {}
+        "Convert to dictionary of HTML attributes.
+
+Returns:
+    Dictionary with proper HTMX attribute names"
 ```
 
 ``` python
 class HTMXComponent:
     def __init__(self, *args, htmx: Optional[HTMXAttrs] = None, **kwargs):
-        "TODO: Add function description"
+        """Initialize with optional HTMX attributes."""
         super().__init__(*args, **kwargs)
         self.htmx = htmx or HTMXAttrs()
     
     def with_htmx(
         self,
-        get: Optional[str] = None,  # TODO: Add description
-        post: Optional[str] = None,  # TODO: Add description
-        put: Optional[str] = None,  # TODO: Add description
-        patch: Optional[str] = None,  # TODO: Add description
-        delete: Optional[str] = None,  # TODO: Add description
+        get: Optional[str] = None,
+        post: Optional[str] = None,
+        put: Optional[str] = None,
+        patch: Optional[str] = None,
+        delete: Optional[str] = None,
         trigger: Optional[Union[HTMXTrigger, str]] = None,
-        target: Optional[str] = None,  # TODO: Add description
+        target: Optional[str] = None,
         swap: Optional[Union[HTMXSwap, str]] = None,
         **kwargs
-    ) -> 'HTMXComponent':  # TODO: Add return description
+    ) -> 'HTMXComponent'
     """
-    Base class for HTMX-aware daisyUI components
+    Base class for HTMX-aware daisyUI components.
     
-    Extends DaisyComponent with HTMX attributes and helper methods
+    Extends ValidatedDaisyComponent with HTMX attributes and helper methods
     for building interactive components following FastHTML patterns.
     """
     
     def __init__(self, *args, htmx: Optional[HTMXAttrs] = None, **kwargs):
-            "TODO: Add function description"
+            """Initialize with optional HTMX attributes."""
             super().__init__(*args, **kwargs)
             self.htmx = htmx or HTMXAttrs()
         
         def with_htmx(
             self,
-            get: Optional[str] = None,  # TODO: Add description
-            post: Optional[str] = None,  # TODO: Add description
-            put: Optional[str] = None,  # TODO: Add description
-            patch: Optional[str] = None,  # TODO: Add description
-            delete: Optional[str] = None,  # TODO: Add description
+            get: Optional[str] = None,
+            post: Optional[str] = None,
+            put: Optional[str] = None,
+            patch: Optional[str] = None,
+            delete: Optional[str] = None,
             trigger: Optional[Union[HTMXTrigger, str]] = None,
-            target: Optional[str] = None,  # TODO: Add description
+            target: Optional[str] = None,
             swap: Optional[Union[HTMXSwap, str]] = None,
             **kwargs
-        ) -> 'HTMXComponent':  # TODO: Add return description
-        "TODO: Add function description"
+        ) -> 'HTMXComponent'
+        "Initialize with optional HTMX attributes."
     
     def with_htmx(
             self,
-            get: Optional[str] = None,  # TODO: Add description
-            post: Optional[str] = None,  # TODO: Add description
-            put: Optional[str] = None,  # TODO: Add description
-            patch: Optional[str] = None,  # TODO: Add description
-            delete: Optional[str] = None,  # TODO: Add description
+            get: Optional[str] = None,
+            post: Optional[str] = None,
+            put: Optional[str] = None,
+            patch: Optional[str] = None,
+            delete: Optional[str] = None,
             trigger: Optional[Union[HTMXTrigger, str]] = None,
-            target: Optional[str] = None,  # TODO: Add description
+            target: Optional[str] = None,
             swap: Optional[Union[HTMXSwap, str]] = None,
             **kwargs
-        ) -> 'HTMXComponent':  # TODO: Add return description
-        "Configure HTMX attributes fluently
+        ) -> 'HTMXComponent'
+        "Configure HTMX attributes fluently.
 
 Args:
     get/post/put/patch/delete: URL endpoints
@@ -1089,10 +1264,10 @@ Returns:
     
     def with_loading(
             self,
-            indicator_id: str,  # TODO: Add description
-            disable_during: Optional[str] = None  # TODO: Add description
-        ) -> 'HTMXComponent':  # TODO: Add return description
-        "Configure loading indicators
+            indicator_id: str,
+            disable_during: Optional[str] = None
+        ) -> 'HTMXComponent'
+        "Configure loading indicators.
 
 Args:
     indicator_id: ID of the loading indicator element
@@ -1103,9 +1278,9 @@ Returns:
     
     def with_confirmation(
             self,
-            message: str  # TODO: Add description
-        ) -> 'HTMXComponent':  # TODO: Add return description
-        "Add confirmation dialog
+            message: str
+        ) -> 'HTMXComponent'
+        "Add confirmation dialog.
 
 Args:
     message: Confirmation message to show
@@ -1113,10 +1288,11 @@ Args:
 Returns:
     Self for method chaining"
     
-    def render_attrs(
-            self
-        ) -> Dict[str, Any]:  # TODO: Add return description
-        "Build all HTML attributes including HTMX"
+    def render_attrs(self) -> HTMLAttrs
+        "Build all HTML attributes including HTMX.
+
+Returns:
+    Dictionary of all HTML attributes"
 ```
 
 ### Component Parts (`parts.ipynb`)
@@ -1145,13 +1321,11 @@ class ComponentPart:
     """
     
     name: str  # Part name (e.g., 'body', 'title', 'actions')
-    parent_component: str  # Parent component name (e.g., 'card', 'modal')
+    parent_component: Union[str, DaisyComponentType]  # Parent component name or enum
     required: bool = False  # Whether this part is required
     tag: str = 'div'  # Default HTML tag for this part
     
-    def class_name(
-            self
-        ) -> str:  # TODO: Add return description
+    def class_name(self) -> CSSClass
         "Return the full class name for this part."
 ```
 
@@ -1162,21 +1336,41 @@ class HasParts:
     
     This mixin provides functionality for components like cards, modals,
     and other complex components that have defined child elements.
+    
+    Note: Classes using this mixin should typically also implement the
+    ComponentProtocol to ensure they provide the full component interface.
+    Components that contribute CSS classes should also implement CSSContributor.
     """
     
-    def parts(
-            cls  # TODO: Add type hint and description
-        ) -> Dict[str, ComponentPart]:  # TODO: Add return description
+    def parts(cls) -> Dict[str, ComponentPart]:
+            """Return all available parts for this component.
+            
+            Subclasses should override this to define their parts.
+            
+            Returns:
+                Dictionary mapping part names to ComponentPart instances
+            """
+            return {}
+        
+        def part(
+            self,
+            name: str,  # The part name (must be defined in parts())
+            *children: FT,  # Child elements for this part
+            **attrs: Any  # HTML attributes for the part
+        ) -> FT
         "Return all available parts for this component.
 
-Subclasses should override this to define their parts."
+Subclasses should override this to define their parts.
+
+Returns:
+    Dictionary mapping part names to ComponentPart instances"
     
     def part(
             self,
-            name: str,  # TODO: Add description
-            *children,
-            **attrs
-        ) -> Any:  # TODO: Add return description
+            name: str,  # The part name (must be defined in parts())
+            *children: FT,  # Child elements for this part
+            **attrs: Any  # HTML attributes for the part
+        ) -> FT
         "Create a component part element.
 
 Args:
@@ -1185,7 +1379,10 @@ Args:
     **attrs: HTML attributes for the part
     
 Returns:
-    FastHTML element with the appropriate part classes"
+    FastHTML element with the appropriate part classes
+    
+Raises:
+    ValueError: If the part name is not defined for this component"
 ```
 
 ### Placement & Direction (`placement.ipynb`)
@@ -1205,6 +1402,7 @@ from cjm_fasthtml_daisyui.core.placement import (
 #### Classes
 
 ``` python
+@dataclass
 class HasPlacement(CSSContributor):
     """
     Mixin for components with placement options.
@@ -1212,6 +1410,8 @@ class HasPlacement(CSSContributor):
     This mixin provides functionality for components that can be
     positioned in different locations (start, center, end, top, bottom, etc.).
     """
+    
+    placement: Optional[Union[DaisyPosition, PlacementType, str]]
     
     def get_css_classes(self) -> CSSClasses:
             """Get placement classes.
@@ -1237,11 +1437,12 @@ Returns:
     
     def valid_placements(
             self
-        ) -> List[str]:  # TODO: Add return description
+        ) -> List[Union[DaisyPosition, str]]:  # TODO: Add return description
         "Return list of valid placement values for this component."
 ```
 
 ``` python
+@dataclass
 class HasDirection(CSSContributor):
     """
     Mixin for components with direction options.
@@ -1249,6 +1450,8 @@ class HasDirection(CSSContributor):
     This mixin provides functionality for components that can have
     different directional layouts (horizontal, vertical).
     """
+    
+    direction: Optional[DirectionType]
     
     def get_css_classes(self) -> CSSClasses:
             """Get direction classes.
@@ -1274,6 +1477,7 @@ Returns:
 ```
 
 ``` python
+@dataclass
 class HasPlacementAndDirection(HasPlacement, HasDirection):
     """
     Combined mixin for components with both placement and direction.
@@ -1501,9 +1705,9 @@ def quick_test(
 
 ``` python
 def test_variants(
-    component_fn: Callable,  # Function that creates the component
+    component_fn: ComponentFactory,  # Function that creates the component
     variants: Dict[str, List[Any]],
-    base_props: Optional[Dict[str, Any]] = None,
+    base_props: Optional[ComponentProps] = None,
     title: str = "Variant Testing"  # Title for the test page
 ) -> ComponentTester:  # Started ComponentTester instance
     "Test multiple variants of a component"
@@ -1533,18 +1737,19 @@ class ComponentExample:
     title: str
     description: Optional[str]
     code: Optional[str]
-    props: Optional[Dict[str, Any]]
+    props: Optional[ComponentProps]
+    component_type: Optional[DaisyComponentType]
 ```
 
 ``` python
 class ComponentTester:
     def __init__(
         self,
-        title: str = "Component Showcase",  # TODO: Add description
-        pico: bool = False,  # TODO: Add description
-        config: Optional[DaisyUIConfig] = None,  # TODO: Add description
-        use_cdn: bool = True,  # TODO: Add description
-        port: Optional[int] = 8000,  # TODO: Add description
+        title: str = "Component Showcase",  # Title for the showcase page
+        pico: bool = False,  # Whether to include Pico CSS (should be False for daisyUI)
+        config: Optional[DaisyUIConfig] = None,  # daisyUI configuration (only used with local resources)
+        use_cdn: bool = True,  # Whether to use CDN resources (vs local)
+        port: Optional[int] = 8000,  # Port for the test server
         available_themes: Optional[List[Union[DaisyUITheme, str]]] = None
     )
     """
@@ -1556,11 +1761,11 @@ class ComponentTester:
     
     def __init__(
             self,
-            title: str = "Component Showcase",  # TODO: Add description
-            pico: bool = False,  # TODO: Add description
-            config: Optional[DaisyUIConfig] = None,  # TODO: Add description
-            use_cdn: bool = True,  # TODO: Add description
-            port: Optional[int] = 8000,  # TODO: Add description
+            title: str = "Component Showcase",  # Title for the showcase page
+            pico: bool = False,  # Whether to include Pico CSS (should be False for daisyUI)
+            config: Optional[DaisyUIConfig] = None,  # daisyUI configuration (only used with local resources)
+            use_cdn: bool = True,  # Whether to use CDN resources (vs local)
+            port: Optional[int] = 8000,  # Port for the test server
             available_themes: Optional[List[Union[DaisyUITheme, str]]] = None
         )
         "Initialize the component tester
@@ -1575,12 +1780,13 @@ Args:
     
     def add(
             self,
-            component: Union[FT, Callable[[], FT]],
-            title: str,  # TODO: Add description
-            description: Optional[str] = None,  # TODO: Add description
-            code: Optional[str] = None,  # TODO: Add description
-            **props
-        ) -> "ComponentTester":  # TODO: Add return description
+            component: Union[FT, ComponentFactory],
+            title: str,
+            description: Optional[str] = None,
+            code: Optional[str] = None,
+            component_type: Optional[DaisyComponentType] = None,
+            **props: Any
+        ) -> "ComponentTester"
         "Add a component example to the showcase
 
 Args:
@@ -1588,6 +1794,7 @@ Args:
     title: Title for this example
     description: Optional description
     code: Optional code snippet to display
+    component_type: Optional component type for validation
     **props: Properties passed to the component if it's a function"
     
     def showcase(
@@ -1595,7 +1802,7 @@ Args:
             *components: FT,
             mode: DisplayMode = DisplayMode.SECTIONS,
             titles: Optional[List[str]] = None
-        ) -> "ComponentTester":  # TODO: Add return description
+        ) -> "ComponentTester"
         "Quick method to add multiple components
 
 Args:
@@ -1603,66 +1810,61 @@ Args:
     mode: How to display the components
     titles: Optional titles for each component"
     
-    def start(
-            self,
-            open_browser: bool = False  # TODO: Add description
-        ) -> "ComponentTester":  # TODO: Add return description
+    def start(self, open_browser: bool = False) -> "ComponentTester":
+            """Start the test server"""
+            if not self.server
         "Start the test server"
     
-    def stop(
-            self
-        ): # TODO: Add type hint
+    def stop(self) -> None:
+            """Stop the test server"""
+            if self.server
         "Stop the test server"
 ```
 
 ``` python
 class ComponentBuilder:
-    def __init__(
-        self,
-        title: str = "Component Builder"  # TODO: Add description
-    )
+    def __init__(self, title: str = "Component Builder"):
+        self.tester = ComponentTester(title=title)
+        self.current_component = None
+        self.component_history: List[FT] = []
     "Interactive component builder for notebooks"
     
-    def __init__(
-            self,
-            title: str = "Component Builder"  # TODO: Add description
-        )
-        "TODO: Add function description"
+    def __init__(self, title: str = "Component Builder"):
+            self.tester = ComponentTester(title=title)
+            self.current_component = None
+            self.component_history: List[FT] = []
     
     def create(
             self,
-            tag: str = "div",  # TODO: Add description
-            *children,
-            **attrs
-        ) -> "ComponentBuilder":  # TODO: Add return description
+            tag: str = "div",
+            *children: Any,
+            **attrs: Any
+        ) -> "ComponentBuilder"
         "Create a new component"
     
-    def add_class(
-            self,
-            *classes: str
-        ) -> "ComponentBuilder":  # TODO: Add return description
+    def add_class(self, *classes: CSSClass) -> "ComponentBuilder":
+            """Add classes to the current component"""
+            if self.current_component and hasattr(self.current_component, 'attrs')
         "Add classes to the current component"
     
-    def add_child(
-            self,
-            child: FT  # TODO: Add description
-        ) -> "ComponentBuilder":  # TODO: Add return description
+    def add_child(self, child: FT) -> "ComponentBuilder":
+            """Add a child to the current component"""
+            if self.current_component
         "Add a child to the current component"
     
-    def preview(
-            self,
-            title: Optional[str] = None  # TODO: Add description
-        ) -> "ComponentBuilder":  # TODO: Add return description
+    def preview(self, title: Optional[str] = None) -> "ComponentBuilder":
+            """Preview the current component"""
+            if self.current_component
         "Preview the current component"
     
-    def show(
-            self
-        ) -> ComponentTester:  # TODO: Add return description
+    def show(self) -> ComponentTester:
+            """Show all previewed components"""
+            return self.tester.start()
+        
+        def reset(self) -> "ComponentBuilder"
         "Show all previewed components"
     
-    def reset(
-            self
-        ) -> "ComponentBuilder":  # TODO: Add return description
+    def reset(self) -> "ComponentBuilder"
         "Reset the builder"
 ```
 
@@ -1670,40 +1872,48 @@ class ComponentBuilder:
 class TestData:
     "Generate test data for components"
     
-    def lorem(
-            words: int = 10  # TODO: Add description
-        ) -> str:  # TODO: Add return description
+    def lorem(words: int = 10) -> str:
+            """Generate lorem ipsum text"""
+            lorem_words = [
+                "lorem", "ipsum", "dolor", "sit", "amet", "consectetur",
+                "adipiscing", "elit", "sed", "do", "eiusmod", "tempor",
+                "incididunt", "ut", "labore", "et", "dolore", "magna",
+                "aliqua", "enim", "ad", "minim", "veniam", "quis"
+            ]
+            result = []
+            for i in range(words)
         "Generate lorem ipsum text"
     
-    def image(
-            width: int = 300,  # TODO: Add description
-            height: int = 200,  # TODO: Add description
-            category: str = ""  # TODO: Add description
-        ) -> str:  # TODO: Add return description
+    def image(width: int = 300, height: int = 200, category: str = "") -> str:
+            """Generate placeholder image URL"""
+            if category
         "Generate placeholder image URL"
     
-    def avatar(
-            size: int = 100,  # TODO: Add description
-            seed: Optional[str] = None  # TODO: Add description
-        ) -> str:  # TODO: Add return description
+    def avatar(size: int = 100, seed: Optional[str] = None) -> str:
+            """Generate avatar URL"""
+            if seed
         "Generate avatar URL"
     
-    def items(
-            count: int = 5,  # TODO: Add description
-            prefix: str = "Item"  # TODO: Add description
-        ) -> List[str]:  # TODO: Add return description
+    def items(count: int = 5, prefix: str = "Item") -> List[str]:
+            """Generate list of items"""
+            return [f"{prefix} {i+1}" for i in range(count)]
+        
+        @staticmethod
+        def table_data(rows: int = 5, cols: int = 3) -> List[List[str]]
         "Generate list of items"
     
-    def table_data(
-            rows: int = 5,  # TODO: Add description
-            cols: int = 3  # TODO: Add description
-        ) -> List[List[str]]:  # TODO: Add return description
+    def table_data(rows: int = 5, cols: int = 3) -> List[List[str]]:
+            """Generate table data"""
+            headers = [f"Column {i+1}" for i in range(cols)]
+            data = []
+            for r in range(rows)
         "Generate table data"
 ```
 
 ### Types (`types.ipynb`)
 
-> Common types and type aliases for daisyUI components
+> Protocols, enums, type aliases, and utilities for type-safe daisyUI
+> component development
 
 #### Import
 
@@ -2120,46 +2330,6 @@ SurfaceLevelType  # Surface level literals (for base colors)
 BinaryType  # Binary value literals (for theme design tokens)
 ```
 
-### Utilities (`utils.ipynb`)
-
-> Shared utility functions for daisyUI components
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.utils import (
-    create_element
-)
-```
-
-#### Functions
-
-``` python
-def create_element(
-    tag: str,  # HTML tag name (e.g., 'div', 'span', 'button')
-    *children,  # Child elements
-    **attrs  # HTML attributes
-) -> FT:  # FastHTML element
-    """
-    Create a FastHTML element from a tag name.
-    
-    This function provides a centralized way to create HTML elements,
-    avoiding duplication across modules.
-    
-    Args:
-        tag: The HTML tag name (case-insensitive)
-        *children: Child elements to include
-        **attrs: HTML attributes for the element
-        
-    Returns:
-        A FastHTML element of the specified type
-        
-    Examples:
-        >>> create_element('div', 'Hello', cls='container')
-        >>> create_element('button', 'Click me', type='submit')
-    """
-```
-
 ### Variant System (`variants.ipynb`)
 
 > System for handling component variants and states
@@ -2168,7 +2338,6 @@ def create_element(
 
 ``` python
 from cjm_fasthtml_daisyui.core.variants import (
-    STYLE_VARIANT,
     HasGlass,
     Variant,
     HasVariants,
@@ -2325,10 +2494,4 @@ Subclasses should override this to define compound variants."
 
 Returns:
     List of CSS class strings from variants and compound variants"
-```
-
-#### Variables
-
-``` python
-STYLE_VARIANT
 ```

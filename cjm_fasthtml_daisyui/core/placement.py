@@ -7,9 +7,14 @@ __all__ = ['HasPlacement', 'HasDirection', 'HasPlacementAndDirection']
 
 # %% ../../nbs/core/placement.ipynb 3
 from typing import Optional, List, Literal, Union
-from .types import CSSContributor, CSSClasses
+from dataclasses import dataclass
+from cjm_fasthtml_daisyui.core.types import (
+    CSSContributor, CSSClasses, DaisyPosition, 
+    PlacementType, DirectionType
+)
 
 # %% ../../nbs/core/placement.ipynb 5
+@dataclass
 class HasPlacement(CSSContributor):
     """Mixin for components with placement options.
     
@@ -17,7 +22,7 @@ class HasPlacement(CSSContributor):
     positioned in different locations (start, center, end, top, bottom, etc.).
     """
     
-    placement: Optional[str] = None
+    placement: Optional[Union[DaisyPosition, PlacementType, str]] = None
     
     def get_css_classes(self) -> CSSClasses:
         """Get placement classes.
@@ -30,9 +35,12 @@ class HasPlacement(CSSContributor):
             
         base = self.component_class()
         
+        # Convert enum to string if needed
+        placement_str = self.placement.value if isinstance(self.placement, DaisyPosition) else str(self.placement)
+        
         # Check if component uses standard placement pattern
         if self.uses_standard_placement():
-            return [f"{base}-{self.placement}"]
+            return [f"{base}-{placement_str}"]
         else:
             # Some components might have custom placement patterns
             return self.custom_placement_classes()
@@ -51,12 +59,23 @@ class HasPlacement(CSSContributor):
     
     def valid_placements(
         self
-    ) -> List[str]:  # TODO: Add return description
+    ) -> List[Union[DaisyPosition, str]]:  # TODO: Add return description
         """Return list of valid placement values for this component."""
         # Subclasses should override to specify valid placements
-        return ["start", "center", "end", "top", "middle", "bottom"]
+        # Return common positions by default
+        return [
+            DaisyPosition.START,
+            DaisyPosition.CENTER,
+            DaisyPosition.END,
+            DaisyPosition.TOP,
+            DaisyPosition.MIDDLE,
+            DaisyPosition.BOTTOM,
+            DaisyPosition.LEFT,
+            DaisyPosition.RIGHT
+        ]
 
 # %% ../../nbs/core/placement.ipynb 7
+@dataclass
 class HasDirection(CSSContributor):
     """Mixin for components with direction options.
     
@@ -64,7 +83,7 @@ class HasDirection(CSSContributor):
     different directional layouts (horizontal, vertical).
     """
     
-    direction: Optional[Literal["horizontal", "vertical"]] = None
+    direction: Optional[DirectionType] = None
     
     def get_css_classes(self) -> CSSClasses:
         """Get direction classes.
@@ -91,6 +110,7 @@ class HasDirection(CSSContributor):
         return self.direction == "vertical"
 
 # %% ../../nbs/core/placement.ipynb 9
+@dataclass
 class HasPlacementAndDirection(HasPlacement, HasDirection):
     """Combined mixin for components with both placement and direction.
     

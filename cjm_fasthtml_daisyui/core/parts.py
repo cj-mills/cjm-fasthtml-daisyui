@@ -6,11 +6,15 @@
 __all__ = ['ComponentPart', 'HasParts']
 
 # %% ../../nbs/core/parts.ipynb 3
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, Union
 from dataclasses import dataclass, field
 from fasthtml.common import *
 from cjm_tailwind_utils.all import TailwindBuilder
-from .utils import create_element
+from .elements import create_element
+from cjm_fasthtml_daisyui.core.types import (
+    CSSClass, HTMLAttrs, Children, DaisyComponentType,
+    ComponentProtocol, CSSContributor
+)
 
 # %% ../../nbs/core/parts.ipynb 5
 @dataclass
@@ -21,15 +25,29 @@ class ComponentPart:
     within their parent component context.
     """
     name: str  # Part name (e.g., 'body', 'title', 'actions')
-    parent_component: str  # Parent component name (e.g., 'card', 'modal')
+    parent_component: Union[str, DaisyComponentType]  # Parent component name or enum
     required: bool = False  # Whether this part is required
     tag: str = "div"  # Default HTML tag for this part
     
-    def class_name(
-        self
-    ) -> str:  # TODO: Add return description
+    def __post_init__(self):
+        """Validate parent_component if it's a string."""
+        if isinstance(self.parent_component, str):
+            # Check if the string matches any DaisyComponentType value
+            valid_values = {comp.value for comp in DaisyComponentType}
+            if self.parent_component not in valid_values:
+                # It might be a valid component name that doesn't match the enum value
+                # For now, we'll allow it but could add stricter validation later
+                pass
+    
+    def class_name(self) -> CSSClass:
         """Return the full class name for this part."""
-        return f"{self.parent_component}-{self.name}"
+        # Handle both string and enum types
+        parent_name = (
+            self.parent_component.value 
+            if isinstance(self.parent_component, DaisyComponentType) 
+            else self.parent_component
+        )
+        return f"{parent_name}-{self.name}"
 
 # %% ../../nbs/core/parts.ipynb 7
 class HasParts:
@@ -37,24 +55,29 @@ class HasParts:
     
     This mixin provides functionality for components like cards, modals,
     and other complex components that have defined child elements.
+    
+    Note: Classes using this mixin should typically also implement the
+    ComponentProtocol to ensure they provide the full component interface.
+    Components that contribute CSS classes should also implement CSSContributor.
     """
     
     @classmethod
-    def parts(
-        cls  # TODO: Add type hint and description
-    ) -> Dict[str, ComponentPart]:  # TODO: Add return description
+    def parts(cls) -> Dict[str, ComponentPart]:
         """Return all available parts for this component.
         
         Subclasses should override this to define their parts.
+        
+        Returns:
+            Dictionary mapping part names to ComponentPart instances
         """
         return {}
     
     def part(
         self,
-        name: str,  # TODO: Add description
-        *children,
-        **attrs
-    ) -> Any:  # TODO: Add return description
+        name: str,  # The part name (must be defined in parts())
+        *children: FT,  # Child elements for this part
+        **attrs: Any  # HTML attributes for the part
+    ) -> FT:
         """Create a component part element.
         
         Args:
@@ -64,6 +87,9 @@ class HasParts:
             
         Returns:
             FastHTML element with the appropriate part classes
+            
+        Raises:
+            ValueError: If the part name is not defined for this component
         """
         parts = self.parts()
         if name not in parts:
@@ -72,7 +98,7 @@ class HasParts:
         part = parts[name]
         
         # Extract and merge classes
-        cls = attrs.pop("cls", "")
+        cls: CSSClass = attrs.pop("cls", "")
         if cls:
             # Use TailwindBuilder to merge classes
             tb = TailwindBuilder()
@@ -82,7 +108,7 @@ class HasParts:
             attrs["class"] = part.class_name()
         
         # Get the tag to use
-        tag = attrs.pop("tag", part.tag)
+        tag: str = attrs.pop("tag", part.tag)
         
         # Use the shared create_element utility
         return create_element(tag, *children, **attrs)

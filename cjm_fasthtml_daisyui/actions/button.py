@@ -12,8 +12,18 @@ from dataclasses import dataclass, field
 from fasthtml.common import *
 from cjm_tailwind_utils.all import TailwindBuilder
 from cjm_fasthtml_daisyui.core.types import (
-    DaisySize, StyleType,
-    SemanticColor, ColorUtility
+    # Type aliases
+    HTMLAttrs,
+    CSSClasses,
+    Children,
+    # Enums
+    DaisySize,
+    StyleType,
+    SemanticColor,
+    ColorUtility,
+    DaisyComponentType,
+    # Utility functions
+    ensure_list
 ) 
 from ..core.base import HasSize
 from cjm_fasthtml_daisyui.core.colors import (
@@ -35,8 +45,7 @@ class ButtonShape(str, Enum):
 # %% ../../nbs/actions/button.ipynb 6
 @dataclass
 class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormControlMixin):
-    """
-    daisyUI Button component with full feature support.
+    """daisyUI Button component with full feature support.
     
     Supports all button variants, styles, sizes, shapes, and states.
     Can be used as a regular button, submit button, or link button.
@@ -53,7 +62,7 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
     """
     
     # Content
-    children: List[Any] = field(default_factory=list)
+    children: Children = field(default_factory=list)
     
     # Component-specific color modifier
     color: Optional[Union[SemanticColor, str]] = None
@@ -78,7 +87,7 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
     style: Optional[Union[StyleType, str]] = None
     
     def __init__(self, *children, **kwargs):
-        "TODO: Add function description"
+        """Initialize button with children and properties."""
         # Extract children from args
         self.children = list(children)
         
@@ -128,6 +137,9 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
         # Initialize parent classes
         super().__init__(**kwargs)
         
+        # Set the component type for validation
+        self.component_type = DaisyComponentType.BUTTON
+        
         # Set the style variant if provided
         if self.style:
             style_value = self.style.value if isinstance(self.style, StyleType) else self.style
@@ -144,16 +156,16 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
             "style": create_style_variant("btn")
         }
     
-    def component_class(
-        self
-    ) -> str:  # TODO: Add return description
-        "TODO: Add function description"
-        return "btn"
+    def component_class(self) -> str:
+        """Return the base component class name."""
+        return DaisyComponentType.BUTTON.value
     
-    def modifier_classes(
-        self
-    ) -> List[str]:  # TODO: Add return description
-        """Build all modifier classes"""
+    def modifier_classes(self) -> CSSClasses:
+        """Build all modifier classes.
+        
+        Returns:
+            List of modifier CSS classes
+        """
         classes = super().modifier_classes()
         
         # Add component-specific color modifier
@@ -171,11 +183,13 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
         
         return classes
     
-    def render_content(
-        self
-    ) -> List[FT]:  # TODO: Add return description
-        """Render button content with icons"""
-        content = []
+    def render_content(self) -> Children:
+        """Render button content with icons.
+        
+        Returns:
+            List of FastHTML elements
+        """
+        content: Children = []
         
         # Add start icon
         if self.icon_start:
@@ -194,10 +208,12 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
         
         return content
     
-    def render_attrs(
-        self
-    ) -> Dict[str, Any]:  # TODO: Add return description
-        """Build all HTML attributes including form and behavior attrs."""
+    def render_attrs(self) -> HTMLAttrs:
+        """Build all HTML attributes including form and behavior attrs.
+        
+        Returns:
+            Dictionary of HTML attributes
+        """
         attrs = super().render_attrs()
         
         # Add behavior attributes
@@ -209,10 +225,12 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
         
         return attrs
     
-    def render(
-        self
-    ) -> FT:  # TODO: Add return description
-        """Render the button element"""
+    def render(self) -> FT:
+        """Render the button element.
+        
+        Returns:
+            FastHTML element (Button or A)
+        """
         attrs = self.render_attrs()
         content = self.render_content()
         
@@ -246,125 +264,72 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
     
     # Convenience methods for common patterns
     @classmethod
-    def primary(
-        cls,  # TODO: Add type hint and description
-        *children,
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create a primary button"""
+    def primary(cls, *children, **kwargs) -> 'Btn':
+        """Create a primary button."""
         return cls(*children, color=SemanticColor.PRIMARY, **kwargs)
     
     @classmethod
-    def secondary(
-        cls,  # TODO: Add type hint and description
-        *children,
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create a secondary button"""
+    def secondary(cls, *children, **kwargs) -> 'Btn':
+        """Create a secondary button."""
         return cls(*children, color=SemanticColor.SECONDARY, **kwargs)
     
     @classmethod
-    def accent(
-        cls,  # TODO: Add type hint and description
-        *children,
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create an accent button"""
+    def accent(cls, *children, **kwargs) -> 'Btn':
+        """Create an accent button."""
         return cls(*children, color=SemanticColor.ACCENT, **kwargs)
     
     @classmethod
-    def success(
-        cls,  # TODO: Add type hint and description
-        *children,
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create a success button"""
+    def success(cls, *children, **kwargs) -> 'Btn':
+        """Create a success button."""
         return cls(*children, color=SemanticColor.SUCCESS, **kwargs)
     
     @classmethod
-    def error(
-        cls,  # TODO: Add type hint and description
-        *children,
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create an error/danger button"""
+    def error(cls, *children, **kwargs) -> 'Btn':
+        """Create an error/danger button."""
         return cls(*children, color=SemanticColor.ERROR, **kwargs)
     
     @classmethod
-    def warning(
-        cls,  # TODO: Add type hint and description
-        *children,
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create a warning button"""
+    def warning(cls, *children, **kwargs) -> 'Btn':
+        """Create a warning button."""
         return cls(*children, color=SemanticColor.WARNING, **kwargs)
     
     @classmethod
-    def info(
-        cls,  # TODO: Add type hint and description
-        *children,
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create an info button"""
+    def info(cls, *children, **kwargs) -> 'Btn':
+        """Create an info button."""
         return cls(*children, color=SemanticColor.INFO, **kwargs)
     
     @classmethod
-    def ghost(
-        cls,  # TODO: Add type hint and description
-        *children,
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create a ghost button"""
+    def ghost(cls, *children, **kwargs) -> 'Btn':
+        """Create a ghost button."""
         kwargs['style'] = StyleType.GHOST
         return cls(*children, **kwargs)
     
     @classmethod
-    def link(
-        cls,  # TODO: Add type hint and description
-        *children,
-        href: str,
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create a link-styled button"""
+    def link(cls, *children, href: str, **kwargs) -> 'Btn':
+        """Create a link-styled button."""
         kwargs['style'] = StyleType.LINK
         kwargs['href'] = href
         return cls(*children, **kwargs)
     
     @classmethod
-    def outline(
-        cls,  # TODO: Add type hint and description
-        *children,
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create an outline button"""
+    def outline(cls, *children, **kwargs) -> 'Btn':
+        """Create an outline button."""
         kwargs['style'] = StyleType.OUTLINE
         return cls(*children, **kwargs)
     
     @classmethod
-    def icon(
-        cls,  # TODO: Add type hint and description
-        icon: FT,  # TODO: Add description
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create an icon-only button (typically square or circle)"""
+    def icon(cls, icon: FT, **kwargs) -> 'Btn':
+        """Create an icon-only button (typically square or circle)."""
         kwargs.setdefault('shape', ButtonShape.SQUARE)
         return cls(icon, **kwargs)
     
     @classmethod
-    def submit(
-        cls,  # TODO: Add type hint and description
-        text: str = "Submit",  # TODO: Add description
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create a submit button"""
+    def submit(cls, text: str = "Submit", **kwargs) -> 'Btn':
+        """Create a submit button."""
         return cls(text, type="submit", color=SemanticColor.PRIMARY, **kwargs)
     
     @classmethod
-    def cancel(
-        cls,  # TODO: Add type hint and description
-        text: str = "Cancel",  # TODO: Add description
-        **kwargs
-    ) -> 'Btn':  # TODO: Add return description
-        """Create a cancel button"""
+    def cancel(cls, text: str = "Cancel", **kwargs) -> 'Btn':
+        """Create a cancel button."""
         kwargs['style'] = StyleType.GHOST
         return cls(text, **kwargs)

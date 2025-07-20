@@ -10,13 +10,25 @@ from typing import Dict, Any, Optional, List, Union, Literal, Callable
 from dataclasses import dataclass, field
 from enum import Enum
 from fasthtml.common import *
-from .types import HTMXTrigger, HTMXSwap, SemanticColor
-from .base import DaisyComponent
+from cjm_fasthtml_daisyui.core.types import (
+    # Type aliases
+    HTMLAttrs,
+    CSSClasses,
+    HTMXValue,
+    # Enums
+    HTMXTrigger,
+    HTMXSwap,
+    SemanticColor,
+    DaisyComponentType,
+    # Utility functions
+    ensure_dict
+)
+from .base import ValidatedDaisyComponent, DaisyComponent
 
 # %% ../../nbs/core/htmx.ipynb 4
 @dataclass
 class HTMXAttrs:
-    """Container for HTMX attributes"""
+    """Container for HTMX attributes with type-safe values."""
     hx_get: Optional[str] = None
     hx_post: Optional[str] = None
     hx_put: Optional[str] = None
@@ -29,18 +41,20 @@ class HTMXAttrs:
     hx_push_url: Optional[Union[bool, str]] = None
     hx_select: Optional[str] = None
     hx_select_oob: Optional[str] = None
-    hx_vals: Optional[Union[str, Dict[str, Any]]] = None
+    hx_vals: Optional[HTMXValue] = None  # Using HTMXValue type alias
     hx_confirm: Optional[str] = None
     hx_disable: Optional[bool] = None
     hx_disabled_elt: Optional[str] = None
     hx_include: Optional[str] = None
     hx_ext: Optional[str] = None
     
-    def to_dict(
-        self
-    ) -> Dict[str, Any]:  # TODO: Add return description
-        """Convert to dictionary of attributes"""
-        attrs = {}
+    def to_dict(self) -> HTMLAttrs:
+        """Convert to dictionary of HTML attributes.
+        
+        Returns:
+            Dictionary with proper HTMX attribute names
+        """
+        attrs: HTMLAttrs = {}
         for key, value in self.__dict__.items():
             if value is not None:
                 # Convert Python snake_case to HTMX hyphenated attributes
@@ -59,33 +73,31 @@ class HTMXAttrs:
         return attrs
 
 # %% ../../nbs/core/htmx.ipynb 6
-class HTMXComponent(DaisyComponent):
-    """
-    Base class for HTMX-aware daisyUI components
+class HTMXComponent(ValidatedDaisyComponent):
+    """Base class for HTMX-aware daisyUI components.
     
-    Extends DaisyComponent with HTMX attributes and helper methods
+    Extends ValidatedDaisyComponent with HTMX attributes and helper methods
     for building interactive components following FastHTML patterns.
     """
     
     def __init__(self, *args, htmx: Optional[HTMXAttrs] = None, **kwargs):
-        "TODO: Add function description"
+        """Initialize with optional HTMX attributes."""
         super().__init__(*args, **kwargs)
         self.htmx = htmx or HTMXAttrs()
     
     def with_htmx(
         self,
-        get: Optional[str] = None,  # TODO: Add description
-        post: Optional[str] = None,  # TODO: Add description
-        put: Optional[str] = None,  # TODO: Add description
-        patch: Optional[str] = None,  # TODO: Add description
-        delete: Optional[str] = None,  # TODO: Add description
+        get: Optional[str] = None,
+        post: Optional[str] = None,
+        put: Optional[str] = None,
+        patch: Optional[str] = None,
+        delete: Optional[str] = None,
         trigger: Optional[Union[HTMXTrigger, str]] = None,
-        target: Optional[str] = None,  # TODO: Add description
+        target: Optional[str] = None,
         swap: Optional[Union[HTMXSwap, str]] = None,
         **kwargs
-    ) -> 'HTMXComponent':  # TODO: Add return description
-        """
-        Configure HTMX attributes fluently
+    ) -> 'HTMXComponent':
+        """Configure HTMX attributes fluently.
         
         Args:
             get/post/put/patch/delete: URL endpoints
@@ -124,11 +136,10 @@ class HTMXComponent(DaisyComponent):
     
     def with_loading(
         self,
-        indicator_id: str,  # TODO: Add description
-        disable_during: Optional[str] = None  # TODO: Add description
-    ) -> 'HTMXComponent':  # TODO: Add return description
-        """
-        Configure loading indicators
+        indicator_id: str,
+        disable_during: Optional[str] = None
+    ) -> 'HTMXComponent':
+        """Configure loading indicators.
         
         Args:
             indicator_id: ID of the loading indicator element
@@ -144,10 +155,9 @@ class HTMXComponent(DaisyComponent):
     
     def with_confirmation(
         self,
-        message: str  # TODO: Add description
-    ) -> 'HTMXComponent':  # TODO: Add return description
-        """
-        Add confirmation dialog
+        message: str
+    ) -> 'HTMXComponent':
+        """Add confirmation dialog.
         
         Args:
             message: Confirmation message to show
@@ -158,10 +168,12 @@ class HTMXComponent(DaisyComponent):
         self.htmx.hx_confirm = message
         return self
     
-    def render_attrs(
-        self
-    ) -> Dict[str, Any]:  # TODO: Add return description
-        """Build all HTML attributes including HTMX"""
+    def render_attrs(self) -> HTMLAttrs:
+        """Build all HTML attributes including HTMX.
+        
+        Returns:
+            Dictionary of all HTML attributes
+        """
         attrs = super().render_attrs()
         
         # Add HTMX attributes
@@ -171,11 +183,18 @@ class HTMXComponent(DaisyComponent):
         return attrs
 
 # %% ../../nbs/core/htmx.ipynb 8
-def htmx_attrs(
-    **kwargs
-) -> Dict[str, Any]:  # Dictionary with proper HTMX attribute names
-    "Convert keyword arguments to HTMX attributes Converts Python-style names to HTMX attribute names: - get -> hx-get - trigger -> hx-trigger - etc."
-    attrs = {}
+def htmx_attrs(**kwargs) -> HTMLAttrs:
+    """Convert keyword arguments to HTMX attributes.
+    
+    Converts Python-style names to HTMX attribute names:
+    - get -> hx-get
+    - trigger -> hx-trigger
+    - etc.
+    
+    Returns:
+        Dictionary with proper HTMX attribute names
+    """
+    attrs: HTMLAttrs = {}
     for key, value in kwargs.items():
         # Convert to hx- prefix
         if not key.startswith('hx_'):

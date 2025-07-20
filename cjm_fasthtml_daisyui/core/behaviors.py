@@ -7,7 +7,7 @@ __all__ = ['HasBehaviors', 'InteractiveMixin', 'FormControlMixin']
 
 # %% ../../nbs/core/behaviors.ipynb 3
 from typing import List, Dict, Any, Optional
-from .types import CSSContributor, CSSClasses
+from .types import CSSContributor, CSSClasses, HTMLAttrs
 
 # %% ../../nbs/core/behaviors.ipynb 5
 class HasBehaviors(CSSContributor):
@@ -15,6 +15,9 @@ class HasBehaviors(CSSContributor):
     
     This mixin provides functionality for interactive components
     that can be active, disabled, loading, etc.
+    
+    Note: This mixin assumes it will be used with classes that provide
+    a `component_class()` method (typically components implementing ComponentProtocol).
     """
     
     # Behavior states
@@ -81,7 +84,7 @@ class HasBehaviors(CSSContributor):
     
     def behavior_attrs(
         self
-    ) -> Dict[str, Any]:  # TODO: Add return description
+    ) -> HTMLAttrs:  # TODO: Add return description
         """Return HTML attributes for behavior states."""
         attrs = {}
         
@@ -147,7 +150,7 @@ class FormControlMixin:
     
     def form_attrs(
         self
-    ) -> Dict[str, Any]:  # TODO: Add return description
+    ) -> HTMLAttrs:  # TODO: Add return description
         """Return form-related HTML attributes."""
         attrs = {}
         
