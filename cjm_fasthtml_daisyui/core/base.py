@@ -54,7 +54,9 @@ class HasSize(CSSContributor):
     size: Optional[Union[DaisySize, str]] = None
     responsive_size: Optional[ResponsiveDict] = None  # e.g., {"md": "lg", "lg": "xl"}
     
-    def get_css_classes(self) -> CSSClasses:
+    def get_css_classes(
+        self
+    ) -> CSSClasses:  # List of CSS class strings for size modifiers
         """Get size-related CSS classes.
         
         Returns:
@@ -109,28 +111,26 @@ class DaisyComponent(ColorMixin, ComponentProtocol):
     tw_margin: Optional[Union[int, str]] = None
     tw_utilities: Optional[CSSClasses] = None  # Raw Tailwind utilities
     
-    def component_class(self) -> str:
+    def component_class(
+        self
+    ) -> str:  # The base component class name (e.g., 'btn', 'card')
         """Return the base component class name (e.g., 'btn', 'card').
         
         Subclasses must implement this method.
         """
         raise NotImplementedError("Subclasses must implement component_class()")
     
-    def modifier_classes(self) -> CSSClasses:
-        """Return all modifier classes for this component.
-        
-        Returns:
-            List of modifier CSS classes
-        """
+    def modifier_classes(
+        self
+    ) -> CSSClasses:  # List of modifier CSS classes
+        """Return all modifier classes for this component."""
         # Subclasses should override this to add their specific modifiers
         return []
     
-    def build_classes(self) -> str:
-        """Build complete class string with deduplication.
-        
-        Returns:
-            Space-separated string of all CSS classes
-        """
+    def build_classes(
+        self
+    ) -> str:  # Space-separated string of all CSS classes
+        """Build complete class string with deduplication."""
         # Use a set to collect all unique classes
         all_classes = set()
         
@@ -188,12 +188,10 @@ class DaisyComponent(ColorMixin, ComponentProtocol):
         # Sort to ensure consistent order
         return " ".join(sorted(all_classes))
     
-    def render_attrs(self) -> HTMLAttrs:
-        """Build all HTML attributes for rendering.
-        
-        Returns:
-            Dictionary of HTML attributes
-        """
+    def render_attrs(
+        self
+    ) -> HTMLAttrs:  # Dictionary of HTML attributes
+        """Build all HTML attributes for rendering."""
         attrs: HTMLAttrs = {**self.attrs}
         attrs["class"] = self.build_classes()
         
@@ -204,16 +202,9 @@ class DaisyComponent(ColorMixin, ComponentProtocol):
         
     def with_utilities(
         self,
-        *utilities: str
-    ) -> 'DaisyComponent':
-        """Add Tailwind utilities and return self for chaining.
-        
-        Args:
-            *utilities: Tailwind utility classes to add
-            
-        Returns:
-            Self for method chaining
-        """
+        *utilities: str # Tailwind utility classes to add
+    ) -> 'DaisyComponent':  # Self for method chaining
+        """Add Tailwind utilities and return self for chaining."""
         if self.tw_utilities is None:
             self.tw_utilities = []
         self.tw_utilities.extend(utilities)
@@ -221,22 +212,12 @@ class DaisyComponent(ColorMixin, ComponentProtocol):
     
     def with_semantic_colors(
         self,
-        bg: Optional[Union[SemanticColor, str]] = None,
-        text: Optional[Union[SemanticColor, str]] = None,
-        border: Optional[Union[SemanticColor, str]] = None,
-        auto_content: bool = True
-    ) -> 'DaisyComponent':
-        """Apply semantic colors with automatic content color selection.
-        
-        Args:
-            bg: Background color
-            text: Text color (auto-selected if None and auto_content=True)
-            border: Border color  
-            auto_content: Automatically select appropriate text color for background
-            
-        Returns:
-            Self for method chaining
-        """
+        bg: Optional[Union[SemanticColor, str]] = None, # Background color
+        text: Optional[Union[SemanticColor, str]] = None, # Text color (auto-selected if None and auto_content=True)
+        border: Optional[Union[SemanticColor, str]] = None, # Border color
+        auto_content: bool = True  # Automatically select appropriate text color for background
+    ) -> 'DaisyComponent':  # Self for method chaining
+        """Apply semantic colors with automatic content color selection."""
         classes = ensure_list(apply_semantic_colors(bg, text, border, auto_content))
         return self.with_utilities(*classes)
 
@@ -252,7 +233,9 @@ class ValidatedDaisyComponent(DaisyComponent):
     # Component type for validation
     component_type: Optional[DaisyComponentType] = None
     
-    def component_class(self) -> str:
+    def component_class(
+        self
+    ) -> str:  # The base component class name with validation
         """Return the base component class name with validation.
         
         If component_type is set, returns its value.
@@ -262,7 +245,9 @@ class ValidatedDaisyComponent(DaisyComponent):
             return self.component_type.value
         return super().component_class()
     
-    def validate_component_type(self):
+    def validate_component_type(
+        self
+    ) -> None: # Validates component type if specified
         """Validate component type if specified.
         
         This should be called by subclasses after they've set up

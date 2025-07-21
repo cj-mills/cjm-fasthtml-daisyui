@@ -21,8 +21,8 @@ class ResourceVersions:
     
     def get_daisyui_url(
         self,
-        provider: CDNProvider = CDNProvider.JSDELIVR  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+        provider: CDNProvider = CDNProvider.JSDELIVR  # CDN provider to use for fetching resources
+    ) -> str:  # Full CDN URL for daisyUI CSS
         """Get the full CDN URL for daisyUI"""
         base = provider.get_base_url()
         if provider == CDNProvider.JSDELIVR:
@@ -35,8 +35,8 @@ class ResourceVersions:
 
     def get_daisyui_themes_url(
         self,
-        provider: CDNProvider = CDNProvider.JSDELIVR  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+        provider: CDNProvider = CDNProvider.JSDELIVR  # CDN provider to use for fetching resources
+    ) -> str:  # Full CDN URL for daisyUI themes CSS
         """Get the full CDN URL for daisyUI themes"""
         base = provider.get_base_url()
         if provider == CDNProvider.JSDELIVR:
@@ -49,8 +49,8 @@ class ResourceVersions:
     
     def get_tailwind_url(
         self,
-        provider: CDNProvider = CDNProvider.JSDELIVR  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+        provider: CDNProvider = CDNProvider.JSDELIVR  # CDN provider to use for fetching resources
+    ) -> str:  # Full CDN URL for Tailwind CSS browser JavaScript
         """Get the full CDN URL for Tailwind CSS browser version"""
         base = provider.get_base_url()
         if provider == CDNProvider.JSDELIVR:
@@ -67,25 +67,13 @@ class DaisyUIResources:
     
     @staticmethod
     def cdn_headers(
-        versions: Optional[ResourceVersions] = None,  # TODO: Add description
-        provider: CDNProvider = CDNProvider.JSDELIVR,  # TODO: Add description
-        include_tailwind: bool = True,  # TODO: Add description
-        additional_css: Optional[List[str]] = None,  # TODO: Add description
-        additional_js: Optional[List[str]] = None  # TODO: Add description
-    ) -> List[FT]:  # TODO: Add return description
-        """
-        CDN-based resources for quick testing and development
-        
-        Args:
-            versions: Version configuration (defaults to latest stable)
-            provider: CDN provider to use
-            include_tailwind: Whether to include Tailwind CSS browser version
-            additional_css: Extra CSS files to include
-            additional_js: Extra JS files to include
-            
-        Returns:
-            List of FastHTML header elements
-        """
+        versions: Optional[ResourceVersions] = None,  # Version configuration for daisyUI and Tailwind
+        provider: CDNProvider = CDNProvider.JSDELIVR,  # CDN provider to use for fetching resources
+        include_tailwind: bool = True,  # Whether to include Tailwind CSS browser JavaScript
+        additional_css: Optional[List[str]] = None,  # List of additional CSS URLs to include
+        additional_js: Optional[List[str]] = None  # List of additional JavaScript URLs to include
+    ) -> List[FT]:  # List of FastHTML elements (Link and Script tags)
+        """CDN-based resources for quick testing and development"""
         versions = versions or ResourceVersions()
         headers = []
         
@@ -117,23 +105,12 @@ class DaisyUIResources:
 
     @staticmethod
     def local_headers(
-        css_path: str = "/static/styles.css",  # TODO: Add description
-        js_paths: Optional[List[str]] = None,  # TODO: Add description
-        additional_css: Optional[List[str]] = None,  # TODO: Add description
-        additional_js: Optional[List[str]] = None  # TODO: Add description
-    ) -> List[FT]:  # TODO: Add return description
-        """
-        Local file-based resources for production use
-        
-        Args:
-            css_path: Path to compiled CSS file containing Tailwind + daisyUI
-            js_paths: Paths to any JavaScript files
-            additional_css: Extra CSS files to include
-            additional_js: Extra JS files to include
-            
-        Returns:
-            List of FastHTML header elements
-        """
+        css_path: str = "/static/styles.css",  # Path to compiled CSS file
+        js_paths: Optional[List[str]] = None,  # List of paths to JavaScript files
+        additional_css: Optional[List[str]] = None,  # List of additional CSS paths
+        additional_js: Optional[List[str]] = None  # List of additional JavaScript paths
+    ) -> List[FT]:  # List of FastHTML elements (Link and Script tags)
+        """Local file-based resources for production use"""
         headers = []
         
         # Add main compiled CSS
@@ -158,31 +135,17 @@ class DaisyUIResources:
 
     @staticmethod
     def inline_css(
-        content: str,  # TODO: Add description
-        id: Optional[str] = None  # TODO: Add description
-    ) -> Style:  # TODO: Add return description
-        """
-        Create an inline CSS style element
-        
-        Args:
-            content: CSS content to inline
-            id: Optional ID for the style element
-            
-        Returns:
-            FastHTML Style element
-        """
+        content: str,  # CSS content to embed inline
+        id: Optional[str] = None  # Optional ID attribute for the style element
+    ) -> Style:  # FastHTML Style element
+        """Create an inline CSS style element"""
         attrs = {"id": id} if id else {}
         return Style(content, **attrs)
 
     @staticmethod
     def minimal_css(
-    ) -> str:  # TODO: Add return description
-        """
-        Get minimal CSS for Tailwind v4 with daisyUI plugin
-        
-        Returns:
-            CSS string with Tailwind and daisyUI imports
-        """
+    ) -> str:  # Minimal CSS string with Tailwind and daisyUI imports
+        """Get minimal CSS for Tailwind v4 with daisyUI plugin"""
         return '''@import "tailwindcss";
 @plugin "daisyui";'''
 
@@ -192,20 +155,20 @@ class ResourcePresets:
     
     @staticmethod
     def development(
-    ) -> List[FT]:  # TODO: Add return description
+    ) -> List[FT]:  # List of FastHTML header elements for development
         """Quick development setup with CDN resources"""
         return DaisyUIResources.cdn_headers()
     
     @staticmethod
     def production(
-        css_path: str = "/static/styles.css"  # TODO: Add description
-    ) -> List[FT]:  # TODO: Add return description
+        css_path: str = "/static/styles.css"  # Path to compiled production CSS file
+    ) -> List[FT]:  # List of FastHTML header elements for production
         """Production setup with compiled CSS"""
         return DaisyUIResources.local_headers(css_path=css_path)
     
     @staticmethod
     def testing(
-    ) -> List[FT]:  # TODO: Add return description
+    ) -> List[FT]:  # List of FastHTML header elements for testing
         """Testing setup with fast CDN and no caching"""
         headers = DaisyUIResources.cdn_headers()
         # Add cache-busting meta tag
@@ -216,9 +179,9 @@ class ResourcePresets:
     
     @staticmethod
     def offline(
-        css_path: str = "/static/daisyui.css",  # TODO: Add description
-        tailwind_path: str = "/static/tailwind.js"  # TODO: Add description
-    ) -> List[FT]:  # TODO: Add return description
+        css_path: str = "/static/daisyui.css",  # Path to local daisyUI CSS file
+        tailwind_path: str = "/static/tailwind.js"  # Path to local Tailwind browser JavaScript
+    ) -> List[FT]:  # List of FastHTML header elements for offline use
         """Completely offline setup with local files"""
         return [
             Link(rel="stylesheet", href=css_path),
@@ -238,8 +201,8 @@ class ResourceOptimization:
     
     def apply_to_link(
         self,
-        link_attrs: Dict[str, str]  # TODO: Add description
-    ) -> Dict[str, str]:  # TODO: Add return description
+        link_attrs: Dict[str, str]  # Dictionary of link element attributes
+    ) -> Dict[str, str]:  # Updated dictionary with optimization attributes applied
         """Apply optimization attributes to a link element"""
         if self.preload:
             link_attrs["rel"] = "preload"
@@ -257,8 +220,8 @@ class ResourceOptimization:
     
     def apply_to_script(
         self,
-        script_attrs: Dict[str, str]  # TODO: Add description
-    ) -> Dict[str, str]:  # TODO: Add return description
+        script_attrs: Dict[str, str]  # Dictionary of script element attributes
+    ) -> Dict[str, str]:  # Updated dictionary with optimization attributes applied
         """Apply optimization attributes to a script element"""
         if self.async_load:
             script_attrs["async"] = "true"
@@ -279,15 +242,15 @@ class ResourceManager:
     Advanced resource manager with caching and optimization
     """
     def __init__(self):
-        "TODO: Add function description"
+        """Initialize resource manager with cache and default optimization settings"""
         self._cache: Dict[str, List[FT]] = {}
         self._optimization = ResourceOptimization()
     
     def get_optimized_headers(
         self,
-        key: str = "default",  # TODO: Add description
-        force_refresh: bool = False  # TODO: Add description
-    ) -> List[FT]:  # TODO: Add return description
+        key: str = "default",  # Cache key to use for storing/retrieving headers
+        force_refresh: bool = False  # Whether to bypass cache and rebuild headers
+    ) -> List[FT]:  # List of cached or newly built FastHTML header elements
         """Get cached headers with optimization"""
         if key not in self._cache or force_refresh:
             self._cache[key] = self._build_optimized_headers()
@@ -295,13 +258,13 @@ class ResourceManager:
     
     def _build_optimized_headers(
         self
-    ) -> List[FT]:  # TODO: Add return description
+    ) -> List[FT]:  # List of optimized FastHTML header elements
         """Build optimized headers"""
         # This would be implemented based on specific needs
         return DaisyUIResources.cdn_headers()
     
     def clear_cache(
         self
-    ): # TODO: Add type hint
+    ) -> None:
         """Clear the resource cache"""
         self._cache.clear()

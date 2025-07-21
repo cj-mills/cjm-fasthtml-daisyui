@@ -11,26 +11,14 @@ from fasthtml.common import *
 
 # %% ../../nbs/core/elements.ipynb 5
 def create_element(
-    tag: str,  # HTML tag name (e.g., 'div', 'span', 'button')
-    *children,  # Child elements
-    **attrs  # HTML attributes
-) -> FT:  # FastHTML element
+    tag: str,  # The HTML tag name (case-insensitive)
+    *children,  # Child elements to include
+    **attrs  # HTML attributes for the element
+) -> FT:  # A FastHTML element of the specified type
     """Create a FastHTML element from a tag name.
     
     This function provides a centralized way to create HTML elements,
     avoiding duplication across modules.
-    
-    Args:
-        tag: The HTML tag name (case-insensitive)
-        *children: Child elements to include
-        **attrs: HTML attributes for the element
-        
-    Returns:
-        A FastHTML element of the specified type
-        
-    Examples:
-        >>> create_element('div', 'Hello', cls='container')
-        >>> create_element('button', 'Click me', type='submit')
     """
     tag_lower = tag.lower()
     

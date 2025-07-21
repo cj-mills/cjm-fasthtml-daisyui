@@ -48,12 +48,10 @@ class HTMXAttrs:
     hx_include: Optional[str] = None
     hx_ext: Optional[str] = None
     
-    def to_dict(self) -> HTMLAttrs:
-        """Convert to dictionary of HTML attributes.
-        
-        Returns:
-            Dictionary with proper HTMX attribute names
-        """
+    def to_dict(
+        self
+    ) -> HTMLAttrs:  # Dictionary of HTML attributes with HTMX prefixes
+        """Convert to dictionary of HTML attributes."""
         attrs: HTMLAttrs = {}
         for key, value in self.__dict__.items():
             if value is not None:
@@ -87,28 +85,17 @@ class HTMXComponent(ValidatedDaisyComponent):
     
     def with_htmx(
         self,
-        get: Optional[str] = None,
-        post: Optional[str] = None,
-        put: Optional[str] = None,
-        patch: Optional[str] = None,
-        delete: Optional[str] = None,
+        get: Optional[str] = None,  # URL endpoint for GET request
+        post: Optional[str] = None,  # URL endpoint for POST request
+        put: Optional[str] = None,  # URL endpoint for PUT request
+        patch: Optional[str] = None,  # URL endpoint for PATCH request
+        delete: Optional[str] = None,  # URL endpoint for DELETE request
         trigger: Optional[Union[HTMXTrigger, str]] = None,
-        target: Optional[str] = None,
+        target: Optional[str] = None,  # CSS selector for element to update
         swap: Optional[Union[HTMXSwap, str]] = None,
         **kwargs
-    ) -> 'HTMXComponent':
-        """Configure HTMX attributes fluently.
-        
-        Args:
-            get/post/put/patch/delete: URL endpoints
-            trigger: Event that triggers the request
-            target: CSS selector for target element
-            swap: How to swap the response
-            **kwargs: Additional HTMX attributes
-            
-        Returns:
-            Self for method chaining
-        """
+    ) -> 'HTMXComponent':  # Self for method chaining
+        """Configure HTMX attributes fluently."""
         if get:
             self.htmx.hx_get = get
         if post:
@@ -136,18 +123,10 @@ class HTMXComponent(ValidatedDaisyComponent):
     
     def with_loading(
         self,
-        indicator_id: str,
-        disable_during: Optional[str] = None
-    ) -> 'HTMXComponent':
-        """Configure loading indicators.
-        
-        Args:
-            indicator_id: ID of the loading indicator element
-            disable_during: CSS selector of elements to disable during request
-            
-        Returns:
-            Self for method chaining
-        """
+        indicator_id: str,  # ID of the loading indicator element to show during request
+        disable_during: Optional[str] = None  # CSS selector of elements to disable during request
+    ) -> 'HTMXComponent':  # Self for method chaining
+        """Configure loading indicators."""
         self.htmx.hx_indicator = f"#{indicator_id}"
         if disable_during:
             self.htmx.hx_disabled_elt = disable_during
@@ -155,25 +134,16 @@ class HTMXComponent(ValidatedDaisyComponent):
     
     def with_confirmation(
         self,
-        message: str
-    ) -> 'HTMXComponent':
-        """Add confirmation dialog.
-        
-        Args:
-            message: Confirmation message to show
-            
-        Returns:
-            Self for method chaining
-        """
+        message: str  # Confirmation message to display before request
+    ) -> 'HTMXComponent':  # Self for method chaining
+        """Add confirmation dialog."""
         self.htmx.hx_confirm = message
         return self
     
-    def render_attrs(self) -> HTMLAttrs:
-        """Build all HTML attributes including HTMX.
-        
-        Returns:
-            Dictionary of all HTML attributes
-        """
+    def render_attrs(
+        self
+    ) -> HTMLAttrs:  # Combined dictionary of all HTML and HTMX attributes
+        """Build all HTML attributes including HTMX."""
         attrs = super().render_attrs()
         
         # Add HTMX attributes
@@ -183,17 +153,10 @@ class HTMXComponent(ValidatedDaisyComponent):
         return attrs
 
 # %% ../../nbs/core/htmx.ipynb 8
-def htmx_attrs(**kwargs) -> HTMLAttrs:
-    """Convert keyword arguments to HTMX attributes.
-    
-    Converts Python-style names to HTMX attribute names:
-    - get -> hx-get
-    - trigger -> hx-trigger
-    - etc.
-    
-    Returns:
-        Dictionary with proper HTMX attribute names
-    """
+def htmx_attrs(
+    **kwargs
+) -> HTMLAttrs:  # Dictionary with proper HTMX attribute names
+    """Convert keyword arguments to HTMX attributes."""
     attrs: HTMLAttrs = {}
     for key, value in kwargs.items():
         # Convert to hx- prefix
@@ -220,11 +183,15 @@ def htmx_attrs(**kwargs) -> HTMLAttrs:
 
 # %% ../../nbs/core/htmx.ipynb 9
 def loading_indicator(
-    indicator_id: str,  # ID for the indicator
-    text: str = "Loading...",  # Loading text
+    indicator_id: str,  # ID for the indicator element
+    text: str = "Loading...",  # Text to display next to spinner
     size: str = "md"  # Size of spinner (xs, sm, md, lg, xl)
 ) -> FT:  # Loading indicator element
-    "Create a loading indicator element"
+    """Create a loading indicator element.
+    
+    Creates a daisyUI loading spinner with text, initially hidden.
+    Use with HTMXComponent.with_loading() to show during requests.
+    """
     return Div(
         Span(cls=f"loading loading-spinner loading-{size}"),
         " ",
@@ -235,12 +202,16 @@ def loading_indicator(
 
 # %% ../../nbs/core/htmx.ipynb 10
 def oob_alert(
-    message: str,  # Alert message
-    alert_type: str = "info",  # Type (info, success, warning, error)
-    target_id: str = "alerts",  # ID of container to append to
+    message: str,  # Alert message to display
+    alert_type: str = "info",  # Type of alert (info, success, warning, error)
+    target_id: str = "alerts",  # ID of container element to append alert to
     auto_dismiss: Optional[int] = 5000  # Auto dismiss after milliseconds (None to disable)
-) -> FT:  # Alert element with OOB swap
-    "Create out-of-band alert message"
+) -> FT:  # Alert element with out-of-band swap attribute
+    """Create out-of-band alert message.
+    
+    Creates a daisyUI alert that can be swapped out-of-band into any page.
+    Useful for showing feedback messages after HTMX requests.
+    """
     alert_id = f"alert-{id(message)}"
     
     alert = Div(

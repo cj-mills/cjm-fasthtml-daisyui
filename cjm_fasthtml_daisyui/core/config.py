@@ -30,7 +30,7 @@ class ThemeConfig:
     
     def to_string(
         self
-    ) -> str:  # TODO: Add return description
+    ) -> str:  # daisyUI config string
         """Convert to daisyUI config string format"""
         theme_name = self.name.value if isinstance(self.name, DaisyUITheme) else self.name
         
@@ -49,31 +49,24 @@ class ThemeConfig:
 class DaisyUIConfig:
     """
     Complete daisyUI configuration for FastHTML projects
-    
-    Attributes:
-        themes: List of themes to include (can be theme names or ThemeConfig objects)
-        root: CSS selector for root element (default: ":root")
-        include: Components to explicitly include (empty means all)
-        exclude: Components to exclude
-        prefix: Prefix for all daisyUI classes
-        logs: Enable/disable console logs
     """
+    # List of themes to include (can be theme names or ThemeConfig objects)
     themes: List[Union[DaisyUITheme, str, ThemeConfig]] = field(default_factory=lambda: [
         ThemeConfig(DaisyUITheme.LIGHT, is_default=True),
         ThemeConfig(DaisyUITheme.DARK, is_prefers_dark=True)
     ])
-    root: str = ":root"
-    include: List[str] = field(default_factory=list)
-    exclude: List[Union[ExcludeFeature, str]] = field(default_factory=list)
-    prefix: str = ""
-    logs: bool = True
+    root: str = ":root" # CSS selector for root element
+    include: List[str] = field(default_factory=list) # Components to explicitly include (empty means all)
+    exclude: List[Union[ExcludeFeature, str]] = field(default_factory=list) # Components to exclude
+    prefix: str = "" # Prefix for all daisyUI classes
+    logs: bool = True # Enable/disable console logs
     
     def add_theme(
         self, 
         theme: Union[DaisyUITheme, str],
-        is_default: bool = False,  # TODO: Add description
-        is_prefers_dark: bool = False  # TODO: Add description
-    ) -> "DaisyUIConfig":  # TODO: Add return description
+        is_default: bool = False,  # If True, sets this theme as the default theme
+        is_prefers_dark: bool = False  # If True, sets this theme as the preferred dark theme
+    ) -> "DaisyUIConfig":  # Returns self for method chaining
         """Add a theme to the configuration"""
         theme_config = ThemeConfig(theme, is_default, is_prefers_dark)
         
@@ -94,8 +87,8 @@ class DaisyUIConfig:
     
     def exclude_feature(
         self,
-        feature: Union[ExcludeFeature, str]  # TODO: Add description
-    ) -> "DaisyUIConfig":  # TODO: Add return description
+        feature: Union[ExcludeFeature, str]  # Feature to exclude from daisyUI
+    ) -> "DaisyUIConfig":  # Returns self for method chaining
         """Exclude a feature from daisyUI"""
         if feature not in self.exclude:
             self.exclude.append(feature)
@@ -103,15 +96,15 @@ class DaisyUIConfig:
     
     def set_prefix(
         self,
-        prefix: str  # TODO: Add description
-    ) -> "DaisyUIConfig":  # TODO: Add return description
+        prefix: str  # Prefix to add to all daisyUI class names
+    ) -> "DaisyUIConfig":  # Returns self for method chaining
         """Set a prefix for all daisyUI classes"""
         self.prefix = prefix
         return self
     
     def _format_themes(
         self
-    ) -> str:  # TODO: Add return description
+    ) -> str:  # Formatted theme string for CSS output
         """Format themes for CSS output"""
         theme_strings = []
         
@@ -127,7 +120,7 @@ class DaisyUIConfig:
     
     def _format_exclude(
         self
-    ) -> str:  # TODO: Add return description
+    ) -> str:  # Formatted exclude string for CSS output
         """Format exclude list for CSS output"""
         exclude_strings = []
         
@@ -141,7 +134,7 @@ class DaisyUIConfig:
     
     def to_css(
         self
-    ) -> str:  # TODO: Add return description
+    ) -> str:  # Complete CSS configuration string for daisyUI
         """Generate CSS configuration string"""
         lines = ['@import "tailwindcss";']
         
@@ -223,7 +216,7 @@ class ColorScheme:
     
     def to_css_vars(
         self
-    ) -> HTMLAttrs:  # TODO: Add return description
+    ) -> HTMLAttrs:  # Dictionary of CSS variable names to color values
         """Convert to CSS variable format"""
         return {
             "--color-base-100": self.base_100,
@@ -268,7 +261,7 @@ class ThemeDesignTokens:
     
     def to_css_vars(
         self
-    ) -> HTMLAttrs:  # TODO: Add return description
+    ) -> HTMLAttrs:  # Dictionary of CSS variable names to design token values
         """Convert to CSS variable format"""
         return {
             "--radius-selector": self.radius_selector,
@@ -294,7 +287,7 @@ class CustomTheme:
     
     def to_css(
         self
-    ) -> str:  # TODO: Add return description
+    ) -> str:  # CSS plugin configuration for the custom theme
         """Generate CSS for the custom theme"""
         lines = ['@plugin "daisyui/theme" {']
         lines.append(f'  name: "{self.name}";')
@@ -328,27 +321,27 @@ class ConfigManager:
     
     @staticmethod
     def save_to_file(
-        config: DaisyUIConfig,  # TODO: Add description
-        path: Union[str, Path]  # TODO: Add description
-    ): # TODO: Add type hint
+        config: DaisyUIConfig,  # Configuration object to save
+        path: Union[str, Path]  # File path where the CSS will be saved
+    ) -> None:
         """Save configuration to a CSS file"""
         path = Path(path)
         path.write_text(config.to_css())
     
     @staticmethod
     def save_custom_theme(
-        theme: CustomTheme,  # TODO: Add description
-        path: Union[str, Path]  # TODO: Add description
-    ): # TODO: Add type hint
+        theme: CustomTheme,  # Custom theme object to save
+        path: Union[str, Path]  # File path where the CSS will be saved
+    ) -> None:
         """Save custom theme to a CSS file"""
         path = Path(path)
         path.write_text(theme.to_css())
     
     @staticmethod
     def combine_with_custom_themes(
-        config: DaisyUIConfig,  # TODO: Add description
-        custom_themes: List[CustomTheme]  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+        config: DaisyUIConfig,  # Base configuration
+        custom_themes: List[CustomTheme]  # List of custom themes to include
+    ) -> str:  # Combined CSS string with config and custom themes
         """Combine configuration with custom themes"""
         lines = [config.to_css()]
         

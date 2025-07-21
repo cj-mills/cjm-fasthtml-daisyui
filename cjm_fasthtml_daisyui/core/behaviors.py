@@ -11,10 +11,18 @@ from .types import CSSContributor, CSSClasses, HTMLAttrs
 
 # %% ../../nbs/core/behaviors.ipynb 5
 class HasBehaviors(CSSContributor):
-    """Mixin for components with behavior states.
+    """Mixin for components with interactive behavior states.
     
-    This mixin provides functionality for interactive components
-    that can be active, disabled, loading, etc.
+    This mixin provides functionality for interactive components that can have
+    various behavior states like active, disabled, loading, open, and checked.
+    It implements the CSSContributor protocol to provide behavior-related CSS classes.
+    
+    Attributes:
+        active: Whether the component is in an active state (e.g., pressed button)
+        disabled: Whether the component is disabled and non-interactive
+        loading: Whether the component is in a loading state
+        open: Whether the component is open (for modals, dropdowns, etc.)
+        checked: Whether the component is checked (for checkboxes, toggles, etc.)
     
     Note: This mixin assumes it will be used with classes that provide
     a `component_class()` method (typically components implementing ComponentProtocol).
@@ -27,11 +35,14 @@ class HasBehaviors(CSSContributor):
     open: bool = False  # For modals, dropdowns, etc.
     checked: bool = False  # For checkboxes, toggles, etc.
     
-    def get_css_classes(self) -> CSSClasses:
+    def get_css_classes(
+        self
+    ) -> CSSClasses:  # List of CSS class strings for behavior states
         """Get behavior state classes.
         
-        Returns:
-            List of CSS class strings for behavior states
+        Generates CSS classes based on the current behavior states of the component.
+        Classes are only added if the component supports the specific behavior
+        and the state is active.
         """
         classes = []
         base = self.component_class()
@@ -60,32 +71,53 @@ class HasBehaviors(CSSContributor):
     
     def supports_active(
         self
-    ) -> bool:  # TODO: Add return description
-        """Whether this component supports active state."""
+    ) -> bool:  # Whether active state is supported
+        """Whether this component supports active state.
+        
+        Override this method in components that support active state
+        (e.g., buttons, links, tabs).
+        """
         return False
         
     def supports_disabled(
         self
-    ) -> bool:  # TODO: Add return description
-        """Whether this component supports disabled state."""
+    ) -> bool:  # True if the component supports disabled state, False otherwise
+        """Whether this component supports disabled state.
+        
+        Override this method in components that can be disabled
+        (e.g., buttons, inputs, form controls).
+        """
         return False
         
     def supports_loading(
         self
-    ) -> bool:  # TODO: Add return description
-        """Whether this component supports loading state."""
+    ) -> bool:  # Whether loading state is supported
+        """Whether this component supports loading state.
+        """
         return False
         
     def loading_uses_base_class(
         self
-    ) -> bool:  # TODO: Add return description
-        """Whether loading state uses 'loading' instead of '{component}-loading'."""
+    ) -> bool:  # Whether to use 'loading' or '{component}-loading'
+        """Whether loading state uses 'loading' instead of '{component}-loading'.
+        
+        Some components use a general 'loading' class while others use
+        component-specific loading classes like 'btn-loading'.
+        
+        Returns:
+            True to use 'loading', False to use '{component}-loading'
+        """
         return True
     
     def behavior_attrs(
         self
-    ) -> HTMLAttrs:  # TODO: Add return description
-        """Return HTML attributes for behavior states."""
+    ) -> HTMLAttrs:  # Dictionary of HTML attributes based on current behavior states
+        """Return HTML attributes for behavior states.
+        
+        Generates appropriate HTML attributes based on the current behavior states.
+        This includes both standard HTML attributes (disabled, checked, open) and
+        ARIA attributes for accessibility.
+        """
         attrs = {}
         
         if self.disabled and self.supports_disabled():
@@ -105,21 +137,26 @@ class HasBehaviors(CSSContributor):
 
 # %% ../../nbs/core/behaviors.ipynb 7
 class InteractiveMixin(HasBehaviors):
-    """Extended mixin for interactive components.
+    """Extended mixin for highly interactive components.
     
-    This combines HasBehaviors with additional interactive properties
+    This mixin extends HasBehaviors with additional interactive properties
     commonly needed for buttons, inputs, and other interactive elements.
+    It adds support for focus and hover states that can be styled through CSS.
+        
+    Inherits all behavior states from HasBehaviors: active, disabled, loading, open, checked
     """
     
     # Additional interactive properties
-    focus: bool = False
-    hover: bool = False
+    focus: bool = False # Whether the component is in a focused state
+    hover: bool = False # Whether the component is in a hovered state
     
-    def get_css_classes(self) -> CSSClasses:
+    def get_css_classes(
+        self
+    ) -> CSSClasses:  # List of CSS class strings for all interactive states
         """Get all interactive state classes.
         
-        Returns:
-            List of CSS class strings for interactive states
+        Extends the base behavior classes with focus and hover state classes.
+        This allows components to have visual feedback for all interaction states.
         """
         classes = super().get_css_classes()
         base = self.component_class()
@@ -136,22 +173,32 @@ class InteractiveMixin(HasBehaviors):
 class FormControlMixin:
     """Mixin for form control components.
     
-    This mixin provides common properties and methods for
-    form elements like inputs, selects, textareas, etc.
+    This mixin provides common properties and methods for form elements
+    like inputs, selects, textareas, checkboxes, and other form controls.
+    It standardizes the handling of form-related attributes across components.
+    
+    Note: This mixin does not inherit from CSSContributor as it focuses on
+    HTML attributes rather than CSS classes. It should be combined with
+    other mixins for complete component functionality.
     """
     
     # Form control properties
-    name: Optional[str] = None
-    value: Optional[str] = None
-    placeholder: Optional[str] = None
-    required: bool = False
-    readonly: bool = False
-    autofocus: bool = False
+    name: Optional[str] = None # Form field name for submission
+    value: Optional[str] = None # Current value of the form control
+    placeholder: Optional[str] = None # Placeholder text for input fields
+    required: bool = False # Whether the field is required for form submission
+    readonly: bool = False # Whether the field is read-only (visible but not editable)
+    autofocus: bool = False # Whether the field should receive focus on page load
     
     def form_attrs(
         self
-    ) -> HTMLAttrs:  # TODO: Add return description
-        """Return form-related HTML attributes."""
+    ) -> HTMLAttrs:  # Dictionary of form-related HTML attributes
+        """Return form-related HTML attributes.
+        
+        Generates standard HTML form attributes based on the current state
+        of the form control. Only includes attributes that have been set
+        to non-default values.
+        """
         attrs = {}
         
         if self.name:

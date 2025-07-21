@@ -23,7 +23,9 @@ class HasGlass(CSSContributor):
     # Glass effect property
     glass: bool = False
     
-    def get_css_classes(self) -> CSSClasses:
+    def get_css_classes(
+        self
+    ) -> CSSClasses:  # List of CSS class strings for glass effect
         """Get glass effect CSS classes.
         
         Returns:
@@ -47,8 +49,8 @@ class Variant:
     
     def get_classes(
         self,
-        value: Optional[str]  # TODO: Add description
-    ) -> List[str]:  # TODO: Add return description
+        value: Optional[str]  # The variant option value to get classes for
+    ) -> List[str]:  # List of CSS class strings for the variant value
         """Get classes for a variant value."""
         if value is None:
             value = self.default
@@ -74,15 +76,17 @@ class HasVariants(CSSContributor):
     
     @classmethod
     def variants(
-        cls  # TODO: Add type hint and description
-    ) -> Dict[str, Variant]:  # TODO: Add return description
+        cls  # The class type
+    ) -> Dict[str, Variant]:  # Dictionary mapping variant names to Variant objects
         """Define available variants.
         
         Subclasses should override this to define their variants.
         """
         return {}
     
-    def get_css_classes(self) -> CSSClasses:
+    def get_css_classes(
+        self
+    ) -> CSSClasses:  # List of CSS class strings from all active variants
         """Get all classes from variants.
         
         Returns:
@@ -99,9 +103,9 @@ class HasVariants(CSSContributor):
     
     def set_variant(
         self,
-        name: str,  # TODO: Add description
-        value: str  # TODO: Add description
-    ) -> 'HasVariants':  # TODO: Add return description
+        name: str,  # The variant name to set
+        value: str  # The variant value to apply
+    ) -> 'HasVariants':  # Self for method chaining
         """Set a variant value and return self for chaining."""
         self.variant_values[name] = value
         return self
@@ -115,8 +119,8 @@ class CompoundVariant:
     
     def matches(
         self,
-        variant_values: Dict[str, Optional[str]]  # TODO: Add description
-    ) -> bool:  # TODO: Add return description
+        variant_values: Dict[str, Optional[str]]  # Current variant values to check against conditions
+    ) -> bool:  # True if all conditions are met, False otherwise
         """Check if all conditions are met."""
         for variant_name, required_value in self.conditions.items():
             if variant_values.get(variant_name) != required_value:
@@ -125,7 +129,7 @@ class CompoundVariant:
     
     def get_classes(
         self
-    ) -> List[str]:  # TODO: Add return description
+    ) -> List[str]:  # List of CSS class strings for this compound variant
         """Get classes for this compound variant."""
         if isinstance(self.classes, str):
             return self.classes.split()
@@ -137,15 +141,17 @@ class HasCompoundVariants(HasVariants):
     
     @classmethod
     def compound_variants(
-        cls  # TODO: Add type hint and description
-    ) -> List[CompoundVariant]:  # TODO: Add return description
+        cls  # The class type
+    ) -> List[CompoundVariant]:  # List of compound variant definitions
         """Define compound variants.
         
         Subclasses should override this to define compound variants.
         """
         return []
     
-    def get_css_classes(self) -> CSSClasses:
+    def get_css_classes(
+        self
+    ) -> CSSClasses:  # List of CSS class strings from variants and compound variants
         """Get all classes from variants including compound variants.
         
         Returns:
@@ -162,15 +168,10 @@ class HasCompoundVariants(HasVariants):
 
 # %% ../../nbs/core/variants.ipynb 14
 # Helper function to create style variant for a specific component
-def create_style_variant(component_prefix: str) -> Variant:
-    """Create a style variant with component-specific class names.
-    
-    Args:
-        component_prefix: The component prefix (e.g., 'btn', 'badge')
-        
-    Returns:
-        Variant with component-specific style classes
-    """
+def create_style_variant(
+    component_prefix: str  # The component prefix (e.g., 'btn', 'badge')
+) -> Variant:  # Variant with component-specific style classes
+    "Create a style variant with component-specific class names."
     return Variant(
         name="style",
         options={

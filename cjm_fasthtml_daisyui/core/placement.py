@@ -24,12 +24,10 @@ class HasPlacement(CSSContributor):
     
     placement: Optional[Union[DaisyPosition, PlacementType, str]] = None
     
-    def get_css_classes(self) -> CSSClasses:
-        """Get placement classes.
-        
-        Returns:
-            List of CSS class strings for placement
-        """
+    def get_css_classes(
+        self
+    ) -> CSSClasses:  # Returns list of placement CSS classes
+        """Get placement classes."""
         if not self.placement:
             return []
             
@@ -47,19 +45,19 @@ class HasPlacement(CSSContributor):
     
     def uses_standard_placement(
         self
-    ) -> bool:  # TODO: Add return description
+    ) -> bool:  # Returns True if standard pattern, False otherwise
         """Whether component uses standard '{component}-{placement}' pattern."""
         return True
     
     def custom_placement_classes(
         self
-    ) -> List[str]:  # TODO: Add return description
+    ) -> List[str]:  # Returns list of custom CSS classes
         """Override for custom placement class patterns."""
         return []
     
     def valid_placements(
         self
-    ) -> List[Union[DaisyPosition, str]]:  # TODO: Add return description
+    ) -> List[Union[DaisyPosition, str]]:  # Returns list of valid placement positions
         """Return list of valid placement values for this component."""
         # Subclasses should override to specify valid placements
         # Return common positions by default
@@ -85,12 +83,10 @@ class HasDirection(CSSContributor):
     
     direction: Optional[DirectionType] = None
     
-    def get_css_classes(self) -> CSSClasses:
-        """Get direction classes.
-        
-        Returns:
-            List of CSS class strings for direction
-        """
+    def get_css_classes(
+        self
+    ) -> CSSClasses:  # Returns list of direction CSS classes
+        """Get direction classes."""
         if not self.direction:
             return []
             
@@ -99,13 +95,13 @@ class HasDirection(CSSContributor):
     
     def is_horizontal(
         self
-    ) -> bool:  # TODO: Add return description
+    ) -> bool:  # Returns True if direction is horizontal
         """Check if component is horizontal."""
         return self.direction == "horizontal"
     
     def is_vertical(
         self
-    ) -> bool:  # TODO: Add return description
+    ) -> bool:  # Returns True if direction is vertical
         """Check if component is vertical."""
         return self.direction == "vertical"
 
@@ -118,12 +114,10 @@ class HasPlacementAndDirection(HasPlacement, HasDirection):
     support both placement and direction options.
     """
     
-    def get_css_classes(self) -> CSSClasses:
-        """Get combined placement and direction classes.
-        
-        Returns:
-            List of CSS class strings for placement and direction
-        """
+    def get_css_classes(
+        self
+    ) -> CSSClasses:  # Returns combined placement and direction CSS classes
+        """Get combined placement and direction classes."""
         classes = []
         # Call parent classes' get_css_classes methods
         placement_classes = HasPlacement.get_css_classes(self)

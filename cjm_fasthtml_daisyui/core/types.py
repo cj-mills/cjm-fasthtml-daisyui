@@ -54,12 +54,10 @@ class CSSContributor(Protocol):
     to components, replacing the various `*_classes()` methods.
     """
     
-    def get_css_classes(self) -> CSSClasses:
-        """Return CSS classes from this contributor.
-        
-        Returns:
-            List of CSS class strings
-        """
+    def get_css_classes(
+        self
+    ) -> CSSClasses:  # List of CSS class strings
+        """Return CSS classes from this contributor."""
         ...
 
 # %% ../../nbs/core/types.ipynb 8
@@ -70,22 +68,10 @@ class FeatureSupport(Protocol):
     a component supports (color, size, glass, etc.).
     """
     
-    def get_supported_features(self) -> Dict[str, bool]:
-        """Return dictionary of supported features.
-        
-        Returns:
-            Dictionary mapping feature names to support status
-            
-        Example:
-            {
-                'color': True,
-                'size': True,
-                'glass': False,
-                'active': True,
-                'disabled': True,
-                'loading': False
-            }
-        """
+    def get_supported_features(
+        self
+    ) -> Dict[str, bool]:  # Mapping of feature names to boolean support status
+        """Return dictionary of supported features."""
         ...
 
 # %% ../../nbs/core/types.ipynb 9
@@ -95,15 +81,21 @@ class ComponentProtocol(Protocol):
     Defines the minimum interface that all components must implement.
     """
     
-    def component_class(self) -> str:
+    def component_class(
+        self
+    ) -> str:  # Base CSS class name for the component
         """Return the base component class name."""
         ...
     
-    def build_classes(self) -> str:
+    def build_classes(
+        self
+    ) -> str:  # Complete space-separated CSS class string
         """Build complete class string."""
         ...
     
-    def render_attrs(self) -> HTMLAttrs:
+    def render_attrs(
+        self
+    ) -> HTMLAttrs:  # Dictionary of HTML attributes ready for rendering
         """Build all HTML attributes for rendering."""
         ...
 
@@ -217,12 +209,16 @@ class DaisyComponentType(str, Enum):
     TAB = "tabs"  # Note: container uses 'tabs', individual items use 'tab'
     
     @classmethod
-    def get_actions(cls) -> List['DaisyComponentType']:
+    def get_actions(
+        cls  # The class itself
+    ) -> List['DaisyComponentType']:  # List of action component types
         """Get all action components."""
         return [cls.BUTTON, cls.DROPDOWN, cls.MODAL, cls.SWAP, cls.THEME_CONTROLLER]
     
     @classmethod
-    def get_data_display(cls) -> List['DaisyComponentType']:
+    def get_data_display(
+        cls  # The class itself
+    ) -> List['DaisyComponentType']:  # List of data display component types
         """Get all data display components."""
         return [
             cls.ACCORDION, cls.AVATAR, cls.BADGE, cls.CARD, cls.CAROUSEL,
@@ -231,7 +227,9 @@ class DaisyComponentType(str, Enum):
         ]
     
     @classmethod
-    def get_data_input(cls) -> List['DaisyComponentType']:
+    def get_data_input(
+        cls  # The class itself
+    ) -> List['DaisyComponentType']:  # List of data input component types
         """Get all data input components."""
         return [
             cls.CALENDAR, cls.CHECKBOX, cls.FIELDSET, cls.FILE_INPUT,
@@ -240,7 +238,9 @@ class DaisyComponentType(str, Enum):
         ]
     
     @classmethod
-    def get_feedback(cls) -> List['DaisyComponentType']:
+    def get_feedback(
+        cls  # The class itself
+    ) -> List['DaisyComponentType']:  # List of feedback component types
         """Get all feedback components."""
         return [
             cls.ALERT, cls.LOADING, cls.PROGRESS, cls.RADIAL_PROGRESS,
@@ -248,7 +248,9 @@ class DaisyComponentType(str, Enum):
         ]
     
     @classmethod
-    def get_layout(cls) -> List['DaisyComponentType']:
+    def get_layout(
+        cls  # The class itself
+    ) -> List['DaisyComponentType']:  # List of layout component types
         """Get all layout components."""
         return [
             cls.DIVIDER, cls.DRAWER, cls.FOOTER, cls.HERO,
@@ -256,7 +258,9 @@ class DaisyComponentType(str, Enum):
         ]
     
     @classmethod
-    def get_mockup(cls) -> List['DaisyComponentType']:
+    def get_mockup(
+        cls  # The class itself
+    ) -> List['DaisyComponentType']:  # List of mockup component types
         """Get all mockup components."""
         return [
             cls.MOCKUP_BROWSER, cls.MOCKUP_CODE,
@@ -264,18 +268,24 @@ class DaisyComponentType(str, Enum):
         ]
     
     @classmethod
-    def get_navigation(cls) -> List['DaisyComponentType']:
+    def get_navigation(
+        cls  # The class itself
+    ) -> List['DaisyComponentType']:  # List of navigation component types
         """Get all navigation components."""
         return [
             cls.BREADCRUMBS, cls.DOCK, cls.LINK, cls.MENU,
             cls.NAVBAR, cls.PAGINATION, cls.STEPS, cls.TAB
         ]
     
-    def get_component_class(self) -> str:
+    def get_component_class(
+        self
+    ) -> str:  # The base CSS class name for this component
         """Get the base CSS class name for this component type."""
         return self.value
     
-    def get_category(self) -> str:
+    def get_category(
+        self
+    ) -> str:  # The category name as a string
         """Get the category this component belongs to."""
         if self in self.get_actions():
             return "actions"
@@ -368,7 +378,7 @@ class SemanticColor(str, Enum):
     
     def with_content(
         self
-    ) -> "SemanticColor":  # TODO: Add return description
+    ) -> "SemanticColor":  # The corresponding content color for this semantic color
         """Get the corresponding content color for this semantic color"""
         content_map = {
             self.PRIMARY: self.PRIMARY_CONTENT,
@@ -384,25 +394,25 @@ class SemanticColor(str, Enum):
     
     def is_brand_color(
         self
-    ) -> bool:  # TODO: Add return description
+    ) -> bool:  # True if this is a brand color (primary, secondary, accent, or neutral)
         """Check if this is a brand color"""
         return self in {self.PRIMARY, self.SECONDARY, self.ACCENT, self.NEUTRAL}
     
     def is_state_color(
         self
-    ) -> bool:  # TODO: Add return description
+    ) -> bool:  # True if this is a state/semantic color (info, success, warning, or error)
         """Check if this is a state/semantic color"""
         return self in {self.INFO, self.SUCCESS, self.WARNING, self.ERROR}
     
     def is_base_color(
         self
-    ) -> bool:  # TODO: Add return description
+    ) -> bool:  # True if this is a base/surface color (base-100, base-200, base-300, or base-content)
         """Check if this is a base/surface color"""
         return self in {self.BASE_100, self.BASE_200, self.BASE_300, self.BASE_CONTENT}
     
     def is_content_color(
         self
-    ) -> bool:  # TODO: Add return description
+    ) -> bool:  # True if this is a content/text color (ends with "-content")
         """Check if this is a content/text color"""
         return self.value.endswith("-content")
 
@@ -422,8 +432,8 @@ class ColorUtility(str, Enum):
     
     def with_color(
         self,
-        color: Union[SemanticColor, str]  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+        color: Union[SemanticColor, str]  # A SemanticColor enum value or string color name
+    ) -> str:  # The complete utility class string (e.g., "bg-primary", "text-error")
         """Generate a utility class with a color"""
         color_value = color.value if isinstance(color, SemanticColor) else color
         return f"{self.value}-{color_value}"
@@ -478,21 +488,21 @@ class HTMXTrigger(str, Enum):
     
     def with_modifier(
         self,
-        modifier: str  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+        modifier: str  # Trigger modifier like "once", "changed", "delay:500ms", etc.
+    ) -> str:  # The trigger with modifier appended (e.g., "click once")
         """Add modifier to trigger (e.g., 'click once')"""
         return f"{self.value} {modifier}"
     
     def delayed(
         self,
-        delay: str  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+        delay: str  # Delay duration (e.g., "500ms", "1s", "2000ms")
+    ) -> str:  # The trigger with delay modifier (e.g., "keyup delay:500ms")
         """Add delay to trigger (e.g., 'keyup delay:500ms')"""
         return f"{self.value} delay:{delay}"
     
     def changed(
         self
-    ) -> str:  # TODO: Add return description
+    ) -> str:  # The trigger with "changed" modifier (e.g., "keyup changed")
         """Add changed modifier (e.g., 'keyup changed')"""
         return f"{self.value} changed"
 
@@ -510,15 +520,15 @@ class HTMXSwap(str, Enum):
     
     def with_modifier(
         self,
-        modifier: str  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+        modifier: str  # Swap modifier like "swap:500ms", "settle:1s", "scroll:top", etc.
+    ) -> str:  # The swap strategy with modifier (e.g., "innerHTML swap:500ms")
         """Add swap modifier (e.g., 'innerHTML swap:500ms')"""
         return f"{self.value} {modifier}"
     
     def with_transition(
         self,
-        duration: str = "500ms"  # TODO: Add description
-    ) -> str:  # TODO: Add return description
+        duration: str = "500ms"  # Transition duration (e.g., "500ms", "1s", "250ms")
+    ) -> str:  # The swap strategy with transition timing (e.g., "innerHTML swap:500ms")
         """Add swap transition"""
         return f"{self.value} swap:{duration}"
 
@@ -595,7 +605,7 @@ class CDNProvider(str, Enum):
     
     def get_base_url(
         self
-    ) -> str:  # TODO: Add return description
+    ) -> str:  # The base URL string for the CDN provider
         """Get the base URL for the CDN provider"""
         urls = {
             self.JSDELIVR: "https://cdn.jsdelivr.net/npm",
@@ -605,29 +615,19 @@ class CDNProvider(str, Enum):
         return urls[self]
 
 # %% ../../nbs/core/types.ipynb 43
-def ensure_list(value: Union[str, List[str]]) -> List[str]:
-    """Ensure a value is a list of strings.
-    
-    Args:
-        value: String or list of strings
-        
-    Returns:
-        List of strings
-    """
+def ensure_list(
+    value: Union[str, List[str]]  # String or list of strings
+) -> List[str]:  # List of strings
+    "Ensure a value is a list of strings."
     if isinstance(value, str):
         return value.split() if ' ' in value else [value]
     return value if value else []
 
 
-def ensure_dict(value: Union[str, Dict[str, Any]]) -> Dict[str, Any]:
-    """Ensure a value is a dictionary.
-    
-    Args:
-        value: String (JSON) or dictionary
-        
-    Returns:
-        Dictionary
-    """
+def ensure_dict(
+    value: Union[str, Dict[str, Any]]  # String (JSON) or dictionary
+) -> Dict[str, Any]:  # Dictionary
+    "Ensure a value is a dictionary."
     if isinstance(value, str):
         import json
         try:

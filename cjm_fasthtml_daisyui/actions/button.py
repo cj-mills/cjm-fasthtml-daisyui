@@ -49,16 +49,6 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
     
     Supports all button variants, styles, sizes, shapes, and states.
     Can be used as a regular button, submit button, or link button.
-    
-    Examples:
-        Basic button:
-            Btn("Click me", color=SemanticColor.PRIMARY)
-        
-        Icon button:
-            Btn(Icon("heart"), shape=ButtonShape.CIRCLE, style=StyleType.GHOST)
-        
-        Loading button:
-            Btn("Submit", loading=True, disabled=True)
     """
     
     # Content
@@ -146,26 +136,24 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
             self.set_variant("style", style_value)
     
     @classmethod
-    def variants(cls) -> Dict[str, Any]:
-        """Define available variants for buttons.
-        
-        Returns:
-            Dictionary of variant definitions
-        """
+    def variants(
+        cls  # The class itself (Btn)
+    ) -> Dict[str, Any]:  # Dictionary mapping variant names to their definitions
+        """Define available variants for buttons."""
         return {
             "style": create_style_variant("btn")
         }
     
-    def component_class(self) -> str:
+    def component_class(
+        self
+    ) -> str:  # The base CSS class name for the button component
         """Return the base component class name."""
         return DaisyComponentType.BUTTON.value
     
-    def modifier_classes(self) -> CSSClasses:
-        """Build all modifier classes.
-        
-        Returns:
-            List of modifier CSS classes
-        """
+    def modifier_classes(
+        self
+    ) -> CSSClasses:  # List of additional CSS modifier classes
+        """Build all modifier classes."""
         classes = super().modifier_classes()
         
         # Add component-specific color modifier
@@ -183,12 +171,10 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
         
         return classes
     
-    def render_content(self) -> Children:
-        """Render button content with icons.
-        
-        Returns:
-            List of FastHTML elements
-        """
+    def render_content(
+        self
+    ) -> Children:  # List of FastHTML elements representing button content
+        """Render button content with icons."""
         content: Children = []
         
         # Add start icon
@@ -208,12 +194,10 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
         
         return content
     
-    def render_attrs(self) -> HTMLAttrs:
-        """Build all HTML attributes including form and behavior attrs.
-        
-        Returns:
-            Dictionary of HTML attributes
-        """
+    def render_attrs(
+        self
+    ) -> HTMLAttrs:  # Dictionary of HTML attributes for the button element
+        """Build all HTML attributes including form and behavior attrs."""
         attrs = super().render_attrs()
         
         # Add behavior attributes
@@ -225,12 +209,10 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
         
         return attrs
     
-    def render(self) -> FT:
-        """Render the button element.
-        
-        Returns:
-            FastHTML element (Button or A)
-        """
+    def render(
+        self
+    ) -> FT:  # FastHTML element (Button or A element)
+        """Render the button element."""
         attrs = self.render_attrs()
         content = self.render_content()
         
@@ -264,72 +246,125 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
     
     # Convenience methods for common patterns
     @classmethod
-    def primary(cls, *children, **kwargs) -> 'Btn':
+    def primary(
+        cls,  # The class itself (Btn)
+        *children,
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as a primary button
         """Create a primary button."""
         return cls(*children, color=SemanticColor.PRIMARY, **kwargs)
     
     @classmethod
-    def secondary(cls, *children, **kwargs) -> 'Btn':
+    def secondary(
+        cls,  # The class itself (Btn)
+        *children,
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as a secondary button
         """Create a secondary button."""
         return cls(*children, color=SemanticColor.SECONDARY, **kwargs)
     
     @classmethod
-    def accent(cls, *children, **kwargs) -> 'Btn':
+    def accent(
+        cls,  # The class itself (Btn)
+        *children,
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as an accent button
         """Create an accent button."""
         return cls(*children, color=SemanticColor.ACCENT, **kwargs)
     
     @classmethod
-    def success(cls, *children, **kwargs) -> 'Btn':
+    def success(
+        cls,  # The class itself (Btn)
+        *children,
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as a success button
         """Create a success button."""
         return cls(*children, color=SemanticColor.SUCCESS, **kwargs)
     
     @classmethod
-    def error(cls, *children, **kwargs) -> 'Btn':
+    def error(
+        cls,  # The class itself (Btn)
+        *children,
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as an error/danger button
         """Create an error/danger button."""
         return cls(*children, color=SemanticColor.ERROR, **kwargs)
     
     @classmethod
-    def warning(cls, *children, **kwargs) -> 'Btn':
+    def warning(
+        cls,  # The class itself (Btn)
+        *children,
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as a warning button
         """Create a warning button."""
         return cls(*children, color=SemanticColor.WARNING, **kwargs)
     
     @classmethod
-    def info(cls, *children, **kwargs) -> 'Btn':
+    def info(
+        cls,  # The class itself (Btn)
+        *children,
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as an info button
         """Create an info button."""
         return cls(*children, color=SemanticColor.INFO, **kwargs)
     
     @classmethod
-    def ghost(cls, *children, **kwargs) -> 'Btn':
+    def ghost(
+        cls,  # The class itself (Btn)
+        *children,
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as a ghost button
         """Create a ghost button."""
         kwargs['style'] = StyleType.GHOST
         return cls(*children, **kwargs)
     
     @classmethod
-    def link(cls, *children, href: str, **kwargs) -> 'Btn':
+    def link(
+        cls,  # The class itself (Btn)
+        *children,
+        href: str,
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as a link-styled button
         """Create a link-styled button."""
         kwargs['style'] = StyleType.LINK
         kwargs['href'] = href
         return cls(*children, **kwargs)
     
     @classmethod
-    def outline(cls, *children, **kwargs) -> 'Btn':
+    def outline(
+        cls,  # The class itself (Btn)
+        *children,
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as an outline button
         """Create an outline button."""
         kwargs['style'] = StyleType.OUTLINE
         return cls(*children, **kwargs)
     
     @classmethod
-    def icon(cls, icon: FT, **kwargs) -> 'Btn':
+    def icon(
+        cls,  # The class itself (Btn)
+        icon: FT,  # The icon element to display in the button
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as an icon-only button
         """Create an icon-only button (typically square or circle)."""
         kwargs.setdefault('shape', ButtonShape.SQUARE)
         return cls(icon, **kwargs)
     
     @classmethod
-    def submit(cls, text: str = "Submit", **kwargs) -> 'Btn':
+    def submit(
+        cls,  # The class itself (Btn)
+        text: str = "Submit",  # Text to display on the submit button
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as a submit button
         """Create a submit button."""
         return cls(text, type="submit", color=SemanticColor.PRIMARY, **kwargs)
     
     @classmethod
-    def cancel(cls, text: str = "Cancel", **kwargs) -> 'Btn':
+    def cancel(
+        cls,  # The class itself (Btn)
+        text: str = "Cancel",  # Text to display on the cancel button
+        **kwargs
+    ) -> 'Btn':  # Instance of Btn configured as a cancel button
         """Create a cancel button."""
         kwargs['style'] = StyleType.GHOST
         return cls(text, **kwargs)

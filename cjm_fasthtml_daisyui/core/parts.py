@@ -39,7 +39,9 @@ class ComponentPart:
                 # For now, we'll allow it but could add stricter validation later
                 pass
     
-    def class_name(self) -> CSSClass:
+    def class_name(
+        self
+    ) -> CSSClass:  # The complete class name for this part (e.g., 'card-body')
         """Return the full class name for this part."""
         # Handle both string and enum types
         parent_name = (
@@ -62,13 +64,12 @@ class HasParts:
     """
     
     @classmethod
-    def parts(cls) -> Dict[str, ComponentPart]:
+    def parts(
+        cls  # The class implementing HasParts
+    ) -> Dict[str, ComponentPart]:  # Dictionary mapping part names to ComponentPart objects
         """Return all available parts for this component.
         
         Subclasses should override this to define their parts.
-        
-        Returns:
-            Dictionary mapping part names to ComponentPart instances
         """
         return {}
     
@@ -77,20 +78,8 @@ class HasParts:
         name: str,  # The part name (must be defined in parts())
         *children: FT,  # Child elements for this part
         **attrs: Any  # HTML attributes for the part
-    ) -> FT:
-        """Create a component part element.
-        
-        Args:
-            name: The part name (must be defined in parts())
-            *children: Child elements for this part
-            **attrs: HTML attributes for the part
-            
-        Returns:
-            FastHTML element with the appropriate part classes
-            
-        Raises:
-            ValueError: If the part name is not defined for this component
-        """
+    ) -> FT:  # FastHTML element configured as the specified part
+        """Create a component part element."""
         parts = self.parts()
         if name not in parts:
             raise ValueError(f"Unknown part '{name}' for {self.__class__.__name__}")
