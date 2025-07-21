@@ -58,29 +58,29 @@ graph LR
     core_types[core.types<br/>Types]
     core_variants[core.variants<br/>Variant System]
 
+    actions_button --> core_types
     actions_button --> core_behaviors
     actions_button --> core_testing
-    actions_button --> core_variants
-    actions_button --> core_base
     actions_button --> core_htmx
-    actions_button --> core_types
-    actions_button --> core_config
     actions_button --> core_colors
+    actions_button --> core_variants
+    actions_button --> core_config
+    actions_button --> core_base
     core_base --> core_types
     core_base --> core_colors
     core_behaviors --> core_types
     core_colors --> core_types
     core_config --> core_types
-    core_htmx --> core_types
     core_htmx --> core_base
+    core_htmx --> core_types
     core_parts --> core_types
     core_parts --> core_elements
     core_placement --> core_types
     core_resources --> core_types
     core_testing --> core_types
+    core_testing --> core_resources
     core_testing --> core_config
     core_testing --> core_colors
-    core_testing --> core_resources
     core_variants --> core_types
 ```
 
@@ -124,11 +124,11 @@ class HasSize(CSSContributor):
     """
     
     size: Optional[Union[DaisySize, str]]
-    responsive_size: Optional[ResponsiveDict]  # e.g., {"md": "lg", "lg": "xl"}
+    responsive_size: Optional[Dict[str, str]]  # e.g., {"md": "lg", "lg": "xl"}
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # List of CSS class strings for size modifiers
+        ) -> List[str]:  # List of CSS class strings for size modifiers
         "Get size-related CSS classes.
 
 Returns:
@@ -151,12 +151,12 @@ class DaisyComponent(ColorMixin, ComponentProtocol):
     
     id: Optional[str]
     cls: Optional[str]  # Additional custom classes
-    attrs: HTMLAttrs = field(...)
+    attrs: Dict[str, Any] = field(...)
     responsive_hide: Optional[List[str]]  # Breakpoints to hide at
     responsive_show: Optional[List[str]]  # Breakpoints to show at
     tw_padding: Optional[Union[int, str]]
     tw_margin: Optional[Union[int, str]]
-    tw_utilities: Optional[CSSClasses]  # Raw Tailwind utilities
+    tw_utilities: Optional[List[str]]  # Raw Tailwind utilities
     
     def component_class(
             self
@@ -167,7 +167,7 @@ Subclasses must implement this method."
     
     def modifier_classes(
             self
-        ) -> CSSClasses:  # List of modifier CSS classes
+        ) -> List[str]:  # List of modifier CSS classes
         "Return all modifier classes for this component."
     
     def build_classes(
@@ -177,7 +177,7 @@ Subclasses must implement this method."
     
     def render_attrs(
             self
-        ) -> HTMLAttrs:  # Dictionary of HTML attributes
+        ) -> Dict[str, Any]:  # Dictionary of HTML attributes
         "Build all HTML attributes for rendering."
     
     def with_utilities(
@@ -263,7 +263,7 @@ class HasBehaviors(CSSContributor):
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # List of CSS class strings for behavior states
+        ) -> List[str]:  # List of CSS class strings for behavior states
         "Get behavior state classes.
 
 Generates CSS classes based on the current behavior states of the component.
@@ -304,7 +304,7 @@ Returns:
     
     def behavior_attrs(
             self
-        ) -> HTMLAttrs:  # Dictionary of HTML attributes based on current behavior states
+        ) -> Dict[str, Any]:  # Dictionary of HTML attributes based on current behavior states
         "Return HTML attributes for behavior states.
 
 Generates appropriate HTML attributes based on the current behavior states.
@@ -326,7 +326,7 @@ class InteractiveMixin(HasBehaviors):
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # List of CSS class strings for all interactive states
+        ) -> List[str]:  # List of CSS class strings for all interactive states
         "Get all interactive state classes.
 
 Extends the base behavior classes with focus and hover state classes.
@@ -349,7 +349,7 @@ class FormControlMixin:
     
     def form_attrs(
             self
-        ) -> HTMLAttrs:  # Dictionary of form-related HTML attributes
+        ) -> Dict[str, Any]:  # Dictionary of form-related HTML attributes
         "Return form-related HTML attributes.
 
 Generates standard HTML form attributes based on the current state
@@ -389,7 +389,7 @@ class Btn:
     Can be used as a regular button, submit button, or link button.
     """
     
-    children: Children = field(...)
+    children: List[FT] = field(...)
     color: Optional[Union[SemanticColor, str]]
     shape: Optional[ButtonShape]
     no_animation: bool = False  # Disable click animation
@@ -416,17 +416,17 @@ class Btn:
     
     def modifier_classes(
             self
-        ) -> CSSClasses:  # List of additional CSS modifier classes
+        ) -> List[str]:  # List of additional CSS modifier classes
         "Build all modifier classes."
     
     def render_content(
             self
-        ) -> Children:  # List of FastHTML elements representing button content
+        ) -> List[FT]:  # List of FastHTML elements representing button content
         "Render button content with icons."
     
     def render_attrs(
             self
-        ) -> HTMLAttrs:  # Dictionary of HTML attributes for the button element
+        ) -> Dict[str, Any]:  # Dictionary of HTML attributes for the button element
         "Build all HTML attributes including form and behavior attrs."
     
     def render(
@@ -683,7 +683,7 @@ class ColorBuilder:
     
     def surface_base(
             self,
-            level: SurfaceLevelType = 100  # Base level
+            level: BaseColor = 100  # Base level
         ) -> "ColorBuilder":   # Self for method chaining
         "Apply base surface colors"
     
@@ -732,7 +732,7 @@ class ColorMixin(CSSContributor):
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # List of CSS class strings for colors
+        ) -> List[str]:  # List of CSS class strings for colors
         "Get all color classes applied to this component
 
 Returns:
@@ -839,7 +839,7 @@ class ColorScheme:
     
     def to_css_vars(
             self
-        ) -> HTMLAttrs:  # Dictionary of CSS variable names to color values
+        ) -> Dict[str, Any]:  # Dictionary of CSS variable names to color values
         "Convert to CSS variable format"
 ```
 
@@ -854,12 +854,12 @@ class ThemeDesignTokens:
     size_selector: str = '0.25rem'  # Base size for selectors
     size_field: str = '0.25rem'  # Base size for fields
     border: str = '1px'  # Border width
-    depth: BinaryType = 1  # Shadow and 3D effect (0 or 1)
-    noise: BinaryType = 0  # Noise texture effect (0 or 1)
+    depth: Literal[0, 1] = 1  # Shadow and 3D effect (0 or 1)
+    noise: Literal[0, 1] = 0  # Noise texture effect (0 or 1)
     
     def to_css_vars(
             self
-        ) -> HTMLAttrs:  # Dictionary of CSS variable names to design token values
+        ) -> Dict[str, Any]:  # Dictionary of CSS variable names to design token values
         "Convert to CSS variable format"
 ```
 
@@ -871,7 +871,7 @@ class CustomTheme:
     name: str
     is_default: bool = False
     is_prefers_dark: bool = False
-    color_scheme: ColorSchemeType = 'light'
+    color_scheme: ColorSchemeType = ColorSchemeType.LIGHT
     colors: ColorScheme = field(...)
     tokens: ThemeDesignTokens = field(...)
     
@@ -953,7 +953,7 @@ from cjm_fasthtml_daisyui.core.htmx import (
 ``` python
 def htmx_attrs(
     **kwargs
-) -> HTMLAttrs:  # Dictionary with proper HTMX attribute names
+) -> Dict[str, Any]:  # Dictionary with proper HTMX attribute names
     "Convert keyword arguments to HTMX attributes."
 ```
 
@@ -1005,7 +1005,7 @@ class HTMXAttrs:
     hx_push_url: Optional[Union[bool, str]]
     hx_select: Optional[str]
     hx_select_oob: Optional[str]
-    hx_vals: Optional[HTMXValue]  # Using HTMXValue type alias
+    hx_vals: Optional[Union[str, bool, Dict[str, Any]]]
     hx_confirm: Optional[str]
     hx_disable: Optional[bool]
     hx_disabled_elt: Optional[str]
@@ -1014,7 +1014,7 @@ class HTMXAttrs:
     
     def to_dict(
             self
-        ) -> HTMLAttrs:  # Dictionary of HTML attributes with HTMX prefixes
+        ) -> Dict[str, Any]:  # Dictionary of HTML attributes with HTMX prefixes
         "Convert to dictionary of HTML attributes."
 ```
 
@@ -1092,7 +1092,7 @@ class HTMXComponent:
     
     def render_attrs(
             self
-        ) -> HTMLAttrs:  # Combined dictionary of all HTML and HTMX attributes
+        ) -> Dict[str, Any]:  # Combined dictionary of all HTML and HTMX attributes
         "Build all HTML attributes including HTMX."
 ```
 
@@ -1128,7 +1128,7 @@ class ComponentPart:
     
     def class_name(
             self
-        ) -> CSSClass:  # The complete class name for this part (e.g., 'card-body')
+        ) -> str:  # The complete class name for this part (e.g., 'card-body')
         "Return the full class name for this part."
 ```
 
@@ -1191,7 +1191,7 @@ class HasPlacement(CSSContributor):
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # Returns list of placement CSS classes
+        ) -> List[str]:  # Returns list of placement CSS classes
         "Get placement classes."
     
     def uses_standard_placement(
@@ -1224,7 +1224,7 @@ class HasDirection(CSSContributor):
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # Returns list of direction CSS classes
+        ) -> List[str]:  # Returns list of direction CSS classes
         "Get direction classes."
     
     def is_horizontal(
@@ -1250,7 +1250,7 @@ class HasPlacementAndDirection(HasPlacement, HasDirection):
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # Returns combined placement and direction CSS classes
+        ) -> List[str]:  # Returns combined placement and direction CSS classes
         "Get combined placement and direction classes."
 ```
 
@@ -1437,9 +1437,9 @@ def quick_test(
 
 ``` python
 def test_variants(
-    component_fn: ComponentFactory,  # Function that creates the component
+    component_fn: Callable[..., FT],  # Function that creates the component
     variants: Dict[str, List[Any]],
-    base_props: Optional[ComponentProps] = None,  # Base properties to apply to all variants
+    base_props: Optional[Dict[str, Any]] = None,  # Base properties to apply to all variants
     title: str = "Variant Testing"  # Title for the test page
 ) -> ComponentTester:  # Started ComponentTester instance
     "Test multiple variants of a component"
@@ -1469,7 +1469,7 @@ class ComponentExample:
     title: str
     description: Optional[str]
     code: Optional[str]
-    props: Optional[ComponentProps]
+    props: Optional[Dict[str, Any]]
     component_type: Optional[DaisyComponentType]
 ```
 
@@ -1549,7 +1549,7 @@ class ComponentBuilder:
     
     def add_class(
             self,
-            *classes: CSSClass
+            *classes: str
         ) -> "ComponentBuilder":  # Returns self for chaining
         "Add classes to the current component"
     
@@ -1620,29 +1620,18 @@ class TestData:
 
 ``` python
 from cjm_fasthtml_daisyui.core.types import (
-    CSSClasses,
-    CSSClass,
-    HTMLAttrs,
-    Children,
-    ComponentProps,
-    ResponsiveDict,
-    ColorValue,
-    SizeValue,
-    EventHandler,
-    ComponentFactory,
-    HTMXValue,
-    DirectionType,
-    PlacementType,
-    HTTPMethod,
-    ColorSchemeType,
-    BrandType,
-    StateType,
-    CommonSizeType,
-    SurfaceLevelType,
-    BinaryType,
     CSSContributor,
     FeatureSupport,
     ComponentProtocol,
+    ColorSchemeType,
+    DirectionType,
+    PlacementType,
+    HTTPMethod,
+    BrandType,
+    StateType,
+    CommonSizeType,
+    BaseColor,
+    BinaryType,
     DaisyComponentType,
     DaisyPosition,
     DaisyBreakpoint,
@@ -1691,7 +1680,7 @@ class CSSContributor(Protocol):
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # List of CSS class strings
+        ) -> List[str]:  # List of CSS class strings
         "Return CSS classes from this contributor."
 ```
 
@@ -1730,8 +1719,50 @@ class ComponentProtocol(Protocol):
     
     def render_attrs(
             self
-        ) -> HTMLAttrs:  # Dictionary of HTML attributes ready for rendering
+        ) -> Dict[str, Any]:  # Dictionary of HTML attributes ready for rendering
         "Build all HTML attributes for rendering."
+```
+
+``` python
+class ColorSchemeType(StrEnum):
+```
+
+``` python
+class DirectionType(StrEnum):
+```
+
+``` python
+class PlacementType(StrEnum):
+```
+
+``` python
+class HTTPMethod(StrEnum):
+```
+
+``` python
+class ColorSchemeType(StrEnum):
+```
+
+``` python
+class BrandType(StrEnum):
+```
+
+``` python
+class StateType(StrEnum):
+```
+
+``` python
+class CommonSizeType(StrEnum):
+```
+
+``` python
+class BaseColor(IntEnum):
+    "Enum for base surface colors used in UI design."
+    
+```
+
+``` python
+class BinaryType(IntEnum):
 ```
 
 ``` python
@@ -1929,22 +1960,6 @@ class CDNProvider(str, Enum):
         "Get the base URL for the CDN provider"
 ```
 
-#### Variables
-
-``` python
-ColorValue  # Forward reference
-SizeValue  # Forward reference
-DirectionType  # # Direction literals
-PlacementType  # Placement literals
-HTTPMethod  # HTTP method literals
-ColorSchemeType  # Theme color scheme
-BrandType  # Brand types
-StateType  # State types
-CommonSizeType  # Size types (commonly used)
-SurfaceLevelType  # Surface level literals (for base colors)
-BinaryType  # Binary value literals (for theme design tokens)
-```
-
 ### Variant System (`variants.ipynb`)
 
 > System for handling component variants and states
@@ -1987,7 +2002,7 @@ class HasGlass(CSSContributor):
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # List of CSS class strings for glass effect
+        ) -> List[str]:  # List of CSS class strings for glass effect
         "Get glass effect CSS classes.
 
 Returns:
@@ -2033,7 +2048,7 @@ Subclasses should override this to define their variants."
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # List of CSS class strings from all active variants
+        ) -> List[str]:  # List of CSS class strings from all active variants
         "Get all classes from variants.
 
 Returns:
@@ -2080,7 +2095,7 @@ Subclasses should override this to define compound variants."
     
     def get_css_classes(
             self
-        ) -> CSSClasses:  # List of CSS class strings from variants and compound variants
+        ) -> List[str]:  # List of CSS class strings from variants and compound variants
         "Get all classes from variants including compound variants.
 
 Returns:

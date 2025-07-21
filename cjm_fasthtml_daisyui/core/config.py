@@ -15,9 +15,7 @@ import json
 from cjm_fasthtml_daisyui.core.types import (
     DaisyUITheme, 
     ExcludeFeature,
-    ColorSchemeType,
-    BinaryType,
-    HTMLAttrs
+    ColorSchemeType
 )
 
 # %% ../../nbs/core/config.ipynb 4
@@ -216,7 +214,7 @@ class ColorScheme:
     
     def to_css_vars(
         self
-    ) -> HTMLAttrs:  # Dictionary of CSS variable names to color values
+    ) -> Dict[str, Any]:  # Dictionary of CSS variable names to color values
         """Convert to CSS variable format"""
         return {
             "--color-base-100": self.base_100,
@@ -256,12 +254,12 @@ class ThemeDesignTokens:
     
     # Visual properties
     border: str = "1px"             # Border width
-    depth: BinaryType = 1           # Shadow and 3D effect (0 or 1)
-    noise: BinaryType = 0           # Noise texture effect (0 or 1)
+    depth: Literal[0, 1] = 1           # Shadow and 3D effect (0 or 1)
+    noise: Literal[0, 1] = 0           # Noise texture effect (0 or 1)
     
     def to_css_vars(
         self
-    ) -> HTMLAttrs:  # Dictionary of CSS variable names to design token values
+    ) -> Dict[str, Any]:  # Dictionary of CSS variable names to design token values
         """Convert to CSS variable format"""
         return {
             "--radius-selector": self.radius_selector,
@@ -281,7 +279,7 @@ class CustomTheme:
     name: str
     is_default: bool = False
     is_prefers_dark: bool = False
-    color_scheme: ColorSchemeType = "light"
+    color_scheme: ColorSchemeType = ColorSchemeType.LIGHT
     colors: ColorScheme = field(default_factory=ColorScheme)
     tokens: ThemeDesignTokens = field(default_factory=ThemeDesignTokens)
     

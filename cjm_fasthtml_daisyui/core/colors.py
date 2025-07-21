@@ -10,7 +10,7 @@ from typing import Union, Optional, List, Dict, Tuple, Literal
 from enum import Enum
 from dataclasses import dataclass
 from functools import lru_cache
-from .types import CSSContributor, CSSClasses, SemanticColor, ColorUtility, OpacityLevel, SurfaceLevelType
+from .types import CSSContributor, SemanticColor, ColorUtility, OpacityLevel, BaseColor
 
 # %% ../../nbs/core/colors.ipynb 4
 @dataclass
@@ -145,7 +145,7 @@ class ColorBuilder:
     
     def surface_base(
         self,
-        level: SurfaceLevelType = 100  # Base level
+        level: BaseColor = 100  # Base level
     ) -> "ColorBuilder":   # Self for method chaining
         """Apply base surface colors"""
         base_color = {
@@ -290,7 +290,7 @@ class ColorMixin(CSSContributor):
     
     def get_css_classes(
         self
-    ) -> CSSClasses:  # List of CSS class strings for colors
+    ) -> List[str]:  # List of CSS class strings for colors
         """Get all color classes applied to this component
         
         Returns:

@@ -12,7 +12,7 @@ from fasthtml.common import *
 from cjm_tailwind_utils.all import TailwindBuilder
 from .elements import create_element
 from cjm_fasthtml_daisyui.core.types import (
-    CSSClass, HTMLAttrs, Children, DaisyComponentType,
+    DaisyComponentType,
     ComponentProtocol, CSSContributor
 )
 
@@ -41,7 +41,7 @@ class ComponentPart:
     
     def class_name(
         self
-    ) -> CSSClass:  # The complete class name for this part (e.g., 'card-body')
+    ) -> str:  # The complete class name for this part (e.g., 'card-body')
         """Return the full class name for this part."""
         # Handle both string and enum types
         parent_name = (
@@ -87,7 +87,7 @@ class HasParts:
         part = parts[name]
         
         # Extract and merge classes
-        cls: CSSClass = attrs.pop("cls", "")
+        cls: str = attrs.pop("cls", "")
         if cls:
             # Use TailwindBuilder to merge classes
             tb = TailwindBuilder()

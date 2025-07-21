@@ -26,11 +26,6 @@ from cjm_fasthtml_daisyui.core.types import (
     SemanticColor, ColorUtility, DaisyUITheme, DaisyComponentType,
     DaisyPosition, DaisyBreakpoint, DaisySize, Direction,
     HTMXTrigger, HTMXSwap, StyleType,
-    # Type aliases
-    CSSClasses, CSSClass, HTMLAttrs, Children, ComponentProps,
-    ResponsiveDict, ColorValue, SizeValue, EventHandler, 
-    ComponentFactory, HTMXValue,
-    # Literal types
     DirectionType, PlacementType, HTTPMethod, ColorSchemeType,
     # Protocols
     CSSContributor, FeatureSupport, ComponentProtocol,
@@ -57,7 +52,7 @@ class ComponentExample:
     title: str
     description: Optional[str] = None
     code: Optional[str] = None
-    props: Optional[ComponentProps] = None
+    props: Optional[Dict[str, Any]] = None
     component_type: Optional[DaisyComponentType] = None
 
 # %% ../../nbs/core/testing.ipynb 7
@@ -139,7 +134,7 @@ class ComponentTester:
     
     def add(
         self,
-        component: Union[FT, ComponentFactory],
+        component: Union[FT, Callable[..., FT]],
         title: str,  # Title for this component example
         description: Optional[str] = None,  # Optional description of the component
         code: Optional[str] = None,  # Optional code snippet to display
@@ -416,9 +411,9 @@ def quick_test(
 
 # %% ../../nbs/core/testing.ipynb 10
 def test_variants(
-    component_fn: ComponentFactory,  # Function that creates the component
+    component_fn: Callable[..., FT],  # Function that creates the component
     variants: Dict[str, List[Any]],
-    base_props: Optional[ComponentProps] = None,  # Base properties to apply to all variants
+    base_props: Optional[Dict[str, Any]] = None,  # Base properties to apply to all variants
     title: str = "Variant Testing"  # Title for the test page
 ) -> ComponentTester:  # Started ComponentTester instance
     "Test multiple variants of a component"
@@ -496,7 +491,7 @@ class ComponentBuilder:
     
     def add_class(
         self,
-        *classes: CSSClass
+        *classes: str
     ) -> "ComponentBuilder":  # Returns self for chaining
         """Add classes to the current component"""
         if self.current_component and hasattr(self.current_component, 'attrs'):

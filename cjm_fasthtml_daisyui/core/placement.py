@@ -9,7 +9,7 @@ __all__ = ['HasPlacement', 'HasDirection', 'HasPlacementAndDirection']
 from typing import Optional, List, Literal, Union
 from dataclasses import dataclass
 from cjm_fasthtml_daisyui.core.types import (
-    CSSContributor, CSSClasses, DaisyPosition, 
+    CSSContributor, DaisyPosition, 
     PlacementType, DirectionType
 )
 
@@ -26,7 +26,7 @@ class HasPlacement(CSSContributor):
     
     def get_css_classes(
         self
-    ) -> CSSClasses:  # Returns list of placement CSS classes
+    ) -> List[str]:  # Returns list of placement CSS classes
         """Get placement classes."""
         if not self.placement:
             return []
@@ -85,7 +85,7 @@ class HasDirection(CSSContributor):
     
     def get_css_classes(
         self
-    ) -> CSSClasses:  # Returns list of direction CSS classes
+    ) -> List[str]:  # Returns list of direction CSS classes
         """Get direction classes."""
         if not self.direction:
             return []
@@ -116,7 +116,7 @@ class HasPlacementAndDirection(HasPlacement, HasDirection):
     
     def get_css_classes(
         self
-    ) -> CSSClasses:  # Returns combined placement and direction CSS classes
+    ) -> List[str]:  # Returns combined placement and direction CSS classes
         """Get combined placement and direction classes."""
         classes = []
         # Call parent classes' get_css_classes methods

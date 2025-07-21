@@ -19,12 +19,6 @@ from cjm_fasthtml_daisyui.core.types import (
     SemanticColor,
     ColorUtility,
     DaisyComponentType,
-    # Type aliases
-    CSSClasses,
-    CSSClass,
-    HTMLAttrs,
-    ComponentProps,
-    ResponsiveDict,
     # Protocols
     CSSContributor,
     ComponentProtocol,
@@ -52,17 +46,17 @@ class HasSize(CSSContributor):
     
     # Size properties
     size: Optional[Union[DaisySize, str]] = None
-    responsive_size: Optional[ResponsiveDict] = None  # e.g., {"md": "lg", "lg": "xl"}
+    responsive_size: Optional[Dict[str, str]] = None  # e.g., {"md": "lg", "lg": "xl"}
     
     def get_css_classes(
         self
-    ) -> CSSClasses:  # List of CSS class strings for size modifiers
+    ) -> List[str]:  # List of CSS class strings for size modifiers
         """Get size-related CSS classes.
         
         Returns:
             List of CSS class strings for size modifiers
         """
-        classes: CSSClasses = []
+        classes: List[str] = []
         
         # Only add size classes if we have a component_class method
         if hasattr(self, 'component_class') and callable(self.component_class):
@@ -100,7 +94,7 @@ class DaisyComponent(ColorMixin, ComponentProtocol):
     # HTML attributes
     id: Optional[str] = None
     cls: Optional[str] = None  # Additional custom classes
-    attrs: HTMLAttrs = field(default_factory=dict)
+    attrs: Dict[str, Any] = field(default_factory=dict)
     
     # Responsive modifiers
     responsive_hide: Optional[List[str]] = None  # Breakpoints to hide at
@@ -109,7 +103,7 @@ class DaisyComponent(ColorMixin, ComponentProtocol):
     # Additional Tailwind customization
     tw_padding: Optional[Union[int, str]] = None
     tw_margin: Optional[Union[int, str]] = None
-    tw_utilities: Optional[CSSClasses] = None  # Raw Tailwind utilities
+    tw_utilities: Optional[List[str]] = None  # Raw Tailwind utilities
     
     def component_class(
         self
@@ -122,7 +116,7 @@ class DaisyComponent(ColorMixin, ComponentProtocol):
     
     def modifier_classes(
         self
-    ) -> CSSClasses:  # List of modifier CSS classes
+    ) -> List[str]:  # List of modifier CSS classes
         """Return all modifier classes for this component."""
         # Subclasses should override this to add their specific modifiers
         return []
@@ -190,9 +184,9 @@ class DaisyComponent(ColorMixin, ComponentProtocol):
     
     def render_attrs(
         self
-    ) -> HTMLAttrs:  # Dictionary of HTML attributes
+    ) -> Dict[str, Any]:  # Dictionary of HTML attributes
         """Build all HTML attributes for rendering."""
-        attrs: HTMLAttrs = {**self.attrs}
+        attrs: Dict[str, Any] = {**self.attrs}
         attrs["class"] = self.build_classes()
         
         if self.id:

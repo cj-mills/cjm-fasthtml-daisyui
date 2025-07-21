@@ -11,10 +11,6 @@ from dataclasses import dataclass, field
 from enum import Enum
 from fasthtml.common import *
 from cjm_fasthtml_daisyui.core.types import (
-    # Type aliases
-    HTMLAttrs,
-    CSSClasses,
-    HTMXValue,
     # Enums
     HTMXTrigger,
     HTMXSwap,
@@ -41,7 +37,7 @@ class HTMXAttrs:
     hx_push_url: Optional[Union[bool, str]] = None
     hx_select: Optional[str] = None
     hx_select_oob: Optional[str] = None
-    hx_vals: Optional[HTMXValue] = None  # Using HTMXValue type alias
+    hx_vals: Optional[Union[str, bool, Dict[str, Any]]] = None
     hx_confirm: Optional[str] = None
     hx_disable: Optional[bool] = None
     hx_disabled_elt: Optional[str] = None
@@ -50,9 +46,9 @@ class HTMXAttrs:
     
     def to_dict(
         self
-    ) -> HTMLAttrs:  # Dictionary of HTML attributes with HTMX prefixes
+    ) -> Dict[str, Any]:  # Dictionary of HTML attributes with HTMX prefixes
         """Convert to dictionary of HTML attributes."""
-        attrs: HTMLAttrs = {}
+        attrs: Dict[str, Any] = {}
         for key, value in self.__dict__.items():
             if value is not None:
                 # Convert Python snake_case to HTMX hyphenated attributes
@@ -142,7 +138,7 @@ class HTMXComponent(ValidatedDaisyComponent):
     
     def render_attrs(
         self
-    ) -> HTMLAttrs:  # Combined dictionary of all HTML and HTMX attributes
+    ) -> Dict[str, Any]:  # Combined dictionary of all HTML and HTMX attributes
         """Build all HTML attributes including HTMX."""
         attrs = super().render_attrs()
         
@@ -155,9 +151,9 @@ class HTMXComponent(ValidatedDaisyComponent):
 # %% ../../nbs/core/htmx.ipynb 8
 def htmx_attrs(
     **kwargs
-) -> HTMLAttrs:  # Dictionary with proper HTMX attribute names
+) -> Dict[str, Any]:  # Dictionary with proper HTMX attribute names
     """Convert keyword arguments to HTMX attributes."""
-    attrs: HTMLAttrs = {}
+    attrs: Dict[str, Any] = {}
     for key, value in kwargs.items():
         # Convert to hx- prefix
         if not key.startswith('hx_'):

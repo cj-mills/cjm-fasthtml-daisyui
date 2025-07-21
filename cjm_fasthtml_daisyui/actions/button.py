@@ -12,10 +12,6 @@ from dataclasses import dataclass, field
 from fasthtml.common import *
 from cjm_tailwind_utils.all import TailwindBuilder
 from cjm_fasthtml_daisyui.core.types import (
-    # Type aliases
-    HTMLAttrs,
-    CSSClasses,
-    Children,
     # Enums
     DaisySize,
     StyleType,
@@ -52,7 +48,7 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
     """
     
     # Content
-    children: Children = field(default_factory=list)
+    children: List[FT] = field(default_factory=list)
     
     # Component-specific color modifier
     color: Optional[Union[SemanticColor, str]] = None
@@ -152,7 +148,7 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
     
     def modifier_classes(
         self
-    ) -> CSSClasses:  # List of additional CSS modifier classes
+    ) -> List[str]:  # List of additional CSS modifier classes
         """Build all modifier classes."""
         classes = super().modifier_classes()
         
@@ -173,9 +169,9 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
     
     def render_content(
         self
-    ) -> Children:  # List of FastHTML elements representing button content
+    ) -> List[FT]:  # List of FastHTML elements representing button content
         """Render button content with icons."""
-        content: Children = []
+        content: List[FT] = []
         
         # Add start icon
         if self.icon_start:
@@ -196,7 +192,7 @@ class Btn(HTMXComponent, HasVariants, HasSize, HasGlass, InteractiveMixin, FormC
     
     def render_attrs(
         self
-    ) -> HTMLAttrs:  # Dictionary of HTML attributes for the button element
+    ) -> Dict[str, Any]:  # Dictionary of HTML attributes for the button element
         """Build all HTML attributes including form and behavior attrs."""
         attrs = super().render_attrs()
         

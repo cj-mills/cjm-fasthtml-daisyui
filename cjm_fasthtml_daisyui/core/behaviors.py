@@ -7,7 +7,7 @@ __all__ = ['HasBehaviors', 'InteractiveMixin', 'FormControlMixin']
 
 # %% ../../nbs/core/behaviors.ipynb 3
 from typing import List, Dict, Any, Optional
-from .types import CSSContributor, CSSClasses, HTMLAttrs
+from .types import CSSContributor
 
 # %% ../../nbs/core/behaviors.ipynb 5
 class HasBehaviors(CSSContributor):
@@ -37,7 +37,7 @@ class HasBehaviors(CSSContributor):
     
     def get_css_classes(
         self
-    ) -> CSSClasses:  # List of CSS class strings for behavior states
+    ) -> List[str]:  # List of CSS class strings for behavior states
         """Get behavior state classes.
         
         Generates CSS classes based on the current behavior states of the component.
@@ -111,7 +111,7 @@ class HasBehaviors(CSSContributor):
     
     def behavior_attrs(
         self
-    ) -> HTMLAttrs:  # Dictionary of HTML attributes based on current behavior states
+    ) -> Dict[str, Any]:  # Dictionary of HTML attributes based on current behavior states
         """Return HTML attributes for behavior states.
         
         Generates appropriate HTML attributes based on the current behavior states.
@@ -152,7 +152,7 @@ class InteractiveMixin(HasBehaviors):
     
     def get_css_classes(
         self
-    ) -> CSSClasses:  # List of CSS class strings for all interactive states
+    ) -> List[str]:  # List of CSS class strings for all interactive states
         """Get all interactive state classes.
         
         Extends the base behavior classes with focus and hover state classes.
@@ -192,7 +192,7 @@ class FormControlMixin:
     
     def form_attrs(
         self
-    ) -> HTMLAttrs:  # Dictionary of form-related HTML attributes
+    ) -> Dict[str, Any]:  # Dictionary of form-related HTML attributes
         """Return form-related HTML attributes.
         
         Generates standard HTML form attributes based on the current state

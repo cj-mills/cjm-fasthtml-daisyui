@@ -9,7 +9,7 @@ __all__ = ['HasGlass', 'Variant', 'HasVariants', 'CompoundVariant', 'HasCompound
 from typing import Dict, List, Optional, Any, Union
 from dataclasses import dataclass, field
 from enum import Enum
-from .types import CSSContributor, CSSClasses, StyleType
+from .types import CSSContributor, StyleType
 
 # %% ../../nbs/core/variants.ipynb 6
 @dataclass
@@ -25,7 +25,7 @@ class HasGlass(CSSContributor):
     
     def get_css_classes(
         self
-    ) -> CSSClasses:  # List of CSS class strings for glass effect
+    ) -> List[str]:  # List of CSS class strings for glass effect
         """Get glass effect CSS classes.
         
         Returns:
@@ -86,7 +86,7 @@ class HasVariants(CSSContributor):
     
     def get_css_classes(
         self
-    ) -> CSSClasses:  # List of CSS class strings from all active variants
+    ) -> List[str]:  # List of CSS class strings from all active variants
         """Get all classes from variants.
         
         Returns:
@@ -151,7 +151,7 @@ class HasCompoundVariants(HasVariants):
     
     def get_css_classes(
         self
-    ) -> CSSClasses:  # List of CSS class strings from variants and compound variants
+    ) -> List[str]:  # List of CSS class strings from variants and compound variants
         """Get all classes from variants including compound variants.
         
         Returns:
