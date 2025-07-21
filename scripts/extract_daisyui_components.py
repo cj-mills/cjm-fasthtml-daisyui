@@ -35,6 +35,7 @@ def html_table_to_markdown(table):
     if not headers:
         return None
     
+    headers[-1] = 'Description'
     # Create header row
     rows.append('| ' + ' | '.join(headers) + ' |')
     rows.append('|' + '|'.join([' --- ' for _ in headers]) + '|')
