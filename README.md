@@ -59,13 +59,13 @@ graph LR
     core_variants[core.variants<br/>Variant System]
 
     actions_button --> core_types
-    actions_button --> core_behaviors
     actions_button --> core_colors
+    actions_button --> core_base
     actions_button --> core_variants
     actions_button --> core_testing
+    actions_button --> core_behaviors
     actions_button --> core_htmx
     actions_button --> core_config
-    actions_button --> core_base
     core_base --> core_types
     core_base --> core_colors
     core_behaviors --> core_types
@@ -73,12 +73,12 @@ graph LR
     core_config --> core_types
     core_htmx --> core_types
     core_htmx --> core_base
-    core_parts --> core_elements
     core_parts --> core_types
+    core_parts --> core_elements
     core_placement --> core_types
     core_resources --> core_types
-    core_testing --> core_types
     core_testing --> core_config
+    core_testing --> core_types
     core_testing --> core_colors
     core_testing --> core_resources
     core_variants --> core_types
@@ -102,10 +102,42 @@ Detailed documentation for each module in the project:
 
 ``` python
 from cjm_fasthtml_daisyui.core.base import (
+    deduplicate_classes,
     HasSize,
     DaisyComponent,
     ValidatedDaisyComponent
 )
+```
+
+#### Functions
+
+``` python
+def deduplicate_classes(
+    *class_sources: Union[str, List[str], None] # Multiple sources of CSS classes (strings, lists, or None)
+) -> str:  # Space-separated string of deduplicated CSS classes, sorted alphabetically
+    """
+    Deduplicate CSS classes from multiple sources.
+    
+    Takes multiple sources of CSS classes (strings, lists, or None values) and
+    returns a single space-separated string with duplicates removed and sorted
+    alphabetically for consistency.
+    
+    Args:
+        *class_sources: Variable number of class sources, each can be:
+            - A space-separated string of CSS classes
+            - A list of CSS class strings
+            - None (will be ignored)
+    
+    Returns:
+        A space-separated string of unique CSS classes, sorted alphabetically
+        
+    Examples:
+        >>> deduplicate_classes("btn btn-primary", ["btn", "btn-lg"])
+        'btn btn-lg btn-primary'
+        
+        >>> deduplicate_classes("hidden md:block", None, ["hidden", "lg:block"])
+        'hidden lg:block md:block'
+    """
 ```
 
 #### Classes
