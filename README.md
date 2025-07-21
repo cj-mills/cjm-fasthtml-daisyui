@@ -35,7 +35,7 @@ pip install cjm-fasthtml-daisyui
         ├── placement.ipynb  # Mixins for component placement and direction options
         ├── resources.ipynb  # Managing daisyUI and Tailwind CSS resources for FastHTML projects
         ├── testing.ipynb    # Standardized testing framework for daisyUI components in Jupyter notebooks
-        ├── types.ipynb      # Protocols, enums, type aliases, and utilities for type-safe daisyUI component development
+        ├── types.ipynb      # Protocols, enums, and utilities for type-safe daisyUI component development
         └── variants.ipynb   # System for handling component variants and states
 
 Total: 13 notebooks across 2 directories
@@ -60,10 +60,10 @@ graph LR
 
     actions_button --> core_types
     actions_button --> core_behaviors
-    actions_button --> core_testing
-    actions_button --> core_htmx
     actions_button --> core_colors
     actions_button --> core_variants
+    actions_button --> core_testing
+    actions_button --> core_htmx
     actions_button --> core_config
     actions_button --> core_base
     core_base --> core_types
@@ -71,16 +71,16 @@ graph LR
     core_behaviors --> core_types
     core_colors --> core_types
     core_config --> core_types
-    core_htmx --> core_base
     core_htmx --> core_types
-    core_parts --> core_types
+    core_htmx --> core_base
     core_parts --> core_elements
+    core_parts --> core_types
     core_placement --> core_types
     core_resources --> core_types
     core_testing --> core_types
-    core_testing --> core_resources
     core_testing --> core_config
     core_testing --> core_colors
+    core_testing --> core_resources
     core_variants --> core_types
 ```
 
@@ -433,98 +433,6 @@ class Btn:
             self
         ) -> FT:  # FastHTML element (Button or A element)
         "Render the button element."
-    
-    def primary(
-            cls,  # The class itself (Btn)
-            *children,
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as a primary button
-        "Create a primary button."
-    
-    def secondary(
-            cls,  # The class itself (Btn)
-            *children,
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as a secondary button
-        "Create a secondary button."
-    
-    def accent(
-            cls,  # The class itself (Btn)
-            *children,
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as an accent button
-        "Create an accent button."
-    
-    def success(
-            cls,  # The class itself (Btn)
-            *children,
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as a success button
-        "Create a success button."
-    
-    def error(
-            cls,  # The class itself (Btn)
-            *children,
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as an error/danger button
-        "Create an error/danger button."
-    
-    def warning(
-            cls,  # The class itself (Btn)
-            *children,
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as a warning button
-        "Create a warning button."
-    
-    def info(
-            cls,  # The class itself (Btn)
-            *children,
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as an info button
-        "Create an info button."
-    
-    def ghost(
-            cls,  # The class itself (Btn)
-            *children,
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as a ghost button
-        "Create a ghost button."
-    
-    def link(
-            cls,  # The class itself (Btn)
-            *children,
-            href: str,
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as a link-styled button
-        "Create a link-styled button."
-    
-    def outline(
-            cls,  # The class itself (Btn)
-            *children,
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as an outline button
-        "Create an outline button."
-    
-    def icon(
-            cls,  # The class itself (Btn)
-            icon: FT,  # The icon element to display in the button
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as an icon-only button
-        "Create an icon-only button (typically square or circle)."
-    
-    def submit(
-            cls,  # The class itself (Btn)
-            text: str = "Submit",  # Text to display on the submit button
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as a submit button
-        "Create a submit button."
-    
-    def cancel(
-            cls,  # The class itself (Btn)
-            text: str = "Cancel",  # Text to display on the cancel button
-            **kwargs
-        ) -> 'Btn':  # Instance of Btn configured as a cancel button
-        "Create a cancel button."
 ```
 
 ### Colors (`colors.ipynb`)
@@ -1613,8 +1521,8 @@ class TestData:
 
 ### Types (`types.ipynb`)
 
-> Protocols, enums, type aliases, and utilities for type-safe daisyUI
-> component development
+> Protocols, enums, and utilities for type-safe daisyUI component
+> development
 
 #### Import
 
