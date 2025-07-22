@@ -1,0 +1,31 @@
+:root:has(input.theme-controller[value=netwatch_cyberpunk]:checked),[data-theme="netwatch_cyberpunk"] {
+  color-scheme: dark;
+  --color-base-100: oklch(6.72% 0.000 0);
+  --color-base-200: oklch(12% 0.005 240);
+  --color-base-300: oklch(8% 0.01 235);
+  --color-base-content: oklch(79.82% 0.136 184.06);
+  --color-primary: oklch(61.39% 0.244 12.03);
+  --color-primary-content: oklch(6.72% 0.000 0);
+  --color-secondary: oklch(46.40% 0.184 10.98);
+  --color-secondary-content: oklch(79.82% 0.136 184.06);
+  --color-accent: oklch(25.77% 0.075 12.95);
+  --color-accent-content: oklch(79.82% 0.136 184.06);
+  --color-neutral: oklch(20% 0.01 240);
+  --color-neutral-content: oklch(79.82% 0.136 184.06);
+  --color-info: oklch(79.82% 0.136 184.06);
+  --color-info-content: oklch(6.72% 0.000 0);
+  --color-success: oklch(62% 0.20 140);
+  --color-success-content: oklch(6.72% 0.000 0);
+  --color-warning: oklch(75% 0.25 60);
+  --color-warning-content: oklch(6.72% 0.000 0);
+  --color-error: oklch(61.39% 0.244 12.03);
+  --color-error-content: oklch(6.72% 0.000 0);
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
+  --size-selector: 0.125rem;
+  --size-field: 0.125rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}

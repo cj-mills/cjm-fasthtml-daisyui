@@ -1,0 +1,31 @@
+:root:has(input.theme-controller[value=neon_nights]:checked),[data-theme="neon_nights"] {
+  color-scheme: dark;
+  --color-base-100: oklch(10% 0.02 260);
+  --color-base-200: oklch(8% 0.02 260);
+  --color-base-300: oklch(6% 0.02 260);
+  --color-base-content: oklch(85% 0.15 320);
+  --color-primary: oklch(70% 0.25 320);
+  --color-primary-content: oklch(10% 0.02 320);
+  --color-secondary: oklch(60% 0.22 180);
+  --color-secondary-content: oklch(10% 0.02 180);
+  --color-accent: oklch(75% 0.28 90);
+  --color-accent-content: oklch(10% 0.02 90);
+  --color-neutral: oklch(20% 0.03 260);
+  --color-neutral-content: oklch(80% 0.10 320);
+  --color-info: oklch(65% 0.20 220);
+  --color-info-content: oklch(10% 0.02 220);
+  --color-success: oklch(65% 0.22 150);
+  --color-success-content: oklch(10% 0.02 150);
+  --color-warning: oklch(72% 0.25 60);
+  --color-warning-content: oklch(10% 0.02 60);
+  --color-error: oklch(68% 0.25 15);
+  --color-error-content: oklch(10% 0.02 15);
+  --radius-selector: 0.25rem;
+  --radius-field: 0.125rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 2px;
+  --depth: 0.5;
+  --noise: 0.2;
+}

@@ -43,357 +43,78 @@ index.html
 > I suggest using theme-change, so you can switch themes and save selected theme in local storage.
 ## List of themes
 
-Try them:
+1. light
 
-light
+2. dark
 
-A
+3. cupcake
 
-A
+4. bumblebee
 
-A
+5. emerald
 
-A
+6. corporate
 
-dark
+7. synthwave
 
-A
+8. retro
 
-A
+9. cyberpunk
 
-A
+10. valentine
 
-A
+11. halloween
 
-cupcake
+12. garden
 
-A
+13. forest
 
-A
+14. aqua
 
-A
+15. lofi
 
-A
+16. pastel
 
-bumblebee
+17. fantasy
 
-A
+18. wireframe
 
-A
+19. black
 
-A
+20. luxury
 
-A
+21. dracula
 
-emerald
+22. cmyk
 
-A
+23. autumn
 
-A
+24. business
 
-A
+25. acid
 
-A
+26. lemonade
 
-corporate
+27. night
 
-A
+28. coffee
 
-A
+29. winter
 
-A
+30. dim
 
-A
+31. nord
 
-synthwave
+32. sunset
 
-A
+33. caramellatte
 
-A
+34. abyss
 
-A
+35. silk
 
-A
 
-retro
 
-A
-
-A
-
-A
-
-A
-
-cyberpunk
-
-A
-
-A
-
-A
-
-A
-
-valentine
-
-A
-
-A
-
-A
-
-A
-
-halloween
-
-A
-
-A
-
-A
-
-A
-
-garden
-
-A
-
-A
-
-A
-
-A
-
-forest
-
-A
-
-A
-
-A
-
-A
-
-aqua
-
-A
-
-A
-
-A
-
-A
-
-lofi
-
-A
-
-A
-
-A
-
-A
-
-pastel
-
-A
-
-A
-
-A
-
-A
-
-fantasy
-
-A
-
-A
-
-A
-
-A
-
-wireframe
-
-A
-
-A
-
-A
-
-A
-
-black
-
-A
-
-A
-
-A
-
-A
-
-luxury
-
-A
-
-A
-
-A
-
-A
-
-dracula
-
-A
-
-A
-
-A
-
-A
-
-cmyk
-
-A
-
-A
-
-A
-
-A
-
-autumn
-
-A
-
-A
-
-A
-
-A
-
-business
-
-A
-
-A
-
-A
-
-A
-
-acid
-
-A
-
-A
-
-A
-
-A
-
-lemonade
-
-A
-
-A
-
-A
-
-A
-
-night
-
-A
-
-A
-
-A
-
-A
-
-coffee
-
-A
-
-A
-
-A
-
-A
-
-winter
-
-A
-
-A
-
-A
-
-A
-
-dim
-
-A
-
-A
-
-A
-
-A
-
-nord
-
-A
-
-A
-
-A
-
-A
-
-sunset
-
-A
-
-A
-
-A
-
-A
-
-caramellatte
-
-A
-
-A
-
-A
-
-A
-
-abyss
-
-A
-
-A
-
-A
-
-A
-
-silk
-
-A
-
-A
-
-A
-
-A
 ## Enable all themes
 
 Enable all 35 built-in themes by setting`themes`to`all`:

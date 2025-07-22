@@ -22,69 +22,26 @@ pip install cjm-fasthtml-daisyui
 ## Project Structure
 
     nbs/
-    ├── actions/ (1)
-    │   └── button.ipynb  # Buttons allow the user to take actions or make choices.
-    └── core/ (12)
-        ├── base.ipynb       # Base classes and types for all daisyUI components
-        ├── behaviors.ipynb  # Mixin for components with behavior states (active, disabled, loading)
-        ├── colors.ipynb     # Semantic color system for daisyUI components
-        ├── config.ipynb     # daisyUI configuration management for FastHTML projects
-        ├── elements.ipynb   # HTML element creation utilities
-        ├── htmx.ipynb       # HTMX patterns and helpers for daisyUI components in FastHTML
-        ├── parts.ipynb      # System for handling component parts (e.g., card-body, modal-box)
-        ├── placement.ipynb  # Mixins for component placement and direction options
-        ├── resources.ipynb  # Managing daisyUI and Tailwind CSS resources for FastHTML projects
-        ├── testing.ipynb    # Standardized testing framework for daisyUI components in Jupyter notebooks
-        ├── types.ipynb      # Protocols, enums, and utilities for type-safe daisyUI component development
-        └── variants.ipynb   # System for handling component variants and states
+    └── core/ (3)
+        ├── resources.ipynb  # CDN resources and headers for daisyUI and Tailwind CSS
+        ├── testing.ipynb    # Standardized test page creation for Jupyter notebooks with FastHTML
+        └── themes.ipynb     # Type-safe theme management for daisyUI
 
-Total: 13 notebooks across 2 directories
+Total: 3 notebooks across 1 directory
 
 ## Module Dependencies
 
 ``` mermaid
 graph LR
-    actions_button[actions.button<br/>Button]
-    core_base[core.base<br/>Core Base Classes]
-    core_behaviors[core.behaviors<br/>Behavior States]
-    core_colors[core.colors<br/>Colors]
-    core_config[core.config<br/>Configuration]
-    core_elements[core.elements<br/>Elements]
-    core_htmx[core.htmx<br/>HTMX Integration]
-    core_parts[core.parts<br/>Component Parts]
-    core_placement[core.placement<br/>Placement & Direction]
-    core_resources[core.resources<br/>Resources]
-    core_testing[core.testing<br/>Testing]
-    core_types[core.types<br/>Types]
-    core_variants[core.variants<br/>Variant System]
+    core_resources[core.resources<br/>resources]
+    core_testing[core.testing<br/>testing]
+    core_themes[core.themes<br/>themes]
 
-    actions_button --> core_types
-    actions_button --> core_colors
-    actions_button --> core_base
-    actions_button --> core_variants
-    actions_button --> core_testing
-    actions_button --> core_behaviors
-    actions_button --> core_htmx
-    actions_button --> core_config
-    core_base --> core_types
-    core_base --> core_colors
-    core_behaviors --> core_types
-    core_colors --> core_types
-    core_config --> core_types
-    core_htmx --> core_types
-    core_htmx --> core_base
-    core_parts --> core_types
-    core_parts --> core_elements
-    core_placement --> core_types
-    core_resources --> core_types
-    core_testing --> core_config
-    core_testing --> core_types
-    core_testing --> core_colors
     core_testing --> core_resources
-    core_variants --> core_types
+    core_testing --> core_themes
 ```
 
-*24 cross-module dependencies detected*
+*2 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -94,1950 +51,233 @@ No CLI commands found in this project.
 
 Detailed documentation for each module in the project:
 
-### Core Base Classes (`base.ipynb`)
+### resources (`resources.ipynb`)
 
-> Base classes and types for all daisyUI components
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.base import (
-    deduplicate_classes,
-    HasSize,
-    DaisyComponent,
-    ValidatedDaisyComponent
-)
-```
-
-#### Functions
-
-``` python
-def deduplicate_classes(
-    *class_sources: Union[str, List[str], None] # Multiple sources of CSS classes (strings, lists, or None)
-) -> str:  # Space-separated string of deduplicated CSS classes, sorted alphabetically
-    """
-    Deduplicate CSS classes from multiple sources.
-    
-    Takes multiple sources of CSS classes (strings, lists, or None values) and
-    returns a single space-separated string with duplicates removed and sorted
-    alphabetically for consistency.
-    
-    Args:
-        *class_sources: Variable number of class sources, each can be:
-            - A space-separated string of CSS classes
-            - A list of CSS class strings
-            - None (will be ignored)
-    
-    Returns:
-        A space-separated string of unique CSS classes, sorted alphabetically
-        
-    Examples:
-        >>> deduplicate_classes("btn btn-primary", ["btn", "btn-lg"])
-        'btn btn-lg btn-primary'
-        
-        >>> deduplicate_classes("hidden md:block", None, ["hidden", "lg:block"])
-        'hidden lg:block md:block'
-    """
-```
-
-#### Classes
-
-``` python
-@dataclass
-class HasSize(CSSContributor):
-    """
-    Mixin for components that support size modifiers.
-    
-    This mixin provides size support for daisyUI components,
-    including responsive size variations.
-    
-    Note: This mixin expects to be used with a class that has a
-    component_class() method (like DaisyComponent).
-    """
-    
-    size: Optional[Union[DaisySize, str]]
-    responsive_size: Optional[Dict[str, str]]  # e.g., {"md": "lg", "lg": "xl"}
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # List of CSS class strings for size modifiers
-        "Get size-related CSS classes.
-
-Returns:
-    List of CSS class strings for size modifiers"
-```
-
-``` python
-@dataclass
-class DaisyComponent(ColorMixin, ComponentProtocol):
-    """
-    Base class for all daisyUI components.
-    
-    This class provides the foundation for building daisyUI components with:
-    - Type-safe semantic color support with automatic content colors
-    - Custom class and attribute support
-    - Integration with cjm-tailwind-utils for additional styling
-    - Responsive modifier support
-    - Full implementation of ComponentProtocol interface
-    """
-    
-    id: Optional[str]
-    cls: Optional[str]  # Additional custom classes
-    attrs: Dict[str, Any] = field(...)
-    responsive_hide: Optional[List[str]]  # Breakpoints to hide at
-    responsive_show: Optional[List[str]]  # Breakpoints to show at
-    tw_padding: Optional[Union[int, str]]
-    tw_margin: Optional[Union[int, str]]
-    tw_utilities: Optional[List[str]]  # Raw Tailwind utilities
-    
-    def component_class(
-            self
-        ) -> str:  # The base component class name (e.g., 'btn', 'card')
-        "Return the base component class name (e.g., 'btn', 'card').
-
-Subclasses must implement this method."
-    
-    def modifier_classes(
-            self
-        ) -> List[str]:  # List of modifier CSS classes
-        "Return all modifier classes for this component."
-    
-    def build_classes(
-            self
-        ) -> str:  # Space-separated string of all CSS classes
-        "Build complete class string with deduplication."
-    
-    def render_attrs(
-            self
-        ) -> Dict[str, Any]:  # Dictionary of HTML attributes
-        "Build all HTML attributes for rendering."
-    
-    def with_utilities(
-            self,
-            *utilities: str # Tailwind utility classes to add
-        ) -> 'DaisyComponent':  # Self for method chaining
-        "Add Tailwind utilities and return self for chaining."
-    
-    def with_semantic_colors(
-            self,
-            bg: Optional[Union[SemanticColor, str]] = None, # Background color
-            text: Optional[Union[SemanticColor, str]] = None, # Text color (auto-selected if None and auto_content=True)
-            border: Optional[Union[SemanticColor, str]] = None, # Border color
-            auto_content: bool = True  # Automatically select appropriate text color for background
-        ) -> 'DaisyComponent':  # Self for method chaining
-        "Apply semantic colors with automatic content color selection."
-```
-
-``` python
-@dataclass
-class ValidatedDaisyComponent(DaisyComponent):
-    """
-    Extended base class with component type validation.
-    
-    This optional base class adds validation to ensure component classes
-    match known daisyUI component types.
-    """
-    
-    component_type: Optional[DaisyComponentType]
-    
-    def component_class(
-            self
-        ) -> str:  # The base component class name with validation
-        "Return the base component class name with validation.
-
-If component_type is set, returns its value.
-Otherwise falls back to the standard implementation."
-    
-    def validate_component_type(
-            self
-        ) -> None: # Validates component type if specified
-        "Validate component type if specified.
-
-This should be called by subclasses after they've set up
-their component_type and implemented component_class."
-```
-
-### Behavior States (`behaviors.ipynb`)
-
-> Mixin for components with behavior states (active, disabled, loading)
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.behaviors import (
-    HasBehaviors,
-    InteractiveMixin,
-    FormControlMixin
-)
-```
-
-#### Classes
-
-``` python
-class HasBehaviors(CSSContributor):
-    """
-    Mixin for components with interactive behavior states.
-    
-    This mixin provides functionality for interactive components that can have
-    various behavior states like active, disabled, loading, open, and checked.
-    It implements the CSSContributor protocol to provide behavior-related CSS classes.
-    
-    Attributes:
-        active: Whether the component is in an active state (e.g., pressed button)
-        disabled: Whether the component is disabled and non-interactive
-        loading: Whether the component is in a loading state
-        open: Whether the component is open (for modals, dropdowns, etc.)
-        checked: Whether the component is checked (for checkboxes, toggles, etc.)
-    
-    Note: This mixin assumes it will be used with classes that provide
-    a `component_class()` method (typically components implementing ComponentProtocol).
-    """
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # List of CSS class strings for behavior states
-        "Get behavior state classes.
-
-Generates CSS classes based on the current behavior states of the component.
-Classes are only added if the component supports the specific behavior
-and the state is active."
-    
-    def supports_active(
-            self
-        ) -> bool:  # Whether active state is supported
-        "Whether this component supports active state.
-
-Override this method in components that support active state
-(e.g., buttons, links, tabs)."
-    
-    def supports_disabled(
-            self
-        ) -> bool:  # True if the component supports disabled state, False otherwise
-        "Whether this component supports disabled state.
-
-Override this method in components that can be disabled
-(e.g., buttons, inputs, form controls)."
-    
-    def supports_loading(
-            self
-        ) -> bool:  # Whether loading state is supported
-        "Whether this component supports loading state."
-    
-    def loading_uses_base_class(
-            self
-        ) -> bool:  # Whether to use 'loading' or '{component}-loading'
-        "Whether loading state uses 'loading' instead of '{component}-loading'.
-
-Some components use a general 'loading' class while others use
-component-specific loading classes like 'btn-loading'.
-
-Returns:
-    True to use 'loading', False to use '{component}-loading'"
-    
-    def behavior_attrs(
-            self
-        ) -> Dict[str, Any]:  # Dictionary of HTML attributes based on current behavior states
-        "Return HTML attributes for behavior states.
-
-Generates appropriate HTML attributes based on the current behavior states.
-This includes both standard HTML attributes (disabled, checked, open) and
-ARIA attributes for accessibility."
-```
-
-``` python
-class InteractiveMixin(HasBehaviors):
-    """
-    Extended mixin for highly interactive components.
-    
-    This mixin extends HasBehaviors with additional interactive properties
-    commonly needed for buttons, inputs, and other interactive elements.
-    It adds support for focus and hover states that can be styled through CSS.
-        
-    Inherits all behavior states from HasBehaviors: active, disabled, loading, open, checked
-    """
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # List of CSS class strings for all interactive states
-        "Get all interactive state classes.
-
-Extends the base behavior classes with focus and hover state classes.
-This allows components to have visual feedback for all interaction states."
-```
-
-``` python
-class FormControlMixin:
-    """
-    Mixin for form control components.
-    
-    This mixin provides common properties and methods for form elements
-    like inputs, selects, textareas, checkboxes, and other form controls.
-    It standardizes the handling of form-related attributes across components.
-    
-    Note: This mixin does not inherit from CSSContributor as it focuses on
-    HTML attributes rather than CSS classes. It should be combined with
-    other mixins for complete component functionality.
-    """
-    
-    def form_attrs(
-            self
-        ) -> Dict[str, Any]:  # Dictionary of form-related HTML attributes
-        "Return form-related HTML attributes.
-
-Generates standard HTML form attributes based on the current state
-of the form control. Only includes attributes that have been set
-to non-default values."
-```
-
-### Button (`button.ipynb`)
-
-> [Buttons](https://daisyui.com/components/button/) allow the user to
-> take actions or make choices.
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.actions.button import (
-    ButtonShape,
-    Btn
-)
-```
-
-#### Classes
-
-``` python
-class ButtonShape(str, Enum):
-    "Button shape modifiers"
-```
-
-``` python
-@dataclass
-class Btn:
-    def __init__(self, *children, **kwargs)
-    """
-    daisyUI Button component with full feature support.
-    
-    Supports all button variants, styles, sizes, shapes, and states.
-    Can be used as a regular button, submit button, or link button.
-    """
-    
-    children: List[FT] = field(...)
-    color: Optional[Union[SemanticColor, str]]
-    shape: Optional[ButtonShape]
-    no_animation: bool = False  # Disable click animation
-    icon_start: Optional[FT]
-    icon_end: Optional[FT]
-    href: Optional[str]
-    target: Optional[str]
-    type: Optional[str]
-    form: Optional[str]
-    style: Optional[Union[StyleType, str]]
-    
-    def __init__(self, *children, **kwargs)
-        "Initialize button with children and properties."
-    
-    def variants(
-            cls  # The class itself (Btn)
-        ) -> Dict[str, Any]:  # Dictionary mapping variant names to their definitions
-        "Define available variants for buttons."
-    
-    def component_class(
-            self
-        ) -> str:  # The base CSS class name for the button component
-        "Return the base component class name."
-    
-    def modifier_classes(
-            self
-        ) -> List[str]:  # List of additional CSS modifier classes
-        "Build all modifier classes."
-    
-    def render_content(
-            self
-        ) -> List[FT]:  # List of FastHTML elements representing button content
-        "Render button content with icons."
-    
-    def render_attrs(
-            self
-        ) -> Dict[str, Any]:  # Dictionary of HTML attributes for the button element
-        "Build all HTML attributes including form and behavior attrs."
-    
-    def render(
-            self
-        ) -> FT:  # FastHTML element (Button or A element)
-        "Render the button element."
-```
-
-### Colors (`colors.ipynb`)
-
-> Semantic color system for daisyUI components
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.colors import (
-    ColorClasses,
-    ColorBuilder,
-    get_color_classes,
-    apply_semantic_colors,
-    with_opacity,
-    ColorMixin
-)
-```
-
-#### Functions
-
-``` python
-def get_color_classes(
-    color: Union[SemanticColor, str],
-    utilities: List[ColorUtility] = None  # List of utilities to generate (defaults to bg and text)
-) -> List[str]:  # List of CSS class names
-    "Generate color utility classes for a semantic color"
-```
-
-``` python
-def apply_semantic_colors(
-    bg: Optional[Union[SemanticColor, str]] = None,
-    text: Optional[Union[SemanticColor, str]] = None,
-    border: Optional[Union[SemanticColor, str]] = None,
-    auto_content: bool = True  # Automatically select appropriate text color for background
-) -> str:  # Space-separated CSS classes
-    "Apply semantic colors with automatic content color selection"
-```
-
-``` python
-def with_opacity(
-    color_class: str,  # The color utility class (e.g., "bg-primary")
-    opacity: Union[OpacityLevel, int]
-) -> str:  # Color class with opacity modifier
-    "Add opacity modifier to a color class"
-```
-
-#### Classes
-
-``` python
-@dataclass
-class ColorClasses:
-    "Container for color-related CSS classes"
-    
-    background: Optional[str]
-    text: Optional[str]
-    border: Optional[str]
-    ring: Optional[str]
-    
-    def to_list(
-            self
-        ) -> List[str]:  # List of class names
-        "Convert to list of class names"
-    
-    def to_string(
-            self
-        ) -> str:  # Space-separated string
-        "Convert to space-separated string"
-```
-
-``` python
-class ColorBuilder:
-    def __init__(self):
-        "Initialize a new ColorBuilder with empty color classes"
-        self._classes = ColorClasses()
-    
-    def bg(
-        self,
-        color: Union[SemanticColor, str]  # background color
-    ) -> "ColorBuilder":  # Self for method chaining
-    """
-    Builder for semantic color classes
-    
-    Provides a fluent API for building color-related CSS classes
-    with daisyUI semantic colors.
-    """
-    
-    def __init__(self):
-            "Initialize a new ColorBuilder with empty color classes"
-            self._classes = ColorClasses()
-        
-        def bg(
-            self,
-            color: Union[SemanticColor, str]  # background color
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Initialize a new ColorBuilder with empty color classes"
-    
-    def bg(
-            self,
-            color: Union[SemanticColor, str]  # background color
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Set background color"
-    
-    def text(
-            self,
-            color: Union[SemanticColor, str]  # text color
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Set text color"
-    
-    def border(
-            self,
-            color: Union[SemanticColor, str]  # Border color
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Set border color"
-    
-    def ring(
-            self,
-            color: Union[SemanticColor, str]  # Ring color
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Set ring color"
-    
-    def brand_primary(
-            self
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Apply primary brand colors (background + appropriate text)"
-    
-    def brand_secondary(
-            self
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Apply secondary brand colors"
-    
-    def brand_accent(
-            self
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Apply accent brand colors"
-    
-    def state_info(
-            self
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Apply info state colors"
-    
-    def state_success(
-            self
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Apply success state colors"
-    
-    def state_warning(
-            self
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Apply warning state colors"
-    
-    def state_error(
-            self
-        ) -> "ColorBuilder":  # Self for method chaining
-        "Apply error state colors"
-    
-    def surface_base(
-            self,
-            level: BaseColor = 100  # Base level
-        ) -> "ColorBuilder":   # Self for method chaining
-        "Apply base surface colors"
-    
-    def build(
-            self
-        ) -> str:  # Final class string
-        "Build the final class string"
-    
-    def build_list(
-            self
-        ) -> List[str]:  # List of classes
-        "Build as a list of classes"
-    
-    def reset(
-            self
-        ) -> "ColorBuilder":   # Self for method chaining
-        "Reset the builder"
-```
-
-``` python
-class ColorMixin(CSSContributor):
-    """
-    Mixin to add semantic color support to components
-    
-    This will be used by DaisyComponent to provide color methods.
-    """
-    
-    def with_color(
-            self,
-            color: Union[SemanticColor, str],
-            apply_to: List[ColorUtility] = None  # Utilities to apply color to (defaults to bg and text)
-        ) -> "ColorMixin":  # Self for method chaining
-        "Apply a semantic color to the component"
-    
-    def with_brand_colors(
-            self,
-            brand: Literal["primary", "secondary", "accent", "neutral"]
-        ) -> "ColorMixin":  # Self for method chaining
-        "Apply brand colors with appropriate text color"
-    
-    def with_state_colors(
-            self,
-            state: Literal["info", "success", "warning", "error"]
-        ) -> "ColorMixin":  # Self for method chaining
-        "Apply state colors with appropriate text color"
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # List of CSS class strings for colors
-        "Get all color classes applied to this component
-
-Returns:
-    List of CSS class strings for colors"
-```
-
-### Configuration (`config.ipynb`)
-
-> daisyUI configuration management for FastHTML projects
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.config import (
-    ThemeConfig,
-    DaisyUIConfig,
-    ColorScheme,
-    ThemeDesignTokens,
-    CustomTheme,
-    ConfigManager
-)
-```
-
-#### Classes
-
-``` python
-@dataclass
-class ThemeConfig:
-    "Configuration for a single theme"
-    
-    name: Union[DaisyUITheme, str]
-    is_default: bool = False
-    is_prefers_dark: bool = False
-    
-    def to_string(
-            self
-        ) -> str:  # daisyUI config string
-        "Convert to daisyUI config string format"
-```
-
-``` python
-@dataclass
-class DaisyUIConfig:
-    "Complete daisyUI configuration for FastHTML projects"
-    
-    themes: List[Union[DaisyUITheme, str, ThemeConfig]] = field(...)
-    root: str = ':root'  # CSS selector for root element
-    include: List[str] = field(...)  # Components to explicitly include (empty means all)
-    exclude: List[Union[ExcludeFeature, str]] = field(...)  # Components to exclude
-    prefix: str = ''  # Prefix for all daisyUI classes
-    logs: bool = True  # Enable/disable console logs
-    
-    def add_theme(
-            self, 
-            theme: Union[DaisyUITheme, str],
-            is_default: bool = False,  # If True, sets this theme as the default theme
-            is_prefers_dark: bool = False  # If True, sets this theme as the preferred dark theme
-        ) -> "DaisyUIConfig":  # Returns self for method chaining
-        "Add a theme to the configuration"
-    
-    def exclude_feature(
-            self,
-            feature: Union[ExcludeFeature, str]  # Feature to exclude from daisyUI
-        ) -> "DaisyUIConfig":  # Returns self for method chaining
-        "Exclude a feature from daisyUI"
-    
-    def set_prefix(
-            self,
-            prefix: str  # Prefix to add to all daisyUI class names
-        ) -> "DaisyUIConfig":  # Returns self for method chaining
-        "Set a prefix for all daisyUI classes"
-    
-    def to_css(
-            self
-        ) -> str:  # Complete CSS configuration string for daisyUI
-        "Generate CSS configuration string"
-```
-
-``` python
-@dataclass
-class ColorScheme:
-    "Color scheme for a custom theme"
-    
-    base_100: str = 'oklch(98% 0.02 240)'
-    base_200: str = 'oklch(95% 0.03 240)'
-    base_300: str = 'oklch(92% 0.04 240)'
-    base_content: str = 'oklch(20% 0.05 240)'
-    primary: str = 'oklch(55% 0.3 240)'
-    primary_content: str = 'oklch(98% 0.01 240)'
-    secondary: str = 'oklch(70% 0.25 200)'
-    secondary_content: str = 'oklch(98% 0.01 200)'
-    accent: str = 'oklch(65% 0.25 160)'
-    accent_content: str = 'oklch(98% 0.01 160)'
-    neutral: str = 'oklch(50% 0.05 240)'
-    neutral_content: str = 'oklch(98% 0.01 240)'
-    info: str = 'oklch(70% 0.2 220)'
-    info_content: str = 'oklch(98% 0.01 220)'
-    success: str = 'oklch(65% 0.25 140)'
-    success_content: str = 'oklch(98% 0.01 140)'
-    warning: str = 'oklch(80% 0.25 80)'
-    warning_content: str = 'oklch(20% 0.05 80)'
-    error: str = 'oklch(65% 0.3 30)'
-    error_content: str = 'oklch(98% 0.01 30)'
-    
-    def to_css_vars(
-            self
-        ) -> Dict[str, Any]:  # Dictionary of CSS variable names to color values
-        "Convert to CSS variable format"
-```
-
-``` python
-@dataclass
-class ThemeDesignTokens:
-    "Design tokens for theme customization"
-    
-    radius_selector: str = '1rem'  # For checkbox, toggle, badge
-    radius_field: str = '0.25rem'  # For button, input, select, tab
-    radius_box: str = '0.5rem'  # For card, modal, alert
-    size_selector: str = '0.25rem'  # Base size for selectors
-    size_field: str = '0.25rem'  # Base size for fields
-    border: str = '1px'  # Border width
-    depth: Literal[0, 1] = 1  # Shadow and 3D effect (0 or 1)
-    noise: Literal[0, 1] = 0  # Noise texture effect (0 or 1)
-    
-    def to_css_vars(
-            self
-        ) -> Dict[str, Any]:  # Dictionary of CSS variable names to design token values
-        "Convert to CSS variable format"
-```
-
-``` python
-@dataclass
-class CustomTheme:
-    "Complete custom theme definition"
-    
-    name: str
-    is_default: bool = False
-    is_prefers_dark: bool = False
-    color_scheme: ColorSchemeType = ColorSchemeType.LIGHT
-    colors: ColorScheme = field(...)
-    tokens: ThemeDesignTokens = field(...)
-    
-    def to_css(
-            self
-        ) -> str:  # CSS plugin configuration for the custom theme
-        "Generate CSS for the custom theme"
-```
-
-``` python
-class ConfigManager:
-    "Manage daisyUI configuration persistence"
-    
-    def save_to_file(
-            config: DaisyUIConfig,  # Configuration object to save
-            path: Union[str, Path]  # File path where the CSS will be saved
-        ) -> None
-        "Save configuration to a CSS file"
-    
-    def save_custom_theme(
-            theme: CustomTheme,  # Custom theme object to save
-            path: Union[str, Path]  # File path where the CSS will be saved
-        ) -> None
-        "Save custom theme to a CSS file"
-    
-    def combine_with_custom_themes(
-            config: DaisyUIConfig,  # Base configuration
-            custom_themes: List[CustomTheme]  # List of custom themes to include
-        ) -> str:  # Combined CSS string with config and custom themes
-        "Combine configuration with custom themes"
-```
-
-### Elements (`elements.ipynb`)
-
-> HTML element creation utilities
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.elements import (
-    create_element
-)
-```
-
-#### Functions
-
-``` python
-def create_element(
-    tag: str,  # The HTML tag name (case-insensitive)
-    *children,  # Child elements to include
-    **attrs  # HTML attributes for the element
-) -> FT:  # A FastHTML element of the specified type
-    """
-    Create a FastHTML element from a tag name.
-    
-    This function provides a centralized way to create HTML elements,
-    avoiding duplication across modules.
-    """
-```
-
-### HTMX Integration (`htmx.ipynb`)
-
-> HTMX patterns and helpers for daisyUI components in FastHTML
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.htmx import (
-    HTMXAttrs,
-    HTMXComponent,
-    htmx_attrs,
-    loading_indicator,
-    oob_alert
-)
-```
-
-#### Functions
-
-``` python
-def htmx_attrs(
-    **kwargs
-) -> Dict[str, Any]:  # Dictionary with proper HTMX attribute names
-    "Convert keyword arguments to HTMX attributes."
-```
-
-``` python
-def loading_indicator(
-    indicator_id: str,  # ID for the indicator element
-    text: str = "Loading...",  # Text to display next to spinner
-    size: str = "md"  # Size of spinner (xs, sm, md, lg, xl)
-) -> FT:  # Loading indicator element
-    """
-    Create a loading indicator element.
-    
-    Creates a daisyUI loading spinner with text, initially hidden.
-    Use with HTMXComponent.with_loading() to show during requests.
-    """
-```
-
-``` python
-def oob_alert(
-    message: str,  # Alert message to display
-    alert_type: str = "info",  # Type of alert (info, success, warning, error)
-    target_id: str = "alerts",  # ID of container element to append alert to
-    auto_dismiss: Optional[int] = 5000  # Auto dismiss after milliseconds (None to disable)
-) -> FT:  # Alert element with out-of-band swap attribute
-    """
-    Create out-of-band alert message.
-    
-    Creates a daisyUI alert that can be swapped out-of-band into any page.
-    Useful for showing feedback messages after HTMX requests.
-    """
-```
-
-#### Classes
-
-``` python
-@dataclass
-class HTMXAttrs:
-    "Container for HTMX attributes with type-safe values."
-    
-    hx_get: Optional[str]
-    hx_post: Optional[str]
-    hx_put: Optional[str]
-    hx_patch: Optional[str]
-    hx_delete: Optional[str]
-    hx_trigger: Optional[str]
-    hx_target: Optional[str]
-    hx_swap: Optional[str]
-    hx_indicator: Optional[str]
-    hx_push_url: Optional[Union[bool, str]]
-    hx_select: Optional[str]
-    hx_select_oob: Optional[str]
-    hx_vals: Optional[Union[str, bool, Dict[str, Any]]]
-    hx_confirm: Optional[str]
-    hx_disable: Optional[bool]
-    hx_disabled_elt: Optional[str]
-    hx_include: Optional[str]
-    hx_ext: Optional[str]
-    
-    def to_dict(
-            self
-        ) -> Dict[str, Any]:  # Dictionary of HTML attributes with HTMX prefixes
-        "Convert to dictionary of HTML attributes."
-```
-
-``` python
-class HTMXComponent:
-    def __init__(self, *args, htmx: Optional[HTMXAttrs] = None, **kwargs):
-        """Initialize with optional HTMX attributes."""
-        super().__init__(*args, **kwargs)
-        self.htmx = htmx or HTMXAttrs()
-    
-    def with_htmx(
-        self,
-        get: Optional[str] = None,  # URL endpoint for GET request
-        post: Optional[str] = None,  # URL endpoint for POST request
-        put: Optional[str] = None,  # URL endpoint for PUT request
-        patch: Optional[str] = None,  # URL endpoint for PATCH request
-        delete: Optional[str] = None,  # URL endpoint for DELETE request
-        trigger: Optional[Union[HTMXTrigger, str]] = None,
-        target: Optional[str] = None,  # CSS selector for element to update
-        swap: Optional[Union[HTMXSwap, str]] = None,
-        **kwargs
-    ) -> 'HTMXComponent':  # Self for method chaining
-    """
-    Base class for HTMX-aware daisyUI components.
-    
-    Extends ValidatedDaisyComponent with HTMX attributes and helper methods
-    for building interactive components following FastHTML patterns.
-    """
-    
-    def __init__(self, *args, htmx: Optional[HTMXAttrs] = None, **kwargs):
-            """Initialize with optional HTMX attributes."""
-            super().__init__(*args, **kwargs)
-            self.htmx = htmx or HTMXAttrs()
-        
-        def with_htmx(
-            self,
-            get: Optional[str] = None,  # URL endpoint for GET request
-            post: Optional[str] = None,  # URL endpoint for POST request
-            put: Optional[str] = None,  # URL endpoint for PUT request
-            patch: Optional[str] = None,  # URL endpoint for PATCH request
-            delete: Optional[str] = None,  # URL endpoint for DELETE request
-            trigger: Optional[Union[HTMXTrigger, str]] = None,
-            target: Optional[str] = None,  # CSS selector for element to update
-            swap: Optional[Union[HTMXSwap, str]] = None,
-            **kwargs
-        ) -> 'HTMXComponent':  # Self for method chaining
-        "Initialize with optional HTMX attributes."
-    
-    def with_htmx(
-            self,
-            get: Optional[str] = None,  # URL endpoint for GET request
-            post: Optional[str] = None,  # URL endpoint for POST request
-            put: Optional[str] = None,  # URL endpoint for PUT request
-            patch: Optional[str] = None,  # URL endpoint for PATCH request
-            delete: Optional[str] = None,  # URL endpoint for DELETE request
-            trigger: Optional[Union[HTMXTrigger, str]] = None,
-            target: Optional[str] = None,  # CSS selector for element to update
-            swap: Optional[Union[HTMXSwap, str]] = None,
-            **kwargs
-        ) -> 'HTMXComponent':  # Self for method chaining
-        "Configure HTMX attributes fluently."
-    
-    def with_loading(
-            self,
-            indicator_id: str,  # ID of the loading indicator element to show during request
-            disable_during: Optional[str] = None  # CSS selector of elements to disable during request
-        ) -> 'HTMXComponent':  # Self for method chaining
-        "Configure loading indicators."
-    
-    def with_confirmation(
-            self,
-            message: str  # Confirmation message to display before request
-        ) -> 'HTMXComponent':  # Self for method chaining
-        "Add confirmation dialog."
-    
-    def render_attrs(
-            self
-        ) -> Dict[str, Any]:  # Combined dictionary of all HTML and HTMX attributes
-        "Build all HTML attributes including HTMX."
-```
-
-### Component Parts (`parts.ipynb`)
-
-> System for handling component parts (e.g., card-body, modal-box)
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.parts import (
-    ComponentPart,
-    HasParts
-)
-```
-
-#### Classes
-
-``` python
-@dataclass
-class ComponentPart:
-    """
-    Represents a part of a component (e.g., card-body, modal-box).
-    
-    Component parts are child elements that have specific styling
-    within their parent component context.
-    """
-    
-    name: str  # Part name (e.g., 'body', 'title', 'actions')
-    parent_component: Union[str, DaisyComponentType]  # Parent component name or enum
-    required: bool = False  # Whether this part is required
-    tag: str = 'div'  # Default HTML tag for this part
-    
-    def class_name(
-            self
-        ) -> str:  # The complete class name for this part (e.g., 'card-body')
-        "Return the full class name for this part."
-```
-
-``` python
-class HasParts:
-    """
-    Mixin for components that have child parts.
-    
-    This mixin provides functionality for components like cards, modals,
-    and other complex components that have defined child elements.
-    
-    Note: Classes using this mixin should typically also implement the
-    ComponentProtocol to ensure they provide the full component interface.
-    Components that contribute CSS classes should also implement CSSContributor.
-    """
-    
-    def parts(
-            cls  # The class implementing HasParts
-        ) -> Dict[str, ComponentPart]:  # Dictionary mapping part names to ComponentPart objects
-        "Return all available parts for this component.
-
-Subclasses should override this to define their parts."
-    
-    def part(
-            self,
-            name: str,  # The part name (must be defined in parts())
-            *children: FT,  # Child elements for this part
-            **attrs: Any  # HTML attributes for the part
-        ) -> FT:  # FastHTML element configured as the specified part
-        "Create a component part element."
-```
-
-### Placement & Direction (`placement.ipynb`)
-
-> Mixins for component placement and direction options
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.placement import (
-    HasPlacement,
-    HasDirection,
-    HasPlacementAndDirection
-)
-```
-
-#### Classes
-
-``` python
-@dataclass
-class HasPlacement(CSSContributor):
-    """
-    Mixin for components with placement options.
-    
-    This mixin provides functionality for components that can be
-    positioned in different locations (start, center, end, top, bottom, etc.).
-    """
-    
-    placement: Optional[Union[DaisyPosition, PlacementType, str]]
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # Returns list of placement CSS classes
-        "Get placement classes."
-    
-    def uses_standard_placement(
-            self
-        ) -> bool:  # Returns True if standard pattern, False otherwise
-        "Whether component uses standard '{component}-{placement}' pattern."
-    
-    def custom_placement_classes(
-            self
-        ) -> List[str]:  # Returns list of custom CSS classes
-        "Override for custom placement class patterns."
-    
-    def valid_placements(
-            self
-        ) -> List[Union[DaisyPosition, str]]:  # Returns list of valid placement positions
-        "Return list of valid placement values for this component."
-```
-
-``` python
-@dataclass
-class HasDirection(CSSContributor):
-    """
-    Mixin for components with direction options.
-    
-    This mixin provides functionality for components that can have
-    different directional layouts (horizontal, vertical).
-    """
-    
-    direction: Optional[DirectionType]
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # Returns list of direction CSS classes
-        "Get direction classes."
-    
-    def is_horizontal(
-            self
-        ) -> bool:  # Returns True if direction is horizontal
-        "Check if component is horizontal."
-    
-    def is_vertical(
-            self
-        ) -> bool:  # Returns True if direction is vertical
-        "Check if component is vertical."
-```
-
-``` python
-@dataclass
-class HasPlacementAndDirection(HasPlacement, HasDirection):
-    """
-    Combined mixin for components with both placement and direction.
-    
-    This is useful for components like toast, divider, etc. that
-    support both placement and direction options.
-    """
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # Returns combined placement and direction CSS classes
-        "Get combined placement and direction classes."
-```
-
-### Resources (`resources.ipynb`)
-
-> Managing daisyUI and Tailwind CSS resources for FastHTML projects
+> CDN resources and headers for daisyUI and Tailwind CSS
 
 #### Import
 
 ``` python
 from cjm_fasthtml_daisyui.core.resources import (
-    ResourceVersions,
-    DaisyUIResources,
-    ResourcePresets,
-    ResourceOptimization,
-    ResourceManager
+    DAISYUI_CDN,
+    DAISYUI_THEMES_CDN,
+    TAILWIND_CDN,
+    get_daisyui_headers,
+    create_css_link,
+    create_js_script,
+    build_headers
 )
 ```
 
-#### Classes
+#### Functions
 
 ``` python
-@dataclass
-class ResourceVersions:
-    "Version management for daisyUI and Tailwind CSS"
-    
-    daisyui: str = '5'
-    tailwind: str = '4'
-    
-    def get_daisyui_url(
-            self,
-            provider: CDNProvider = CDNProvider.JSDELIVR  # CDN provider to use for fetching resources
-        ) -> str:  # Full CDN URL for daisyUI CSS
-        "Get the full CDN URL for daisyUI"
-    
-    def get_daisyui_themes_url(
-            self,
-            provider: CDNProvider = CDNProvider.JSDELIVR  # CDN provider to use for fetching resources
-        ) -> str:  # Full CDN URL for daisyUI themes CSS
-        "Get the full CDN URL for daisyUI themes"
-    
-    def get_tailwind_url(
-            self,
-            provider: CDNProvider = CDNProvider.JSDELIVR  # CDN provider to use for fetching resources
-        ) -> str:  # Full CDN URL for Tailwind CSS browser JavaScript
-        "Get the full CDN URL for Tailwind CSS browser version"
+def get_daisyui_headers(
+    include_themes: bool = True  # Include the daisyUI themes CSS file
+) -> List[Union[Link, Script]]:  # List of Link and Script elements for daisyUI and Tailwind CSS
+    "Get the standard daisyUI and Tailwind CSS CDN headers."
 ```
 
 ``` python
-class DaisyUIResources:
-    "Manages daisyUI and Tailwind CSS resources for FastHTML projects"
-    
-    def cdn_headers(
-            versions: Optional[ResourceVersions] = None,  # Version configuration for daisyUI and Tailwind
-            provider: CDNProvider = CDNProvider.JSDELIVR,  # CDN provider to use for fetching resources
-            include_tailwind: bool = True,  # Whether to include Tailwind CSS browser JavaScript
-            additional_css: Optional[List[str]] = None,  # List of additional CSS URLs to include
-            additional_js: Optional[List[str]] = None  # List of additional JavaScript URLs to include
-        ) -> List[FT]:  # List of FastHTML elements (Link and Script tags)
-        "CDN-based resources for quick testing and development"
-    
-    def local_headers(
-            css_path: str = "/static/styles.css",  # Path to compiled CSS file
-            js_paths: Optional[List[str]] = None,  # List of paths to JavaScript files
-            additional_css: Optional[List[str]] = None,  # List of additional CSS paths
-            additional_js: Optional[List[str]] = None  # List of additional JavaScript paths
-        ) -> List[FT]:  # List of FastHTML elements (Link and Script tags)
-        "Local file-based resources for production use"
-    
-    def inline_css(
-            content: str,  # CSS content to embed inline
-            id: Optional[str] = None  # Optional ID attribute for the style element
-        ) -> Style:  # FastHTML Style element
-        "Create an inline CSS style element"
-    
-    def minimal_css(
-        ) -> str:  # Minimal CSS string with Tailwind and daisyUI imports
-        "Get minimal CSS for Tailwind v4 with daisyUI plugin"
+def create_css_link(
+    href: str,  # URL or path to CSS file
+    media: Optional[str] = None,  # Media query (e.g., "screen", "print")
+    crossorigin: Optional[Literal["anonymous", "use-credentials"]] = None
+) -> Link:  # Link element for CSS stylesheet
+    "Create a CSS link element with optional attributes."
 ```
 
 ``` python
-class ResourcePresets:
-    "Common resource configurations"
-    
-    def development(
-        ) -> List[FT]:  # List of FastHTML header elements for development
-        "Quick development setup with CDN resources"
-    
-    def production(
-            css_path: str = "/static/styles.css"  # Path to compiled production CSS file
-        ) -> List[FT]:  # List of FastHTML header elements for production
-        "Production setup with compiled CSS"
-    
-    def testing(
-        ) -> List[FT]:  # List of FastHTML header elements for testing
-        "Testing setup with fast CDN and no caching"
-    
-    def offline(
-            css_path: str = "/static/daisyui.css",  # Path to local daisyUI CSS file
-            tailwind_path: str = "/static/tailwind.js"  # Path to local Tailwind browser JavaScript
-        ) -> List[FT]:  # List of FastHTML header elements for offline use
-        "Completely offline setup with local files"
+def create_js_script(
+    src: str,  # URL or path to JavaScript file
+    async_: bool = False,  # Load script asynchronously
+    defer: bool = False,  # Defer script execution
+    module: bool = False,  # ES6 module
+    crossorigin: Optional[Literal["anonymous", "use-credentials"]] = None
+) -> Script:  # Script element for JavaScript file
+    "Create a JavaScript script element with optional attributes."
 ```
 
 ``` python
-@dataclass
-class ResourceOptimization:
-    "Advanced resource optimization options"
+def build_headers(
+    include_themes: bool = True,  # Include daisyUI themes
+    custom_css: Optional[List[Union[str, Link]]] = None,  # Additional CSS files
+    custom_js: Optional[List[Union[str, Script]]] = None,  # Additional JS files
+    custom_theme_css: Optional[str] = None,  # Custom theme CSS as a string
+    custom_theme_paths: Optional[List[Union[str, Path]]] = None  # List of paths to custom theme CSS files
+) -> List[Union[Link, Script, Style]]:  # List of Link, Script, and Style elements for complete app headers
+    """
+    Build a complete set of headers for a FastHTML app with daisyUI and Tailwind.
     
-    preload: bool = True
-    prefetch: bool = False
-    async_load: bool = False
-    defer: bool = False
-    integrity: Optional[str]
-    crossorigin: Optional[str] = 'anonymous'
-    
-    def apply_to_link(
-            self,
-            link_attrs: Dict[str, str]  # Dictionary of link element attributes
-        ) -> Dict[str, str]:  # Updated dictionary with optimization attributes applied
-        "Apply optimization attributes to a link element"
-    
-    def apply_to_script(
-            self,
-            script_attrs: Dict[str, str]  # Dictionary of script element attributes
-        ) -> Dict[str, str]:  # Updated dictionary with optimization attributes applied
-        "Apply optimization attributes to a script element"
+    The order of headers is:
+    1. daisyUI CSS
+    2. daisyUI themes CSS (if included)
+    3. Custom theme CSS (if provided as string)
+    4. Custom theme CSS files (if provided as Path objects)
+    5. Custom CSS files
+    6. Tailwind CSS JavaScript
+    7. Custom JavaScript files
+    """
 ```
+
+#### Variables
 
 ``` python
-class ResourceManager:
-    def __init__(self):
-        """Initialize resource manager with cache and default optimization settings"""
-        self._cache: Dict[str, List[FT]] = {}
-    "Advanced resource manager with caching and optimization"
-    
-    def __init__(self):
-            """Initialize resource manager with cache and default optimization settings"""
-            self._cache: Dict[str, List[FT]] = {}
-        "Initialize resource manager with cache and default optimization settings"
-    
-    def get_optimized_headers(
-            self,
-            key: str = "default",  # Cache key to use for storing/retrieving headers
-            force_refresh: bool = False  # Whether to bypass cache and rebuild headers
-        ) -> List[FT]:  # List of cached or newly built FastHTML header elements
-        "Get cached headers with optimization"
-    
-    def clear_cache(
-            self
-        ) -> None
-        "Clear the resource cache"
+DAISYUI_CDN = 'https://cdn.jsdelivr.net/npm/daisyui@5'
+DAISYUI_THEMES_CDN = 'https://cdn.jsdelivr.net/npm/daisyui@5/themes.css'
+TAILWIND_CDN = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'
 ```
 
-### Testing (`testing.ipynb`)
+### testing (`testing.ipynb`)
 
-> Standardized testing framework for daisyUI components in Jupyter
-> notebooks
+> Standardized test page creation for Jupyter notebooks with FastHTML
 
 #### Import
 
 ``` python
 from cjm_fasthtml_daisyui.core.testing import (
-    DisplayMode,
-    ComponentExample,
-    ComponentTester,
-    quick_test,
-    test_variants,
-    theme_test,
-    ComponentBuilder,
-    TestData
+    create_test_app,
+    create_theme_selector,
+    create_test_page,
+    start_test_server
 )
 ```
 
 #### Functions
 
 ``` python
-def quick_test(
-    *components: FT,
-    title: str = "Quick Test"  # Title for the test page
-) -> ComponentTester:  # Started ComponentTester instance
-    "Quick function to test components"
+def create_test_app(
+    theme: Union[DaisyUITheme, str] = DaisyUITheme.LIGHT,  # Default theme
+    include_theme_selector: bool = True,  # Include theme selector in app
+    custom_css: Optional[List[Union[str, Link]]] = None,  # Additional CSS
+    custom_js: Optional[List[Union[str, Script]]] = None,  # Additional JS
+    custom_theme_css: Optional[str] = None,  # Custom theme CSS as string
+    custom_theme_paths: Optional[List[Union[str, Path]]] = None,  # List of paths to custom theme CSS files
+    custom_theme_names: Optional[List[str]] = None,  # Names of custom themes to include in selector
+    debug: bool = True  # Enable debug mode
+) -> tuple: # Tuple containing (app, rt) - FastHTML app instance and route decorator
+    "Create a standardized test app for Jupyter notebooks with daisyUI and Tailwind."
 ```
 
 ``` python
-def test_variants(
-    component_fn: Callable[..., FT],  # Function that creates the component
-    variants: Dict[str, List[Any]],
-    base_props: Optional[Dict[str, Any]] = None,  # Base properties to apply to all variants
-    title: str = "Variant Testing"  # Title for the test page
-) -> ComponentTester:  # Started ComponentTester instance
-    "Test multiple variants of a component"
+def create_theme_selector(
+    custom_themes: Optional[List[str]] = None  # Optional list of custom theme names to include
+) -> Div:  # Div containing theme selector dropdown with theme-change script
+    "Create a daisyUI theme selector dropdown component. Uses theme-change library to persist theme selection in localStorage."
 ```
 
 ``` python
-@contextmanager
-def theme_test(
-    themes: Optional[List[Union[DaisyUITheme, str]]] = None  # List of themes to test with (uses all themes if None)
-)
-    "Context manager for testing with specific themes"
-```
-
-#### Classes
-
-``` python
-class DisplayMode(str, Enum):
-    "Component display modes for testing"
+def create_test_page(
+    title: str,  # Page title
+    *content,  # Page content elements
+    include_theme_selector: bool = True,  # Include theme selector
+    container: bool = True,  # Wrap in container
+    custom_theme_names: Optional[List[str]] = None  # Custom themes for selector
+) -> Div:  # Div containing complete page layout with navbar and content
+    "Create a standardized test page layout with optional theme selector."
 ```
 
 ``` python
-@dataclass
-class ComponentExample:
-    "Container for a component example with metadata"
-    
-    component: FT
-    title: str
-    description: Optional[str]
-    code: Optional[str]
-    props: Optional[Dict[str, Any]]
-    component_type: Optional[DaisyComponentType]
-```
-
-``` python
-class ComponentTester:
-    def __init__(
-        self,
-        title: str = "Component Showcase",  # Title for the showcase page
-        pico: bool = False,  # Whether to include Pico CSS (should be False for daisyUI)
-        config: Optional[DaisyUIConfig] = None,  # daisyUI configuration (only used with local resources)
-        use_cdn: bool = True,  # Whether to use CDN resources (vs local)
-        port: Optional[int] = 8000,  # Port for the test server
-        available_themes: Optional[List[Union[DaisyUITheme, str]]] = None # List of themes to show in selector (defaults to all when using CDN)
-    )
+def start_test_server(
+    app: FastHTML,    # FastHTML app instance created by create_test_app or fast_app
+    port: int = 8000,  # Port
+) -> JupyUvi:  # JupyUvi server instance for Jupyter notebook testing
     """
-    Standardized testing framework for daisyUI components in notebooks
+    Start a test server and return the JupyUvi instance.
     
-    Provides an interactive environment for testing and showcasing components
-    with theme switching, responsive preview, and documentation.
+    Usage:
+        server = start_test_server(app)
+        HTMX()  # Display the app
+        
+        # Later, in another cell:
+        server.stop()
     """
-    
-    def __init__(
-            self,
-            title: str = "Component Showcase",  # Title for the showcase page
-            pico: bool = False,  # Whether to include Pico CSS (should be False for daisyUI)
-            config: Optional[DaisyUIConfig] = None,  # daisyUI configuration (only used with local resources)
-            use_cdn: bool = True,  # Whether to use CDN resources (vs local)
-            port: Optional[int] = 8000,  # Port for the test server
-            available_themes: Optional[List[Union[DaisyUITheme, str]]] = None # List of themes to show in selector (defaults to all when using CDN)
-        )
-        "Initialize the component tester"
-    
-    def add(
-        "Add a component example to the showcase"
-    
-    def showcase(
-            self,
-            *components: FT, # Components to showcase
-            mode: DisplayMode = DisplayMode.SECTIONS, # How to display the components
-            titles: Optional[List[str]] = None #  Optional titles for each component
-        ) -> "ComponentTester":  # Returns self for chaining
-        "Quick method to add multiple components"
-    
-    def start(
-            self,
-            open_browser: bool = False  # Whether to automatically open the browser
-        ) -> "ComponentTester":  # Returns self for chaining
-        "Start the test server"
-    
-    def stop(
-            self
-        ) -> None:  # No return value
-        "Stop the test server"
 ```
 
-``` python
-class ComponentBuilder:
-    def __init__(
-        self,
-        title: str = "Component Builder"  # Title for the builder page
-    )
-    "Interactive component builder for notebooks"
-    
-    def __init__(
-            self,
-            title: str = "Component Builder"  # Title for the builder page
-        )
-        "Initialize the component builder"
-    
-    def create(
-            self,
-            tag: str = "div",  # HTML tag name for the component
-            *children: Any,
-            **attrs: Any
-        ) -> "ComponentBuilder":  # Returns self for chaining
-        "Create a new component"
-    
-    def add_class(
-            self,
-            *classes: str
-        ) -> "ComponentBuilder":  # Returns self for chaining
-        "Add classes to the current component"
-    
-    def add_child(
-            self,
-            child: FT  # Child component to add
-        ) -> "ComponentBuilder":  # Returns self for chaining
-        "Add a child to the current component"
-    
-    def preview(
-            self,
-            title: Optional[str] = None  # Optional title for the preview
-        ) -> "ComponentBuilder":  # Returns self for chaining
-        "Preview the current component"
-    
-    def show(
-            self
-        ) -> ComponentTester:  # The started tester instance
-        "Show all previewed components"
-    
-    def reset(
-            self
-        ) -> "ComponentBuilder":  # Returns self for chaining
-        "Reset the builder"
-```
+### themes (`themes.ipynb`)
 
-``` python
-class TestData:
-    "Generate test data for components"
-    
-    def lorem(
-            words: int = 10  # Number of words to generate
-        ) -> str:  # Lorem ipsum text
-        "Generate lorem ipsum text"
-    
-    def image(
-            width: int = 300,  # Image width in pixels
-            height: int = 200,  # Image height in pixels
-            category: str = ""  # Optional category for the image
-        ) -> str:  # URL to placeholder image
-        "Generate placeholder image URL"
-    
-    def avatar(
-            size: int = 100,  # Avatar size in pixels
-            seed: Optional[str] = None  # Optional seed for consistent avatars
-        ) -> str:  # URL to avatar image
-        "Generate avatar URL"
-    
-    def items(
-            count: int = 5,  # Number of items to generate
-            prefix: str = "Item"  # Prefix for each item
-        ) -> List[str]:  # List of generated items
-        "Generate list of items"
-    
-    def table_data(
-            rows: int = 5,  # Number of data rows (excluding header)
-            cols: int = 3  # Number of columns
-        ) -> List[List[str]]:  # 2D list with headers and data
-        "Generate table data"
-```
-
-### Types (`types.ipynb`)
-
-> Protocols, enums, and utilities for type-safe daisyUI component
-> development
+> Type-safe theme management for daisyUI
 
 #### Import
 
 ``` python
-from cjm_fasthtml_daisyui.core.types import (
-    CSSContributor,
-    FeatureSupport,
-    ComponentProtocol,
-    ColorSchemeType,
-    DirectionType,
-    PlacementType,
-    HTTPMethod,
-    BrandType,
-    StateType,
-    CommonSizeType,
-    BaseColor,
-    BinaryType,
-    DaisyComponentType,
-    DaisyPosition,
-    DaisyBreakpoint,
-    DaisySize,
-    Direction,
-    SemanticColor,
-    ColorUtility,
-    OpacityLevel,
-    StyleType,
-    HTMXTrigger,
-    HTMXSwap,
+from cjm_fasthtml_daisyui.core.themes import (
     DaisyUITheme,
-    ExcludeFeature,
-    CDNProvider,
-    ensure_list,
-    ensure_dict
+    get_theme_value,
+    ThemeColors,
+    ThemeConfig,
+    create_theme_css,
+    save_theme_css,
+    save_theme_json,
+    load_theme_json,
+    load_style_css
 )
 ```
 
 #### Functions
 
 ``` python
-def ensure_list(
-    value: Union[str, List[str]]  # String or list of strings
-) -> List[str]:  # List of strings
-    "Ensure a value is a list of strings."
+def get_theme_value(
+    theme: Union[DaisyUITheme, str],  # The theme to validate (DaisyUITheme enum or string)
+    allow_custom: bool = False  # If True, allows any string value for custom themes
+) -> str:  # The validated theme name as a string
+    "Get the string value of a theme, supporting both enum and string inputs. This allows flexibility in how themes are specified while maintaining type safety."
 ```
 
 ``` python
-def ensure_dict(
-    value: Union[str, Dict[str, Any]]  # String (JSON) or dictionary
-) -> Dict[str, Any]:  # Dictionary
-    "Ensure a value is a dictionary."
+def create_theme_css(
+    theme: ThemeConfig  # Theme configuration with colors, sizes, and effects
+) -> str:  # CSS string with theme variables
+    """
+    Generate CSS for a custom daisyUI theme.
+    
+    This creates the CSS variables needed for a custom theme when using the CDN approach.
+    """
+```
+
+``` python
+def save_theme_css(
+    theme: ThemeConfig,  # Theme configuration to convert to CSS
+    path: Union[str, Path]  # File path where CSS will be saved
+) -> None:  # None
+    "Save a theme configuration as a CSS file."
+```
+
+``` python
+def save_theme_json(
+    theme: ThemeConfig,  # Theme configuration to save
+    path: Union[str, Path]  # File path where JSON will be saved
+) -> None:  # None
+    "Save a theme configuration as a JSON file for reuse."
+```
+
+``` python
+def load_theme_json(
+    path: Union[str, Path]  # Path to JSON file containing theme configuration
+) -> ThemeConfig:  # Theme configuration dictionary
+    "Load a theme configuration from a JSON file."
+```
+
+``` python
+def load_style_css(
+    path: Union[str, Path]  # Path to CSS file containing theme configuration
+) -> Style:  # FasthHTML Style element
+    "Load a theme configuration from a CSS file to a FasthHTML Style element."
 ```
 
 #### Classes
-
-``` python
-class CSSContributor(Protocol):
-    """
-    Protocol for mixins that contribute CSS classes.
-    
-    This standardizes the interface for all mixins that add CSS classes
-    to components, replacing the various `*_classes()` methods.
-    """
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # List of CSS class strings
-        "Return CSS classes from this contributor."
-```
-
-``` python
-class FeatureSupport(Protocol):
-    """
-    Protocol for components with feature support.
-    
-    This standardizes the pattern of checking what features
-    a component supports (color, size, glass, etc.).
-    """
-    
-    def get_supported_features(
-            self
-        ) -> Dict[str, bool]:  # Mapping of feature names to boolean support status
-        "Return dictionary of supported features."
-```
-
-``` python
-class ComponentProtocol(Protocol):
-    """
-    Base protocol for all daisyUI components.
-    
-    Defines the minimum interface that all components must implement.
-    """
-    
-    def component_class(
-            self
-        ) -> str:  # Base CSS class name for the component
-        "Return the base component class name."
-    
-    def build_classes(
-            self
-        ) -> str:  # Complete space-separated CSS class string
-        "Build complete class string."
-    
-    def render_attrs(
-            self
-        ) -> Dict[str, Any]:  # Dictionary of HTML attributes ready for rendering
-        "Build all HTML attributes for rendering."
-```
-
-``` python
-class ColorSchemeType(StrEnum):
-```
-
-``` python
-class DirectionType(StrEnum):
-```
-
-``` python
-class PlacementType(StrEnum):
-```
-
-``` python
-class HTTPMethod(StrEnum):
-```
-
-``` python
-class ColorSchemeType(StrEnum):
-```
-
-``` python
-class BrandType(StrEnum):
-```
-
-``` python
-class StateType(StrEnum):
-```
-
-``` python
-class CommonSizeType(StrEnum):
-```
-
-``` python
-class BaseColor(IntEnum):
-    "Enum for base surface colors used in UI design."
-    
-```
-
-``` python
-class BinaryType(IntEnum):
-```
-
-``` python
-class DaisyComponentType(str, Enum):
-    """
-    All available daisyUI component types with their CSS class names.
-    
-    This enum provides type-safe access to all daisyUI components,
-    organized by category and mapping to their actual CSS class names.
-    """
-    
-    def get_actions(
-            cls  # The class itself
-        ) -> List['DaisyComponentType']:  # List of action component types
-        "Get all action components."
-    
-    def get_data_display(
-            cls  # The class itself
-        ) -> List['DaisyComponentType']:  # List of data display component types
-        "Get all data display components."
-    
-    def get_data_input(
-            cls  # The class itself
-        ) -> List['DaisyComponentType']:  # List of data input component types
-        "Get all data input components."
-    
-    def get_feedback(
-            cls  # The class itself
-        ) -> List['DaisyComponentType']:  # List of feedback component types
-        "Get all feedback components."
-    
-    def get_layout(
-            cls  # The class itself
-        ) -> List['DaisyComponentType']:  # List of layout component types
-        "Get all layout components."
-    
-    def get_mockup(
-            cls  # The class itself
-        ) -> List['DaisyComponentType']:  # List of mockup component types
-        "Get all mockup components."
-    
-    def get_navigation(
-            cls  # The class itself
-        ) -> List['DaisyComponentType']:  # List of navigation component types
-        "Get all navigation components."
-    
-    def get_component_class(
-            self
-        ) -> str:  # The base CSS class name for this component
-        "Get the base CSS class name for this component type."
-    
-    def get_category(
-            self
-        ) -> str:  # The category name as a string
-        "Get the category this component belongs to."
-```
-
-``` python
-class DaisyPosition(str, Enum):
-    "Common position values."
-```
-
-``` python
-class DaisyBreakpoint(str, Enum):
-    "Responsive breakpoints."
-```
-
-``` python
-class DaisySize(str, Enum):
-    "Common size variants across components."
-```
-
-``` python
-class Direction(str, Enum):
-    "Component direction options."
-```
-
-``` python
-class SemanticColor(str, Enum):
-    """
-    daisyUI semantic colors that adapt to themes
-    
-    These colors change based on the active theme, providing
-    consistent semantic meaning across different visual styles.
-    """
-    
-    def with_content(
-            self
-        ) -> "SemanticColor":  # The corresponding content color for this semantic color
-        "Get the corresponding content color for this semantic color"
-    
-    def is_brand_color(
-            self
-        ) -> bool:  # True if this is a brand color (primary, secondary, accent, or neutral)
-        "Check if this is a brand color"
-    
-    def is_state_color(
-            self
-        ) -> bool:  # True if this is a state/semantic color (info, success, warning, or error)
-        "Check if this is a state/semantic color"
-    
-    def is_base_color(
-            self
-        ) -> bool:  # True if this is a base/surface color (base-100, base-200, base-300, or base-content)
-        "Check if this is a base/surface color"
-    
-    def is_content_color(
-            self
-        ) -> bool:  # True if this is a content/text color (ends with "-content")
-        "Check if this is a content/text color"
-```
-
-``` python
-class ColorUtility(str, Enum):
-    "CSS utility prefixes that work with semantic colors"
-    
-    def with_color(
-            self,
-            color: Union[SemanticColor, str]  # A SemanticColor enum value or string color name
-        ) -> str:  # The complete utility class string (e.g., "bg-primary", "text-error")
-        "Generate a utility class with a color"
-```
-
-``` python
-class OpacityLevel(int, Enum):
-    "Standard opacity levels"
-```
-
-``` python
-class StyleType(str, Enum):
-    """
-    Common style modifiers across components.
-    
-    These were previously in modifiers.ipynb but are now part of the
-    unified variant system.
-    """
-```
-
-``` python
-class HTMXTrigger(str, Enum):
-    "Common HTMX trigger events"
-    
-    def with_modifier(
-            self,
-            modifier: str  # Trigger modifier like "once", "changed", "delay:500ms", etc.
-        ) -> str:  # The trigger with modifier appended (e.g., "click once")
-        "Add modifier to trigger (e.g., 'click once')"
-    
-    def delayed(
-            self,
-            delay: str  # Delay duration (e.g., "500ms", "1s", "2000ms")
-        ) -> str:  # The trigger with delay modifier (e.g., "keyup delay:500ms")
-        "Add delay to trigger (e.g., 'keyup delay:500ms')"
-    
-    def changed(
-            self
-        ) -> str:  # The trigger with "changed" modifier (e.g., "keyup changed")
-        "Add changed modifier (e.g., 'keyup changed')"
-```
-
-``` python
-class HTMXSwap(str, Enum):
-    "HTMX swap strategies"
-    
-    def with_modifier(
-            self,
-            modifier: str  # Swap modifier like "swap:500ms", "settle:1s", "scroll:top", etc.
-        ) -> str:  # The swap strategy with modifier (e.g., "innerHTML swap:500ms")
-        "Add swap modifier (e.g., 'innerHTML swap:500ms')"
-    
-    def with_transition(
-            self,
-            duration: str = "500ms"  # Transition duration (e.g., "500ms", "1s", "250ms")
-        ) -> str:  # The swap strategy with transition timing (e.g., "innerHTML swap:500ms")
-        "Add swap transition"
-```
 
 ``` python
 class DaisyUITheme(str, Enum):
-    "Built-in daisyUI themes"
+    "All built-in daisyUI themes."
 ```
 
 ``` python
-class ExcludeFeature(str, Enum):
-    "Features that can be excluded from daisyUI"
+class ThemeColors(TypedDict):
+    "Color definitions for a daisyUI theme using OKLCH color space."
 ```
 
 ``` python
-class CDNProvider(str, Enum):
-    "Supported CDN providers for daisyUI and Tailwind CSS"
-    
-    def get_base_url(
-            self
-        ) -> str:  # The base URL string for the CDN provider
-        "Get the base URL for the CDN provider"
-```
-
-### Variant System (`variants.ipynb`)
-
-> System for handling component variants and states
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.variants import (
-    HasGlass,
-    Variant,
-    HasVariants,
-    CompoundVariant,
-    HasCompoundVariants,
-    create_style_variant
-)
-```
-
-#### Functions
-
-``` python
-def create_style_variant(
-    component_prefix: str  # The component prefix (e.g., 'btn', 'badge')
-) -> Variant:  # Variant with component-specific style classes
-    "Create a style variant with component-specific class names."
-```
-
-#### Classes
-
-``` python
-@dataclass
-class HasGlass(CSSContributor):
-    """
-    Mixin for components that support glass morphism effect.
-    
-    This mixin provides the glass effect styling for daisyUI components.
-    The glass effect creates a frosted glass appearance.
-    """
-    
-    glass: bool = False
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # List of CSS class strings for glass effect
-        "Get glass effect CSS classes.
-
-Returns:
-    List of CSS class strings for glass effect"
-```
-
-``` python
-@dataclass
-class Variant:
-    """
-    Represents a component variant.
-    
-    Variants allow components to have different appearances based on props.
-    Inspired by CVA (Class Variance Authority) pattern.
-    """
-    
-    name: str  # Variant name (e.g., 'intent', 'size')
-    options: Dict[str, Union[str, List[str]]]  # Option -> classes mapping
-    default: Optional[str]  # Default option
-    
-    def get_classes(
-            self,
-            value: Optional[str]  # The variant option value to get classes for
-        ) -> List[str]:  # List of CSS class strings for the variant value
-        "Get classes for a variant value."
-```
-
-``` python
-class HasVariants(CSSContributor):
-    """
-    Mixin for components with variant support.
-    
-    This provides a more flexible alternative to individual boolean flags
-    for component variations.
-    """
-    
-    def variants(
-            cls  # The class type
-        ) -> Dict[str, Variant]:  # Dictionary mapping variant names to Variant objects
-        "Define available variants.
-
-Subclasses should override this to define their variants."
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # List of CSS class strings from all active variants
-        "Get all classes from variants.
-
-Returns:
-    List of CSS class strings from variants"
-    
-    def set_variant(
-            self,
-            name: str,  # The variant name to set
-            value: str  # The variant value to apply
-        ) -> 'HasVariants':  # Self for method chaining
-        "Set a variant value and return self for chaining."
-```
-
-``` python
-@dataclass
-class CompoundVariant:
-    "Represents a compound variant that depends on multiple conditions."
-    
-    conditions: Dict[str, str]  # variant_name -> required_value
-    classes: Union[str, List[str]]  # Classes to apply when conditions met
-    
-    def matches(
-            self,
-            variant_values: Dict[str, Optional[str]]  # Current variant values to check against conditions
-        ) -> bool:  # True if all conditions are met, False otherwise
-        "Check if all conditions are met."
-    
-    def get_classes(
-            self
-        ) -> List[str]:  # List of CSS class strings for this compound variant
-        "Get classes for this compound variant."
-```
-
-``` python
-class HasCompoundVariants(HasVariants):
-    "Extended mixin that supports compound variants."
-    
-    def compound_variants(
-            cls  # The class type
-        ) -> List[CompoundVariant]:  # List of compound variant definitions
-        "Define compound variants.
-
-Subclasses should override this to define compound variants."
-    
-    def get_css_classes(
-            self
-        ) -> List[str]:  # List of CSS class strings from variants and compound variants
-        "Get all classes from variants including compound variants.
-
-Returns:
-    List of CSS class strings from variants and compound variants"
+class ThemeConfig(TypedDict):
+    "Complete configuration for a custom daisyUI theme."
 ```

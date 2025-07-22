@@ -8,7 +8,7 @@ Accordion is used for showing and hiding content but only one item can stay open
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | collapse | Component | Collapse |
 | collapse-title | Part | Title part |
@@ -26,7 +26,7 @@ Alert informs users about important events.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | alert | Component | Container element |
 | alert-outline | Style | outline style |
@@ -47,7 +47,7 @@ Avatars are used to show a thumbnail representation of an individual or business
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | avatar | Component | Avatar |
 | avatar-group | Component | Container for multiple avatars |
@@ -63,7 +63,7 @@ Badges are used to inform the user of the status of specific data.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | badge | Component | Container element |
 | badge-outline | Style | outline style |
@@ -92,7 +92,7 @@ Breadcrumbs helps users to navigate through the website.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | breadcrumbs | Component | Wrapper around a <ul> |
 
@@ -104,7 +104,7 @@ Buttons allow the user to take actions or make choices.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | btn | Component | Button |
 | btn-neutral | Color | neutral color |
@@ -140,7 +140,7 @@ Calendar includes styles for different calendar libraries.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | cally | Component | for Cally web component |
 | pika-single | Component | for the input field that opens Pikaday calendar |
@@ -154,7 +154,7 @@ Cards are used to group and display content in a way that is easily readable.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | card | Component | Card |
 | card-title | Part | Title part |
@@ -178,7 +178,7 @@ Carousel show images or content in a scrollable area.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | carousel | Component | Carousel container |
 | carousel-item | Part | Carousel item |
@@ -196,7 +196,7 @@ Chat bubbles are used to show one line of conversation and all its data, includi
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | chat | Component | Container for one line of conversation and its data |
 | chat-image | Part | Author image |
@@ -222,7 +222,7 @@ Checkboxes are used to select or deselect a value.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | checkbox | Component | Checkbox |
 | checkbox-primary | Color | primary color |
@@ -247,7 +247,7 @@ Collapse is used for showing and hiding content.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | collapse | Component | Collapse |
 | collapse-title | Part | Title part |
@@ -265,7 +265,7 @@ Countdown gives you a transition effect when you change a number between 0 to 99
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | countdown | Component | Countdown wrapper |
 
@@ -277,7 +277,7 @@ Diff component shows a side-by-side comparison of two items.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | diff | Component | Container element |
 | diff-item-1 | Part | First item |
@@ -292,7 +292,7 @@ Divider will be used to separate content vertically or horizontally.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | divider | Component | A divider line between two elements |
 | divider-neutral | Color | neutral color |
@@ -316,7 +316,7 @@ Dock (also know as Bottom navigation or Bottom bar) is a UI element that provide
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | dock | Component | Dock |
 | dock-label | Part | Text label for Dock Item |
@@ -335,7 +335,7 @@ Drawer is a grid layout that can show/hide a sidebar on the left or right side o
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | drawer | Component | The wrapper for sidebar and content |
 | drawer-toggle | Part | The hidden checkbox that controls the state of drawer |
@@ -353,7 +353,7 @@ Dropdown can open a menu or any other element when the button is clicked.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | dropdown | Component | Dropdown container |
 | dropdown-content | Part | Content part |
@@ -375,7 +375,7 @@ Fieldset is a container for grouping related form elements. It includes fieldset
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | fieldset | Component | for the fieldset container |
 | label | Component | label for inputs |
@@ -389,7 +389,7 @@ File Input is a an input field for uploading files.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | file-input | Component | For <input type="file"> element |
 | file-input-ghost | Style | ghost style |
@@ -415,7 +415,7 @@ Filter is a group of radio buttons. Choosing one of the options will hide the ot
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | filter | Component | For a HTML <form> or a <div> element that includes radio buttons for filtering items |
 | filter-reset | Part | An alternative to the reset button if you can't use a HTML form |
@@ -428,7 +428,7 @@ Footer can contain logo, copyright notice, and links to other pages.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | footer | Component | Footer |
 | footer-title | Part | Title of a footer column |
@@ -444,7 +444,7 @@ Hero is a component for displaying a large box or image with a title and descrip
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | hero | Component | Hero container |
 | hero-content | Part | content part |
@@ -458,7 +458,7 @@ Indicators are used to place an element on the corner of another element.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | indicator | Component | Container element |
 | indicator-item | Part | will be placed on the corner of sibling |
@@ -477,7 +477,7 @@ Text Input is a simple input field.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | input | Component | For <input type="text"> tag or a wrapper of <input type="text"> tag |
 | input-ghost | Style | ghost style |
@@ -503,7 +503,7 @@ Join is a container for grouping multiple items, it can be used to group buttons
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | join | Component | For grouping multiple items |
 | join-item | Component | Item inside join. Can be a button, input, etc. |
@@ -518,7 +518,7 @@ Kbd is used to display keyboard shortcuts.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | kbd | Component | Do show a keyboard key or a shortcut key |
 | kbd-xs | Size | Extra small size |
@@ -535,7 +535,7 @@ Label is used to provide a name or title for an input field. Label can be placed
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | label | Component | For styling the text next to an input field (or select) |
 | floating-label | Component | For the parent of an input field (or select) and a span that floats above the input field when the field is focused |
@@ -548,7 +548,7 @@ Link adds the missing underline style to links.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | link | Component | Adds underline |
 | link-hover | Style | Only shows underline on hover |
@@ -569,7 +569,7 @@ List is a vertical layout to display information in rows.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | list | Component | A vertical flex layout to include list rows |
 | list-row | Component | The item inside list. A horizontal grid layout to include data |
@@ -584,7 +584,7 @@ Loading shows an animation to indicate that something is loading.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | loading | Component | Loading element |
 | loading-spinner | Style | spinner animation |
@@ -607,7 +607,7 @@ Mask crops the content of the element to common shapes.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | mask | Component | Masks the content with shape |
 | mask-squircle | Style | squircle |
@@ -636,7 +636,7 @@ Menu is used to display a list of links vertically or horizontally.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | menu | Component | For <ul> tag |
 | menu-title | Part | styles a <li> as title |
@@ -662,7 +662,7 @@ Browser mockup shows a box that looks like a browser window.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | mockup-browser | Component | Browser mockup |
 | mockup-browser-toolbar | Part | Toolbar part which can include addressbar, etc |
@@ -675,7 +675,7 @@ Code mockup is used to show a block of code in a box that looks like a code edit
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | mockup-code | Component | Code terminal mockup |
 
@@ -687,7 +687,7 @@ Phone mockup shows a mockup of an iPhone.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | mockup-phone | Component | Phone mockup |
 | mockup-phone-camera | Part | Camera part |
@@ -701,7 +701,7 @@ Window mockup shows a box that looks like an operating system window.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | mockup-window | Component | OS window mockup |
 
@@ -713,7 +713,7 @@ Modal is used to show a dialog or a box when you click a button.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | modal | Component | Modal |
 | modal-box | Part | The content part |
@@ -735,7 +735,7 @@ Navbar is used to show a navigation bar on the top of the page.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | navbar | Component | Navigation bar |
 | navbar-start | Part | For the div inside navbar, to fill 50% of width |
@@ -750,7 +750,7 @@ Pagination is a group of buttons that allow the user to navigate between a set o
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | join | Component | For grouping multiple items |
 | join-item | Part | Item inside join. Can be a button, input, etc. |
@@ -765,7 +765,7 @@ Progress bar can be used to show the progress of a task or to show the passing o
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | progress | Component | For <progress> tag |
 | progress-neutral | Color | neutral color |
@@ -785,7 +785,7 @@ Radial progress can be used to show the progress of a task or to show the passin
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | radial-progress | Component | Shows a radial progress |
 
@@ -797,7 +797,7 @@ Radio buttons allow the user to select one option from a set.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | radio | Component | For radio input |
 | radio-neutral | Color | neutral color |
@@ -822,7 +822,7 @@ Range slider is used to select a value by sliding a handle.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | range | Component | For <input type="range"> tag |
 | range-neutral | Color | neutral color |
@@ -847,7 +847,7 @@ Rating is a set of radio buttons that allow the user to rate something.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | rating | Component | For a div containing radio inputs |
 | rating-half | Modifier | To shows half of the shapes. Useful for half star ratings |
@@ -866,7 +866,7 @@ Select is used to pick a value from a list of options.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | select | Component | For <select> element |
 | select-ghost | Style | ghost style |
@@ -892,7 +892,7 @@ Skeleton is a component that can be used to show a loading state of a component.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | skeleton | Component | A placeholder div with loading animation |
 
@@ -904,7 +904,7 @@ Stack visually puts elements on top of each other.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | stack | Component | Puts the children elements on top of each other |
 | stack-top | Modifier | Aligns the children elements to the top |
@@ -920,7 +920,7 @@ Stat is used to show numbers and data in a block.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | stats | Component | Container of multiple stat items |
 | stat | Part | A block to display stat data about a topic |
@@ -940,7 +940,7 @@ Status is a really small icon to visually show the current status of an element,
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | status | Component | Status icon |
 | status-neutral | Color | neutral color |
@@ -965,7 +965,7 @@ Steps can be used to show a list of steps in a process.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | steps | Component | Container of multiple step nodes |
 | step | Part | A single step node |
@@ -989,7 +989,7 @@ Swap allows you to toggle the visibility of two elements using a checkbox or a c
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | swap | Component | Swap container |
 | swap-on | Part | The child element that should be visible when checkbox is checked or when swap is active |
@@ -1007,7 +1007,7 @@ Tabs can be used to show a list of links in a tabbed format.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | tabs | Component | Container of multiple tab items |
 | tab | Part | A single tab button (can be button, link, div, radio input, etc) |
@@ -1033,7 +1033,7 @@ Table can be used to show a list of data in a table format.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | table | Component | For <table> tag |
 | table-zebra | Modifier | For <table> to show zebra stripe rows |
@@ -1053,7 +1053,7 @@ Textarea allows users to enter text in multiple lines.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | textarea | Component | For <textarea> element |
 | textarea-ghost | Style | ghost style |
@@ -1079,7 +1079,7 @@ If a checked checkbox input or a checked radio input with theme-controller class
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | theme-controller | Component | For a checkbox or radio input that must change the page theme |
 
@@ -1091,7 +1091,7 @@ Timeline component shows a list of events in chronological order.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | timeline | Component | Timeline container |
 | timeline-start | Part | The content inside <li> that will be at the start direction |
@@ -1111,7 +1111,7 @@ Toast is a wrapper to stack elements, positioned on the corner of page.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | toast | Component | Container element that sticks to the corner of page |
 | toast-start | Placement | align horizontally to the left |
@@ -1129,7 +1129,7 @@ Toggle is a checkbox that is styled to look like a switch button.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | toggle | Component | For <input type="checkbox"> |
 | toggle-primary | Color | primary color |
@@ -1154,7 +1154,7 @@ Tooltip can be used to show a message when hovering over an element.
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | tooltip | Component | Container element |
 | tooltip-content | Part | Optional. Setting a div as the content of the tooltip instead of the `data-tip` text |
@@ -1180,7 +1180,7 @@ Validator class changes the color of form elements to error or success based on 
 
 ### Component Details
 
-| Class name | Type |  |
+| Class name | Type | Description |
 | --- | --- | --- |
 | validator | Component | For input, select, textarea |
 | validator-hint | Part | for the hint text that appears after the input if it's invalid |
