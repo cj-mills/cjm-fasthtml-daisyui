@@ -14,6 +14,7 @@ from pathlib import Path
 # Import our modules
 from .resources import build_headers, get_daisyui_headers
 from .themes import DaisyUITheme, get_theme_value
+from .colors import DaisyUIColor, enable_semantic_gradients
 
 # Import TailwindBuilder with recommended pattern
 from cjm_tailwind_utils.all import TailwindBuilder
@@ -72,14 +73,15 @@ def create_theme_selector(
     button_classes = "btn btn-ghost btn-circle"
     
     # Use TailwindBuilder for layout/spacing utilities with method chaining
-    # Note: bg-base-100 and rounded-box are daisyUI utilities, kept as raw strings
+    # Note: rounded-box is a daisyUI utility, kept as raw string
     dropdown_content_classes = (
         TailwindBuilder()
         .z(10)
         .p(2)
         .shadow("2xl")
         .w(52)
-        .util("dropdown-content", "bg-base-100", "rounded-box")
+        .bg_semantic(DaisyUIColor.BASE_100)
+        .util("dropdown-content", "rounded-box")
         .build()
     )
     
@@ -96,7 +98,7 @@ def create_theme_selector(
                     type="radio",
                     name="theme-dropdown",
                     cls="theme-controller btn btn-sm btn-block btn-ghost justify-start",
-                    aria_label=f"{theme_name.title()} (Custom)",
+                    aria_label=f"{theme_name.title()}",
                     value=theme_name
                 )
             ))
@@ -175,7 +177,7 @@ def create_test_page(
                 .build()
             )
         ),
-        cls=TailwindBuilder().util("navbar", "bg-base-100").shadow("lg").build()
+        cls=TailwindBuilder().util("navbar").bg_semantic(DaisyUIColor.BASE_100).shadow("lg").build()
     )
     
     # Build main content classes with TailwindBuilder

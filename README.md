@@ -22,26 +22,29 @@ pip install cjm-fasthtml-daisyui
 ## Project Structure
 
     nbs/
-    └── core/ (3)
+    └── core/ (4)
+        ├── colors.ipynb     # Type-safe semantic color management for daisyUI
         ├── resources.ipynb  # CDN resources and headers for daisyUI and Tailwind CSS
         ├── testing.ipynb    # Standardized test page creation for Jupyter notebooks with FastHTML
         └── themes.ipynb     # Type-safe theme management for daisyUI
 
-Total: 3 notebooks across 1 directory
+Total: 4 notebooks across 1 directory
 
 ## Module Dependencies
 
 ``` mermaid
 graph LR
+    core_colors[core.colors<br/>colors]
     core_resources[core.resources<br/>resources]
     core_testing[core.testing<br/>testing]
     core_themes[core.themes<br/>themes]
 
+    core_testing --> core_colors
     core_testing --> core_resources
     core_testing --> core_themes
 ```
 
-*2 cross-module dependencies detected*
+*3 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -50,6 +53,138 @@ No CLI commands found in this project.
 ## Module Overview
 
 Detailed documentation for each module in the project:
+
+### colors (`colors.ipynb`)
+
+> Type-safe semantic color management for daisyUI
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.core.colors import (
+    DaisyUIColor,
+    semantic_color,
+    is_content_color,
+    bg_semantic,
+    text_semantic,
+    border_semantic,
+    enable_semantic_gradients
+)
+```
+
+#### Functions
+
+``` python
+def semantic_color(
+    color: Union[DaisyUIColor, str],  # Color enum or string
+    opacity: Optional[int] = None     # Optional opacity value (0-100)
+) -> str:  # Color string with optional opacity modifier
+    """
+    Build semantic color string with optional opacity modifier.
+    
+    This function handles both DaisyUIColor enums and string values,
+    allowing flexibility while maintaining type safety.
+    
+    Examples:
+        semantic_color(DaisyUIColor.PRIMARY) -> "primary"
+        semantic_color(DaisyUIColor.BASE_100, 50) -> "base-100/50"
+        semantic_color("primary", 75) -> "primary/75"
+    """
+```
+
+``` python
+def is_content_color(
+    color: Union[DaisyUIColor, str]  # Color to check
+) -> bool:  # True if color is a content variant
+    """
+    Check if a color is a content variant (ends with -content).
+    
+    Content colors are designed to be used as foreground colors
+    on their corresponding background colors.
+    """
+```
+
+``` python
+def bg_semantic(
+    self: TailwindBuilder, 
+    color: Union[DaisyUIColor, str], 
+    opacity: Optional[int] = None
+) -> TailwindBuilder
+    """
+    Add semantic background color with optional opacity.
+    
+    Examples:
+        TailwindBuilder().bg_semantic(DaisyUIColor.PRIMARY)
+        TailwindBuilder().bg_semantic(DaisyUIColor.BASE_100, 50)
+    """
+```
+
+``` python
+def text_semantic(
+    self: TailwindBuilder, 
+    color: Union[DaisyUIColor, str], 
+    opacity: Optional[int] = None
+) -> TailwindBuilder
+    """
+    Add semantic text color with optional opacity.
+    
+    Examples:
+        TailwindBuilder().text_semantic(DaisyUIColor.PRIMARY_CONTENT)
+        TailwindBuilder().text_semantic(DaisyUIColor.BASE_CONTENT, 70)
+    """
+```
+
+``` python
+def border_semantic(
+    self: TailwindBuilder, 
+    color: Union[DaisyUIColor, str], 
+    opacity: Optional[int] = None
+) -> TailwindBuilder
+    """
+    Add semantic border color with optional opacity.
+    
+    Examples:
+        TailwindBuilder().border_semantic(DaisyUIColor.PRIMARY)
+        TailwindBuilder().border_semantic(DaisyUIColor.BASE_300, 50)
+    """
+```
+
+``` python
+def enable_semantic_gradients() -> Div
+    """
+    Include hidden element to enable Tailwind JIT compilation of semantic color gradients.
+    
+    Tailwind CSS v4 browser version needs to "see" gradient patterns in the HTML
+    to include them in its JIT compilation.
+    
+    Usage:
+        Add this to your page/app to enable gradients with semantic colors:
+        
+        app, rt = create_test_app()
+        
+        @rt
+        def index():
+            return Div(
+                enable_semantic_gradients(),  # Add this line
+                # Your actual content here...
+            )
+    
+    Note: This is only needed when using gradient utilities (bg-gradient-to-*, from-*, to-*)
+    with daisyUI semantic colors. Regular color usage doesn't require this.
+    """
+```
+
+#### Classes
+
+``` python
+class DaisyUIColor(str, Enum):
+    """
+    All daisyUI semantic color names.
+    
+    These colors automatically adapt based on the active theme and provide
+    consistent semantic meaning across your application.
+    """
+```
 
 ### resources (`resources.ipynb`)
 
@@ -61,6 +196,8 @@ Detailed documentation for each module in the project:
 from cjm_fasthtml_daisyui.core.resources import (
     DAISYUI_CDN,
     DAISYUI_THEMES_CDN,
+    DAISYUI_COLOR_PROPERTIES,
+    DAISYUI_COLOR_PROPERTIES_EXT,
     TAILWIND_CDN,
     get_daisyui_headers,
     create_css_link,
@@ -125,6 +262,8 @@ def build_headers(
 ``` python
 DAISYUI_CDN = 'https://cdn.jsdelivr.net/npm/daisyui@5'
 DAISYUI_THEMES_CDN = 'https://cdn.jsdelivr.net/npm/daisyui@5/themes.css'
+DAISYUI_COLOR_PROPERTIES = 'https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties.css'
+DAISYUI_COLOR_PROPERTIES_EXT = 'https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css'
 TAILWIND_CDN = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'
 ```
 
