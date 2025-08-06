@@ -1,8 +1,88 @@
 # DaisyUI Components with Tables
 
-Extracted 61 components from https://daisyui.com/components/
+61 components from https://daisyui.com/components/
 
-## 1. Accordion
+## Components
+
+*   ### Actions
+    
+    1. [Button](#button/)
+    2. [Dropdown](#dropdown/)
+    3. [Modal](#modal/)
+    4. [Swap](#swap/)
+    5. [Theme Controller](#theme-controller/)
+*   ### Data display
+    
+    1. [Accordion](#accordion/)
+    2. [Avatar](#avatar/)
+    3. [Badge](#badge/)
+    4. [Card](#card/)
+    5. [Carousel](#carousel/)
+    6. [Chat bubble](#chat/)
+    7. [Collapse](#collapse/)
+    8. [Countdown](#countdown/)
+    9. [Diff](#diff/)
+    10. [Kbd](#kbd/)
+    11. [List](#list/)
+    12. [Stat](#stat/)
+    13. [Status](#status/)
+    14. [Table](#table/)
+    15. [Timeline](#timeline/)
+*   ### Navigation
+    
+    1. [Breadcrumbs](#breadcrumbs/)
+    2. [Dock](#dock/)
+    3. [Link](#link/)
+    4. [Menu](#menu/)
+    5. [Navbar](#navbar/)
+    6. [Pagination](#pagination/)
+    7. [Steps](#steps/)
+    8. [Tab](#tab/)
+*   ### Feedback
+    
+    1. [Alert](#alert/)
+    2. [Loading](#loading/)
+    3. [Progress](#progress/)
+    4. [Radial progress](#radial-progress/)
+    5. [Skeleton](#skeleton/)
+    6. [Toast](#toast/)
+    7. [Tooltip](#tooltip/)
+*   ### Data input
+    
+    1. [Calendar](#calendar/)
+    2. [Checkbox](#checkbox/)
+    3. [Fieldset](#fieldset/)
+    4. [File Input](#file-input/)
+    5. [Filter](#filter/)
+    6. [Label](#label/)
+    7. [Radio](#radio/)
+    8. [Range](#range/)
+    9. [Rating](#rating/)
+    10. [Select](#select/)
+    11. [Input field](#input/)
+    12. [Textarea](#textarea/)
+    13. [Toggle](#toggle/)
+    14. [Validator](#validator/)
+*   ### Layout
+    
+    1. [Divider](#divider/)
+    2. [Drawer](#drawer/)
+    3. [Footer](#footer/)
+    4. [Hero](#hero/)
+    5. [Indicator](#indicator/)
+    6. [Join (group items)](#join/)
+    7. [Mask](#mask/)
+    8. [Stack](#stack/)
+*   ### Mockup
+    
+    1. [Browser](#mockup-browser/)
+    2. [Code](#mockup-code/)
+    3. [Phone](#mockup-phone/)
+    4. [Window](#mockup-window/)
+
+
+
+## Accordion
 
 Accordion is used for showing and hiding content but only one item can stay open at a time.
 
@@ -20,7 +100,7 @@ Accordion is used for showing and hiding content but only one item can stay open
 
 ---
 
-## 2. Alert
+## Alert
 
 Alert informs users about important events.
 
@@ -41,7 +121,7 @@ Alert informs users about important events.
 
 ---
 
-## 3. Avatar
+## Avatar
 
 Avatars are used to show a thumbnail representation of an individual or business in the interface.
 
@@ -57,7 +137,7 @@ Avatars are used to show a thumbnail representation of an individual or business
 
 ---
 
-## 4. Badge
+## Badge
 
 Badges are used to inform the user of the status of specific data.
 
@@ -86,7 +166,7 @@ Badges are used to inform the user of the status of specific data.
 
 ---
 
-## 5. Breadcrumbs
+## Breadcrumbs
 
 Breadcrumbs helps users to navigate through the website.
 
@@ -98,7 +178,7 @@ Breadcrumbs helps users to navigate through the website.
 
 ---
 
-## 6. Button
+## Button
 
 Buttons allow the user to take actions or make choices.
 
@@ -134,7 +214,7 @@ Buttons allow the user to take actions or make choices.
 
 ---
 
-## 7. Calendar
+## Calendar
 
 Calendar includes styles for different calendar libraries.
 
@@ -148,7 +228,7 @@ Calendar includes styles for different calendar libraries.
 
 ---
 
-## 8. Card
+## Card
 
 Cards are used to group and display content in a way that is easily readable.
 
@@ -172,7 +252,7 @@ Cards are used to group and display content in a way that is easily readable.
 
 ---
 
-## 9. Carousel
+## Carousel
 
 Carousel show images or content in a scrollable area.
 
@@ -190,7 +270,7 @@ Carousel show images or content in a scrollable area.
 
 ---
 
-## 10. Chat bubble
+## Chat bubble
 
 Chat bubbles are used to show one line of conversation and all its data, including the author image, author name, time, etc.
 
@@ -216,7 +296,7 @@ Chat bubbles are used to show one line of conversation and all its data, includi
 
 ---
 
-## 11. Checkbox
+## Checkbox
 
 Checkboxes are used to select or deselect a value.
 
@@ -241,7 +321,7 @@ Checkboxes are used to select or deselect a value.
 
 ---
 
-## 12. Collapse
+## Collapse
 
 Collapse is used for showing and hiding content.
 
@@ -259,7 +339,7 @@ Collapse is used for showing and hiding content.
 
 ---
 
-## 13. Countdown
+## Countdown
 
 Countdown gives you a transition effect when you change a number between 0 to 99.
 
@@ -271,7 +351,7 @@ Countdown gives you a transition effect when you change a number between 0 to 99
 
 ---
 
-## 14. Diff
+## Diff
 
 Diff component shows a side-by-side comparison of two items.
 
@@ -286,7 +366,7 @@ Diff component shows a side-by-side comparison of two items.
 
 ---
 
-## 15. Divider
+## Divider
 
 Divider will be used to separate content vertically or horizontally.
 
@@ -310,7 +390,7 @@ Divider will be used to separate content vertically or horizontally.
 
 ---
 
-## 16. Dock
+## Dock
 
 Dock (also know as Bottom navigation or Bottom bar) is a UI element that provides navigation options to the user. Dock sticks to the bottom of the screen.
 
@@ -329,7 +409,7 @@ Dock (also know as Bottom navigation or Bottom bar) is a UI element that provide
 
 ---
 
-## 17. Drawer
+## Drawer
 
 Drawer is a grid layout that can show/hide a sidebar on the left or right side of the page.
 
@@ -347,7 +427,7 @@ Drawer is a grid layout that can show/hide a sidebar on the left or right side o
 
 ---
 
-## 18. Dropdown
+## Dropdown
 
 Dropdown can open a menu or any other element when the button is clicked.
 
@@ -369,7 +449,7 @@ Dropdown can open a menu or any other element when the button is clicked.
 
 ---
 
-## 19. Fieldset
+## Fieldset
 
 Fieldset is a container for grouping related form elements. It includes fieldset-legend as a title and label as a description.
 
@@ -383,7 +463,7 @@ Fieldset is a container for grouping related form elements. It includes fieldset
 
 ---
 
-## 20. File Input
+## File Input
 
 File Input is a an input field for uploading files.
 
@@ -409,7 +489,7 @@ File Input is a an input field for uploading files.
 
 ---
 
-## 21. Filter
+## Filter
 
 Filter is a group of radio buttons. Choosing one of the options will hide the others and shows a reset button next to the chosen option.
 
@@ -422,7 +502,7 @@ Filter is a group of radio buttons. Choosing one of the options will hide the ot
 
 ---
 
-## 22. Footer
+## Footer
 
 Footer can contain logo, copyright notice, and links to other pages.
 
@@ -438,7 +518,7 @@ Footer can contain logo, copyright notice, and links to other pages.
 
 ---
 
-## 23. Hero
+## Hero
 
 Hero is a component for displaying a large box or image with a title and description.
 
@@ -452,7 +532,7 @@ Hero is a component for displaying a large box or image with a title and descrip
 
 ---
 
-## 24. Indicator
+## Indicator
 
 Indicators are used to place an element on the corner of another element.
 
@@ -471,7 +551,7 @@ Indicators are used to place an element on the corner of another element.
 
 ---
 
-## 25. Text Input
+## Text Input
 
 Text Input is a simple input field.
 
@@ -497,7 +577,7 @@ Text Input is a simple input field.
 
 ---
 
-## 26. Join
+## Join
 
 Join is a container for grouping multiple items, it can be used to group buttons, inputs, etc. Join applies border radius to the first and last item. Join can be used to create a horizontal or vertical list of items.
 
@@ -512,7 +592,7 @@ Join is a container for grouping multiple items, it can be used to group buttons
 
 ---
 
-## 27. Kbd
+## Kbd
 
 Kbd is used to display keyboard shortcuts.
 
@@ -529,7 +609,7 @@ Kbd is used to display keyboard shortcuts.
 
 ---
 
-## 28. Label
+## Label
 
 Label is used to provide a name or title for an input field. Label can be placed before or after the field.
 
@@ -542,7 +622,7 @@ Label is used to provide a name or title for an input field. Label can be placed
 
 ---
 
-## 29. Link
+## Link
 
 Link adds the missing underline style to links.
 
@@ -563,7 +643,7 @@ Link adds the missing underline style to links.
 
 ---
 
-## 30. List
+## List
 
 List is a vertical layout to display information in rows.
 
@@ -578,7 +658,7 @@ List is a vertical layout to display information in rows.
 
 ---
 
-## 31. Loading
+## Loading
 
 Loading shows an animation to indicate that something is loading.
 
@@ -601,7 +681,7 @@ Loading shows an animation to indicate that something is loading.
 
 ---
 
-## 32. Mask
+## Mask
 
 Mask crops the content of the element to common shapes.
 
@@ -630,7 +710,7 @@ Mask crops the content of the element to common shapes.
 
 ---
 
-## 33. Menu
+## Menu
 
 Menu is used to display a list of links vertically or horizontally.
 
@@ -656,7 +736,7 @@ Menu is used to display a list of links vertically or horizontally.
 
 ---
 
-## 34. Browser mockup
+## Browser mockup
 
 Browser mockup shows a box that looks like a browser window.
 
@@ -669,7 +749,7 @@ Browser mockup shows a box that looks like a browser window.
 
 ---
 
-## 35. Code mockup
+## Code mockup
 
 Code mockup is used to show a block of code in a box that looks like a code editor.
 
@@ -681,7 +761,7 @@ Code mockup is used to show a block of code in a box that looks like a code edit
 
 ---
 
-## 36. Phone mockup
+## Phone mockup
 
 Phone mockup shows a mockup of an iPhone.
 
@@ -695,7 +775,7 @@ Phone mockup shows a mockup of an iPhone.
 
 ---
 
-## 37. Window mockup
+## Window mockup
 
 Window mockup shows a box that looks like an operating system window.
 
@@ -707,7 +787,7 @@ Window mockup shows a box that looks like an operating system window.
 
 ---
 
-## 38. Modal
+## Modal
 
 Modal is used to show a dialog or a box when you click a button.
 
@@ -729,7 +809,7 @@ Modal is used to show a dialog or a box when you click a button.
 
 ---
 
-## 39. Navbar
+## Navbar
 
 Navbar is used to show a navigation bar on the top of the page.
 
@@ -744,7 +824,7 @@ Navbar is used to show a navigation bar on the top of the page.
 
 ---
 
-## 40. Pagination
+## Pagination
 
 Pagination is a group of buttons that allow the user to navigate between a set of related content.
 
@@ -759,7 +839,7 @@ Pagination is a group of buttons that allow the user to navigate between a set o
 
 ---
 
-## 41. Progress
+## Progress
 
 Progress bar can be used to show the progress of a task or to show the passing of time.
 
@@ -779,7 +859,7 @@ Progress bar can be used to show the progress of a task or to show the passing o
 
 ---
 
-## 42. Radial progress
+## Radial progress
 
 Radial progress can be used to show the progress of a task or to show the passing of time.
 
@@ -791,7 +871,7 @@ Radial progress can be used to show the progress of a task or to show the passin
 
 ---
 
-## 43. Radio
+## Radio
 
 Radio buttons allow the user to select one option from a set.
 
@@ -816,7 +896,7 @@ Radio buttons allow the user to select one option from a set.
 
 ---
 
-## 44. Range slider
+## Range slider
 
 Range slider is used to select a value by sliding a handle.
 
@@ -841,7 +921,7 @@ Range slider is used to select a value by sliding a handle.
 
 ---
 
-## 45. Rating
+## Rating
 
 Rating is a set of radio buttons that allow the user to rate something.
 
@@ -860,7 +940,7 @@ Rating is a set of radio buttons that allow the user to rate something.
 
 ---
 
-## 46. Select
+## Select
 
 Select is used to pick a value from a list of options.
 
@@ -886,7 +966,7 @@ Select is used to pick a value from a list of options.
 
 ---
 
-## 47. Skeleton
+## Skeleton
 
 Skeleton is a component that can be used to show a loading state of a component.
 
@@ -898,7 +978,7 @@ Skeleton is a component that can be used to show a loading state of a component.
 
 ---
 
-## 48. Stack
+## Stack
 
 Stack visually puts elements on top of each other.
 
@@ -914,7 +994,7 @@ Stack visually puts elements on top of each other.
 
 ---
 
-## 49. Stat
+## Stat
 
 Stat is used to show numbers and data in a block.
 
@@ -934,7 +1014,7 @@ Stat is used to show numbers and data in a block.
 
 ---
 
-## 50. Status
+## Status
 
 Status is a really small icon to visually show the current status of an element, like online, offline, error, etc.
 
@@ -959,7 +1039,7 @@ Status is a really small icon to visually show the current status of an element,
 
 ---
 
-## 51. Steps
+## Steps
 
 Steps can be used to show a list of steps in a process.
 
@@ -983,7 +1063,7 @@ Steps can be used to show a list of steps in a process.
 
 ---
 
-## 52. Swap
+## Swap
 
 Swap allows you to toggle the visibility of two elements using a checkbox or a class name.
 
@@ -1001,7 +1081,7 @@ Swap allows you to toggle the visibility of two elements using a checkbox or a c
 
 ---
 
-## 53. Tabs
+## Tabs
 
 Tabs can be used to show a list of links in a tabbed format.
 
@@ -1027,7 +1107,7 @@ Tabs can be used to show a list of links in a tabbed format.
 
 ---
 
-## 54. Table
+## Table
 
 Table can be used to show a list of data in a table format.
 
@@ -1047,7 +1127,7 @@ Table can be used to show a list of data in a table format.
 
 ---
 
-## 55. Textarea
+## Textarea
 
 Textarea allows users to enter text in multiple lines.
 
@@ -1073,7 +1153,7 @@ Textarea allows users to enter text in multiple lines.
 
 ---
 
-## 56. Theme Controller
+## Theme Controller
 
 If a checked checkbox input or a checked radio input with theme-controller class exists in the page, The page will have the same theme as that input's value.
 
@@ -1085,7 +1165,7 @@ If a checked checkbox input or a checked radio input with theme-controller class
 
 ---
 
-## 57. Timeline
+## Timeline
 
 Timeline component shows a list of events in chronological order.
 
@@ -1105,7 +1185,7 @@ Timeline component shows a list of events in chronological order.
 
 ---
 
-## 58. Toast
+## Toast
 
 Toast is a wrapper to stack elements, positioned on the corner of page.
 
@@ -1123,7 +1203,7 @@ Toast is a wrapper to stack elements, positioned on the corner of page.
 
 ---
 
-## 59. Toggle
+## Toggle
 
 Toggle is a checkbox that is styled to look like a switch button.
 
@@ -1148,7 +1228,7 @@ Toggle is a checkbox that is styled to look like a switch button.
 
 ---
 
-## 60. Tooltip
+## Tooltip
 
 Tooltip can be used to show a message when hovering over an element.
 
@@ -1174,7 +1254,7 @@ Tooltip can be used to show a message when hovering over an element.
 
 ---
 
-## 61. Validator
+## Validator
 
 Validator class changes the color of form elements to error or success based on input's validation rules.
 

@@ -22,29 +22,115 @@ pip install cjm-fasthtml-daisyui
 ## Project Structure
 
     nbs/
-    └── core/ (4)
-        ├── colors.ipynb     # Type-safe semantic color management for daisyUI
-        ├── resources.ipynb  # CDN resources and headers for daisyUI and Tailwind CSS
-        ├── testing.ipynb    # Standardized test page creation for Jupyter notebooks with FastHTML
-        └── themes.ipynb     # Type-safe theme management for daisyUI
+    ├── builders/ (1)
+    │   └── colors.ipynb  # Semantic color system builders for daisyUI components
+    ├── components/ (19)
+    │   ├── actions/ (5)
+    │   │   ├── button.ipynb            # Buttons allow the user to take actions or make choices.
+    │   │   ├── dropdown.ipynb          # Dropdown can open a menu or any other element when the button is clicked.
+    │   │   ├── modal.ipynb             # Modal is used to show a dialog or a box when you click a button.
+    │   │   ├── swap.ipynb              # Swap allows you to toggle the visibility of two elements using a checkbox or a class name.
+    │   │   └── theme_controller.ipynb  # If a checked checkbox input or a checked radio input with theme-controller class exists in the page, The page will have the same theme as that input's value.
+    │   └── data_display/ (14)
+    │       ├── accordion_collapse.ipynb  # Accordion is used for showing and hiding content but only one item can stay open at a time. Collapse is used for showing and hiding content.
+    │       ├── avatar.ipynb              # Avatars are used to show a thumbnail representation of an individual or business in the interface.
+    │       ├── badge.ipynb               # Badges are used to inform the user of the status of specific data.
+    │       ├── card.ipynb                # Cards are used to group and display content in a way that is easily readable.
+    │       ├── carousel.ipynb            # Carousel shows images or content in a scrollable area.
+    │       ├── chat_bubble.ipynb         # Chat bubbles are used to show one line of conversation and all its data, including the author image, author name, time, etc.
+    │       ├── countdown.ipynb           # Countdown gives you a transition effect when you change a number between 0 to 99.
+    │       ├── diff.ipynb                # Diff component shows a side-by-side comparison of two items.
+    │       ├── kbd.ipynb                 # Kbd is used to display keyboard shortcuts.
+    │       ├── list.ipynb                # List is a vertical layout to display information in rows.
+    │       ├── stat.ipynb                # Stat is used to show numbers and data in a block.
+    │       ├── status.ipynb              # Status is a really small icon to visually show the current status of an element, like online, offline, error, etc.
+    │       ├── table.ipynb               # Table can be used to show a list of data in a table format.
+    │       └── timeline.ipynb            # Timeline component shows a list of events in chronological order.
+    └── core/ (5)
+        ├── base.ipynb
+        ├── resources.ipynb        # CDN resources and headers for daisyUI and Tailwind CSS
+        ├── testing.ipynb          # Standardized test page creation for Jupyter notebooks with FastHTML
+        ├── themes.ipynb           # Type-safe theme management for daisyUI
+        └── utility_classes.ipynb  # daisyUI semantic color utility classes, border radius, and glass utility classes
 
-Total: 4 notebooks across 1 directory
+Total: 25 notebooks across 3 directories
 
 ## Module Dependencies
 
 ``` mermaid
 graph LR
-    core_colors[core.colors<br/>colors]
+    builders_colors[builders.colors<br/>colors]
+    components_actions_button[components.actions.button<br/>button]
+    components_actions_dropdown[components.actions.dropdown<br/>dropdown]
+    components_actions_modal[components.actions.modal<br/>modal]
+    components_actions_swap[components.actions.swap<br/>swap]
+    components_actions_theme_controller[components.actions.theme_controller<br/>theme controller]
+    components_data_display_accordion_collapse[components.data_display.accordion_collapse<br/>accordion and collapse]
+    components_data_display_avatar[components.data_display.avatar<br/>avatar]
+    components_data_display_badge[components.data_display.badge<br/>badge]
+    components_data_display_card[components.data_display.card<br/>card]
+    components_data_display_carousel[components.data_display.carousel<br/>carousel]
+    components_data_display_chat_bubble[components.data_display.chat_bubble<br/>chat bubble]
+    components_data_display_countdown[components.data_display.countdown<br/>countdown]
+    components_data_display_diff[components.data_display.diff<br/>diff]
+    components_data_display_kbd[components.data_display.kbd<br/>kbd]
+    components_data_display_list[components.data_display.list<br/>list]
+    components_data_display_stat[components.data_display.stat<br/>stat]
+    components_data_display_status[components.data_display.status<br/>status]
+    components_data_display_table[components.data_display.table<br/>table]
+    components_data_display_timeline[components.data_display.timeline<br/>timeline]
+    base[base]
     core_resources[core.resources<br/>resources]
     core_testing[core.testing<br/>testing]
     core_themes[core.themes<br/>themes]
+    core_utility_classes[core.utility_classes<br/>utility_classes]
 
-    core_testing --> core_colors
+    components_actions_button --> core_testing
+    components_actions_button --> core_themes
+    components_actions_dropdown --> core_testing
+    components_actions_dropdown --> core_themes
+    components_actions_modal --> core_testing
+    components_actions_modal --> core_themes
+    components_actions_swap --> core_testing
+    components_actions_swap --> core_themes
+    components_actions_theme_controller --> core_testing
+    components_actions_theme_controller --> core_themes
+    components_data_display_accordion_collapse --> core_testing
+    components_data_display_accordion_collapse --> core_themes
+    components_data_display_avatar --> core_testing
+    components_data_display_avatar --> core_themes
+    components_data_display_badge --> core_testing
+    components_data_display_badge --> core_themes
+    components_data_display_card --> core_testing
+    components_data_display_card --> core_themes
+    components_data_display_carousel --> core_testing
+    components_data_display_carousel --> core_themes
+    components_data_display_chat_bubble --> core_testing
+    components_data_display_chat_bubble --> core_themes
+    components_data_display_countdown --> core_testing
+    components_data_display_countdown --> core_themes
+    components_data_display_diff --> core_testing
+    components_data_display_diff --> core_themes
+    components_data_display_kbd --> core_testing
+    components_data_display_kbd --> core_themes
+    components_data_display_list --> core_testing
+    components_data_display_list --> core_themes
+    components_data_display_stat --> core_testing
+    components_data_display_stat --> core_themes
+    components_data_display_status --> core_testing
+    components_data_display_status --> core_themes
+    components_data_display_table --> core_testing
+    components_data_display_table --> core_themes
+    components_data_display_timeline --> core_testing
+    components_data_display_timeline --> core_themes
+    core_testing --> core_utility_classes
+    core_testing --> components_actions_button
     core_testing --> core_resources
     core_testing --> core_themes
+    core_utility_classes --> builders_colors
 ```
 
-*3 cross-module dependencies detected*
+*43 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -54,136 +140,1037 @@ No CLI commands found in this project.
 
 Detailed documentation for each module in the project:
 
-### colors (`colors.ipynb`)
+### accordion and collapse (`accordion_collapse.ipynb`)
 
-> Type-safe semantic color management for daisyUI
+> Accordion is used for showing and hiding content but only one item can
+> stay open at a time. Collapse is used for showing and hiding content.
 
 #### Import
 
 ``` python
-from cjm_fasthtml_daisyui.core.colors import (
-    DaisyUIColor,
-    semantic_color,
-    is_content_color,
-    bg_semantic,
-    text_semantic,
-    border_semantic,
-    enable_semantic_gradients
+from cjm_fasthtml_daisyui.components.data_display.accordion_collapse import (
+    collapse,
+    collapse_title,
+    collapse_content,
+    collapse_modifiers,
+    test_accordion_basic_examples,
+    test_accordion_modifiers_examples,
+    test_accordion_basic_fasthtml_examples,
+    test_accordion_arrow_fasthtml_examples,
+    test_accordion_plus_fasthtml_examples,
+    test_accordion_join_fasthtml_examples,
+    test_collapse_basic_fasthtml_examples,
+    test_collapse_style_fasthtml_examples,
+    test_collapse_state_fasthtml_examples,
+    test_collapse_color_fasthtml_examples
 )
 ```
 
 #### Functions
 
 ``` python
-def semantic_color(
-    color: Union[DaisyUIColor, str],  # Color enum or string
-    opacity: Optional[int] = None     # Optional opacity value (0-100)
-) -> str:  # Color string with optional opacity modifier
-    """
-    Build semantic color string with optional opacity modifier.
-    
-    This function handles both DaisyUIColor enums and string values,
-    allowing flexibility while maintaining type safety.
-    
-    Examples:
-        semantic_color(DaisyUIColor.PRIMARY) -> "primary"
-        semantic_color(DaisyUIColor.BASE_100, 50) -> "base-100/50"
-        semantic_color("primary", 75) -> "primary/75"
-    """
+def test_accordion_basic_examples()
+    "Test basic accordion utilities."
 ```
 
 ``` python
-def is_content_color(
-    color: Union[DaisyUIColor, str]  # Color to check
-) -> bool:  # True if color is a content variant
-    """
-    Check if a color is a content variant (ends with -content).
-    
-    Content colors are designed to be used as foreground colors
-    on their corresponding background colors.
-    """
+def test_accordion_modifiers_examples()
+    "Test accordion modifier utilities."
 ```
 
 ``` python
-def bg_semantic(
-    self: TailwindBuilder, 
-    color: Union[DaisyUIColor, str], 
-    opacity: Optional[int] = None
-) -> TailwindBuilder
-    """
-    Add semantic background color with optional opacity.
-    
-    Examples:
-        TailwindBuilder().bg_semantic(DaisyUIColor.PRIMARY)
-        TailwindBuilder().bg_semantic(DaisyUIColor.BASE_100, 50)
-    """
+def test_accordion_basic_fasthtml_examples()
+    "Test basic accordion using radio inputs from daisyUI v5 documentation."
 ```
 
 ``` python
-def text_semantic(
-    self: TailwindBuilder, 
-    color: Union[DaisyUIColor, str], 
-    opacity: Optional[int] = None
-) -> TailwindBuilder
-    """
-    Add semantic text color with optional opacity.
-    
-    Examples:
-        TailwindBuilder().text_semantic(DaisyUIColor.PRIMARY_CONTENT)
-        TailwindBuilder().text_semantic(DaisyUIColor.BASE_CONTENT, 70)
-    """
+def test_accordion_arrow_fasthtml_examples()
+    "Test accordion with arrow icon from daisyUI v5 documentation."
 ```
 
 ``` python
-def border_semantic(
-    self: TailwindBuilder, 
-    color: Union[DaisyUIColor, str], 
-    opacity: Optional[int] = None
-) -> TailwindBuilder
-    """
-    Add semantic border color with optional opacity.
-    
-    Examples:
-        TailwindBuilder().border_semantic(DaisyUIColor.PRIMARY)
-        TailwindBuilder().border_semantic(DaisyUIColor.BASE_300, 50)
-    """
+def test_accordion_plus_fasthtml_examples()
+    "Test accordion with plus/minus icon from daisyUI v5 documentation."
 ```
 
 ``` python
-def enable_semantic_gradients() -> Div
-    """
-    Include hidden element to enable Tailwind JIT compilation of semantic color gradients.
-    
-    Tailwind CSS v4 browser version needs to "see" gradient patterns in the HTML
-    to include them in its JIT compilation.
-    
-    Usage:
-        Add this to your page/app to enable gradients with semantic colors:
-        
-        app, rt = create_test_app()
-        
-        @rt
-        def index():
-            return Div(
-                enable_semantic_gradients(),  # Add this line
-                # Your actual content here...
-            )
-    
-    Note: This is only needed when using gradient utilities (bg-gradient-to-*, from-*, to-*)
-    with daisyUI semantic colors. Regular color usage doesn't require this.
-    """
+def test_accordion_join_fasthtml_examples()
+    "Test accordion with join from daisyUI v5 documentation."
+```
+
+``` python
+def test_collapse_basic_fasthtml_examples()
+    "Test basic collapse examples: focus, checkbox, and details/summary from daisyUI v5 documentation."
+```
+
+``` python
+def test_collapse_style_fasthtml_examples()
+    "Test collapse style examples: without border/background, with arrow icon, with plus/minus icon from daisyUI v5 documentation."
+```
+
+``` python
+def test_collapse_state_fasthtml_examples()
+    "Test collapse state examples: force open and force close from daisyUI v5 documentation."
+```
+
+``` python
+def test_collapse_color_fasthtml_examples()
+    "Test collapse color examples: custom colors for focus and checkbox from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+collapse  # Collapse container
+collapse_title  # Collapse title
+collapse_content  # Collapse content
+```
+
+### avatar (`avatar.ipynb`)
+
+> Avatars are used to show a thumbnail representation of an individual
+> or business in the interface.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.avatar import (
+    avatar,
+    avatar_group,
+    avatar_modifiers,
+    test_avatar_basic_examples,
+    test_avatar_modifiers_examples,
+    test_avatar_basic_fasthtml_examples,
+    test_avatar_rounded_and_mask_fasthtml_examples,
+    test_avatar_group_fasthtml_examples,
+    test_avatar_ring_and_presence_fasthtml_examples,
+    test_avatar_placeholder_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_avatar_basic_examples()
+    "Test basic avatar utilities."
+```
+
+``` python
+def test_avatar_modifiers_examples()
+    "Test avatar modifier utilities."
+```
+
+``` python
+def test_avatar_basic_fasthtml_examples()
+    "Test basic avatar and avatar in custom sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_avatar_rounded_and_mask_fasthtml_examples()
+    "Test avatar rounded and avatar with mask from daisyUI v5 documentation."
+```
+
+``` python
+def test_avatar_group_fasthtml_examples()
+    "Test avatar group and avatar group with counter from daisyUI v5 documentation."
+```
+
+``` python
+def test_avatar_ring_and_presence_fasthtml_examples()
+    "Test avatar with ring and avatar with presence indicator from daisyUI v5 documentation."
+```
+
+``` python
+def test_avatar_placeholder_fasthtml_examples()
+    "Test avatar placeholder from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+avatar  # Avatar container
+avatar_group  # Avatar group
+```
+
+### badge (`badge.ipynb`)
+
+> Badges are used to inform the user of the status of specific data.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.badge import (
+    badge,
+    badge_colors,
+    badge_styles,
+    badge_sizes,
+    test_badge_basic_examples,
+    test_badge_colors_examples,
+    test_badge_styles_examples,
+    test_badge_sizes_examples,
+    test_badge_basic_fasthtml_examples,
+    test_badge_colors_fasthtml_examples,
+    test_badge_style_fasthtml_examples,
+    test_badge_icon_fasthtml_examples,
+    test_badge_in_text_fasthtml_examples,
+    test_badge_in_button_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_badge_basic_examples()
+    "Test basic badge utilities."
+```
+
+``` python
+def test_badge_colors_examples()
+    "Test badge color variants."
+```
+
+``` python
+def test_badge_styles_examples()
+    "Test badge style variants."
+```
+
+``` python
+def test_badge_sizes_examples()
+    "Test badge size variants."
+```
+
+``` python
+def test_badge_basic_fasthtml_examples()
+    "Test basic badge and badge sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_badge_colors_fasthtml_examples()
+    "Test badge with colors from daisyUI v5 documentation."
+```
+
+``` python
+def test_badge_style_fasthtml_examples()
+    "Test badge with different styles from daisyUI v5 documentation."
+```
+
+``` python
+def test_badge_icon_fasthtml_examples()
+    "Test badge with icon from daisyUI v5 documentation."
+```
+
+``` python
+def test_badge_in_text_fasthtml_examples()
+    "Test badge in text from daisyUI v5 documentation."
+```
+
+``` python
+def test_badge_in_button_fasthtml_examples()
+    "Test badge in button from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+badge  # Badge container
+```
+
+### button (`button.ipynb`)
+
+> Buttons allow the user to take actions or make choices.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.actions.button import (
+    btn,
+    btn_colors,
+    btn_styles,
+    btn_sizes,
+    btn_modifiers,
+    btn_behaviors,
+    test_button_basic_examples,
+    test_button_colors_examples,
+    test_button_styles_examples,
+    test_button_sizes_examples,
+    test_button_modifiers_examples,
+    test_button_behaviors_examples,
+    test_button_basic_fasthtml_examples,
+    test_button_sizes_fasthtml_examples,
+    test_button_colors_variants_fasthtml_examples,
+    test_button_states_fasthtml_examples,
+    test_button_shapes_fasthtml_examples,
+    test_button_with_content_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_button_basic_examples()
+    "Test basic button utilities."
+```
+
+``` python
+def test_button_colors_examples()
+    "Test button color variants."
+```
+
+``` python
+def test_button_styles_examples()
+    "Test button style variants."
+```
+
+``` python
+def test_button_sizes_examples()
+    "Test button size variants."
+```
+
+``` python
+def test_button_modifiers_examples()
+    "Test button modifier utilities."
+```
+
+``` python
+def test_button_behaviors_examples()
+    "Test button behavior states."
+```
+
+``` python
+def test_button_basic_fasthtml_examples()
+    "Test basic button examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_button_sizes_fasthtml_examples()
+    "Test button size variations and responsive buttons."
+```
+
+``` python
+def test_button_colors_variants_fasthtml_examples()
+    "Test button color variants including soft, outline, and dash styles."
+```
+
+``` python
+def test_button_states_fasthtml_examples()
+    "Test button states including active, disabled, ghost, and link."
+```
+
+``` python
+def test_button_shapes_fasthtml_examples()
+    "Test square and circle button shapes with SVG icons."
+```
+
+``` python
+def test_button_with_content_fasthtml_examples()
+    "Test buttons with icons and loading spinners."
+```
+
+#### Variables
+
+``` python
+btn  # Base button component
+```
+
+### card (`card.ipynb`)
+
+> Cards are used to group and display content in a way that is easily
+> readable.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.card import (
+    card,
+    card_title,
+    card_body,
+    card_actions,
+    card_styles,
+    card_modifiers,
+    card_sizes,
+    test_card_basic_examples,
+    test_card_styles_examples,
+    test_card_modifiers_examples,
+    test_card_sizes_examples,
+    test_card_basic_fasthtml_examples,
+    test_card_pricing_fasthtml_example,
+    test_card_style_fasthtml_variations,
+    test_card_layout_fasthtml_variations,
+    test_card_special_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_card_basic_examples()
+    "Test basic card utilities."
+```
+
+``` python
+def test_card_styles_examples()
+    "Test card style variants."
+```
+
+``` python
+def test_card_modifiers_examples()
+    "Test card modifier utilities."
+```
+
+``` python
+def test_card_sizes_examples()
+    "Test card size variants."
+```
+
+``` python
+def test_card_basic_fasthtml_examples()
+    "Test basic card examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_card_pricing_fasthtml_example()
+    "Test pricing card example from daisyUI v5 documentation."
+```
+
+``` python
+def test_card_style_fasthtml_variations()
+    "Test card style variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_card_layout_fasthtml_variations()
+    "Test card layout variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_card_special_fasthtml_examples()
+    "Test special card examples from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+card  # Card container
+card_title  # Card title
+card_body  # Card body
+card_actions  # Card actions
+```
+
+### carousel (`carousel.ipynb`)
+
+> Carousel shows images or content in a scrollable area.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.carousel import (
+    carousel,
+    carousel_item,
+    carousel_snap,
+    carousel_direction,
+    test_carousel_basic_examples,
+    test_carousel_modifiers_examples,
+    test_carousel_snap_alignment_fasthtml_examples,
+    test_carousel_layout_fasthtml_variations,
+    test_carousel_navigation_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_carousel_basic_examples()
+    "Test basic carousel utilities."
+```
+
+``` python
+def test_carousel_modifiers_examples()
+    "Test carousel modifier utilities."
+```
+
+``` python
+def test_carousel_snap_alignment_fasthtml_examples()
+    "Test carousel snap alignment examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_carousel_layout_fasthtml_variations()
+    "Test carousel layout variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_carousel_navigation_fasthtml_examples()
+    "Test carousel with navigation examples from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+carousel  # Carousel container
+carousel_item  # Carousel item
+```
+
+### chat bubble (`chat_bubble.ipynb`)
+
+> Chat bubbles are used to show one line of conversation and all its
+> data, including the author image, author name, time, etc.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.chat_bubble import (
+    chat,
+    chat_image,
+    chat_header,
+    chat_footer,
+    chat_bubble,
+    chat_placement,
+    chat_bubble_colors,
+    test_chat_basic_examples,
+    test_chat_placement_examples,
+    test_chat_bubble_colors_examples,
+    test_chat_basic_fasthtml_examples,
+    test_chat_with_image_fasthtml_examples,
+    test_chat_with_header_footer_fasthtml_examples,
+    test_chat_colors_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_chat_basic_examples()
+    "Test basic chat utilities."
+```
+
+``` python
+def test_chat_placement_examples()
+    "Test chat placement utilities."
+```
+
+``` python
+def test_chat_bubble_colors_examples()
+    "Test chat bubble color variants."
+```
+
+``` python
+def test_chat_basic_fasthtml_examples()
+    "Test basic chat-start and chat-end from daisyUI v5 documentation."
+```
+
+``` python
+def test_chat_with_image_fasthtml_examples()
+    "Test chat with image from daisyUI v5 documentation."
+```
+
+``` python
+def test_chat_with_header_footer_fasthtml_examples()
+    "Test chat with image, header and footer from daisyUI v5 documentation."
+```
+
+``` python
+def test_chat_colors_fasthtml_examples()
+    "Test chat bubble with colors from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+chat  # Chat container
+chat_image  # Chat image
+chat_header  # Chat header
+chat_footer  # Chat footer
+chat_bubble  # Chat bubble
+```
+
+### colors (`colors.ipynb`)
+
+> Semantic color system builders for daisyUI components
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.builders.colors import (
+    SemanticColorValue,
+    SemanticColor,
+    is_valid_semantic_color,
+    ColoredUtilityDaisyUI,
+    ColoredFactoryDaisyUI,
+    test_colors_semantic_enum_examples,
+    test_colors_validation_examples,
+    test_colors_factory_examples,
+    test_colors_opacity_examples,
+    test_colors_arbitrary_examples,
+    test_colors_multiple_utilities_examples,
+    test_colors_practical_usage_examples,
+    test_colors_modifier_examples,
+    get_all_semantic_colors,
+    get_brand_colors,
+    get_base_colors,
+    get_status_colors,
+    test_colors_factory_documentation
+)
+```
+
+#### Functions
+
+``` python
+def is_valid_semantic_color(
+    value: str  # The value to check
+) -> bool:  # True if value is a valid daisyUI semantic color
+    "Check if a value is a valid daisyUI semantic color."
+```
+
+``` python
+def test_colors_semantic_enum_examples()
+    "Test semantic color enum."
+```
+
+``` python
+def test_colors_validation_examples()
+    "Test semantic color validation functions."
+```
+
+``` python
+def test_colors_factory_examples()
+    "Test ColoredFactoryDaisyUI with various semantic color specifications."
+```
+
+``` python
+def test_colors_opacity_examples()
+    "Test opacity modifiers with semantic color utilities."
+```
+
+``` python
+def test_colors_arbitrary_examples()
+    "Test arbitrary color values and custom properties."
+```
+
+``` python
+def test_colors_multiple_utilities_examples()
+    "Test semantic color system with multiple utility types."
+```
+
+``` python
+def test_colors_practical_usage_examples()
+    "Test practical usage patterns with FastHTML components."
+```
+
+``` python
+def test_colors_modifier_examples()
+    "Test semantic color utilities with modifiers for conditional styling."
+```
+
+``` python
+def get_all_semantic_colors() -> List[str]
+    "Get list of all daisyUI semantic color names."
+```
+
+``` python
+def get_brand_colors() -> List[str]
+    "Get list of brand semantic colors."
+```
+
+``` python
+def get_base_colors() -> List[str]
+    "Get list of base semantic colors."
+```
+
+``` python
+def get_status_colors() -> List[str]
+    "Get list of status semantic colors."
+```
+
+``` python
+def test_colors_factory_documentation()
+    "Test that semantic color factories have proper documentation."
 ```
 
 #### Classes
 
 ``` python
-class DaisyUIColor(str, Enum):
-    """
-    All daisyUI semantic color names.
+class SemanticColor(str, Enum):
+    "daisyUI semantic color names."
+```
+
+``` python
+class ColoredUtilityDaisyUI:
+    def __init__(
+        self,
+        prefix: str,  # The utility prefix (e.g., 'bg', 'text', 'border')
+        color: Optional[SemanticColorValue] = None,  # The semantic color value
+        opacity: Optional[Union[int, str]] = None  # Optional opacity value (0-100 or arbitrary)
+    )
+    "Utility class with daisyUI semantic color and opacity support."
     
-    These colors automatically adapt based on the active theme and provide
-    consistent semantic meaning across your application.
-    """
+    def __init__(
+            self,
+            prefix: str,  # The utility prefix (e.g., 'bg', 'text', 'border')
+            color: Optional[SemanticColorValue] = None,  # The semantic color value
+            opacity: Optional[Union[int, str]] = None  # Optional opacity value (0-100 or arbitrary)
+        )
+        "Initialize with prefix, optional semantic color, and optional opacity."
+    
+    def opacity(
+            self,
+            value: Union[int, str]  # Opacity value (0-100 or arbitrary)
+        ) -> 'ColoredUtilityDaisyUI':  # A new instance with opacity set
+        "Return a new ColoredUtilityDaisyUI instance with opacity value."
+```
+
+``` python
+class ColoredFactoryDaisyUI:
+    def __init__(
+        self,
+        prefix: str,  # The utility prefix (e.g., 'bg', 'text', 'border')
+        doc: Optional[str] = None  # Optional documentation string
+    )
+    "Factory for creating daisyUI semantic color-based utilities."
+    
+    def __init__(
+            self,
+            prefix: str,  # The utility prefix (e.g., 'bg', 'text', 'border')
+            doc: Optional[str] = None  # Optional documentation string
+        )
+        "Initialize factory with prefix and documentation."
+    
+    def get_info(
+            self
+        ) -> Dict[str, Any]:  # Dictionary with factory information
+        "Get detailed information about this semantic color factory."
+```
+
+### countdown (`countdown.ipynb`)
+
+> Countdown gives you a transition effect when you change a number
+> between 0 to 99.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.countdown import (
+    countdown,
+    test_countdown_basic_examples,
+    test_countdown_basic_fasthtml_examples,
+    test_countdown_clock_fasthtml_examples,
+    test_countdown_labels_fasthtml_examples,
+    test_countdown_boxes_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_countdown_basic_examples()
+    "Test basic countdown utilities."
+```
+
+``` python
+def test_countdown_basic_fasthtml_examples()
+    "Test basic countdown and large text from daisyUI v5 documentation."
+```
+
+``` python
+def test_countdown_clock_fasthtml_examples()
+    "Test clock countdown and clock countdown with colons from daisyUI v5 documentation."
+```
+
+``` python
+def test_countdown_labels_fasthtml_examples()
+    "Test large text with labels and labels under from daisyUI v5 documentation."
+```
+
+``` python
+def test_countdown_boxes_fasthtml_examples()
+    "Test countdown in boxes from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+countdown  # Countdown wrapper
+```
+
+### diff (`diff.ipynb`)
+
+> Diff component shows a side-by-side comparison of two items.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.diff import (
+    diff,
+    diff_item_1,
+    diff_item_2,
+    diff_resizer,
+    test_diff_basic_examples,
+    test_diff_basic_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_diff_basic_examples()
+    "Test basic diff utilities."
+```
+
+``` python
+def test_diff_basic_fasthtml_examples()
+    "Test basic diff and diff text from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+diff  # Diff container
+diff_item_1  # First item
+diff_item_2  # Second item
+diff_resizer  # Resizer control
+```
+
+### dropdown (`dropdown.ipynb`)
+
+> Dropdown can open a menu or any other element when the button is
+> clicked.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.actions.dropdown import (
+    dropdown,
+    dropdown_content,
+    dropdown_placement,
+    dropdown_modifiers,
+    test_dropdown_basic_examples,
+    test_dropdown_placement_examples,
+    test_dropdown_modifiers_examples,
+    test_dropdown_basic_fasthtml_examples,
+    test_dropdown_placement_fasthtml_examples,
+    test_dropdown_hover_and_state_fasthtml_examples,
+    test_dropdown_content_variations_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_dropdown_basic_examples()
+    "Test basic dropdown utilities."
+```
+
+``` python
+def test_dropdown_placement_examples()
+    "Test dropdown placement options."
+```
+
+``` python
+def test_dropdown_modifiers_examples()
+    "Test dropdown modifier utilities."
+```
+
+``` python
+def test_dropdown_basic_fasthtml_examples()
+    "Test basic dropdown implementations including details/summary and popover API."
+```
+
+``` python
+def test_dropdown_placement_fasthtml_examples():
+    """Test dropdown placement variations for all positions."""
+    from fasthtml.common import Div, Ul, Li, A
+    from cjm_fasthtml_tailwind.core.base import combine_classes
+    from cjm_fasthtml_tailwind.utilities.spacing import m, p
+    from cjm_fasthtml_tailwind.utilities.layout import z
+    from cjm_fasthtml_tailwind.utilities.sizing import w
+    from cjm_fasthtml_tailwind.utilities.effects import shadow
+    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.components.actions.button import btn
+    
+    # Helper function to create dropdown content
+    def create_dropdown_content()
+    "Test dropdown placement variations for all positions."
+```
+
+``` python
+def test_dropdown_hover_and_state_fasthtml_examples()
+    "Test dropdown hover behavior and force open state."
+```
+
+``` python
+def test_dropdown_content_variations_fasthtml_examples()
+    "Test dropdown with different content types including cards and navbar integration."
+```
+
+#### Variables
+
+``` python
+dropdown  # Dropdown container
+dropdown_content  # Dropdown content
+```
+
+### kbd (`kbd.ipynb`)
+
+> Kbd is used to display keyboard shortcuts.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.kbd import (
+    kbd,
+    kbd_sizes,
+    test_kbd_basic_examples,
+    test_kbd_sizes_examples,
+    test_kbd_basic_fasthtml_examples,
+    test_kbd_combination_fasthtml_examples,
+    test_kbd_keyboard_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_kbd_basic_examples()
+    "Test basic kbd utilities."
+```
+
+``` python
+def test_kbd_sizes_examples()
+    "Test kbd size variants."
+```
+
+``` python
+def test_kbd_basic_fasthtml_examples()
+    "Test basic kbd and sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_kbd_combination_fasthtml_examples()
+    "Test key combinations and function keys from daisyUI v5 documentation."
+```
+
+``` python
+def test_kbd_keyboard_fasthtml_examples()
+    "Test full keyboard and arrow keys from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+kbd  # Kbd component
+```
+
+### list (`list.ipynb`)
+
+> List is a vertical layout to display information in rows.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.list import (
+    list_ui,
+    list_row,
+    list_modifiers,
+    test_list_basic_examples,
+    test_list_modifiers_examples,
+    test_list_basic_fasthtml_examples,
+    test_list_column_grow_fasthtml_examples,
+    test_list_column_wrap_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_list_basic_examples()
+    "Test basic list utilities."
+```
+
+``` python
+def test_list_modifiers_examples()
+    "Test list modifier utilities."
+```
+
+``` python
+def test_list_basic_fasthtml_examples()
+    "Test basic list example: second column grows (default behavior) from daisyUI v5 documentation."
+```
+
+``` python
+def test_list_column_grow_fasthtml_examples()
+    "Test list example: third column grows from daisyUI v5 documentation."
+```
+
+``` python
+def test_list_column_wrap_fasthtml_examples()
+    "Test list example: third column wraps to next row from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+list_ui  # List container
+list_row  # List row
+```
+
+### modal (`modal.ipynb`)
+
+> Modal is used to show a dialog or a box when you click a button.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.actions.modal import (
+    modal,
+    modal_box,
+    modal_action,
+    modal_backdrop,
+    modal_toggle,
+    modal_placement,
+    modal_open,
+    test_modal_basic_examples,
+    test_modal_placement_examples,
+    test_modal_dialog_fasthtml_examples,
+    test_modal_checkbox_fasthtml_examples,
+    test_modal_anchor_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_modal_basic_examples()
+    "Test basic modal utilities."
+```
+
+``` python
+def test_modal_placement_examples()
+    "Test modal placement options."
+```
+
+``` python
+def test_modal_dialog_fasthtml_examples()
+    "Test modal examples using HTML dialog element (recommended method)."
+```
+
+``` python
+def test_modal_checkbox_fasthtml_examples()
+    "Test modal examples using checkbox method (legacy)."
+```
+
+``` python
+def test_modal_anchor_fasthtml_examples()
+    "Test modal examples using anchor links (legacy method)."
+```
+
+#### Variables
+
+``` python
+modal  # Modal container
+modal_box  # Modal content box
+modal_action  # Modal actions
+modal_backdrop  # Modal backdrop
+modal_toggle  # Modal toggle
+modal_open  # Modal open state
 ```
 
 ### resources (`resources.ipynb`)
@@ -198,7 +1185,6 @@ from cjm_fasthtml_daisyui.core.resources import (
     DAISYUI_THEMES_CDN,
     DAISYUI_COLOR_PROPERTIES,
     DAISYUI_COLOR_PROPERTIES_EXT,
-    TAILWIND_CDN,
     get_daisyui_headers,
     create_css_link,
     create_js_script,
@@ -264,7 +1250,280 @@ DAISYUI_CDN = 'https://cdn.jsdelivr.net/npm/daisyui@5'
 DAISYUI_THEMES_CDN = 'https://cdn.jsdelivr.net/npm/daisyui@5/themes.css'
 DAISYUI_COLOR_PROPERTIES = 'https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties.css'
 DAISYUI_COLOR_PROPERTIES_EXT = 'https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css'
-TAILWIND_CDN = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'
+```
+
+### stat (`stat.ipynb`)
+
+> Stat is used to show numbers and data in a block.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.stat import (
+    stats,
+    stat,
+    stat_title,
+    stat_value,
+    stat_desc,
+    stat_figure,
+    stat_actions,
+    stats_direction,
+    test_stat_basic_examples,
+    test_stat_direction_examples,
+    test_stat_basic_fasthtml_examples,
+    test_stat_with_icons_fasthtml_examples,
+    test_stat_detailed_fasthtml_examples,
+    test_stat_centered_fasthtml_examples,
+    test_stat_vertical_fasthtml_examples,
+    test_stat_with_actions_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_stat_basic_examples()
+    "Test basic stat utilities."
+```
+
+``` python
+def test_stat_direction_examples()
+    "Test stat direction modifiers."
+```
+
+``` python
+def test_stat_basic_fasthtml_examples()
+    "Test basic stat examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_stat_with_icons_fasthtml_examples()
+    "Test stat with icons or image examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_stat_detailed_fasthtml_examples()
+    "Test detailed stat examples with different icons from daisyUI v5 documentation."
+```
+
+``` python
+def test_stat_centered_fasthtml_examples()
+    "Test centered stat items examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_stat_vertical_fasthtml_examples()
+    "Test vertical and responsive stat examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_stat_with_actions_fasthtml_examples()
+    "Test stat with custom colors and button actions from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+stats  # Stats container
+stat  # Stat block
+stat_title  # Stat title
+stat_value  # Stat value
+stat_desc  # Stat description
+stat_figure  # Stat figure
+stat_actions  # Stat actions
+```
+
+### status (`status.ipynb`)
+
+> Status is a really small icon to visually show the current status of
+> an element, like online, offline, error, etc.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.status import (
+    status,
+    status_colors,
+    status_sizes,
+    test_status_basic_examples,
+    test_status_colors_examples,
+    test_status_sizes_examples,
+    test_status_basic_fasthtml_examples,
+    test_status_sizes_fasthtml_examples,
+    test_status_colors_fasthtml_examples,
+    test_status_animation_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_status_basic_examples()
+    "Test basic status utilities."
+```
+
+``` python
+def test_status_colors_examples()
+    "Test status color variants."
+```
+
+``` python
+def test_status_sizes_examples()
+    "Test status size variants."
+```
+
+``` python
+def test_status_basic_fasthtml_examples()
+    "Test basic status from daisyUI v5 documentation."
+```
+
+``` python
+def test_status_sizes_fasthtml_examples()
+    "Test status sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_status_colors_fasthtml_examples()
+    "Test status with colors from daisyUI v5 documentation."
+```
+
+``` python
+def test_status_animation_fasthtml_examples()
+    "Test status with ping and bounce animations from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+status  # Status icon
+```
+
+### swap (`swap.ipynb`)
+
+> Swap allows you to toggle the visibility of two elements using a
+> checkbox or a class name.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.actions.swap import (
+    swap,
+    swap_on,
+    swap_off,
+    swap_indeterminate,
+    swap_styles,
+    test_swap_basic_examples,
+    test_swap_styles_examples,
+    test_swap_basic_fasthtml_examples,
+    test_swap_effects_fasthtml_examples,
+    test_swap_advanced_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_swap_basic_examples()
+    "Test basic swap utilities."
+```
+
+``` python
+def test_swap_styles_examples()
+    "Test swap style utilities."
+```
+
+``` python
+def test_swap_basic_fasthtml_examples()
+    "Test basic swap examples including text and icon swaps."
+```
+
+``` python
+def test_swap_effects_fasthtml_examples()
+    "Test swap examples with rotate and flip effects."
+```
+
+``` python
+def test_swap_advanced_fasthtml_examples()
+    "Test advanced swap examples including hamburger button and class-based activation."
+```
+
+#### Variables
+
+``` python
+swap  # Swap container
+swap_on  # Swap on state
+swap_off  # Swap off state
+swap_indeterminate  # Swap indeterminate state
+```
+
+### table (`table.ipynb`)
+
+> Table can be used to show a list of data in a table format.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.table import (
+    table,
+    table_modifiers,
+    table_sizes,
+    test_table_basic_examples,
+    test_table_modifiers_examples,
+    test_table_sizes_examples,
+    test_table_basic_fasthtml_examples,
+    test_table_style_fasthtml_examples,
+    test_table_visual_elements_fasthtml_examples,
+    test_table_sizes_fasthtml_examples,
+    test_table_pinned_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_table_basic_examples()
+    "Test basic table utilities."
+```
+
+``` python
+def test_table_modifiers_examples()
+    "Test table modifier utilities."
+```
+
+``` python
+def test_table_sizes_examples()
+    "Test table size variants."
+```
+
+``` python
+def test_table_basic_fasthtml_examples()
+    "Test basic table and table with border and background from daisyUI v5 documentation."
+```
+
+``` python
+def test_table_style_fasthtml_examples()
+    "Test table with active row, hover row, and zebra stripes from daisyUI v5 documentation."
+```
+
+``` python
+def test_table_visual_elements_fasthtml_examples()
+    "Test table with visual elements from daisyUI v5 documentation."
+```
+
+``` python
+def test_table_sizes_fasthtml_examples()
+    "Test table xs size from daisyUI v5 documentation."
+```
+
+``` python
+def test_table_pinned_fasthtml_examples()
+    "Test table with pinned rows and pinned rows+columns from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+table  # Table component
 ```
 
 ### testing (`testing.ipynb`)
@@ -275,14 +1534,21 @@ TAILWIND_CDN = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'
 
 ``` python
 from cjm_fasthtml_daisyui.core.testing import (
-    create_test_app,
     create_theme_selector,
+    create_test_app,
     create_test_page,
     start_test_server
 )
 ```
 
 #### Functions
+
+``` python
+def create_theme_selector(
+    custom_themes: Optional[List[str]] = None  # Optional list of custom theme names to include
+) -> Div:  # Div containing theme selector dropdown with theme-change script
+    "Create a daisyUI theme selector dropdown component. Uses theme-change library to persist theme selection in localStorage."
+```
 
 ``` python
 def create_test_app(
@@ -299,18 +1565,11 @@ def create_test_app(
 ```
 
 ``` python
-def create_theme_selector(
-    custom_themes: Optional[List[str]] = None  # Optional list of custom theme names to include
-) -> Div:  # Div containing theme selector dropdown with theme-change script
-    "Create a daisyUI theme selector dropdown component. Uses theme-change library to persist theme selection in localStorage."
-```
-
-``` python
 def create_test_page(
     title: str,  # Page title
     *content,  # Page content elements
     include_theme_selector: bool = True,  # Include theme selector
-    container: bool = True,  # Wrap in container
+    use_container: bool = True,  # Wrap in container
     custom_theme_names: Optional[List[str]] = None  # Custom themes for selector
 ) -> Div:  # Div containing complete page layout with navbar and content
     "Create a standardized test page layout with optional theme selector."
@@ -331,6 +1590,52 @@ def start_test_server(
         # Later, in another cell:
         server.stop()
     """
+```
+
+### theme controller (`theme_controller.ipynb`)
+
+> If a checked checkbox input or a checked radio input with
+> theme-controller class exists in the page, The page will have the same
+> theme as that input’s value.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.actions.theme_controller import (
+    theme_controller,
+    test_theme_controller_basic_examples,
+    test_theme_controller_basic_fasthtml_examples,
+    test_theme_controller_swap_fasthtml_examples,
+    test_theme_controller_radio_fasthtml_examples,
+    test_theme_controller_advanced_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_theme_controller_basic_examples()
+    "Test basic theme controller utility."
+```
+
+``` python
+def test_theme_controller_basic_fasthtml_examples()
+    "Test basic theme controller examples with toggle and checkbox inputs."
+```
+
+``` python
+def test_theme_controller_swap_fasthtml_examples()
+    "Test theme controller examples using swap component."
+```
+
+``` python
+def test_theme_controller_radio_fasthtml_examples()
+    "Test theme controller examples using radio inputs."
+```
+
+``` python
+def test_theme_controller_advanced_fasthtml_examples()
+    "Test advanced theme controller examples including dropdown and custom styles."
 ```
 
 ### themes (`themes.ipynb`)
@@ -419,4 +1724,225 @@ class ThemeColors(TypedDict):
 ``` python
 class ThemeConfig(TypedDict):
     "Complete configuration for a custom daisyUI theme."
+```
+
+### timeline (`timeline.ipynb`)
+
+> Timeline component shows a list of events in chronological order.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.timeline import (
+    timeline,
+    timeline_start,
+    timeline_middle,
+    timeline_end,
+    timeline_modifiers,
+    timeline_direction,
+    test_timeline_basic_examples,
+    test_timeline_modifiers_examples,
+    test_timeline_direction_examples,
+    test_timeline_basic_fasthtml_examples,
+    test_timeline_single_side_fasthtml_examples,
+    test_timeline_alternating_fasthtml_examples,
+    test_timeline_without_icons_fasthtml_examples,
+    test_timeline_vertical_fasthtml_examples,
+    test_timeline_vertical_advanced_fasthtml_examples,
+    test_timeline_responsive_fasthtml_examples,
+    test_timeline_snap_icon_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_timeline_basic_examples()
+    "Test basic timeline utilities."
+```
+
+``` python
+def test_timeline_modifiers_examples()
+    "Test timeline modifier utilities."
+```
+
+``` python
+def test_timeline_direction_examples()
+    "Test timeline direction utilities."
+```
+
+``` python
+def test_timeline_basic_fasthtml_examples()
+    "Test timeline with text on both sides and icon from daisyUI v5 documentation."
+```
+
+``` python
+def test_timeline_single_side_fasthtml_examples()
+    "Test timeline with bottom side only and top side only from daisyUI v5 documentation."
+```
+
+``` python
+def test_timeline_alternating_fasthtml_examples()
+    "Test timeline with different sides and colorful lines from daisyUI v5 documentation."
+```
+
+``` python
+def test_timeline_without_icons_fasthtml_examples()
+    "Test timeline without icons from daisyUI v5 documentation."
+```
+
+``` python
+def test_timeline_vertical_fasthtml_examples()
+    "Test vertical timeline variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_timeline_vertical_advanced_fasthtml_examples()
+    "Test vertical timeline with different sides, colorful lines, and without icons from daisyUI v5 documentation."
+```
+
+``` python
+def test_timeline_responsive_fasthtml_examples()
+    "Test responsive timeline (vertical by default, horizontal on large screen) from daisyUI v5 documentation."
+```
+
+``` python
+def test_timeline_snap_icon_fasthtml_examples()
+    "Test timeline with icon snapped to the start from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+timeline  # Timeline container
+timeline_start  # Timeline start
+timeline_middle  # Timeline middle
+timeline_end  # Timeline end
+```
+
+### utility_classes (`utility_classes.ipynb`)
+
+> daisyUI semantic color utility classes, border radius, and glass
+> utility classes
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.core.utility_classes import (
+    bg_dui,
+    text_dui,
+    border_dui,
+    ring_dui,
+    fill_dui,
+    stroke_dui,
+    caret_dui,
+    accent_dui,
+    shadow_dui,
+    outline_dui,
+    decoration_dui,
+    placeholder_dui,
+    divide_dui,
+    ring_offset_dui,
+    from_dui,
+    via_dui,
+    to_dui,
+    BORDER_RADIUS_VALUES,
+    border_radius,
+    glass,
+    test_utility_classes_semantic_colors_examples,
+    GradientStopFactoryDaisyUI,
+    test_utility_classes_gradient_examples,
+    test_utility_classes_opacity_examples,
+    test_utility_classes_border_radius_examples,
+    test_utility_classes_glass_examples,
+    test_utility_classes_modifiers_examples,
+    test_utility_classes_fasthtml_examples,
+    test_utility_classes_factory_documentation
+)
+```
+
+#### Functions
+
+``` python
+def test_utility_classes_semantic_colors_examples()
+    "Test semantic color utility classes for various CSS properties."
+```
+
+``` python
+def test_utility_classes_gradient_examples()
+    "Test gradient utilities with semantic colors."
+```
+
+``` python
+def test_utility_classes_opacity_examples()
+    "Test semantic color utilities with opacity modifiers."
+```
+
+``` python
+def test_utility_classes_border_radius_examples()
+    "Test daisyUI's tokenized border radius utilities."
+```
+
+``` python
+def test_utility_classes_glass_examples()
+    "Test glass morphism effect utility."
+```
+
+``` python
+def test_utility_classes_modifiers_examples()
+    "Test semantic color utilities with Tailwind modifiers."
+```
+
+``` python
+def test_utility_classes_fasthtml_examples()
+    "Test practical usage patterns with FastHTML components."
+```
+
+``` python
+def test_utility_classes_factory_documentation()
+    "Test that utility factories have proper documentation."
+```
+
+#### Classes
+
+``` python
+class GradientStopFactoryDaisyUI:
+    def __init__(
+        self,
+        stop_type: str,  # Type of stop (from, via, to)
+        doc: Optional[str] = None  # Documentation
+    )
+    "Enhanced factory for gradient color stops with semantic color support."
+    
+    def __init__(
+            self,
+            stop_type: str,  # Type of stop (from, via, to)
+            doc: Optional[str] = None  # Documentation
+        )
+        "Initialize gradient stop factory."
+```
+
+#### Variables
+
+``` python
+bg_dui  # The semantic background color factory
+text_dui  # The semantic text color factory
+border_dui  # The semantic border color factory
+ring_dui  # The semantic ring color factory
+fill_dui  # The semantic fill color factory
+stroke_dui  # The semantic stroke color factory
+caret_dui  # The semantic caret color factory
+accent_dui  # The semantic accent color factory
+shadow_dui  # The semantic shadow color factory
+outline_dui  # The semantic outline color factory
+decoration_dui  # The semantic decoration color factory
+placeholder_dui  # The semantic placeholder color factory
+divide_dui  # The semantic divide color factory
+ring_offset_dui  # The semantic ring offset color factory
+from_dui  # Semantic gradient from color factory
+via_dui  # Semantic gradient via color factory
+to_dui  # Semantic gradient to color factory
+BORDER_RADIUS_VALUES = {3 items}
+border_radius  # The daisyUI border radius factory
+glass  # Glass morphism effect
 ```
