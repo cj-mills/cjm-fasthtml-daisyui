@@ -46,14 +46,13 @@ pip install cjm-fasthtml-daisyui
     │       ├── status.ipynb              # Status is a really small icon to visually show the current status of an element, like online, offline, error, etc.
     │       ├── table.ipynb               # Table can be used to show a list of data in a table format.
     │       └── timeline.ipynb            # Timeline component shows a list of events in chronological order.
-    └── core/ (5)
-        ├── base.ipynb
+    └── core/ (4)
         ├── resources.ipynb        # CDN resources and headers for daisyUI and Tailwind CSS
         ├── testing.ipynb          # Standardized test page creation for Jupyter notebooks with FastHTML
         ├── themes.ipynb           # Type-safe theme management for daisyUI
         └── utility_classes.ipynb  # daisyUI semantic color utility classes, border radius, and glass utility classes
 
-Total: 25 notebooks across 3 directories
+Total: 24 notebooks across 3 directories
 
 ## Module Dependencies
 
@@ -79,7 +78,6 @@ graph LR
     components_data_display_status[components.data_display.status<br/>status]
     components_data_display_table[components.data_display.table<br/>table]
     components_data_display_timeline[components.data_display.timeline<br/>timeline]
-    base[base]
     core_resources[core.resources<br/>resources]
     core_testing[core.testing<br/>testing]
     core_themes[core.themes<br/>themes]
@@ -95,38 +93,38 @@ graph LR
     components_actions_swap --> core_themes
     components_actions_theme_controller --> core_testing
     components_actions_theme_controller --> core_themes
-    components_data_display_accordion_collapse --> core_testing
     components_data_display_accordion_collapse --> core_themes
-    components_data_display_avatar --> core_testing
+    components_data_display_accordion_collapse --> core_testing
     components_data_display_avatar --> core_themes
-    components_data_display_badge --> core_testing
+    components_data_display_avatar --> core_testing
     components_data_display_badge --> core_themes
-    components_data_display_card --> core_testing
+    components_data_display_badge --> core_testing
     components_data_display_card --> core_themes
-    components_data_display_carousel --> core_testing
+    components_data_display_card --> core_testing
     components_data_display_carousel --> core_themes
-    components_data_display_chat_bubble --> core_testing
+    components_data_display_carousel --> core_testing
     components_data_display_chat_bubble --> core_themes
-    components_data_display_countdown --> core_testing
+    components_data_display_chat_bubble --> core_testing
     components_data_display_countdown --> core_themes
-    components_data_display_diff --> core_testing
+    components_data_display_countdown --> core_testing
     components_data_display_diff --> core_themes
-    components_data_display_kbd --> core_testing
+    components_data_display_diff --> core_testing
     components_data_display_kbd --> core_themes
-    components_data_display_list --> core_testing
+    components_data_display_kbd --> core_testing
     components_data_display_list --> core_themes
-    components_data_display_stat --> core_testing
+    components_data_display_list --> core_testing
     components_data_display_stat --> core_themes
-    components_data_display_status --> core_testing
+    components_data_display_stat --> core_testing
     components_data_display_status --> core_themes
-    components_data_display_table --> core_testing
+    components_data_display_status --> core_testing
     components_data_display_table --> core_themes
-    components_data_display_timeline --> core_testing
+    components_data_display_table --> core_testing
     components_data_display_timeline --> core_themes
+    components_data_display_timeline --> core_testing
+    core_testing --> core_themes
     core_testing --> core_utility_classes
     core_testing --> components_actions_button
     core_testing --> core_resources
-    core_testing --> core_themes
     core_utility_classes --> builders_colors
 ```
 
