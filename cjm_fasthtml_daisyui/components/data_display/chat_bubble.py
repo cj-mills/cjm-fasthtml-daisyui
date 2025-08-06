@@ -13,7 +13,9 @@ from typing import Optional, Dict, Any, Union, List
 from cjm_fasthtml_tailwind.core.base import (
     SingleValueFactory, BaseFactory, combine_classes
 )
-from cjm_fasthtml_tailwind.builders.scales import SimpleFactory
+from cjm_fasthtml_tailwind.builders.scales import SimpleFactory, enums_to_simple_factory
+
+from ...builders.colors import SemanticColorBrand, SemanticColorStatus
 
 from fasthtml.jupyter import JupyUvi, HTMX
 from ...core.testing import create_test_app, create_test_page, start_test_server
@@ -39,19 +41,7 @@ chat_placement = SimpleFactory(
 ) # Chat placement
 
 # %% ../../../nbs/components/data_display/chat_bubble.ipynb 9
-chat_bubble_colors = SimpleFactory(
-    {
-        "neutral": "chat-bubble-neutral",
-        "primary": "chat-bubble-primary",
-        "secondary": "chat-bubble-secondary",
-        "accent": "chat-bubble-accent",
-        "info": "chat-bubble-info",
-        "success": "chat-bubble-success",
-        "warning": "chat-bubble-warning",
-        "error": "chat-bubble-error"
-    },
-    "Chat bubble color variants using daisyUI semantic colors"
-) # Chat bubble color variants
+chat_bubble_colors = enums_to_simple_factory(chat_bubble, [SemanticColorBrand, SemanticColorStatus], "Chat bubble color variants using daisyUI semantic colors") # Chat bubble color variants
 
 # %% ../../../nbs/components/data_display/chat_bubble.ipynb 11
 def test_chat_basic_examples():

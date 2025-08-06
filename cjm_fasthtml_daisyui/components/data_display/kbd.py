@@ -11,7 +11,9 @@ from typing import Optional, Dict, Any, Union, List
 from cjm_fasthtml_tailwind.core.base import (
     SingleValueFactory, BaseFactory, combine_classes
 )
-from cjm_fasthtml_tailwind.builders.scales import SimpleFactory
+from cjm_fasthtml_tailwind.builders.scales import SimpleFactory, ScaledFactory, enums_to_simple_factory
+
+from ...builders.scales import DaisyUINamedSize
 
 from fasthtml.jupyter import JupyUvi, HTMX
 from ...core.testing import create_test_app, create_test_page, start_test_server
@@ -24,18 +26,9 @@ from IPython.display import display
 kbd = SingleValueFactory("kbd", "Keyboard key or shortcut display component") # Kbd component
 
 # %% ../../../nbs/components/data_display/kbd.ipynb 7
-kbd_sizes = SimpleFactory(
-    {
-        "xs": "kbd-xs",
-        "sm": "kbd-sm",
-        "md": "kbd-md",
-        "lg": "kbd-lg",
-        "xl": "kbd-xl"
-    },
-    "Kbd size variants from extra small to extra large"
-) # Kbd size variants
+kbd_sizes = enums_to_simple_factory(kbd, [DaisyUINamedSize], "Kbd size variants from extra small to extra large") # Kbd size variants
 
-# %% ../../../nbs/components/data_display/kbd.ipynb 9
+# %% ../../../nbs/components/data_display/kbd.ipynb 10
 def test_kbd_basic_examples():
     """Test basic kbd utilities."""
     # Basic kbd
@@ -49,7 +42,7 @@ def test_kbd_basic_examples():
 # Run the tests
 test_kbd_basic_examples()
 
-# %% ../../../nbs/components/data_display/kbd.ipynb 10
+# %% ../../../nbs/components/data_display/kbd.ipynb 11
 def test_kbd_sizes_examples():
     """Test kbd size variants."""
     assert str(kbd_sizes.xs) == "kbd-xs"
@@ -65,7 +58,7 @@ def test_kbd_sizes_examples():
 # Run the tests
 test_kbd_sizes_examples()
 
-# %% ../../../nbs/components/data_display/kbd.ipynb 11
+# %% ../../../nbs/components/data_display/kbd.ipynb 12
 def test_kbd_basic_fasthtml_examples():
     """Test basic kbd and sizes from daisyUI v5 documentation."""
     from fasthtml.common import Kbd, Div
@@ -125,7 +118,7 @@ def test_kbd_basic_fasthtml_examples():
 # Run the tests
 test_kbd_basic_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/kbd.ipynb 13
+# %% ../../../nbs/components/data_display/kbd.ipynb 14
 def test_kbd_combination_fasthtml_examples():
     """Test key combinations and function keys from daisyUI v5 documentation."""
     from fasthtml.common import Kbd, Div
@@ -181,7 +174,7 @@ def test_kbd_combination_fasthtml_examples():
 # Run the tests
 test_kbd_combination_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/kbd.ipynb 15
+# %% ../../../nbs/components/data_display/kbd.ipynb 16
 def test_kbd_keyboard_fasthtml_examples():
     """Test full keyboard and arrow keys from daisyUI v5 documentation."""
     from fasthtml.common import Kbd, Div

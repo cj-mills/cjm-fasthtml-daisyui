@@ -14,7 +14,10 @@ from typing import Optional, Dict, Any, Union, List
 from cjm_fasthtml_tailwind.core.base import (
     SingleValueFactory, BaseFactory, combine_classes
 )
-from cjm_fasthtml_tailwind.builders.scales import SimpleFactory
+from cjm_fasthtml_tailwind.builders.scales import SimpleFactory, ScaledFactory, enums_to_simple_factory
+
+from ...builders.scales import DaisyUINamedSize
+from ...builders.styles import BorderStyle, DashStyle
 
 from fasthtml.jupyter import JupyUvi, HTMX
 from ...core.testing import create_test_app, create_test_page, start_test_server
@@ -30,13 +33,7 @@ card_body = SingleValueFactory("card-body", "Body part (content) of card") # Car
 card_actions = SingleValueFactory("card-actions", "Actions part of card (buttons, etc.)") # Card actions
 
 # %% ../../../nbs/components/data_display/card.ipynb 7
-card_styles = SimpleFactory(
-    {
-        "border": "card-border",
-        "dash": "card-dash"
-    },
-    "Card style variants (border, dash)"
-) # Card style variants
+card_styles = enums_to_simple_factory(card, [BorderStyle, DashStyle], "Card style variants (border, dash)") # Card style variants
 
 # %% ../../../nbs/components/data_display/card.ipynb 9
 card_modifiers = SimpleFactory(
@@ -48,18 +45,9 @@ card_modifiers = SimpleFactory(
 ) # Card modifiers
 
 # %% ../../../nbs/components/data_display/card.ipynb 11
-card_sizes = SimpleFactory(
-    {
-        "xs": "card-xs",
-        "sm": "card-sm",
-        "md": "card-md",
-        "lg": "card-lg",
-        "xl": "card-xl"
-    },
-    "Card size variants from extra small to extra large"
-) # Card size variants
+card_sizes = enums_to_simple_factory(card, [DaisyUINamedSize], "Card size variants from extra small to extra large") # Card size variants
 
-# %% ../../../nbs/components/data_display/card.ipynb 13
+# %% ../../../nbs/components/data_display/card.ipynb 14
 def test_card_basic_examples():
     """Test basic card utilities."""
     # Basic components
@@ -76,7 +64,7 @@ def test_card_basic_examples():
 # Run the tests
 test_card_basic_examples()
 
-# %% ../../../nbs/components/data_display/card.ipynb 14
+# %% ../../../nbs/components/data_display/card.ipynb 15
 def test_card_styles_examples():
     """Test card style variants."""
     assert str(card_styles.border) == "card-border"
@@ -85,7 +73,7 @@ def test_card_styles_examples():
 # Run the tests
 test_card_styles_examples()
 
-# %% ../../../nbs/components/data_display/card.ipynb 15
+# %% ../../../nbs/components/data_display/card.ipynb 16
 def test_card_modifiers_examples():
     """Test card modifier utilities."""
     assert str(card_modifiers.side) == "card-side"
@@ -94,7 +82,7 @@ def test_card_modifiers_examples():
 # Run the tests
 test_card_modifiers_examples()
 
-# %% ../../../nbs/components/data_display/card.ipynb 16
+# %% ../../../nbs/components/data_display/card.ipynb 17
 def test_card_sizes_examples():
     """Test card size variants."""
     assert str(card_sizes.xs) == "card-xs"
@@ -110,7 +98,7 @@ def test_card_sizes_examples():
 # Run the tests
 test_card_sizes_examples()
 
-# %% ../../../nbs/components/data_display/card.ipynb 17
+# %% ../../../nbs/components/data_display/card.ipynb 18
 def test_card_basic_fasthtml_examples():
     """Test basic card examples from daisyUI v5 documentation."""
     from fasthtml.common import Div, Figure, Img, H2, P, Button
@@ -209,7 +197,7 @@ def test_card_basic_fasthtml_examples():
 # Run the tests
 test_card_basic_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/card.ipynb 19
+# %% ../../../nbs/components/data_display/card.ipynb 20
 def test_card_pricing_fasthtml_example():
     """Test pricing card example from daisyUI v5 documentation."""
     from fasthtml.common import Div, H2, Span, Ul, Li, Button
@@ -373,7 +361,7 @@ def test_card_pricing_fasthtml_example():
 # Run the tests
 test_card_pricing_fasthtml_example()
 
-# %% ../../../nbs/components/data_display/card.ipynb 21
+# %% ../../../nbs/components/data_display/card.ipynb 22
 def test_card_style_fasthtml_variations():
     """Test card style variations from daisyUI v5 documentation."""
     from fasthtml.common import Div, H2, P, Button
@@ -513,7 +501,7 @@ def test_card_style_fasthtml_variations():
 # Run the tests
 test_card_style_fasthtml_variations()
 
-# %% ../../../nbs/components/data_display/card.ipynb 23
+# %% ../../../nbs/components/data_display/card.ipynb 24
 def test_card_layout_fasthtml_variations():
     """Test card layout variations from daisyUI v5 documentation."""
     from fasthtml.common import Div, Figure, Img, H2, P, Button
@@ -677,7 +665,7 @@ def test_card_layout_fasthtml_variations():
 # Run the tests
 test_card_layout_fasthtml_variations()
 
-# %% ../../../nbs/components/data_display/card.ipynb 25
+# %% ../../../nbs/components/data_display/card.ipynb 26
 def test_card_special_fasthtml_examples():
     """Test special card examples from daisyUI v5 documentation."""
     from fasthtml.common import Div, H2, P, Button

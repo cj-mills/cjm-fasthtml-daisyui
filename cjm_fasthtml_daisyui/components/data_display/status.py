@@ -12,7 +12,10 @@ from typing import Optional, Dict, Any, Union, List
 from cjm_fasthtml_tailwind.core.base import (
     SingleValueFactory, BaseFactory, combine_classes
 )
-from cjm_fasthtml_tailwind.builders.scales import SimpleFactory
+from cjm_fasthtml_tailwind.builders.scales import SimpleFactory, ScaledFactory, enums_to_simple_factory
+
+from ...builders.colors import SemanticColorBrand, SemanticColorStatus
+from ...builders.scales import DaisyUINamedSize
 
 from fasthtml.jupyter import JupyUvi, HTMX
 from ...core.testing import create_test_app, create_test_page, start_test_server
@@ -25,33 +28,12 @@ from IPython.display import display
 status = SingleValueFactory("status", "Status icon component") # Status icon
 
 # %% ../../../nbs/components/data_display/status.ipynb 7
-status_colors = SimpleFactory(
-    {
-        "neutral": "status-neutral",
-        "primary": "status-primary",
-        "secondary": "status-secondary",
-        "accent": "status-accent",
-        "info": "status-info",
-        "success": "status-success",
-        "warning": "status-warning",
-        "error": "status-error"
-    },
-    "Status color variants using daisyUI semantic colors"
-) # Status color variants
+status_colors = enums_to_simple_factory(status, [SemanticColorBrand, SemanticColorStatus], "Status color variants using daisyUI semantic colors") # Status color variants
 
 # %% ../../../nbs/components/data_display/status.ipynb 9
-status_sizes = SimpleFactory(
-    {
-        "xs": "status-xs",
-        "sm": "status-sm",
-        "md": "status-md",
-        "lg": "status-lg",
-        "xl": "status-xl"
-    },
-    "Status size variants from extra small to extra large"
-) # Status size variants
+status_sizes = enums_to_simple_factory(status, [DaisyUINamedSize], "Status size variants from extra small to extra large") # Status size variants
 
-# %% ../../../nbs/components/data_display/status.ipynb 11
+# %% ../../../nbs/components/data_display/status.ipynb 12
 def test_status_basic_examples():
     """Test basic status utilities."""
     # Basic status
@@ -65,7 +47,7 @@ def test_status_basic_examples():
 # Run the tests
 test_status_basic_examples()
 
-# %% ../../../nbs/components/data_display/status.ipynb 12
+# %% ../../../nbs/components/data_display/status.ipynb 13
 def test_status_colors_examples():
     """Test status color variants."""
     # All color variants
@@ -85,7 +67,7 @@ def test_status_colors_examples():
 # Run the tests
 test_status_colors_examples()
 
-# %% ../../../nbs/components/data_display/status.ipynb 13
+# %% ../../../nbs/components/data_display/status.ipynb 14
 def test_status_sizes_examples():
     """Test status size variants."""
     assert str(status_sizes.xs) == "status-xs"
@@ -101,7 +83,7 @@ def test_status_sizes_examples():
 # Run the tests
 test_status_sizes_examples()
 
-# %% ../../../nbs/components/data_display/status.ipynb 14
+# %% ../../../nbs/components/data_display/status.ipynb 15
 def test_status_basic_fasthtml_examples():
     """Test basic status from daisyUI v5 documentation."""
     from fasthtml.common import Span, Div
@@ -118,7 +100,7 @@ def test_status_basic_fasthtml_examples():
 # Run the tests
 test_status_basic_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/status.ipynb 16
+# %% ../../../nbs/components/data_display/status.ipynb 17
 def test_status_sizes_fasthtml_examples():
     """Test status sizes from daisyUI v5 documentation."""
     from fasthtml.common import Div
@@ -165,7 +147,7 @@ def test_status_sizes_fasthtml_examples():
 # Run the tests
 test_status_sizes_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/status.ipynb 18
+# %% ../../../nbs/components/data_display/status.ipynb 19
 def test_status_colors_fasthtml_examples():
     """Test status with colors from daisyUI v5 documentation."""
     from fasthtml.common import Div
@@ -236,7 +218,7 @@ def test_status_colors_fasthtml_examples():
 # Run the tests
 test_status_colors_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/status.ipynb 20
+# %% ../../../nbs/components/data_display/status.ipynb 21
 def test_status_animation_fasthtml_examples():
     """Test status with ping and bounce animations from daisyUI v5 documentation."""
     from fasthtml.common import Div

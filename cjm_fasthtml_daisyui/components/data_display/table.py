@@ -13,7 +13,9 @@ from typing import Optional, Dict, Any, Union, List
 from cjm_fasthtml_tailwind.core.base import (
     SingleValueFactory, BaseFactory, combine_classes
 )
-from cjm_fasthtml_tailwind.builders.scales import SimpleFactory
+from cjm_fasthtml_tailwind.builders.scales import SimpleFactory, ScaledFactory, enums_to_simple_factory
+
+from ...builders.scales import DaisyUINamedSize
 
 from fasthtml.jupyter import JupyUvi, HTMX
 from ...core.testing import create_test_app, create_test_page, start_test_server
@@ -36,18 +38,9 @@ table_modifiers = SimpleFactory(
 ) # Table modifiers
 
 # %% ../../../nbs/components/data_display/table.ipynb 9
-table_sizes = SimpleFactory(
-    {
-        "xs": "table-xs",
-        "sm": "table-sm",
-        "md": "table-md",
-        "lg": "table-lg",
-        "xl": "table-xl"
-    },
-    "Table size variants from extra small to extra large"
-) # Table size variants
+table_sizes = enums_to_simple_factory(table, [DaisyUINamedSize], "Table size variants from extra small to extra large") # Table size variants
 
-# %% ../../../nbs/components/data_display/table.ipynb 11
+# %% ../../../nbs/components/data_display/table.ipynb 12
 def test_table_basic_examples():
     """Test basic table utilities."""
     # Basic component
@@ -61,7 +54,7 @@ def test_table_basic_examples():
 # Run the tests
 test_table_basic_examples()
 
-# %% ../../../nbs/components/data_display/table.ipynb 12
+# %% ../../../nbs/components/data_display/table.ipynb 13
 def test_table_modifiers_examples():
     """Test table modifier utilities."""
     assert str(table_modifiers.zebra) == "table-zebra"
@@ -75,7 +68,7 @@ def test_table_modifiers_examples():
 # Run the tests
 test_table_modifiers_examples()
 
-# %% ../../../nbs/components/data_display/table.ipynb 13
+# %% ../../../nbs/components/data_display/table.ipynb 14
 def test_table_sizes_examples():
     """Test table size variants."""
     assert str(table_sizes.xs) == "table-xs"
@@ -91,7 +84,7 @@ def test_table_sizes_examples():
 # Run the tests
 test_table_sizes_examples()
 
-# %% ../../../nbs/components/data_display/table.ipynb 14
+# %% ../../../nbs/components/data_display/table.ipynb 15
 def test_table_basic_fasthtml_examples():
     """Test basic table and table with border and background from daisyUI v5 documentation."""
     from fasthtml.common import Div, Table, Thead, Tbody, Tr, Th, Td
@@ -213,7 +206,7 @@ def test_table_basic_fasthtml_examples():
 # Run the tests
 test_table_basic_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/table.ipynb 16
+# %% ../../../nbs/components/data_display/table.ipynb 17
 def test_table_style_fasthtml_examples():
     """Test table with active row, hover row, and zebra stripes from daisyUI v5 documentation."""
     from fasthtml.common import Div, Table, Thead, Tbody, Tr, Th, Td
@@ -374,7 +367,7 @@ def test_table_style_fasthtml_examples():
 # Run the tests
 test_table_style_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/table.ipynb 18
+# %% ../../../nbs/components/data_display/table.ipynb 19
 def test_table_visual_elements_fasthtml_examples():
     """Test table with visual elements from daisyUI v5 documentation."""
     from fasthtml.common import Div, Table, Thead, Tbody, Tr, Th, Td, Tfoot, Input, Button, Img, Span, Label, Br
@@ -660,7 +653,7 @@ def test_table_visual_elements_fasthtml_examples():
 # Run the tests
 test_table_visual_elements_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/table.ipynb 20
+# %% ../../../nbs/components/data_display/table.ipynb 21
 def test_table_sizes_fasthtml_examples():
     """Test table xs size from daisyUI v5 documentation."""
     from fasthtml.common import Div, Table, Thead, Tbody, Tr, Th, Td, Tfoot
@@ -939,7 +932,7 @@ def test_table_sizes_fasthtml_examples():
 # Run the tests
 test_table_sizes_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/table.ipynb 22
+# %% ../../../nbs/components/data_display/table.ipynb 23
 def test_table_pinned_fasthtml_examples():
     """Test table with pinned rows and pinned rows+columns from daisyUI v5 documentation."""
     from fasthtml.common import Div, Table, Thead, Tbody, Tr, Th, Td, Tfoot

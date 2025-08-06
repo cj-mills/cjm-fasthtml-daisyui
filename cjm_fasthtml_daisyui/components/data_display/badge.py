@@ -14,7 +14,11 @@ from typing import Optional, Dict, Any, Union, List
 from cjm_fasthtml_tailwind.core.base import (
     SingleValueFactory, BaseFactory, combine_classes
 )
-from cjm_fasthtml_tailwind.builders.scales import SimpleFactory
+from cjm_fasthtml_tailwind.builders.scales import SimpleFactory, ScaledFactory, enums_to_simple_factory
+
+from ...builders.colors import SemanticColorBrand, SemanticColorStatus
+from ...builders.scales import DaisyUINamedSize
+from ...builders.styles import OutlineStyle, DashStyle, SoftStyle, GhostStyle
 
 from fasthtml.jupyter import JupyUvi, HTMX
 from ...core.testing import create_test_app, create_test_page, start_test_server
@@ -27,44 +31,15 @@ from IPython.display import display
 badge = SingleValueFactory("badge", "Badge container element") # Badge container
 
 # %% ../../../nbs/components/data_display/badge.ipynb 7
-badge_colors = SimpleFactory(
-    {
-        "neutral": "badge-neutral",
-        "primary": "badge-primary",
-        "secondary": "badge-secondary",
-        "accent": "badge-accent",
-        "info": "badge-info",
-        "success": "badge-success",
-        "warning": "badge-warning",
-        "error": "badge-error"
-    },
-    "Badge color variants using daisyUI semantic colors"
-) # Badge color variants
+badge_colors = enums_to_simple_factory(badge, [SemanticColorBrand, SemanticColorStatus], "Badge color variants using daisyUI semantic colors") # Badge color variants
 
 # %% ../../../nbs/components/data_display/badge.ipynb 9
-badge_styles = SimpleFactory(
-    {
-        "outline": "badge-outline",
-        "dash": "badge-dash",
-        "soft": "badge-soft",
-        "ghost": "badge-ghost"
-    },
-    "Badge style variants (outline, dash, soft, ghost)"
-) # Badge style variants
+badge_styles = enums_to_simple_factory(badge, [OutlineStyle, DashStyle, SoftStyle, GhostStyle], "Badge style variants (outline, dash, soft, ghost)") # Badge style variants
 
-# %% ../../../nbs/components/data_display/badge.ipynb 11
-badge_sizes = SimpleFactory(
-    {
-        "xs": "badge-xs",
-        "sm": "badge-sm",
-        "md": "badge-md",
-        "lg": "badge-lg",
-        "xl": "badge-xl"
-    },
-    "Badge size variants from extra small to extra large"
-) # Badge size variants
+# %% ../../../nbs/components/data_display/badge.ipynb 12
+badge_sizes = enums_to_simple_factory(badge, [DaisyUINamedSize], "Badge size variants from extra small to extra large") # Badge size variants
 
-# %% ../../../nbs/components/data_display/badge.ipynb 13
+# %% ../../../nbs/components/data_display/badge.ipynb 15
 def test_badge_basic_examples():
     """Test basic badge utilities."""
     # Basic badge
@@ -78,7 +53,7 @@ def test_badge_basic_examples():
 # Run the tests
 test_badge_basic_examples()
 
-# %% ../../../nbs/components/data_display/badge.ipynb 14
+# %% ../../../nbs/components/data_display/badge.ipynb 16
 def test_badge_colors_examples():
     """Test badge color variants."""
     # All color variants
@@ -98,7 +73,7 @@ def test_badge_colors_examples():
 # Run the tests
 test_badge_colors_examples()
 
-# %% ../../../nbs/components/data_display/badge.ipynb 15
+# %% ../../../nbs/components/data_display/badge.ipynb 17
 def test_badge_styles_examples():
     """Test badge style variants."""
     assert str(badge_styles.outline) == "badge-outline"
@@ -109,7 +84,7 @@ def test_badge_styles_examples():
 # Run the tests
 test_badge_styles_examples()
 
-# %% ../../../nbs/components/data_display/badge.ipynb 16
+# %% ../../../nbs/components/data_display/badge.ipynb 18
 def test_badge_sizes_examples():
     """Test badge size variants."""
     assert str(badge_sizes.xs) == "badge-xs"
@@ -125,7 +100,7 @@ def test_badge_sizes_examples():
 # Run the tests
 test_badge_sizes_examples()
 
-# %% ../../../nbs/components/data_display/badge.ipynb 17
+# %% ../../../nbs/components/data_display/badge.ipynb 19
 def test_badge_basic_fasthtml_examples():
     """Test basic badge and badge sizes from daisyUI v5 documentation."""
     from fasthtml.common import Span, Div
@@ -176,7 +151,7 @@ def test_badge_basic_fasthtml_examples():
 # Run the tests
 test_badge_basic_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/badge.ipynb 19
+# %% ../../../nbs/components/data_display/badge.ipynb 21
 def test_badge_colors_fasthtml_examples():
     """Test badge with colors from daisyUI v5 documentation."""
     from fasthtml.common import Div
@@ -238,7 +213,7 @@ def test_badge_colors_fasthtml_examples():
 # Run the tests
 test_badge_colors_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/badge.ipynb 21
+# %% ../../../nbs/components/data_display/badge.ipynb 23
 def test_badge_style_fasthtml_examples():
     """Test badge with different styles from daisyUI v5 documentation."""
     from fasthtml.common import Div
@@ -420,7 +395,7 @@ def test_badge_style_fasthtml_examples():
 # Run the tests
 test_badge_style_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/badge.ipynb 23
+# %% ../../../nbs/components/data_display/badge.ipynb 25
 def test_badge_icon_fasthtml_examples():
     """Test badge with icon from daisyUI v5 documentation."""
     from fasthtml.common import Div
@@ -526,7 +501,7 @@ def test_badge_icon_fasthtml_examples():
 # Run the tests
 test_badge_icon_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/badge.ipynb 25
+# %% ../../../nbs/components/data_display/badge.ipynb 27
 def test_badge_in_text_fasthtml_examples():
     """Test badge in text from daisyUI v5 documentation."""
     from fasthtml.common import H1, H2, H3, H4, H5, P, Span, Div
@@ -604,7 +579,7 @@ def test_badge_in_text_fasthtml_examples():
 # Run the tests
 test_badge_in_text_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/badge.ipynb 27
+# %% ../../../nbs/components/data_display/badge.ipynb 29
 def test_badge_in_button_fasthtml_examples():
     """Test badge in button from daisyUI v5 documentation."""
     from fasthtml.common import Button, Div

@@ -22,8 +22,10 @@ pip install cjm-fasthtml-daisyui
 ## Project Structure
 
     nbs/
-    ├── builders/ (1)
-    │   └── colors.ipynb  # Semantic color system builders for daisyUI components
+    ├── builders/ (3)
+    │   ├── colors.ipynb  # Semantic color system builders for daisyUI components
+    │   ├── scales.ipynb  # Named scale support for DaisyUI components
+    │   └── styles.ipynb  # Named style support for daisyUI components
     ├── components/ (19)
     │   ├── actions/ (5)
     │   │   ├── button.ipynb            # Buttons allow the user to take actions or make choices.
@@ -52,13 +54,15 @@ pip install cjm-fasthtml-daisyui
         ├── themes.ipynb           # Type-safe theme management for daisyUI
         └── utility_classes.ipynb  # daisyUI semantic color utility classes, border radius, and glass utility classes
 
-Total: 24 notebooks across 3 directories
+Total: 26 notebooks across 3 directories
 
 ## Module Dependencies
 
 ``` mermaid
 graph LR
     builders_colors[builders.colors<br/>colors]
+    builders_scales[builders.scales<br/>scales]
+    builders_styles[builders.styles<br/>styles]
     components_actions_button[components.actions.button<br/>button]
     components_actions_dropdown[components.actions.dropdown<br/>dropdown]
     components_actions_modal[components.actions.modal<br/>modal]
@@ -83,8 +87,11 @@ graph LR
     core_themes[core.themes<br/>themes]
     core_utility_classes[core.utility_classes<br/>utility_classes]
 
-    components_actions_button --> core_testing
+    components_actions_button --> builders_scales
     components_actions_button --> core_themes
+    components_actions_button --> builders_styles
+    components_actions_button --> core_testing
+    components_actions_button --> builders_colors
     components_actions_dropdown --> core_testing
     components_actions_dropdown --> core_themes
     components_actions_modal --> core_testing
@@ -97,38 +104,48 @@ graph LR
     components_data_display_accordion_collapse --> core_testing
     components_data_display_avatar --> core_themes
     components_data_display_avatar --> core_testing
+    components_data_display_badge --> builders_scales
     components_data_display_badge --> core_themes
+    components_data_display_badge --> builders_styles
     components_data_display_badge --> core_testing
+    components_data_display_badge --> builders_colors
+    components_data_display_card --> builders_scales
     components_data_display_card --> core_themes
     components_data_display_card --> core_testing
+    components_data_display_card --> builders_styles
     components_data_display_carousel --> core_themes
     components_data_display_carousel --> core_testing
     components_data_display_chat_bubble --> core_themes
     components_data_display_chat_bubble --> core_testing
+    components_data_display_chat_bubble --> builders_colors
     components_data_display_countdown --> core_themes
     components_data_display_countdown --> core_testing
     components_data_display_diff --> core_themes
     components_data_display_diff --> core_testing
+    components_data_display_kbd --> builders_scales
     components_data_display_kbd --> core_themes
     components_data_display_kbd --> core_testing
     components_data_display_list --> core_themes
     components_data_display_list --> core_testing
     components_data_display_stat --> core_themes
     components_data_display_stat --> core_testing
+    components_data_display_status --> builders_scales
     components_data_display_status --> core_themes
     components_data_display_status --> core_testing
+    components_data_display_status --> builders_colors
+    components_data_display_table --> builders_scales
     components_data_display_table --> core_themes
     components_data_display_table --> core_testing
     components_data_display_timeline --> core_themes
     components_data_display_timeline --> core_testing
     core_testing --> core_themes
+    core_testing --> core_resources
     core_testing --> core_utility_classes
     core_testing --> components_actions_button
-    core_testing --> core_resources
     core_utility_classes --> builders_colors
 ```
 
-*43 cross-module dependencies detected*
+*56 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -371,6 +388,9 @@ def test_badge_in_button_fasthtml_examples()
 
 ``` python
 badge  # Badge container
+badge_colors  # Badge color variants
+badge_styles  # Badge style variants
+badge_sizes  # Badge size variants
 ```
 
 ### button (`button.ipynb`)
@@ -387,6 +407,7 @@ from cjm_fasthtml_daisyui.components.actions.button import (
     btn_sizes,
     btn_modifiers,
     btn_behaviors,
+    LinkStyle,
     test_button_basic_examples,
     test_button_colors_examples,
     test_button_styles_examples,
@@ -464,10 +485,19 @@ def test_button_with_content_fasthtml_examples()
     "Test buttons with icons and loading spinners."
 ```
 
+#### Classes
+
+``` python
+class LinkStyle(str, Enum):
+```
+
 #### Variables
 
 ``` python
 btn  # Base button component
+btn_colors  # Button color variants
+btn_styles  # Button style variants
+btn_sizes  # Button size variants
 ```
 
 ### card (`card.ipynb`)
@@ -552,6 +582,8 @@ card  # Card container
 card_title  # Card title
 card_body  # Card body
 card_actions  # Card actions
+card_styles  # Card style variants
+card_sizes  # Card size variants
 ```
 
 ### carousel (`carousel.ipynb`)
@@ -679,6 +711,7 @@ chat_image  # Chat image
 chat_header  # Chat header
 chat_footer  # Chat footer
 chat_bubble  # Chat bubble
+chat_bubble_colors  # Chat bubble color variants
 ```
 
 ### colors (`colors.ipynb`)
@@ -690,6 +723,10 @@ chat_bubble  # Chat bubble
 ``` python
 from cjm_fasthtml_daisyui.builders.colors import (
     SemanticColorValue,
+    SemanticColorBrand,
+    SemanticColorStatus,
+    SemanticColorBase,
+    SemanticColorContent,
     SemanticColor,
     is_valid_semantic_color,
     ColoredUtilityDaisyUI,
@@ -705,8 +742,7 @@ from cjm_fasthtml_daisyui.builders.colors import (
     get_all_semantic_colors,
     get_brand_colors,
     get_base_colors,
-    get_status_colors,
-    test_colors_factory_documentation
+    get_status_colors
 )
 ```
 
@@ -779,12 +815,27 @@ def get_status_colors() -> List[str]
     "Get list of status semantic colors."
 ```
 
+#### Classes
+
 ``` python
-def test_colors_factory_documentation()
-    "Test that semantic color factories have proper documentation."
+class SemanticColorBrand(str, Enum):
+    "daisyUI semantic brand color names."
 ```
 
-#### Classes
+``` python
+class SemanticColorStatus(str, Enum):
+    "daisyUI semantic status color names."
+```
+
+``` python
+class SemanticColorBase(str, Enum):
+    "daisyUI semantic base color names."
+```
+
+``` python
+class SemanticColorContent(str, Enum):
+    "daisyUI semantic content color names."
+```
 
 ``` python
 class SemanticColor(str, Enum):
@@ -1055,6 +1106,7 @@ def test_kbd_keyboard_fasthtml_examples()
 
 ``` python
 kbd  # Kbd component
+kbd_sizes  # Kbd size variants
 ```
 
 ### list (`list.ipynb`)
@@ -1250,6 +1302,24 @@ DAISYUI_COLOR_PROPERTIES = 'https://cdn.jsdelivr.net/npm/daisyui@5/colors/proper
 DAISYUI_COLOR_PROPERTIES_EXT = 'https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css'
 ```
 
+### scales (`scales.ipynb`)
+
+> Named scale support for DaisyUI components
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.builders.scales import (
+    DaisyUINamedSize
+)
+```
+
+#### Classes
+
+``` python
+class DaisyUINamedSize(str, Enum):
+```
+
 ### stat (`stat.ipynb`)
 
 > Stat is used to show numbers and data in a block.
@@ -1394,6 +1464,57 @@ def test_status_animation_fasthtml_examples()
 
 ``` python
 status  # Status icon
+status_colors  # Status color variants
+status_sizes  # Status size variants
+```
+
+### styles (`styles.ipynb`)
+
+> Named style support for daisyUI components
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.builders.styles import (
+    OutlineStyle,
+    DashStyle,
+    SoftStyle,
+    GhostStyle,
+    BorderStyle,
+    HoverStyle
+)
+```
+
+#### Classes
+
+``` python
+class OutlineStyle(str, Enum):
+    "daisyUI style names."
+```
+
+``` python
+class DashStyle(str, Enum):
+    "daisyUI style names."
+```
+
+``` python
+class SoftStyle(str, Enum):
+    "daisyUI style names."
+```
+
+``` python
+class GhostStyle(str, Enum):
+    "daisyUI style names."
+```
+
+``` python
+class BorderStyle(str, Enum):
+    "daisyUI style names."
+```
+
+``` python
+class HoverStyle(str, Enum):
+    "daisyUI style names."
 ```
 
 ### swap (`swap.ipynb`)
@@ -1522,6 +1643,7 @@ def test_table_pinned_fasthtml_examples()
 
 ``` python
 table  # Table component
+table_sizes  # Table size variants
 ```
 
 ### testing (`testing.ipynb`)
