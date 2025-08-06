@@ -16,7 +16,7 @@ from cjm_fasthtml_tailwind.core.base import (
 )
 from cjm_fasthtml_tailwind.builders.scales import SimpleFactory, ScaledFactory, enums_to_simple_factory
 
-from ...builders.scales import DaisyUINamedSize
+from ...builders.sizes import DaisyUINamedSize
 from ...builders.styles import BorderStyle, DashStyle
 
 from fasthtml.jupyter import JupyUvi, HTMX

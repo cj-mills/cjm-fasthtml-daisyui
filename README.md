@@ -24,7 +24,7 @@ pip install cjm-fasthtml-daisyui
     nbs/
     ├── builders/ (3)
     │   ├── colors.ipynb  # Semantic color system builders for daisyUI components
-    │   ├── scales.ipynb  # Named scale support for DaisyUI components
+    │   ├── sizes.ipynb   # Named sizes support for DaisyUI components
     │   └── styles.ipynb  # Named style support for daisyUI components
     ├── components/ (19)
     │   ├── actions/ (5)
@@ -61,7 +61,7 @@ Total: 26 notebooks across 3 directories
 ``` mermaid
 graph LR
     builders_colors[builders.colors<br/>colors]
-    builders_scales[builders.scales<br/>scales]
+    builders_sizes[builders.sizes<br/>sizes]
     builders_styles[builders.styles<br/>styles]
     components_actions_button[components.actions.button<br/>button]
     components_actions_dropdown[components.actions.dropdown<br/>dropdown]
@@ -87,60 +87,60 @@ graph LR
     core_themes[core.themes<br/>themes]
     core_utility_classes[core.utility_classes<br/>utility_classes]
 
-    components_actions_button --> builders_scales
-    components_actions_button --> core_themes
-    components_actions_button --> builders_styles
     components_actions_button --> core_testing
+    components_actions_button --> builders_sizes
     components_actions_button --> builders_colors
-    components_actions_dropdown --> core_testing
+    components_actions_button --> builders_styles
+    components_actions_button --> core_themes
     components_actions_dropdown --> core_themes
-    components_actions_modal --> core_testing
+    components_actions_dropdown --> core_testing
     components_actions_modal --> core_themes
-    components_actions_swap --> core_testing
+    components_actions_modal --> core_testing
     components_actions_swap --> core_themes
-    components_actions_theme_controller --> core_testing
+    components_actions_swap --> core_testing
     components_actions_theme_controller --> core_themes
-    components_data_display_accordion_collapse --> core_themes
+    components_actions_theme_controller --> core_testing
     components_data_display_accordion_collapse --> core_testing
-    components_data_display_avatar --> core_themes
+    components_data_display_accordion_collapse --> core_themes
     components_data_display_avatar --> core_testing
-    components_data_display_badge --> builders_scales
-    components_data_display_badge --> core_themes
-    components_data_display_badge --> builders_styles
+    components_data_display_avatar --> core_themes
     components_data_display_badge --> core_testing
+    components_data_display_badge --> builders_sizes
     components_data_display_badge --> builders_colors
-    components_data_display_card --> builders_scales
-    components_data_display_card --> core_themes
+    components_data_display_badge --> builders_styles
+    components_data_display_badge --> core_themes
     components_data_display_card --> core_testing
+    components_data_display_card --> builders_sizes
     components_data_display_card --> builders_styles
-    components_data_display_carousel --> core_themes
+    components_data_display_card --> core_themes
     components_data_display_carousel --> core_testing
-    components_data_display_chat_bubble --> core_themes
+    components_data_display_carousel --> core_themes
     components_data_display_chat_bubble --> core_testing
     components_data_display_chat_bubble --> builders_colors
-    components_data_display_countdown --> core_themes
+    components_data_display_chat_bubble --> core_themes
     components_data_display_countdown --> core_testing
-    components_data_display_diff --> core_themes
+    components_data_display_countdown --> core_themes
     components_data_display_diff --> core_testing
-    components_data_display_kbd --> builders_scales
-    components_data_display_kbd --> core_themes
+    components_data_display_diff --> core_themes
     components_data_display_kbd --> core_testing
-    components_data_display_list --> core_themes
+    components_data_display_kbd --> builders_sizes
+    components_data_display_kbd --> core_themes
     components_data_display_list --> core_testing
-    components_data_display_stat --> core_themes
+    components_data_display_list --> core_themes
     components_data_display_stat --> core_testing
-    components_data_display_status --> builders_scales
-    components_data_display_status --> core_themes
+    components_data_display_stat --> core_themes
     components_data_display_status --> core_testing
+    components_data_display_status --> builders_sizes
     components_data_display_status --> builders_colors
-    components_data_display_table --> builders_scales
-    components_data_display_table --> core_themes
+    components_data_display_status --> core_themes
     components_data_display_table --> core_testing
-    components_data_display_timeline --> core_themes
+    components_data_display_table --> builders_sizes
+    components_data_display_table --> core_themes
     components_data_display_timeline --> core_testing
+    components_data_display_timeline --> core_themes
+    core_testing --> core_utility_classes
     core_testing --> core_themes
     core_testing --> core_resources
-    core_testing --> core_utility_classes
     core_testing --> components_actions_button
     core_utility_classes --> builders_colors
 ```
@@ -1302,14 +1302,14 @@ DAISYUI_COLOR_PROPERTIES = 'https://cdn.jsdelivr.net/npm/daisyui@5/colors/proper
 DAISYUI_COLOR_PROPERTIES_EXT = 'https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css'
 ```
 
-### scales (`scales.ipynb`)
+### sizes (`sizes.ipynb`)
 
-> Named scale support for DaisyUI components
+> Named sizes support for DaisyUI components
 
 #### Import
 
 ``` python
-from cjm_fasthtml_daisyui.builders.scales import (
+from cjm_fasthtml_daisyui.builders.sizes import (
     DaisyUINamedSize
 )
 ```

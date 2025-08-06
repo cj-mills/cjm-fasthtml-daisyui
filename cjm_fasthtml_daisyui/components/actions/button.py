@@ -19,7 +19,7 @@ from cjm_fasthtml_tailwind.core.base import (
 from cjm_fasthtml_tailwind.builders.scales import SimpleFactory, ScaledFactory, enums_to_simple_factory
 
 from ...builders.colors import SemanticColorBrand, SemanticColorStatus
-from ...builders.scales import DaisyUINamedSize
+from ...builders.sizes import DaisyUINamedSize
 from ...builders.styles import OutlineStyle, DashStyle, SoftStyle, GhostStyle
 
 
