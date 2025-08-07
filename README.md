@@ -176,11 +176,11 @@ graph LR
     core_themes[core.themes<br/>themes]
     core_utility_classes[core.utility_classes<br/>utility_classes]
 
-    components_actions_button --> builders_sizes
-    components_actions_button --> core_testing
-    components_actions_button --> builders_styles
     components_actions_button --> builders_colors
+    components_actions_button --> builders_styles
     components_actions_button --> core_themes
+    components_actions_button --> core_testing
+    components_actions_button --> builders_sizes
     components_actions_dropdown --> core_testing
     components_actions_dropdown --> core_themes
     components_actions_modal --> core_testing
@@ -189,122 +189,122 @@ graph LR
     components_actions_swap --> core_themes
     components_actions_theme_controller --> core_testing
     components_actions_theme_controller --> core_themes
-    components_data_display_accordion --> core_testing
-    components_data_display_accordion --> components_data_display_collapse
     components_data_display_accordion --> core_themes
-    components_data_display_avatar --> core_testing
+    components_data_display_accordion --> components_data_display_collapse
+    components_data_display_accordion --> core_testing
     components_data_display_avatar --> core_themes
-    components_data_display_badge --> builders_sizes
-    components_data_display_badge --> core_testing
-    components_data_display_badge --> builders_styles
+    components_data_display_avatar --> core_testing
     components_data_display_badge --> builders_colors
+    components_data_display_badge --> builders_styles
     components_data_display_badge --> core_themes
+    components_data_display_badge --> core_testing
+    components_data_display_badge --> builders_sizes
     components_data_display_card --> builders_styles
-    components_data_display_card --> builders_sizes
-    components_data_display_card --> core_testing
     components_data_display_card --> core_themes
-    components_data_display_carousel --> core_testing
+    components_data_display_card --> core_testing
+    components_data_display_card --> builders_sizes
     components_data_display_carousel --> core_themes
-    components_data_display_chat_bubble --> core_testing
+    components_data_display_carousel --> core_testing
     components_data_display_chat_bubble --> builders_colors
     components_data_display_chat_bubble --> core_themes
-    components_data_display_collapse --> core_testing
+    components_data_display_chat_bubble --> core_testing
     components_data_display_collapse --> core_themes
-    components_data_display_countdown --> core_testing
+    components_data_display_collapse --> core_testing
     components_data_display_countdown --> core_themes
-    components_data_display_diff --> core_testing
+    components_data_display_countdown --> core_testing
     components_data_display_diff --> core_themes
-    components_data_display_kbd --> builders_sizes
-    components_data_display_kbd --> core_testing
+    components_data_display_diff --> core_testing
     components_data_display_kbd --> core_themes
-    components_data_display_list --> core_testing
+    components_data_display_kbd --> core_testing
+    components_data_display_kbd --> builders_sizes
     components_data_display_list --> core_themes
-    components_data_display_stat --> core_testing
+    components_data_display_list --> core_testing
     components_data_display_stat --> core_themes
-    components_data_display_status --> builders_sizes
-    components_data_display_status --> core_testing
+    components_data_display_stat --> core_testing
     components_data_display_status --> builders_colors
     components_data_display_status --> core_themes
-    components_data_display_table --> builders_sizes
-    components_data_display_table --> core_testing
+    components_data_display_status --> core_testing
+    components_data_display_status --> builders_sizes
     components_data_display_table --> core_themes
-    components_data_display_timeline --> core_testing
+    components_data_display_table --> core_testing
+    components_data_display_table --> builders_sizes
     components_data_display_timeline --> core_themes
+    components_data_display_timeline --> core_testing
     components_data_input_calendar --> core_testing
     components_data_input_calendar --> core_themes
-    components_data_input_checkbox --> builders_sizes
+    components_data_input_checkbox --> builders_colors
     components_data_input_checkbox --> core_testing
     components_data_input_checkbox --> core_themes
-    components_data_input_checkbox --> builders_colors
+    components_data_input_checkbox --> builders_sizes
     components_data_input_fieldset --> core_testing
     components_data_input_fieldset --> core_themes
-    components_data_input_file_input --> builders_sizes
-    components_data_input_file_input --> core_testing
     components_data_input_file_input --> builders_colors
-    components_data_input_file_input --> builders_styles
     components_data_input_file_input --> core_themes
+    components_data_input_file_input --> core_testing
+    components_data_input_file_input --> builders_styles
+    components_data_input_file_input --> builders_sizes
     components_data_input_filter --> core_testing
     components_data_input_filter --> core_themes
     components_data_input_label --> core_testing
     components_data_input_label --> core_themes
-    components_data_input_radio --> builders_sizes
+    components_data_input_radio --> builders_colors
     components_data_input_radio --> core_testing
     components_data_input_radio --> core_themes
-    components_data_input_radio --> builders_colors
-    components_data_input_range_slider --> builders_sizes
+    components_data_input_radio --> builders_sizes
+    components_data_input_range_slider --> builders_colors
     components_data_input_range_slider --> core_testing
     components_data_input_range_slider --> core_themes
-    components_data_input_range_slider --> builders_colors
-    components_data_input_rating --> builders_sizes
+    components_data_input_range_slider --> builders_sizes
     components_data_input_rating --> core_testing
     components_data_input_rating --> core_themes
-    components_data_input_select --> builders_sizes
+    components_data_input_rating --> builders_sizes
+    components_data_input_select --> builders_colors
     components_data_input_select --> builders_styles
     components_data_input_select --> core_testing
     components_data_input_select --> core_themes
-    components_data_input_select --> builders_colors
-    components_data_input_text_input --> builders_sizes
+    components_data_input_select --> builders_sizes
+    components_data_input_text_input --> builders_colors
     components_data_input_text_input --> builders_styles
     components_data_input_text_input --> core_testing
     components_data_input_text_input --> core_themes
-    components_data_input_text_input --> builders_colors
-    components_data_input_textarea --> builders_sizes
+    components_data_input_text_input --> builders_sizes
+    components_data_input_textarea --> builders_colors
     components_data_input_textarea --> builders_styles
     components_data_input_textarea --> core_testing
     components_data_input_textarea --> core_themes
-    components_data_input_textarea --> builders_colors
-    components_data_input_toggle --> builders_sizes
+    components_data_input_textarea --> builders_sizes
+    components_data_input_toggle --> builders_colors
     components_data_input_toggle --> core_testing
     components_data_input_toggle --> core_themes
-    components_data_input_toggle --> builders_colors
+    components_data_input_toggle --> builders_sizes
     components_data_input_validator --> core_testing
     components_data_input_validator --> core_themes
-    components_feedback_alert --> core_testing
-    components_feedback_alert --> core_themes
-    components_feedback_alert --> builders_styles
     components_feedback_alert --> builders_colors
-    components_feedback_loading --> builders_sizes
+    components_feedback_alert --> core_testing
+    components_feedback_alert --> builders_styles
+    components_feedback_alert --> core_themes
     components_feedback_loading --> core_testing
     components_feedback_loading --> core_themes
+    components_feedback_loading --> builders_sizes
+    components_feedback_progress --> builders_colors
     components_feedback_progress --> core_testing
     components_feedback_progress --> core_themes
-    components_feedback_progress --> builders_colors
     components_feedback_radial_progress --> core_testing
     components_feedback_radial_progress --> core_themes
     components_feedback_skeleton --> core_testing
     components_feedback_skeleton --> core_themes
     components_feedback_toast --> core_testing
     components_feedback_toast --> core_themes
+    components_feedback_tooltip --> builders_colors
     components_feedback_tooltip --> core_testing
     components_feedback_tooltip --> core_themes
-    components_feedback_tooltip --> builders_colors
+    components_layout_divider --> builders_colors
     components_layout_divider --> core_testing
     components_layout_divider --> core_themes
-    components_layout_divider --> builders_colors
     components_layout_drawer --> core_testing
     components_layout_drawer --> core_themes
-    components_layout_footer --> core_testing
     components_layout_footer --> core_themes
+    components_layout_footer --> core_testing
     components_layout_hero --> core_testing
     components_layout_hero --> core_themes
     components_layout_indicator --> core_testing
@@ -325,32 +325,32 @@ graph LR
     components_mockup_window --> core_themes
     components_navigation_breadcrumbs --> core_testing
     components_navigation_breadcrumbs --> core_themes
-    components_navigation_dock --> builders_sizes
     components_navigation_dock --> core_testing
     components_navigation_dock --> core_themes
-    components_navigation_link --> builders_sizes
+    components_navigation_dock --> builders_sizes
+    components_navigation_link --> builders_colors
     components_navigation_link --> core_testing
     components_navigation_link --> core_themes
-    components_navigation_link --> builders_colors
-    components_navigation_menu --> builders_sizes
+    components_navigation_link --> builders_sizes
     components_navigation_menu --> core_testing
     components_navigation_menu --> core_themes
+    components_navigation_menu --> builders_sizes
     components_navigation_navbar --> core_testing
     components_navigation_navbar --> core_themes
+    components_navigation_pagination --> components_layout_join
     components_navigation_pagination --> core_testing
     components_navigation_pagination --> core_themes
-    components_navigation_pagination --> components_layout_join
+    components_navigation_steps --> builders_colors
     components_navigation_steps --> core_testing
     components_navigation_steps --> core_themes
-    components_navigation_steps --> builders_colors
-    components_navigation_tabs --> builders_styles
-    components_navigation_tabs --> builders_sizes
     components_navigation_tabs --> core_testing
+    components_navigation_tabs --> builders_styles
     components_navigation_tabs --> core_themes
-    core_testing --> core_utility_classes
-    core_testing --> core_resources
+    components_navigation_tabs --> builders_sizes
     core_testing --> core_themes
     core_testing --> components_actions_button
+    core_testing --> core_utility_classes
+    core_testing --> core_resources
     core_utility_classes --> builders_colors
 ```
 
@@ -429,7 +429,12 @@ from cjm_fasthtml_daisyui.components.feedback.alert import (
     test_alert_basic_examples,
     test_alert_styles_examples,
     test_alert_colors_examples,
-    test_alert_directions_examples
+    test_alert_directions_examples,
+    test_alert_basic_fasthtml_examples,
+    test_alert_colors_fasthtml_examples,
+    test_alert_styles_fasthtml_examples,
+    test_alert_with_buttons_fasthtml_examples,
+    test_alert_with_title_description_fasthtml_examples
 )
 ```
 
@@ -453,6 +458,31 @@ def test_alert_colors_examples()
 ``` python
 def test_alert_directions_examples()
     "Test alert direction utilities."
+```
+
+``` python
+def test_alert_basic_fasthtml_examples()
+    "Test basic alert example from daisyUI v5 documentation."
+```
+
+``` python
+def test_alert_colors_fasthtml_examples()
+    "Test alert color variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_alert_styles_fasthtml_examples()
+    "Test alert style variations (soft, outline, dash) from daisyUI v5 documentation."
+```
+
+``` python
+def test_alert_with_buttons_fasthtml_examples()
+    "Test alert with buttons and responsive layout from daisyUI v5 documentation."
+```
+
+``` python
+def test_alert_with_title_description_fasthtml_examples()
+    "Test alert with title and description from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -2201,7 +2231,14 @@ from cjm_fasthtml_daisyui.components.feedback.loading import (
     LoadingStyle,
     test_loading_basic_examples,
     test_loading_styles_examples,
-    test_loading_sizes_examples
+    test_loading_sizes_examples,
+    test_loading_spinner_fasthtml_examples,
+    test_loading_dots_fasthtml_examples,
+    test_loading_ring_fasthtml_examples,
+    test_loading_ball_fasthtml_examples,
+    test_loading_bars_fasthtml_examples,
+    test_loading_infinity_fasthtml_examples,
+    test_loading_with_colors_fasthtml_examples
 )
 ```
 
@@ -2220,6 +2257,41 @@ def test_loading_styles_examples()
 ``` python
 def test_loading_sizes_examples()
     "Test loading size variants."
+```
+
+``` python
+def test_loading_spinner_fasthtml_examples()
+    "Test loading spinner with all sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_loading_dots_fasthtml_examples()
+    "Test loading dots with all sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_loading_ring_fasthtml_examples()
+    "Test loading ring with all sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_loading_ball_fasthtml_examples()
+    "Test loading ball with all sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_loading_bars_fasthtml_examples()
+    "Test loading bars with all sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_loading_infinity_fasthtml_examples()
+    "Test loading infinity with all sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_loading_with_colors_fasthtml_examples()
+    "Test loading with colors from daisyUI v5 documentation."
 ```
 
 #### Classes
@@ -2643,7 +2715,11 @@ from cjm_fasthtml_daisyui.components.feedback.progress import (
     progress,
     progress_colors,
     test_progress_basic_examples,
-    test_progress_colors_examples
+    test_progress_colors_examples,
+    test_progress_basic_fasthtml_examples,
+    test_progress_primary_color_fasthtml_examples,
+    test_progress_all_colors_fasthtml_examples,
+    test_progress_indeterminate_fasthtml_examples
 )
 ```
 
@@ -2657,6 +2733,32 @@ def test_progress_basic_examples()
 ``` python
 def test_progress_colors_examples()
     "Test progress color variants."
+```
+
+``` python
+def test_progress_basic_fasthtml_examples()
+    "Test basic progress examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_progress_primary_color_fasthtml_examples()
+    "Test progress with primary color from daisyUI v5 documentation."
+```
+
+``` python
+def test_progress_all_colors_fasthtml_examples():
+    """Test progress with all semantic colors from daisyUI v5 documentation."""
+    from fasthtml.common import Progress, Div
+    from cjm_fasthtml_tailwind.utilities.sizing import w
+    
+    # Helper function to create progress bars with different values for a given color
+    def create_color_set(color_class, color_name)
+    "Test progress with all semantic colors from daisyUI v5 documentation."
+```
+
+``` python
+def test_progress_indeterminate_fasthtml_examples()
+    "Test indeterminate progress (without value) from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -2676,7 +2778,11 @@ progress_colors  # Progress color variants
 ``` python
 from cjm_fasthtml_daisyui.components.feedback.radial_progress import (
     radial_progress,
-    test_radial_progress_basic_examples
+    test_radial_progress_basic_examples,
+    test_radial_progress_basic_fasthtml_examples,
+    test_radial_progress_values_fasthtml_examples,
+    test_radial_progress_colors_fasthtml_examples,
+    test_radial_progress_custom_size_fasthtml_examples
 )
 ```
 
@@ -2685,6 +2791,26 @@ from cjm_fasthtml_daisyui.components.feedback.radial_progress import (
 ``` python
 def test_radial_progress_basic_examples()
     "Test basic button utilities."
+```
+
+``` python
+def test_radial_progress_basic_fasthtml_examples()
+    "Test basic radial progress from daisyUI v5 documentation."
+```
+
+``` python
+def test_radial_progress_values_fasthtml_examples()
+    "Test radial progress with different values from daisyUI v5 documentation."
+```
+
+``` python
+def test_radial_progress_colors_fasthtml_examples()
+    "Test radial progress with custom colors from daisyUI v5 documentation."
+```
+
+``` python
+def test_radial_progress_custom_size_fasthtml_examples()
+    "Test radial progress with custom size and thickness from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -2977,7 +3103,10 @@ class DaisyUINamedSize(str, Enum):
 ``` python
 from cjm_fasthtml_daisyui.components.feedback.skeleton import (
     skeleton,
-    test_skeleton_basic_examples
+    test_skeleton_basic_examples,
+    test_skeleton_basic_fasthtml_examples,
+    test_skeleton_circle_with_content_fasthtml_examples,
+    test_skeleton_rectangle_with_content_fasthtml_examples
 )
 ```
 
@@ -2986,6 +3115,21 @@ from cjm_fasthtml_daisyui.components.feedback.skeleton import (
 ``` python
 def test_skeleton_basic_examples()
     "Test basic skeleton utilities."
+```
+
+``` python
+def test_skeleton_basic_fasthtml_examples()
+    "Test basic skeleton from daisyUI v5 documentation."
+```
+
+``` python
+def test_skeleton_circle_with_content_fasthtml_examples()
+    "Test skeleton circle with content from daisyUI v5 documentation."
+```
+
+``` python
+def test_skeleton_rectangle_with_content_fasthtml_examples()
+    "Test skeleton rectangle with content from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -3963,7 +4107,11 @@ from cjm_fasthtml_daisyui.components.feedback.toast import (
     toast_placement,
     ToastPlacement,
     test_toast_basic_examples,
-    test_toast_placement_examples
+    test_toast_placement_examples,
+    test_toast_basic_fasthtml_examples,
+    test_toast_top_positions_fasthtml_examples,
+    test_toast_middle_positions_fasthtml_examples,
+    test_toast_bottom_positions_fasthtml_examples
 )
 ```
 
@@ -3977,6 +4125,26 @@ def test_toast_basic_examples()
 ``` python
 def test_toast_placement_examples()
     "Test toast placement options."
+```
+
+``` python
+def test_toast_basic_fasthtml_examples()
+    "Test basic toast with alert inside from daisyUI v5 documentation."
+```
+
+``` python
+def test_toast_top_positions_fasthtml_examples()
+    "Test toast positioning at top (start, center, end) from daisyUI v5 documentation."
+```
+
+``` python
+def test_toast_middle_positions_fasthtml_examples()
+    "Test toast positioning at middle (start, center, end) from daisyUI v5 documentation."
+```
+
+``` python
+def test_toast_bottom_positions_fasthtml_examples()
+    "Test toast positioning at bottom (start, center, end) from daisyUI v5 documentation."
 ```
 
 #### Classes
@@ -4052,7 +4220,12 @@ from cjm_fasthtml_daisyui.components.feedback.tooltip import (
     test_tooltip_basic_examples,
     test_tooltip_placement_examples,
     test_tooltip_modifiers_examples,
-    test_tooltip_colors_examples
+    test_tooltip_colors_examples,
+    test_tooltip_basic_fasthtml_examples,
+    test_tooltip_with_content_fasthtml_examples,
+    test_tooltip_positions_fasthtml_examples,
+    test_tooltip_colors_fasthtml_examples,
+    test_tooltip_responsive_fasthtml_examples
 )
 ```
 
@@ -4076,6 +4249,31 @@ def test_tooltip_modifiers_examples()
 ``` python
 def test_tooltip_colors_examples()
     "Test tooltip color variants."
+```
+
+``` python
+def test_tooltip_basic_fasthtml_examples()
+    "Test basic tooltip examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_tooltip_with_content_fasthtml_examples()
+    "Test tooltip with tooltip-content from daisyUI v5 documentation."
+```
+
+``` python
+def test_tooltip_positions_fasthtml_examples()
+    "Test tooltip position variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_tooltip_colors_fasthtml_examples()
+    "Test tooltip color variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_tooltip_responsive_fasthtml_examples()
+    "Test responsive tooltip from daisyUI v5 documentation."
 ```
 
 #### Classes
