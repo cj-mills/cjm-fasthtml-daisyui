@@ -1,9 +1,9 @@
 ### Mockup
 
-1. [Browser](#mockup-browser/)
-2. [Code](#mockup-code/)
-3. [Phone](#mockup-phone/)
-4. [Window](#mockup-window/)
+1. [Browser](#browser-mockup/)
+2. [Code](#code-mockup/)
+3. [Phone](#phone-mockup/)
+4. [Window](#window-mockup/)
 
 
 

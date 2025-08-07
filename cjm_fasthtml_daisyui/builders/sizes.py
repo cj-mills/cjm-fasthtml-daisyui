@@ -7,7 +7,6 @@ __all__ = ['DaisyUINamedSize']
 
 # %% ../../nbs/builders/sizes.ipynb 3
 from enum import Enum
-from cjm_fasthtml_tailwind.core.base import NamedScale
 
 # %% ../../nbs/builders/sizes.ipynb 5
 # DaisyUI names sizes

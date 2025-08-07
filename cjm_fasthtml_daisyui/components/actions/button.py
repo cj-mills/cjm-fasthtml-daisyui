@@ -12,11 +12,10 @@ __all__ = ['btn', 'btn_colors', 'btn_styles', 'btn_sizes', 'btn_modifiers', 'btn
 
 # %% ../../../nbs/components/actions/button.ipynb 3
 from enum import Enum
-from typing import Optional, Dict, Any, Union
 from cjm_fasthtml_tailwind.core.base import (
-    SingleValueFactory, BaseFactory, combine_classes
+    SingleValueFactory, combine_classes
 )
-from cjm_fasthtml_tailwind.builders.scales import SimpleFactory, ScaledFactory, enums_to_simple_factory
+from cjm_fasthtml_tailwind.builders.scales import SimpleFactory, enums_to_simple_factory
 
 from ...builders.colors import SemanticColorBrand, SemanticColorStatus
 from ...builders.sizes import DaisyUINamedSize
@@ -69,7 +68,7 @@ def test_button_basic_examples():
     # Basic button
     assert str(btn) == "btn"
     
-    # Button with modifiers
+    # Test with modifiers
     assert str(btn.hover) == "hover:btn"
     assert str(btn.md) == "md:btn"
     assert str(btn.dark) == "dark:btn"

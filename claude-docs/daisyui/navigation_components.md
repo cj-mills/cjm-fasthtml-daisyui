@@ -1480,6 +1480,8 @@ Pagination is a group of buttons that allow the user to navigate between a set o
 
 ## HTML Examples
 
+> Note: For pagination, we use [join component](https://daisyui.com/components/join) to show multiple links or buttons next to each other.
+
 ### Pagination with an active button
 
 ```html
