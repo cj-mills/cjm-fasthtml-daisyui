@@ -34,21 +34,21 @@ pip install cjm-fasthtml-daisyui
     │   │   ├── swap.ipynb              # Swap allows you to toggle the visibility of two elements using a checkbox or a class name.
     │   │   └── theme_controller.ipynb  # If a checked checkbox input or a checked radio input with theme-controller class exists in the page, The page will have the same theme as that input's value.
     │   ├── data_display/ (15)
-    │   │   ├── accordion_collapse.ipynb  # Accordion is used for showing and hiding content but only one item can stay open at a time.
-    │   │   ├── avatar.ipynb              # Avatars are used to show a thumbnail representation of an individual or business in the interface.
-    │   │   ├── badge.ipynb               # Badges are used to inform the user of the status of specific data.
-    │   │   ├── card.ipynb                # Cards are used to group and display content in a way that is easily readable.
-    │   │   ├── carousel.ipynb            # Carousel shows images or content in a scrollable area.
-    │   │   ├── chat_bubble.ipynb         # Chat bubbles are used to show one line of conversation and all its data, including the author image, author name, time, etc.
-    │   │   ├── collapse.ipynb            # Collapse is used for showing and hiding content.
-    │   │   ├── countdown.ipynb           # Countdown gives you a transition effect when you change a number between 0 to 99.
-    │   │   ├── diff.ipynb                # Diff component shows a side-by-side comparison of two items.
-    │   │   ├── kbd.ipynb                 # Kbd is used to display keyboard shortcuts.
-    │   │   ├── list.ipynb                # List is a vertical layout to display information in rows.
-    │   │   ├── stat.ipynb                # Stat is used to show numbers and data in a block.
-    │   │   ├── status.ipynb              # Status is a really small icon to visually show the current status of an element, like online, offline, error, etc.
-    │   │   ├── table.ipynb               # Table can be used to show a list of data in a table format.
-    │   │   └── timeline.ipynb            # Timeline component shows a list of events in chronological order.
+    │   │   ├── accordion.ipynb    # Accordion is used for showing and hiding content but only one item can stay open at a time.
+    │   │   ├── avatar.ipynb       # Avatars are used to show a thumbnail representation of an individual or business in the interface.
+    │   │   ├── badge.ipynb        # Badges are used to inform the user of the status of specific data.
+    │   │   ├── card.ipynb         # Cards are used to group and display content in a way that is easily readable.
+    │   │   ├── carousel.ipynb     # Carousel shows images or content in a scrollable area.
+    │   │   ├── chat_bubble.ipynb  # Chat bubbles are used to show one line of conversation and all its data, including the author image, author name, time, etc.
+    │   │   ├── collapse.ipynb     # Collapse is used for showing and hiding content.
+    │   │   ├── countdown.ipynb    # Countdown gives you a transition effect when you change a number between 0 to 99.
+    │   │   ├── diff.ipynb         # Diff component shows a side-by-side comparison of two items.
+    │   │   ├── kbd.ipynb          # Kbd is used to display keyboard shortcuts.
+    │   │   ├── list.ipynb         # List is a vertical layout to display information in rows.
+    │   │   ├── stat.ipynb         # Stat is used to show numbers and data in a block.
+    │   │   ├── status.ipynb       # Status is a really small icon to visually show the current status of an element, like online, offline, error, etc.
+    │   │   ├── table.ipynb        # Table can be used to show a list of data in a table format.
+    │   │   └── timeline.ipynb     # Timeline component shows a list of events in chronological order.
     │   ├── data_input/ (14)
     │   │   ├── calendar.ipynb    # Calendar includes styles for different calendar libraries.
     │   │   ├── checkbox.ipynb    # Checkboxes are used to select or deselect a value.
@@ -58,7 +58,7 @@ pip install cjm-fasthtml-daisyui
     │   │   ├── label.ipynb       # Label is used to provide a name or title for an input field. Label can be placed before or after the field.
     │   │   ├── radio.ipynb       # Radio buttons allow the user to select one option from a set.
     │   │   ├── range.ipynb       # Range slider is used to select a value by sliding a handle.
-    │   │   ├── rating.ipynb      # Rating is a set of radio buttons that allow the user to rate something.
+    │   │   ├── rating.ipynb      # Rating is a set of radio ratings that allow the user to rate something.
     │   │   ├── select.ipynb      # Select is used to pick a value from a list of options.
     │   │   ├── text_input.ipynb  # Text Input is a simple input field.
     │   │   ├── textarea.ipynb    # Textarea allows users to enter text in multiple lines.
@@ -82,10 +82,10 @@ pip install cjm-fasthtml-daisyui
     │   │   ├── mask.ipynb       # Mask crops the content of the element to common shapes.
     │   │   └── stack.ipynb      # Stack visually puts elements on top of each other.
     │   ├── mockup/ (4)
-    │   │   ├── mockup_browser.ipynb  # Browser mockup shows a box that looks like a browser window.
-    │   │   ├── mockup_code.ipynb     # Code mockup is used to show a block of code in a box that looks like a code editor.
-    │   │   ├── mockup_phone.ipynb    # Phone mockup shows a mockup of an iPhone.
-    │   │   └── mockup_window.ipynb   # Window mockup shows a box that looks like an operating system window.
+    │   │   ├── browser.ipynb  # Browser mockup shows a box that looks like a browser window.
+    │   │   ├── code.ipynb     # Code mockup is used to show a block of code in a box that looks like a code editor.
+    │   │   ├── phone.ipynb    # Phone mockup shows a mockup of an iPhone.
+    │   │   └── window.ipynb   # Window mockup shows a box that looks like an operating system window.
     │   └── navigation/ (8)
     │       ├── breadcrumbs.ipynb  # Breadcrumbs helps users to navigate through the website.
     │       ├── dock.ipynb         # Dock (also know as Bottom navigation or Bottom bar) is a UI element that provides navigation options to the user. Dock sticks to the bottom of the screen.
@@ -141,7 +141,7 @@ graph LR
     components_data_input_rating[components.data_input.rating<br/>rating]
     components_data_input_select[components.data_input.select<br/>select]
     components_data_input_text_input[components.data_input.text_input<br/>text input]
-    components_data_input_text_area[components.data_input.text_area<br/>textarea]
+    components_data_input_textarea[components.data_input.textarea<br/>textarea]
     components_data_input_toggle[components.data_input.toggle<br/>toggle]
     components_data_input_validator[components.data_input.validator<br/>validator]
     components_feedback_alert[components.feedback.alert<br/>alert]
@@ -176,11 +176,11 @@ graph LR
     core_themes[core.themes<br/>themes]
     core_utility_classes[core.utility_classes<br/>utility_classes]
 
-    components_actions_button --> builders_colors
+    components_actions_button --> builders_sizes
     components_actions_button --> builders_styles
     components_actions_button --> core_testing
     components_actions_button --> core_themes
-    components_actions_button --> builders_sizes
+    components_actions_button --> builders_colors
     components_actions_dropdown --> core_themes
     components_actions_dropdown --> core_testing
     components_actions_modal --> core_themes
@@ -189,80 +189,105 @@ graph LR
     components_actions_swap --> core_testing
     components_actions_theme_controller --> core_themes
     components_actions_theme_controller --> core_testing
+    components_data_display_accordion --> components_data_display_collapse
     components_data_display_accordion --> core_testing
     components_data_display_accordion --> core_themes
-    components_data_display_accordion --> components_data_display_collapse
     components_data_display_avatar --> core_testing
     components_data_display_avatar --> core_themes
-    components_data_display_badge --> builders_colors
+    components_data_display_badge --> builders_sizes
     components_data_display_badge --> builders_styles
     components_data_display_badge --> core_testing
     components_data_display_badge --> core_themes
-    components_data_display_badge --> builders_sizes
-    components_data_display_card --> builders_styles
-    components_data_display_card --> core_testing
-    components_data_display_card --> core_themes
+    components_data_display_badge --> builders_colors
     components_data_display_card --> builders_sizes
+    components_data_display_card --> core_testing
+    components_data_display_card --> builders_styles
+    components_data_display_card --> core_themes
     components_data_display_carousel --> core_testing
     components_data_display_carousel --> core_themes
-    components_data_display_chat_bubble --> builders_colors
     components_data_display_chat_bubble --> core_testing
     components_data_display_chat_bubble --> core_themes
+    components_data_display_chat_bubble --> builders_colors
     components_data_display_collapse --> core_testing
     components_data_display_collapse --> core_themes
     components_data_display_countdown --> core_testing
     components_data_display_countdown --> core_themes
     components_data_display_diff --> core_testing
     components_data_display_diff --> core_themes
+    components_data_display_kbd --> builders_sizes
     components_data_display_kbd --> core_testing
     components_data_display_kbd --> core_themes
-    components_data_display_kbd --> builders_sizes
     components_data_display_list --> core_testing
     components_data_display_list --> core_themes
     components_data_display_stat --> core_testing
     components_data_display_stat --> core_themes
-    components_data_display_status --> builders_colors
+    components_data_display_status --> builders_sizes
     components_data_display_status --> core_testing
     components_data_display_status --> core_themes
-    components_data_display_status --> builders_sizes
+    components_data_display_status --> builders_colors
+    components_data_display_table --> builders_sizes
     components_data_display_table --> core_testing
     components_data_display_table --> core_themes
-    components_data_display_table --> builders_sizes
     components_data_display_timeline --> core_testing
     components_data_display_timeline --> core_themes
     components_data_input_calendar --> core_themes
     components_data_input_calendar --> core_testing
+    components_data_input_checkbox --> builders_sizes
     components_data_input_checkbox --> core_themes
+    components_data_input_checkbox --> builders_colors
     components_data_input_checkbox --> core_testing
     components_data_input_fieldset --> core_themes
     components_data_input_fieldset --> core_testing
-    components_data_input_file_input --> core_themes
+    components_data_input_file_input --> builders_sizes
     components_data_input_file_input --> core_testing
+    components_data_input_file_input --> core_themes
+    components_data_input_file_input --> builders_styles
+    components_data_input_file_input --> builders_colors
     components_data_input_filter --> core_themes
     components_data_input_filter --> core_testing
     components_data_input_label --> core_themes
     components_data_input_label --> core_testing
+    components_data_input_radio --> builders_sizes
     components_data_input_radio --> core_themes
+    components_data_input_radio --> builders_colors
     components_data_input_radio --> core_testing
+    components_data_input_range_slider --> builders_sizes
     components_data_input_range_slider --> core_themes
+    components_data_input_range_slider --> builders_colors
     components_data_input_range_slider --> core_testing
+    components_data_input_rating --> builders_sizes
     components_data_input_rating --> core_themes
     components_data_input_rating --> core_testing
+    components_data_input_select --> builders_sizes
     components_data_input_select --> core_themes
+    components_data_input_select --> builders_colors
     components_data_input_select --> core_testing
+    components_data_input_select --> builders_styles
+    components_data_input_text_input --> builders_sizes
     components_data_input_text_input --> core_themes
+    components_data_input_text_input --> builders_colors
     components_data_input_text_input --> core_testing
-    components_data_input_text_area --> core_themes
-    components_data_input_text_area --> core_testing
+    components_data_input_text_input --> builders_styles
+    components_data_input_textarea --> builders_sizes
+    components_data_input_textarea --> core_themes
+    components_data_input_textarea --> builders_colors
+    components_data_input_textarea --> core_testing
+    components_data_input_textarea --> builders_styles
+    components_data_input_toggle --> builders_sizes
     components_data_input_toggle --> core_themes
+    components_data_input_toggle --> builders_colors
     components_data_input_toggle --> core_testing
     components_data_input_validator --> core_themes
     components_data_input_validator --> core_testing
+    components_feedback_alert --> builders_styles
     components_feedback_alert --> core_themes
     components_feedback_alert --> core_testing
+    components_feedback_alert --> builders_colors
+    components_feedback_loading --> builders_sizes
     components_feedback_loading --> core_themes
     components_feedback_loading --> core_testing
     components_feedback_progress --> core_themes
+    components_feedback_progress --> builders_colors
     components_feedback_progress --> core_testing
     components_feedback_radial_progress --> core_themes
     components_feedback_radial_progress --> core_testing
@@ -271,13 +296,15 @@ graph LR
     components_feedback_toast --> core_themes
     components_feedback_toast --> core_testing
     components_feedback_tooltip --> core_themes
+    components_feedback_tooltip --> builders_colors
     components_feedback_tooltip --> core_testing
     components_layout_divider --> core_themes
+    components_layout_divider --> builders_colors
     components_layout_divider --> core_testing
     components_layout_drawer --> core_themes
     components_layout_drawer --> core_testing
-    components_layout_footer --> core_themes
     components_layout_footer --> core_testing
+    components_layout_footer --> core_themes
     components_layout_hero --> core_themes
     components_layout_hero --> core_testing
     components_layout_indicator --> core_themes
@@ -298,28 +325,36 @@ graph LR
     components_mockup_window --> core_testing
     components_navigation_breadcrumbs --> core_themes
     components_navigation_breadcrumbs --> core_testing
+    components_navigation_dock --> builders_sizes
     components_navigation_dock --> core_themes
     components_navigation_dock --> core_testing
+    components_navigation_link --> builders_sizes
     components_navigation_link --> core_themes
+    components_navigation_link --> builders_colors
     components_navigation_link --> core_testing
+    components_navigation_menu --> builders_sizes
     components_navigation_menu --> core_themes
     components_navigation_menu --> core_testing
     components_navigation_navbar --> core_themes
     components_navigation_navbar --> core_testing
     components_navigation_pagination --> core_themes
+    components_navigation_pagination --> components_layout_join
     components_navigation_pagination --> core_testing
     components_navigation_steps --> core_themes
+    components_navigation_steps --> builders_colors
     components_navigation_steps --> core_testing
+    components_navigation_tabs --> builders_sizes
     components_navigation_tabs --> core_themes
     components_navigation_tabs --> core_testing
-    core_testing --> components_actions_button
-    core_testing --> core_themes
-    core_testing --> core_utility_classes
+    components_navigation_tabs --> builders_styles
     core_testing --> core_resources
+    core_testing --> core_utility_classes
+    core_testing --> core_themes
+    core_testing --> components_actions_button
     core_utility_classes --> builders_colors
 ```
 
-*141 cross-module dependencies detected*
+*176 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -329,7 +364,7 @@ No CLI commands found in this project.
 
 Detailed documentation for each module in the project:
 
-### accordion (`accordion_collapse.ipynb`)
+### accordion (`accordion.ipynb`)
 
 > Accordion is used for showing and hiding content but only one item can
 > stay open at a time.
@@ -337,7 +372,14 @@ Detailed documentation for each module in the project:
 #### Import
 
 ``` python
-# No corresponding Python module found for components.data_display.accordion_collapse
+from cjm_fasthtml_daisyui.components.data_display.accordion import (
+    test_accordion_basic_examples,
+    test_accordion_modifiers_examples,
+    test_accordion_basic_fasthtml_examples,
+    test_accordion_arrow_fasthtml_examples,
+    test_accordion_plus_fasthtml_examples,
+    test_accordion_join_fasthtml_examples
+)
 ```
 
 #### Functions
@@ -370,6 +412,55 @@ def test_accordion_plus_fasthtml_examples()
 ``` python
 def test_accordion_join_fasthtml_examples()
     "Test accordion with join from daisyUI v5 documentation."
+```
+
+### alert (`alert.ipynb`)
+
+> Alert informs users about important events.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.feedback.alert import (
+    alert,
+    alert_styles,
+    alert_colors,
+    alert_directions,
+    test_alert_basic_examples,
+    test_alert_styles_examples,
+    test_alert_colors_examples,
+    test_alert_directions_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_alert_basic_examples()
+    "Test basic alert utilities."
+```
+
+``` python
+def test_alert_styles_examples()
+    "Test alert style variants."
+```
+
+``` python
+def test_alert_colors_examples()
+    "Test alert color variants."
+```
+
+``` python
+def test_alert_directions_examples()
+    "Test alert direction utilities."
+```
+
+#### Variables
+
+``` python
+alert  # Base alert component
+alert_styles  # Alert style variants
+alert_colors  # Alert color variants
 ```
 
 ### avatar (`avatar.ipynb`)
@@ -524,6 +615,60 @@ badge_styles  # Badge style variants
 badge_sizes  # Badge size variants
 ```
 
+### breadcrumbs (`breadcrumbs.ipynb`)
+
+> Breadcrumbs helps users to navigate through the website.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.navigation.breadcrumbs import (
+    breadcrumbs,
+    test_breadcrumbs_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_breadcrumbs_basic_examples()
+    "Test breadcrumbs utility."
+```
+
+#### Variables
+
+``` python
+breadcrumbs  # Breadcrumbs component
+```
+
+### browser mockup (`browser.ipynb`)
+
+> Browser mockup shows a box that looks like a browser window.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.mockup.browser import (
+    mockup_browser,
+    mockup_browser_toolbar,
+    test_mockup_browser_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_mockup_browser_basic_examples()
+    "Test basic mockup_browser utilities."
+```
+
+#### Variables
+
+``` python
+mockup_browser  # Base mockup browser component
+mockup_browser_toolbar  # Base mockup browser toolbar part
+```
+
 ### button (`button.ipynb`)
 
 > Buttons allow the user to take actions or make choices.
@@ -629,6 +774,36 @@ btn  # Base button component
 btn_colors  # Button color variants
 btn_styles  # Button style variants
 btn_sizes  # Button size variants
+```
+
+### calendar (`calendar.ipynb`)
+
+> Calendar includes styles for different calendar libraries.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.calendar import (
+    cally,
+    pika_single,
+    react_day_picker,
+    test_calendar_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_calendar_basic_examples()
+    "Test basic calendar utilities."
+```
+
+#### Variables
+
+``` python
+cally  # Base Cally calendar component
+pika_single  # Base Pikaday calender component
+react_day_picker  # Base DayPicker calendar component
 ```
 
 ### card (`card.ipynb`)
@@ -843,6 +1018,75 @@ chat_header  # Chat header
 chat_footer  # Chat footer
 chat_bubble  # Chat bubble
 chat_bubble_colors  # Chat bubble color variants
+```
+
+### checkbox (`checkbox.ipynb`)
+
+> Checkboxes are used to select or deselect a value.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.checkbox import (
+    checkbox,
+    checkbox_colors,
+    checkbox_sizes,
+    test_checkbox_basic_examples,
+    test_checkbox_colors_examples,
+    test_checkbox_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_checkbox_basic_examples()
+    "Test basic checkbox utilities."
+```
+
+``` python
+def test_checkbox_colors_examples()
+    "Test checkbox color variants."
+```
+
+``` python
+def test_checkbox_sizes_examples()
+    "Test checkbox size variants."
+```
+
+#### Variables
+
+``` python
+checkbox  # Base checkbox component
+checkbox_colors  # Checkbox color variants
+checkbox_sizes  # Checkbox size variants
+```
+
+### code mockup (`code.ipynb`)
+
+> Code mockup is used to show a block of code in a box that looks like a
+> code editor.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.mockup.code import (
+    mockup_code,
+    test_mockup_code_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_mockup_code_basic_examples()
+    "Test basic mockup_code utilities."
+```
+
+#### Variables
+
+``` python
+mockup_code  # Base mockup code component
 ```
 
 ### collapse (`collapse.ipynb`)
@@ -1170,6 +1414,176 @@ diff_item_2  # Second item
 diff_resizer  # Resizer control
 ```
 
+### divider (`divider.ipynb`)
+
+> Divider will be used to separate content vertically or horizontally.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.layout.divider import (
+    divider,
+    divider_colors,
+    divider_directions,
+    divider_placement,
+    DividerDirection,
+    DividerPlacement,
+    test_divider_basic_examples,
+    test_divider_colors_examples,
+    test_divider_directions_examples,
+    test_divider_placement_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_divider_basic_examples()
+    "Test basic divider utilities."
+```
+
+``` python
+def test_divider_colors_examples()
+    "Test divider color variants."
+```
+
+``` python
+def test_divider_directions_examples()
+    "Test divider directions variants."
+```
+
+``` python
+def test_divider_placement_examples()
+    "Test divider placement variants."
+```
+
+#### Classes
+
+``` python
+class DividerDirection(str, Enum):
+```
+
+``` python
+class DividerPlacement(str, Enum):
+```
+
+#### Variables
+
+``` python
+divider  # Base divider component
+divider_colors  # divider color variants
+divider_directions  # divider directions
+divider_placement  # divider directions
+```
+
+### dock (`dock.ipynb`)
+
+> Dock (also know as Bottom navigation or Bottom bar) is a UI element
+> that provides navigation options to the user. Dock sticks to the
+> bottom of the screen.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.navigation.dock import (
+    dock,
+    dock_label,
+    dock_modifiers,
+    dock_sizes,
+    test_dock_basic_examples,
+    test_dock_modifiers_examples,
+    test_dock_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_dock_basic_examples()
+    "Test basic dock utilities."
+```
+
+``` python
+def test_dock_modifiers_examples()
+    "Test dock modifier utilities."
+```
+
+``` python
+def test_dock_sizes_examples()
+    "Test dock size variants."
+```
+
+#### Variables
+
+``` python
+dock  # Base dock component
+dock_label  # Dock label
+dock_sizes  # Dock size variants
+```
+
+### drawer (`drawer.ipynb`)
+
+> Drawer is a grid layout that can show/hide a sidebar on the left or
+> right side of the page.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.layout.drawer import (
+    drawer,
+    drawer_toggle,
+    drawer_content,
+    drawer_side,
+    drawer_overlay,
+    drawer_placement,
+    drawer_modifiers,
+    DrawerPlacement,
+    DrawerModifier,
+    test_drawer_basic_examples,
+    test_drawer_placement_examples,
+    test_drawer_modifier_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_drawer_basic_examples()
+    "Test basic drawer utilities."
+```
+
+``` python
+def test_drawer_placement_examples()
+    "Test drawer placement variants."
+```
+
+``` python
+def test_drawer_modifier_examples()
+    "Test drawer modifier variants."
+```
+
+#### Classes
+
+``` python
+class DrawerPlacement(str, Enum):
+```
+
+``` python
+class DrawerModifier(str, Enum):
+```
+
+#### Variables
+
+``` python
+drawer  # Base drawer component
+drawer_toggle  # Drawer toggle part
+drawer_content  # Drawer content part
+drawer_side  # Drawer sidbar part
+drawer_overlay  # Drawer overlay part
+drawer_placement  # drawer placement
+drawer_modifiers  # drawer modifiers
+```
+
 ### dropdown (`dropdown.ipynb`)
 
 > Dropdown can open a menu or any other element when the button is
@@ -1249,6 +1663,293 @@ dropdown  # Dropdown container
 dropdown_content  # Dropdown content
 ```
 
+### fieldset (`fieldset.ipynb`)
+
+> Fieldset is a container for grouping related form elements. It
+> includes fieldset-legend as a title and label as a description.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.fieldset import (
+    fieldset,
+    label,
+    fieldset_legend,
+    test_fieldset_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_fieldset_basic_examples()
+    "Test basic fieldset utilities."
+```
+
+#### Variables
+
+``` python
+fieldset  # Base fieldset component
+label  # Base label component
+fieldset_legend  # fieldset legend part
+```
+
+### file input (`file_input.ipynb`)
+
+> File Input is a an input field for uploading files.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.file_input import (
+    file_input,
+    file_input_styles,
+    file_input_colors,
+    file_input_sizes,
+    test_file_input_basic_examples,
+    test_file_input_styles_examples,
+    test_file_input_colors_examples,
+    test_file_input_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_file_input_basic_examples()
+    "Test basic file_input utilities."
+```
+
+``` python
+def test_file_input_styles_examples()
+    "Test file_input style variants."
+```
+
+``` python
+def test_file_input_colors_examples()
+    "Test file_input color variants."
+```
+
+``` python
+def test_file_input_sizes_examples()
+    "Test file_input size variants."
+```
+
+#### Variables
+
+``` python
+file_input  # Base file input component
+file_input_styles  # File input style variants
+file_input_colors  # File input color variants
+file_input_sizes  # File input size variants
+```
+
+### filter (`filter.ipynb`)
+
+> Filter is a group of radio buttons. Choosing one of the options will
+> hide the others and shows a reset button next to the chosen option.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.filter import (
+    filter_dui,
+    filter_dui_reset,
+    test_filter_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_filter_basic_examples()
+    "Test basic filter utilities."
+```
+
+#### Variables
+
+``` python
+filter_dui  # Base filter component
+filter_dui_reset  # Filter reset part
+```
+
+### footer (`footer.ipynb`)
+
+> Footer can contain logo, copyright notice, and links to other pages.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.layout.footer import (
+    footer,
+    footer_title,
+    footer_placement,
+    footer_directions,
+    FooterPlacement,
+    FooterDirection,
+    test_footer_basic_examples,
+    test_footer_placement_examples,
+    test_footer_directions_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_footer_basic_examples()
+    "Test basic footer utilities."
+```
+
+``` python
+def test_footer_placement_examples()
+    "Test footer placement variants."
+```
+
+``` python
+def test_footer_directions_examples()
+    "Test footer directions variants."
+```
+
+#### Classes
+
+``` python
+class FooterPlacement(str, Enum):
+```
+
+``` python
+class FooterDirection(str, Enum):
+```
+
+#### Variables
+
+``` python
+footer  # Base footer component
+footer_title  # footer title part
+footer_placement  # footer placement
+footer_directions  # footer directions
+```
+
+### hero (`hero.ipynb`)
+
+> Hero is a component for displaying a large box or image with a title
+> and description.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.layout.hero import (
+    hero,
+    hero_content,
+    hero_overlay,
+    test_hero_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_hero_basic_examples()
+    "Test basic hero utilities."
+```
+
+#### Variables
+
+``` python
+hero  # Base hero component
+hero_content  # Hero content part
+hero_overlay  # Hero overlay part
+```
+
+### indicator (`indicator.ipynb`)
+
+> Indicators are used to place an element on the corner of another
+> element.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.layout.indicator import (
+    indicator,
+    indicator_item,
+    indicator_placement,
+    IndicatorPlacement,
+    test_indicator_basic_examples,
+    test_indicator_placement_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_indicator_basic_examples()
+    "Test basic indicator utilities."
+```
+
+``` python
+def test_indicator_placement_examples()
+    "Test indicator placement options."
+```
+
+#### Classes
+
+``` python
+class IndicatorPlacement(str, Enum):
+```
+
+#### Variables
+
+``` python
+indicator  # Base indicator component
+indicator_item  # Indicator item part
+indicator_placement  # indicator directions
+```
+
+### join (`join.ipynb`)
+
+> Join is a container for grouping multiple items, it can be used to
+> group buttons, inputs, etc. Join applies border radius to the first
+> and last item. Join can be used to create a horizontal or vertical
+> list of items.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.layout.join import (
+    join,
+    join_item,
+    join_directions,
+    JoinDirection,
+    test_join_basic_examples,
+    test_join_directions_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_join_basic_examples()
+    "Test basic join utilities."
+```
+
+``` python
+def test_join_directions_examples()
+    "Test join directions variants."
+```
+
+#### Classes
+
+``` python
+class JoinDirection(str, Enum):
+```
+
+#### Variables
+
+``` python
+join  # Base join component
+join_item  # Join item component
+join_directions  # join directions
+```
+
 ### kbd (`kbd.ipynb`)
 
 > Kbd is used to display keyboard shortcuts.
@@ -1299,6 +2000,69 @@ def test_kbd_keyboard_fasthtml_examples()
 ``` python
 kbd  # Kbd component
 kbd_sizes  # Kbd size variants
+```
+
+### label (`label.ipynb`)
+
+> Label is used to provide a name or title for an input field. Label can
+> be placed before or after the field.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.label import (
+    label,
+    floating_label,
+    test_label_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_label_basic_examples()
+    "Test basic label utilities."
+```
+
+#### Variables
+
+``` python
+label  # Base label component
+floating_label  # Base floating label component
+```
+
+### link (`link.ipynb`)
+
+> Link adds the missing underline style to links.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.navigation.link import (
+    link,
+    link_colors,
+    test_link_basic_examples,
+    test_link_colors_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_link_basic_examples()
+    "Test basic link utilities."
+```
+
+``` python
+def test_link_colors_examples()
+    "Test link color variants."
+```
+
+#### Variables
+
+``` python
+link  # Link component
+link_colors  # Link color variants
 ```
 
 ### list (`list.ipynb`)
@@ -1352,6 +2116,163 @@ def test_list_column_wrap_fasthtml_examples()
 ``` python
 list_ui  # List container
 list_row  # List row
+```
+
+### loading (`loading.ipynb`)
+
+> Loading shows an animation to indicate that something is loading.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.feedback.loading import (
+    loading,
+    loading_styles,
+    loading_sizes,
+    LoadingStyle,
+    test_loading_basic_examples,
+    test_loading_styles_examples,
+    test_loading_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_loading_basic_examples()
+    "Test basic loading utilities."
+```
+
+``` python
+def test_loading_styles_examples()
+    "Test loading style variants."
+```
+
+``` python
+def test_loading_sizes_examples()
+    "Test loading size variants."
+```
+
+#### Classes
+
+``` python
+class LoadingStyle(str, Enum):
+```
+
+#### Variables
+
+``` python
+loading  # Base loading component
+loading_styles  # Loading styles
+loading_sizes  # Loading size variants
+```
+
+### mask (`mask.ipynb`)
+
+> Mask crops the content of the element to common shapes.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.layout.mask import (
+    mask,
+    mask_styles,
+    mask_modifiers,
+    MaskStyle,
+    MaskModifier,
+    test_mask_basic_examples,
+    test_mask_styles_examples,
+    test_mask_modifiers_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_mask_basic_examples()
+    "Test basic mask utilities."
+```
+
+``` python
+def test_mask_styles_examples()
+    "Test mask style variants."
+```
+
+``` python
+def test_mask_modifiers_examples()
+    "Test mask modifier utilities."
+```
+
+#### Classes
+
+``` python
+class MaskStyle(str, Enum):
+```
+
+``` python
+class MaskModifier(str, Enum):
+```
+
+#### Variables
+
+``` python
+mask  # Base mask component
+mask_styles  # mask style variants
+mask_modifiers  # mask modifiers
+```
+
+### menu (`menu.ipynb`)
+
+> Menu is used to display a list of links vertically or horizontally.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.navigation.menu import (
+    menu,
+    menu_title,
+    menu_dropdown,
+    menu_dropdown_toggle,
+    menu_modifiers,
+    menu_sizes,
+    menu_directions,
+    test_menu_basic_examples,
+    test_menu_modifiers_examples,
+    test_menu_sizes_examples,
+    test_menu_directions_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_menu_basic_examples()
+    "Test basic menu utilities."
+```
+
+``` python
+def test_menu_modifiers_examples()
+    "Test menu modifier utilities."
+```
+
+``` python
+def test_menu_sizes_examples()
+    "Test menu size variants."
+```
+
+``` python
+def test_menu_directions_examples()
+    "Test menu direction utilities."
+```
+
+#### Variables
+
+``` python
+menu  # Base menu component
+menu_title  # Menu title part
+menu_dropdown  # Menu dropdown part
+menu_dropdown_toggle  # Menu dropdown toggle part
+menu_sizes  # Menu size variants
 ```
 
 ### modal (`modal.ipynb`)
@@ -1413,6 +2334,283 @@ modal_action  # Modal actions
 modal_backdrop  # Modal backdrop
 modal_toggle  # Modal toggle
 modal_open  # Modal open state
+```
+
+### navbar (`navbar.ipynb`)
+
+> Navbar is used to show a navigation bar on the top of the page..
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.navigation.navbar import (
+    navbar,
+    navbar_start,
+    navbar_center,
+    navbar_end,
+    test_navbar_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_navbar_basic_examples()
+    "Test basic navbar utilities."
+```
+
+#### Variables
+
+``` python
+navbar  # Base navbar component
+navbar_start  # Navbar start part
+navbar_center  # Navbar center part
+navbar_end  # Navbar end part
+```
+
+### pagination (`pagination.ipynb`)
+
+> Pagination is a group of buttons that allow the user to navigate
+> between a set of related content.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.navigation.pagination import (
+    test_pagination_basic_examples,
+    test_pagination_directions_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_pagination_basic_examples()
+    "Test basic pagination utilities."
+```
+
+``` python
+def test_pagination_directions_examples()
+    "Test join directions variants."
+```
+
+### phone mockup (`phone.ipynb`)
+
+> Phone mockup shows a mockup of an iPhone.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.mockup.phone import (
+    mockup_phone,
+    mockup_phone_camera,
+    mockup_phone_display,
+    test_mockup_phone_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_mockup_phone_basic_examples()
+    "Test basic mockup_phone utilities."
+```
+
+#### Variables
+
+``` python
+mockup_phone  # Base mockup phone component
+mockup_phone_camera  # Mockup phone camera part
+mockup_phone_display  # Mockup phone display part
+```
+
+### progress (`progress.ipynb`)
+
+> Progress bar can be used to show the progress of a task or to show the
+> passing of time.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.feedback.progress import (
+    progress,
+    progress_colors,
+    test_progress_basic_examples,
+    test_progress_colors_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_progress_basic_examples()
+    "Test basic progress utilities."
+```
+
+``` python
+def test_progress_colors_examples()
+    "Test progress color variants."
+```
+
+#### Variables
+
+``` python
+progress  # Base progress component
+progress_colors  # Progress color variants
+```
+
+### radial progress (`radial_progress.ipynb`)
+
+> Radial progress can be used to show the progress of a task or to show
+> the passing of time.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.feedback.radial_progress import (
+    radial_progress,
+    test_radial_progress_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_radial_progress_basic_examples()
+    "Test basic button utilities."
+```
+
+#### Variables
+
+``` python
+radial_progress  # Base radial progress component
+```
+
+### radio (`radio.ipynb`)
+
+> Radio buttons allow the user to select one option from a set.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.radio import (
+    radio,
+    radio_colors,
+    radio_sizes,
+    test_radio_basic_examples,
+    test_radio_colors_examples,
+    test_radio_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_radio_basic_examples()
+    "Test basic radio utilities."
+```
+
+``` python
+def test_radio_colors_examples()
+    "Test radio color variants."
+```
+
+``` python
+def test_radio_sizes_examples()
+    "Test radio size variants."
+```
+
+#### Variables
+
+``` python
+radio  # Base radio component
+radio_colors  # Radio color variants
+radio_sizes  # Radio size variants
+```
+
+### range slider (`range.ipynb`)
+
+> Range slider is used to select a value by sliding a handle.
+
+#### Import
+
+``` python
+# No corresponding Python module found for components.data_input.range
+```
+
+#### Functions
+
+``` python
+def test_range_basic_examples()
+    "Test basic range utilities."
+```
+
+``` python
+def test_range_colors_examples()
+    "Test range color variants."
+```
+
+``` python
+def test_range_sizes_examples()
+    "Test range size variants."
+```
+
+#### Variables
+
+``` python
+range_dui  # Base range component
+range_colors  # range color variants
+range_sizes  # range size variants
+```
+
+### rating (`rating.ipynb`)
+
+> Rating is a set of radio ratings that allow the user to rate
+> something.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.rating import (
+    rating,
+    rating_modifiers,
+    rating_sizes,
+    RatingModifier,
+    test_rating_basic_examples,
+    test_rating_modifiers_examples,
+    test_rating_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_rating_basic_examples()
+    "Test basic rating utilities."
+```
+
+``` python
+def test_rating_modifiers_examples()
+    "Test rating modifier utilities."
+```
+
+``` python
+def test_rating_sizes_examples()
+    "Test rating size variants."
+```
+
+#### Classes
+
+``` python
+class RatingModifier(str, Enum):
+```
+
+#### Variables
+
+``` python
+rating  # Base rating component
+rating_modifiers  # rating modifiers
+rating_sizes  # rating size variants
 ```
 
 ### resources (`resources.ipynb`)
@@ -1494,6 +2692,56 @@ DAISYUI_COLOR_PROPERTIES = 'https://cdn.jsdelivr.net/npm/daisyui@5/colors/proper
 DAISYUI_COLOR_PROPERTIES_EXT = 'https://cdn.jsdelivr.net/npm/daisyui@5/colors/properties-extended.css'
 ```
 
+### select (`select.ipynb`)
+
+> Select is used to pick a value from a list of options.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.select import (
+    select,
+    select_styles,
+    select_colors,
+    select_sizes,
+    test_select_basic_examples,
+    test_select_styles_examples,
+    test_select_colors_examples,
+    test_select_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_select_basic_examples()
+    "Test basic select utilities."
+```
+
+``` python
+def test_select_styles_examples()
+    "Test select style variants."
+```
+
+``` python
+def test_select_colors_examples()
+    "Test select color variants."
+```
+
+``` python
+def test_select_sizes_examples()
+    "Test select size variants."
+```
+
+#### Variables
+
+``` python
+select  # Base select component
+select_styles  # select style variants
+select_colors  # select color variants
+select_sizes  # select size variants
+```
+
 ### sizes (`sizes.ipynb`)
 
 > Named sizes support for DaisyUI components
@@ -1510,6 +2758,74 @@ from cjm_fasthtml_daisyui.builders.sizes import (
 
 ``` python
 class DaisyUINamedSize(str, Enum):
+```
+
+### skeleton (`skeleton.ipynb`)
+
+> Skeleton is a component that can be used to show a loading state of a
+> component.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.feedback.skeleton import (
+    skeleton,
+    test_skeleton_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_skeleton_basic_examples()
+    "Test basic skeleton utilities."
+```
+
+#### Variables
+
+``` python
+skeleton  # Base skeleton component
+```
+
+### stack (`stack.ipynb`)
+
+> Stack visually puts elements on top of each other.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.layout.stack import (
+    stack,
+    stack_modifiers,
+    StackModifier,
+    test_stack_basic_examples,
+    test_stack_modifiers_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_stack_basic_examples()
+    "Test basic stack utilities."
+```
+
+``` python
+def test_stack_modifiers_examples()
+    "Test stack modifier utilities."
+```
+
+#### Classes
+
+``` python
+class StackModifier(str, Enum):
+```
+
+#### Variables
+
+``` python
+stack  # Base stack component
+stack_modifiers  # stack modifiers
 ```
 
 ### stat (`stat.ipynb`)
@@ -1658,6 +2974,51 @@ def test_status_animation_fasthtml_examples()
 status  # Status icon
 status_colors  # Status color variants
 status_sizes  # Status size variants
+```
+
+### steps (`steps.ipynb`)
+
+> Steps can be used to show a list of steps in a process.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.navigation.steps import (
+    steps,
+    step,
+    step_icon,
+    step_colors,
+    steps_directions,
+    test_steps_basic_examples,
+    test_step_colors_examples,
+    test_steps_directions_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_steps_basic_examples()
+    "Test basic steps utilities."
+```
+
+``` python
+def test_step_colors_examples()
+    "Test step color variants."
+```
+
+``` python
+def test_steps_directions_examples()
+    "Test steps direction utilities."
+```
+
+#### Variables
+
+``` python
+steps  # Base steps component
+step  # step part
+step_icon  # step icon part
+step_colors  # Step color variants
 ```
 
 ### styles (`styles.ipynb`)
@@ -1838,6 +3199,72 @@ table  # Table component
 table_sizes  # Table size variants
 ```
 
+### tabs (`tabs.ipynb`)
+
+> Tabs can be used to show a list of links in a tabbed format.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.navigation.tabs import (
+    tabs,
+    tab,
+    tab_content,
+    tabs_styles,
+    tab_modifiers,
+    tabs_placement,
+    tabs_sizes,
+    BoxStyle,
+    LiftStyle,
+    test_tabs_basic_examples,
+    test_tab_modifiers_examples,
+    test_tab_placement_examples,
+    test_tabs_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_tabs_basic_examples()
+    "Test basic tabs utilities."
+```
+
+``` python
+def test_tab_modifiers_examples()
+    "Test tab modifier utilities."
+```
+
+``` python
+def test_tab_placement_examples()
+    "Test tab modifier utilities."
+```
+
+``` python
+def test_tabs_sizes_examples()
+    "Test tabs size variants."
+```
+
+#### Classes
+
+``` python
+class BoxStyle(str, Enum):
+```
+
+``` python
+class LiftStyle(str, Enum):
+```
+
+#### Variables
+
+``` python
+tabs  # Base tabs component
+tab  # tab part
+tab_content  # tab content part
+tabs_styles  # Tabs style variants
+tabs_sizes  # Tabs size variants
+```
+
 ### testing (`testing.ipynb`)
 
 > Standardized test page creation for Jupyter notebooks with FastHTML
@@ -1902,6 +3329,106 @@ def start_test_server(
         # Later, in another cell:
         server.stop()
     """
+```
+
+### text input (`text_input.ipynb`)
+
+> Text Input is a simple input field.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.text_input import (
+    text_input,
+    text_input_styles,
+    text_input_colors,
+    text_input_sizes,
+    test_text_input_basic_examples,
+    test_text_input_styles_examples,
+    test_text_input_colors_examples,
+    test_text_input_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_text_input_basic_examples()
+    "Test basic text_input utilities."
+```
+
+``` python
+def test_text_input_styles_examples()
+    "Test text_input style variants."
+```
+
+``` python
+def test_text_input_colors_examples()
+    "Test text_input color variants."
+```
+
+``` python
+def test_text_input_sizes_examples()
+    "Test text_input size variants."
+```
+
+#### Variables
+
+``` python
+text_input  # Base text_input component
+text_input_styles  # text_input style variants
+text_input_colors  # text_input color variants
+text_input_sizes  # text_input size variants
+```
+
+### textarea (`textarea.ipynb`)
+
+> Textarea allows users to enter text in multiple lines.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.textarea import (
+    textarea,
+    textarea_styles,
+    textarea_colors,
+    textarea_sizes,
+    test_textarea_basic_examples,
+    test_textarea_styles_examples,
+    test_textarea_colors_examples,
+    test_textarea_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_textarea_basic_examples()
+    "Test basic textarea utilities."
+```
+
+``` python
+def test_textarea_styles_examples()
+    "Test textarea style variants."
+```
+
+``` python
+def test_textarea_colors_examples()
+    "Test textarea color variants."
+```
+
+``` python
+def test_textarea_sizes_examples()
+    "Test textarea size variants."
+```
+
+#### Variables
+
+``` python
+textarea  # Base textarea component
+textarea_styles  # textarea style variants
+textarea_colors  # textarea color variants
+textarea_sizes  # textarea size variants
 ```
 
 ### theme controller (`theme_controller.ipynb`)
@@ -2132,6 +3659,154 @@ timeline_middle  # Timeline middle
 timeline_end  # Timeline end
 ```
 
+### toast (`toast.ipynb`)
+
+> Toast is a wrapper to stack elements, positioned on the corner of
+> page.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.feedback.toast import (
+    toast,
+    toast_placement,
+    ToastPlacement,
+    test_toast_basic_examples,
+    test_toast_placement_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_toast_basic_examples()
+    "Test basic toast utilities."
+```
+
+``` python
+def test_toast_placement_examples()
+    "Test toast placement options."
+```
+
+#### Classes
+
+``` python
+class ToastPlacement(str, Enum):
+```
+
+#### Variables
+
+``` python
+toast  # Base toast component
+toast_placement  # toast placement options
+```
+
+### toggle (`toggle.ipynb`)
+
+> Toggle is a checkbox that is styled to look like a switch button.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.toggle import (
+    toggle,
+    toggle_colors,
+    toggle_sizes,
+    test_toggle_basic_examples,
+    test_toggle_colors_examples,
+    test_toggle_sizes_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_toggle_basic_examples()
+    "Test basic toggle utilities."
+```
+
+``` python
+def test_toggle_colors_examples()
+    "Test toggle color variants."
+```
+
+``` python
+def test_toggle_sizes_examples()
+    "Test toggle size variants."
+```
+
+#### Variables
+
+``` python
+toggle  # Base toggle component
+toggle_colors  # toggle color variants
+toggle_sizes  # toggle size variants
+```
+
+### tooltip (`tooltip.ipynb`)
+
+> Tooltip can be used to show a message when hovering over an element.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.feedback.tooltip import (
+    tooltip,
+    tooltip_content,
+    tooltip_placement,
+    tooltip_modifiers,
+    tooltip_colors,
+    TooltipPlacement,
+    TooltipModifier,
+    test_tooltip_basic_examples,
+    test_tooltip_placement_examples,
+    test_tooltip_modifiers_examples,
+    test_tooltip_colors_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_tooltip_basic_examples()
+    "Test basic tooltip utilities."
+```
+
+``` python
+def test_tooltip_placement_examples()
+    "Test tooltip placement options."
+```
+
+``` python
+def test_tooltip_modifiers_examples()
+    "Test tooltip modifier utilities."
+```
+
+``` python
+def test_tooltip_colors_examples()
+    "Test tooltip color variants."
+```
+
+#### Classes
+
+``` python
+class TooltipPlacement(str, Enum):
+```
+
+``` python
+class TooltipModifier(str, Enum):
+```
+
+#### Variables
+
+``` python
+tooltip  # Base tooltip component
+tooltip_content  # Base tooltip content part
+tooltip_placement  # tooltip placement options
+tooltip_modifiers  # tooltip modifiers
+tooltip_colors  # Tooltip color variants
+```
+
 ### utility_classes (`utility_classes.ipynb`)
 
 > daisyUI semantic color utility classes, border radius, and glass
@@ -2257,4 +3932,59 @@ to_dui  # Semantic gradient to color factory
 BORDER_RADIUS_VALUES = {3 items}
 border_radius  # The daisyUI border radius factory
 glass  # Glass morphism effect
+```
+
+### validator (`validator.ipynb`)
+
+> Validator class changes the color of form elements to error or success
+> based on input’s validation rules.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_input.validator import (
+    validator,
+    validator_hint,
+    test_validator_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_validator_basic_examples()
+    "Test basic validator utilities."
+```
+
+#### Variables
+
+``` python
+validator  # Base validator component
+validator_hint  # validator_hint component
+```
+
+### window mockup (`window.ipynb`)
+
+> Window mockup shows a box that looks like an operating system window.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.mockup.window import (
+    mockup_window,
+    test_mockup_window_basic_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_mockup_window_basic_examples()
+    "Test basic mockup_window utilities."
+```
+
+#### Variables
+
+``` python
+mockup_window  # Base mockup window component
 ```
