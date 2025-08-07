@@ -22,11 +22,9 @@ from ...builders.colors import SemanticColorBrand, SemanticColorStatus
 from ...builders.sizes import DaisyUINamedSize
 from ...builders.styles import OutlineStyle, DashStyle, SoftStyle, GhostStyle
 
-
+from fasthtml.common import Div
 from fasthtml.jupyter import JupyUvi, HTMX
 from ...core.testing import create_test_app, create_test_page, start_test_server
-
-from fasthtml.common import Div
 from ...core.themes import DaisyUITheme
 from IPython.display import display
 

@@ -26,35 +26,82 @@ pip install cjm-fasthtml-daisyui
     │   ├── colors.ipynb  # Semantic color system builders for daisyUI components
     │   ├── sizes.ipynb   # Named sizes support for DaisyUI components
     │   └── styles.ipynb  # Named style support for daisyUI components
-    ├── components/ (19)
+    ├── components/ (61)
     │   ├── actions/ (5)
     │   │   ├── button.ipynb            # Buttons allow the user to take actions or make choices.
     │   │   ├── dropdown.ipynb          # Dropdown can open a menu or any other element when the button is clicked.
     │   │   ├── modal.ipynb             # Modal is used to show a dialog or a box when you click a button.
     │   │   ├── swap.ipynb              # Swap allows you to toggle the visibility of two elements using a checkbox or a class name.
     │   │   └── theme_controller.ipynb  # If a checked checkbox input or a checked radio input with theme-controller class exists in the page, The page will have the same theme as that input's value.
-    │   └── data_display/ (14)
-    │       ├── accordion_collapse.ipynb  # Accordion is used for showing and hiding content but only one item can stay open at a time. Collapse is used for showing and hiding content.
-    │       ├── avatar.ipynb              # Avatars are used to show a thumbnail representation of an individual or business in the interface.
-    │       ├── badge.ipynb               # Badges are used to inform the user of the status of specific data.
-    │       ├── card.ipynb                # Cards are used to group and display content in a way that is easily readable.
-    │       ├── carousel.ipynb            # Carousel shows images or content in a scrollable area.
-    │       ├── chat_bubble.ipynb         # Chat bubbles are used to show one line of conversation and all its data, including the author image, author name, time, etc.
-    │       ├── countdown.ipynb           # Countdown gives you a transition effect when you change a number between 0 to 99.
-    │       ├── diff.ipynb                # Diff component shows a side-by-side comparison of two items.
-    │       ├── kbd.ipynb                 # Kbd is used to display keyboard shortcuts.
-    │       ├── list.ipynb                # List is a vertical layout to display information in rows.
-    │       ├── stat.ipynb                # Stat is used to show numbers and data in a block.
-    │       ├── status.ipynb              # Status is a really small icon to visually show the current status of an element, like online, offline, error, etc.
-    │       ├── table.ipynb               # Table can be used to show a list of data in a table format.
-    │       └── timeline.ipynb            # Timeline component shows a list of events in chronological order.
+    │   ├── data_display/ (15)
+    │   │   ├── accordion_collapse.ipynb  # Accordion is used for showing and hiding content but only one item can stay open at a time.
+    │   │   ├── avatar.ipynb              # Avatars are used to show a thumbnail representation of an individual or business in the interface.
+    │   │   ├── badge.ipynb               # Badges are used to inform the user of the status of specific data.
+    │   │   ├── card.ipynb                # Cards are used to group and display content in a way that is easily readable.
+    │   │   ├── carousel.ipynb            # Carousel shows images or content in a scrollable area.
+    │   │   ├── chat_bubble.ipynb         # Chat bubbles are used to show one line of conversation and all its data, including the author image, author name, time, etc.
+    │   │   ├── collapse.ipynb            # Collapse is used for showing and hiding content.
+    │   │   ├── countdown.ipynb           # Countdown gives you a transition effect when you change a number between 0 to 99.
+    │   │   ├── diff.ipynb                # Diff component shows a side-by-side comparison of two items.
+    │   │   ├── kbd.ipynb                 # Kbd is used to display keyboard shortcuts.
+    │   │   ├── list.ipynb                # List is a vertical layout to display information in rows.
+    │   │   ├── stat.ipynb                # Stat is used to show numbers and data in a block.
+    │   │   ├── status.ipynb              # Status is a really small icon to visually show the current status of an element, like online, offline, error, etc.
+    │   │   ├── table.ipynb               # Table can be used to show a list of data in a table format.
+    │   │   └── timeline.ipynb            # Timeline component shows a list of events in chronological order.
+    │   ├── data_input/ (14)
+    │   │   ├── calendar.ipynb    # Calendar includes styles for different calendar libraries.
+    │   │   ├── checkbox.ipynb    # Checkboxes are used to select or deselect a value.
+    │   │   ├── fieldset.ipynb    # Fieldset is a container for grouping related form elements. It includes fieldset-legend as a title and label as a description.
+    │   │   ├── file_input.ipynb  # File Input is a an input field for uploading files.
+    │   │   ├── filter.ipynb      # Filter is a group of radio buttons. Choosing one of the options will hide the others and shows a reset button next to the chosen option.
+    │   │   ├── label.ipynb       # Label is used to provide a name or title for an input field. Label can be placed before or after the field.
+    │   │   ├── radio.ipynb       # Radio buttons allow the user to select one option from a set.
+    │   │   ├── range.ipynb       # Range slider is used to select a value by sliding a handle.
+    │   │   ├── rating.ipynb      # Rating is a set of radio buttons that allow the user to rate something.
+    │   │   ├── select.ipynb      # Select is used to pick a value from a list of options.
+    │   │   ├── text_input.ipynb  # Text Input is a simple input field.
+    │   │   ├── textarea.ipynb    # Textarea allows users to enter text in multiple lines.
+    │   │   ├── toggle.ipynb      # Toggle is a checkbox that is styled to look like a switch button.
+    │   │   └── validator.ipynb   # Validator class changes the color of form elements to error or success based on input's validation rules.
+    │   ├── feedback/ (7)
+    │   │   ├── alert.ipynb            # Alert informs users about important events.
+    │   │   ├── loading.ipynb          # Loading shows an animation to indicate that something is loading.
+    │   │   ├── progress.ipynb         # Progress bar can be used to show the progress of a task or to show the passing of time.
+    │   │   ├── radial_progress.ipynb  # Radial progress can be used to show the progress of a task or to show the passing of time.
+    │   │   ├── skeleton.ipynb         # Skeleton is a component that can be used to show a loading state of a component.
+    │   │   ├── toast.ipynb            # Toast is a wrapper to stack elements, positioned on the corner of page.
+    │   │   └── tooltip.ipynb          # Tooltip can be used to show a message when hovering over an element.
+    │   ├── layout/ (8)
+    │   │   ├── divider.ipynb    # Divider will be used to separate content vertically or horizontally.
+    │   │   ├── drawer.ipynb     # Drawer is a grid layout that can show/hide a sidebar on the left or right side of the page.
+    │   │   ├── footer.ipynb     # Footer can contain logo, copyright notice, and links to other pages.
+    │   │   ├── hero.ipynb       # Hero is a component for displaying a large box or image with a title and description.
+    │   │   ├── indicator.ipynb  # Indicators are used to place an element on the corner of another element.
+    │   │   ├── join.ipynb       # Join is a container for grouping multiple items, it can be used to group buttons, inputs, etc. Join applies border radius to the first and last item. Join can be used to create a horizontal or vertical list of items.
+    │   │   ├── mask.ipynb       # Mask crops the content of the element to common shapes.
+    │   │   └── stack.ipynb      # Stack visually puts elements on top of each other.
+    │   ├── mockup/ (4)
+    │   │   ├── mockup_browser.ipynb  # Browser mockup shows a box that looks like a browser window.
+    │   │   ├── mockup_code.ipynb     # Code mockup is used to show a block of code in a box that looks like a code editor.
+    │   │   ├── mockup_phone.ipynb    # Phone mockup shows a mockup of an iPhone.
+    │   │   └── mockup_window.ipynb   # Window mockup shows a box that looks like an operating system window.
+    │   └── navigation/ (8)
+    │       ├── breadcrumbs.ipynb  # Breadcrumbs helps users to navigate through the website.
+    │       ├── dock.ipynb         # Dock (also know as Bottom navigation or Bottom bar) is a UI element that provides navigation options to the user. Dock sticks to the bottom of the screen.
+    │       ├── link.ipynb         # Link adds the missing underline style to links.
+    │       ├── menu.ipynb         # Menu is used to display a list of links vertically or horizontally.
+    │       ├── navbar.ipynb       # Navbar is used to show a navigation bar on the top of the page..
+    │       ├── pagination.ipynb   # Pagination is a group of buttons that allow the user to navigate between a set of related content.
+    │       ├── steps.ipynb        # Steps can be used to show a list of steps in a process.
+    │       └── tabs.ipynb         # Tabs can be used to show a list of links in a tabbed format.
     └── core/ (4)
         ├── resources.ipynb        # CDN resources and headers for daisyUI and Tailwind CSS
         ├── testing.ipynb          # Standardized test page creation for Jupyter notebooks with FastHTML
         ├── themes.ipynb           # Type-safe theme management for daisyUI
         └── utility_classes.ipynb  # daisyUI semantic color utility classes, border radius, and glass utility classes
 
-Total: 26 notebooks across 3 directories
+Total: 68 notebooks across 3 directories
 
 ## Module Dependencies
 
@@ -68,12 +115,13 @@ graph LR
     components_actions_modal[components.actions.modal<br/>modal]
     components_actions_swap[components.actions.swap<br/>swap]
     components_actions_theme_controller[components.actions.theme_controller<br/>theme controller]
-    components_data_display_accordion_collapse[components.data_display.accordion_collapse<br/>accordion and collapse]
+    components_data_display_accordion[components.data_display.accordion<br/>accordion]
     components_data_display_avatar[components.data_display.avatar<br/>avatar]
     components_data_display_badge[components.data_display.badge<br/>badge]
     components_data_display_card[components.data_display.card<br/>card]
     components_data_display_carousel[components.data_display.carousel<br/>carousel]
     components_data_display_chat_bubble[components.data_display.chat_bubble<br/>chat bubble]
+    components_data_display_collapse[components.data_display.collapse<br/>collapse]
     components_data_display_countdown[components.data_display.countdown<br/>countdown]
     components_data_display_diff[components.data_display.diff<br/>diff]
     components_data_display_kbd[components.data_display.kbd<br/>kbd]
@@ -82,16 +130,57 @@ graph LR
     components_data_display_status[components.data_display.status<br/>status]
     components_data_display_table[components.data_display.table<br/>table]
     components_data_display_timeline[components.data_display.timeline<br/>timeline]
+    components_data_input_calendar[components.data_input.calendar<br/>calendar]
+    components_data_input_checkbox[components.data_input.checkbox<br/>checkbox]
+    components_data_input_fieldset[components.data_input.fieldset<br/>fieldset]
+    components_data_input_file_input[components.data_input.file_input<br/>file input]
+    components_data_input_filter[components.data_input.filter<br/>filter]
+    components_data_input_label[components.data_input.label<br/>label]
+    components_data_input_radio[components.data_input.radio<br/>radio]
+    components_data_input_range_slider[components.data_input.range_slider<br/>range slider]
+    components_data_input_rating[components.data_input.rating<br/>rating]
+    components_data_input_select[components.data_input.select<br/>select]
+    components_data_input_text_input[components.data_input.text_input<br/>text input]
+    components_data_input_text_area[components.data_input.text_area<br/>textarea]
+    components_data_input_toggle[components.data_input.toggle<br/>toggle]
+    components_data_input_validator[components.data_input.validator<br/>validator]
+    components_feedback_alert[components.feedback.alert<br/>alert]
+    components_feedback_loading[components.feedback.loading<br/>loading]
+    components_feedback_progress[components.feedback.progress<br/>progress]
+    components_feedback_radial_progress[components.feedback.radial_progress<br/>radial progress]
+    components_feedback_skeleton[components.feedback.skeleton<br/>skeleton]
+    components_feedback_toast[components.feedback.toast<br/>toast]
+    components_feedback_tooltip[components.feedback.tooltip<br/>tooltip]
+    components_layout_divider[components.layout.divider<br/>divider]
+    components_layout_drawer[components.layout.drawer<br/>drawer]
+    components_layout_footer[components.layout.footer<br/>footer]
+    components_layout_hero[components.layout.hero<br/>hero]
+    components_layout_indicator[components.layout.indicator<br/>indicator]
+    components_layout_join[components.layout.join<br/>join]
+    components_layout_mask[components.layout.mask<br/>mask]
+    components_layout_stack[components.layout.stack<br/>stack]
+    components_mockup_browser[components.mockup.browser<br/>browser mockup]
+    components_mockup_code[components.mockup.code<br/>code mockup]
+    components_mockup_phone[components.mockup.phone<br/>phone mockup]
+    components_mockup_window[components.mockup.window<br/>window mockup]
+    components_navigation_breadcrumbs[components.navigation.breadcrumbs<br/>breadcrumbs]
+    components_navigation_dock[components.navigation.dock<br/>dock]
+    components_navigation_link[components.navigation.link<br/>link]
+    components_navigation_menu[components.navigation.menu<br/>menu]
+    components_navigation_navbar[components.navigation.navbar<br/>navbar]
+    components_navigation_pagination[components.navigation.pagination<br/>pagination]
+    components_navigation_steps[components.navigation.steps<br/>steps]
+    components_navigation_tabs[components.navigation.tabs<br/>tabs]
     core_resources[core.resources<br/>resources]
     core_testing[core.testing<br/>testing]
     core_themes[core.themes<br/>themes]
     core_utility_classes[core.utility_classes<br/>utility_classes]
 
-    components_actions_button --> core_testing
-    components_actions_button --> builders_sizes
     components_actions_button --> builders_colors
     components_actions_button --> builders_styles
+    components_actions_button --> core_testing
     components_actions_button --> core_themes
+    components_actions_button --> builders_sizes
     components_actions_dropdown --> core_themes
     components_actions_dropdown --> core_testing
     components_actions_modal --> core_themes
@@ -100,52 +189,137 @@ graph LR
     components_actions_swap --> core_testing
     components_actions_theme_controller --> core_themes
     components_actions_theme_controller --> core_testing
-    components_data_display_accordion_collapse --> core_testing
-    components_data_display_accordion_collapse --> core_themes
+    components_data_display_accordion --> core_testing
+    components_data_display_accordion --> core_themes
+    components_data_display_accordion --> components_data_display_collapse
     components_data_display_avatar --> core_testing
     components_data_display_avatar --> core_themes
-    components_data_display_badge --> core_testing
-    components_data_display_badge --> builders_sizes
     components_data_display_badge --> builders_colors
     components_data_display_badge --> builders_styles
+    components_data_display_badge --> core_testing
     components_data_display_badge --> core_themes
-    components_data_display_card --> core_testing
-    components_data_display_card --> builders_sizes
+    components_data_display_badge --> builders_sizes
     components_data_display_card --> builders_styles
+    components_data_display_card --> core_testing
     components_data_display_card --> core_themes
+    components_data_display_card --> builders_sizes
     components_data_display_carousel --> core_testing
     components_data_display_carousel --> core_themes
-    components_data_display_chat_bubble --> core_testing
     components_data_display_chat_bubble --> builders_colors
+    components_data_display_chat_bubble --> core_testing
     components_data_display_chat_bubble --> core_themes
+    components_data_display_collapse --> core_testing
+    components_data_display_collapse --> core_themes
     components_data_display_countdown --> core_testing
     components_data_display_countdown --> core_themes
     components_data_display_diff --> core_testing
     components_data_display_diff --> core_themes
     components_data_display_kbd --> core_testing
-    components_data_display_kbd --> builders_sizes
     components_data_display_kbd --> core_themes
+    components_data_display_kbd --> builders_sizes
     components_data_display_list --> core_testing
     components_data_display_list --> core_themes
     components_data_display_stat --> core_testing
     components_data_display_stat --> core_themes
-    components_data_display_status --> core_testing
-    components_data_display_status --> builders_sizes
     components_data_display_status --> builders_colors
+    components_data_display_status --> core_testing
     components_data_display_status --> core_themes
+    components_data_display_status --> builders_sizes
     components_data_display_table --> core_testing
-    components_data_display_table --> builders_sizes
     components_data_display_table --> core_themes
+    components_data_display_table --> builders_sizes
     components_data_display_timeline --> core_testing
     components_data_display_timeline --> core_themes
-    core_testing --> core_utility_classes
-    core_testing --> core_themes
-    core_testing --> core_resources
+    components_data_input_calendar --> core_themes
+    components_data_input_calendar --> core_testing
+    components_data_input_checkbox --> core_themes
+    components_data_input_checkbox --> core_testing
+    components_data_input_fieldset --> core_themes
+    components_data_input_fieldset --> core_testing
+    components_data_input_file_input --> core_themes
+    components_data_input_file_input --> core_testing
+    components_data_input_filter --> core_themes
+    components_data_input_filter --> core_testing
+    components_data_input_label --> core_themes
+    components_data_input_label --> core_testing
+    components_data_input_radio --> core_themes
+    components_data_input_radio --> core_testing
+    components_data_input_range_slider --> core_themes
+    components_data_input_range_slider --> core_testing
+    components_data_input_rating --> core_themes
+    components_data_input_rating --> core_testing
+    components_data_input_select --> core_themes
+    components_data_input_select --> core_testing
+    components_data_input_text_input --> core_themes
+    components_data_input_text_input --> core_testing
+    components_data_input_text_area --> core_themes
+    components_data_input_text_area --> core_testing
+    components_data_input_toggle --> core_themes
+    components_data_input_toggle --> core_testing
+    components_data_input_validator --> core_themes
+    components_data_input_validator --> core_testing
+    components_feedback_alert --> core_themes
+    components_feedback_alert --> core_testing
+    components_feedback_loading --> core_themes
+    components_feedback_loading --> core_testing
+    components_feedback_progress --> core_themes
+    components_feedback_progress --> core_testing
+    components_feedback_radial_progress --> core_themes
+    components_feedback_radial_progress --> core_testing
+    components_feedback_skeleton --> core_themes
+    components_feedback_skeleton --> core_testing
+    components_feedback_toast --> core_themes
+    components_feedback_toast --> core_testing
+    components_feedback_tooltip --> core_themes
+    components_feedback_tooltip --> core_testing
+    components_layout_divider --> core_themes
+    components_layout_divider --> core_testing
+    components_layout_drawer --> core_themes
+    components_layout_drawer --> core_testing
+    components_layout_footer --> core_themes
+    components_layout_footer --> core_testing
+    components_layout_hero --> core_themes
+    components_layout_hero --> core_testing
+    components_layout_indicator --> core_themes
+    components_layout_indicator --> core_testing
+    components_layout_join --> core_themes
+    components_layout_join --> core_testing
+    components_layout_mask --> core_themes
+    components_layout_mask --> core_testing
+    components_layout_stack --> core_themes
+    components_layout_stack --> core_testing
+    components_mockup_browser --> core_themes
+    components_mockup_browser --> core_testing
+    components_mockup_code --> core_themes
+    components_mockup_code --> core_testing
+    components_mockup_phone --> core_themes
+    components_mockup_phone --> core_testing
+    components_mockup_window --> core_themes
+    components_mockup_window --> core_testing
+    components_navigation_breadcrumbs --> core_themes
+    components_navigation_breadcrumbs --> core_testing
+    components_navigation_dock --> core_themes
+    components_navigation_dock --> core_testing
+    components_navigation_link --> core_themes
+    components_navigation_link --> core_testing
+    components_navigation_menu --> core_themes
+    components_navigation_menu --> core_testing
+    components_navigation_navbar --> core_themes
+    components_navigation_navbar --> core_testing
+    components_navigation_pagination --> core_themes
+    components_navigation_pagination --> core_testing
+    components_navigation_steps --> core_themes
+    components_navigation_steps --> core_testing
+    components_navigation_tabs --> core_themes
+    components_navigation_tabs --> core_testing
     core_testing --> components_actions_button
+    core_testing --> core_themes
+    core_testing --> core_utility_classes
+    core_testing --> core_resources
     core_utility_classes --> builders_colors
 ```
 
-*56 cross-module dependencies detected*
+*141 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -155,30 +329,15 @@ No CLI commands found in this project.
 
 Detailed documentation for each module in the project:
 
-### accordion and collapse (`accordion_collapse.ipynb`)
+### accordion (`accordion_collapse.ipynb`)
 
 > Accordion is used for showing and hiding content but only one item can
-> stay open at a time. Collapse is used for showing and hiding content.
+> stay open at a time.
 
 #### Import
 
 ``` python
-from cjm_fasthtml_daisyui.components.data_display.accordion_collapse import (
-    collapse,
-    collapse_title,
-    collapse_content,
-    collapse_modifiers,
-    test_accordion_basic_examples,
-    test_accordion_modifiers_examples,
-    test_accordion_basic_fasthtml_examples,
-    test_accordion_arrow_fasthtml_examples,
-    test_accordion_plus_fasthtml_examples,
-    test_accordion_join_fasthtml_examples,
-    test_collapse_basic_fasthtml_examples,
-    test_collapse_style_fasthtml_examples,
-    test_collapse_state_fasthtml_examples,
-    test_collapse_color_fasthtml_examples
-)
+# No corresponding Python module found for components.data_display.accordion_collapse
 ```
 
 #### Functions
@@ -211,34 +370,6 @@ def test_accordion_plus_fasthtml_examples()
 ``` python
 def test_accordion_join_fasthtml_examples()
     "Test accordion with join from daisyUI v5 documentation."
-```
-
-``` python
-def test_collapse_basic_fasthtml_examples()
-    "Test basic collapse examples: focus, checkbox, and details/summary from daisyUI v5 documentation."
-```
-
-``` python
-def test_collapse_style_fasthtml_examples()
-    "Test collapse style examples: without border/background, with arrow icon, with plus/minus icon from daisyUI v5 documentation."
-```
-
-``` python
-def test_collapse_state_fasthtml_examples()
-    "Test collapse state examples: force open and force close from daisyUI v5 documentation."
-```
-
-``` python
-def test_collapse_color_fasthtml_examples()
-    "Test collapse color examples: custom colors for focus and checkbox from daisyUI v5 documentation."
-```
-
-#### Variables
-
-``` python
-collapse  # Collapse container
-collapse_title  # Collapse title
-collapse_content  # Collapse content
 ```
 
 ### avatar (`avatar.ipynb`)
@@ -712,6 +843,67 @@ chat_header  # Chat header
 chat_footer  # Chat footer
 chat_bubble  # Chat bubble
 chat_bubble_colors  # Chat bubble color variants
+```
+
+### collapse (`collapse.ipynb`)
+
+> Collapse is used for showing and hiding content.
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.data_display.collapse import (
+    collapse,
+    collapse_title,
+    collapse_content,
+    collapse_modifiers,
+    test_collapse_basic_examples,
+    test_collapse_modifiers_examples,
+    test_collapse_basic_fasthtml_examples,
+    test_collapse_style_fasthtml_examples,
+    test_collapse_state_fasthtml_examples,
+    test_collapse_color_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_collapse_basic_examples()
+    "Test basic collapse utilities."
+```
+
+``` python
+def test_collapse_modifiers_examples()
+    "Test collapse modifier utilities."
+```
+
+``` python
+def test_collapse_basic_fasthtml_examples()
+    "Test basic collapse examples: focus, checkbox, and details/summary from daisyUI v5 documentation."
+```
+
+``` python
+def test_collapse_style_fasthtml_examples()
+    "Test collapse style examples: without border/background, with arrow icon, with plus/minus icon from daisyUI v5 documentation."
+```
+
+``` python
+def test_collapse_state_fasthtml_examples()
+    "Test collapse state examples: force open and force close from daisyUI v5 documentation."
+```
+
+``` python
+def test_collapse_color_fasthtml_examples()
+    "Test collapse color examples: custom colors for focus and checkbox from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+collapse  # Collapse container
+collapse_title  # Collapse title
+collapse_content  # Collapse content
 ```
 
 ### colors (`colors.ipynb`)
