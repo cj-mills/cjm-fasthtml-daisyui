@@ -210,7 +210,7 @@ def test_modal_dialog_fasthtml_examples():
     )
 
 # Run the tests
-test_modal_dialog_fasthtml_examples();
+test_modal_dialog_fasthtml_examples()
 
 # %% ../../../nbs/components/actions/modal.ipynb 15
 def test_modal_checkbox_fasthtml_examples():
@@ -287,7 +287,7 @@ def test_modal_checkbox_fasthtml_examples():
     )
 
 # Run the tests
-test_modal_checkbox_fasthtml_examples();
+test_modal_checkbox_fasthtml_examples()
 
 # %% ../../../nbs/components/actions/modal.ipynb 17
 def test_modal_anchor_fasthtml_examples():
@@ -348,4 +348,4 @@ def test_modal_anchor_fasthtml_examples():
     )
 
 # Run the tests
-test_modal_anchor_fasthtml_examples();
+test_modal_anchor_fasthtml_examples()

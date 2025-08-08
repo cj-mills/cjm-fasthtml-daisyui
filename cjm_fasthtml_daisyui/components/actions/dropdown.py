@@ -178,7 +178,7 @@ def test_dropdown_basic_fasthtml_examples():
     )
 
 # Run the tests
-test_dropdown_basic_fasthtml_examples();
+test_dropdown_basic_fasthtml_examples()
 
 # %% ../../../nbs/components/actions/dropdown.ipynb 16
 def test_dropdown_placement_fasthtml_examples():
@@ -358,7 +358,7 @@ def test_dropdown_placement_fasthtml_examples():
     )
 
 # Run the tests
-test_dropdown_placement_fasthtml_examples();
+test_dropdown_placement_fasthtml_examples()
 
 # %% ../../../nbs/components/actions/dropdown.ipynb 18
 def test_dropdown_hover_and_state_fasthtml_examples():
@@ -424,7 +424,7 @@ def test_dropdown_hover_and_state_fasthtml_examples():
     )
 
 # Run the tests
-test_dropdown_hover_and_state_fasthtml_examples();
+test_dropdown_hover_and_state_fasthtml_examples()
 
 # %% ../../../nbs/components/actions/dropdown.ipynb 20
 def test_dropdown_content_variations_fasthtml_examples():
@@ -577,4 +577,4 @@ def test_dropdown_content_variations_fasthtml_examples():
     )
 
 # Run the tests
-test_dropdown_content_variations_fasthtml_examples();
+test_dropdown_content_variations_fasthtml_examples()

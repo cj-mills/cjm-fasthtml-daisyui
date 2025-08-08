@@ -107,7 +107,7 @@ def test_theme_controller_basic_fasthtml_examples():
     )
 
 # Run the tests
-test_theme_controller_basic_fasthtml_examples();
+test_theme_controller_basic_fasthtml_examples()
 
 # %% ../../../nbs/components/actions/theme_controller.ipynb 10
 def test_theme_controller_swap_fasthtml_examples():
@@ -165,7 +165,7 @@ def test_theme_controller_swap_fasthtml_examples():
     )
 
 # Run the tests
-test_theme_controller_swap_fasthtml_examples();
+test_theme_controller_swap_fasthtml_examples()
 
 # %% ../../../nbs/components/actions/theme_controller.ipynb 12
 def test_theme_controller_radio_fasthtml_examples():
@@ -302,7 +302,7 @@ def test_theme_controller_radio_fasthtml_examples():
     )
 
 # Run the tests
-test_theme_controller_radio_fasthtml_examples();
+test_theme_controller_radio_fasthtml_examples()
 
 # %% ../../../nbs/components/actions/theme_controller.ipynb 14
 def test_theme_controller_advanced_fasthtml_examples():
@@ -483,4 +483,4 @@ def test_theme_controller_advanced_fasthtml_examples():
     )
 
 # Run the tests
-test_theme_controller_advanced_fasthtml_examples();
+test_theme_controller_advanced_fasthtml_examples()

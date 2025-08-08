@@ -2,8 +2,91 @@ website:
   sidebar:
     contents:
       - index.ipynb
+      - section: builders
+        contents:
+          - builders/colors.ipynb
+          - builders/sizes.ipynb
+          - builders/styles.ipynb
+      - section: components
+        contents:
+          - section: actions
+            contents:
+              - components/actions/button.ipynb
+              - components/actions/dropdown.ipynb
+              - components/actions/modal.ipynb
+              - components/actions/swap.ipynb
+              - components/actions/theme_controller.ipynb
+          - section: data_display
+            contents:
+              - components/data_display/accordion.ipynb
+              - components/data_display/avatar.ipynb
+              - components/data_display/badge.ipynb
+              - components/data_display/card.ipynb
+              - components/data_display/carousel.ipynb
+              - components/data_display/chat_bubble.ipynb
+              - components/data_display/collapse.ipynb
+              - components/data_display/countdown.ipynb
+              - components/data_display/diff.ipynb
+              - components/data_display/kbd.ipynb
+              - components/data_display/list.ipynb
+              - components/data_display/stat.ipynb
+              - components/data_display/status.ipynb
+              - components/data_display/table.ipynb
+              - components/data_display/timeline.ipynb
+          - section: data_input
+            contents:
+              - components/data_input/calendar.ipynb
+              - components/data_input/checkbox.ipynb
+              - components/data_input/fieldset.ipynb
+              - components/data_input/file_input.ipynb
+              - components/data_input/filter.ipynb
+              - components/data_input/label.ipynb
+              - components/data_input/radio.ipynb
+              - components/data_input/range.ipynb
+              - components/data_input/rating.ipynb
+              - components/data_input/select.ipynb
+              - components/data_input/text_input.ipynb
+              - components/data_input/textarea.ipynb
+              - components/data_input/toggle.ipynb
+              - components/data_input/validator.ipynb
+          - section: feedback
+            contents:
+              - components/feedback/alert.ipynb
+              - components/feedback/loading.ipynb
+              - components/feedback/progress.ipynb
+              - components/feedback/radial_progress.ipynb
+              - components/feedback/skeleton.ipynb
+              - components/feedback/toast.ipynb
+              - components/feedback/tooltip.ipynb
+          - section: layout
+            contents:
+              - components/layout/divider.ipynb
+              - components/layout/drawer.ipynb
+              - components/layout/footer.ipynb
+              - components/layout/hero.ipynb
+              - components/layout/indicator.ipynb
+              - components/layout/join.ipynb
+              - components/layout/mask.ipynb
+              - components/layout/stack.ipynb
+          - section: mockup
+            contents:
+              - components/mockup/browser.ipynb
+              - components/mockup/code.ipynb
+              - components/mockup/phone.ipynb
+              - components/mockup/window.ipynb
+          - section: navigation
+            contents:
+              - components/navigation/breadcrumbs.ipynb
+              - components/navigation/dock.ipynb
+              - components/navigation/link.ipynb
+              - components/navigation/menu.ipynb
+              - components/navigation/navbar.ipynb
+              - components/navigation/pagination.ipynb
+              - components/navigation/steps.ipynb
+              - components/navigation/tabs.ipynb
       - section: core
         contents:
           - core/resources.ipynb
           - core/testing.ipynb
           - core/themes.ipynb
+          - core/utility_classes.ipynb

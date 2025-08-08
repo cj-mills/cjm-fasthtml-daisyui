@@ -147,7 +147,7 @@ def test_avatar_basic_fasthtml_examples():
 # Run the tests
 test_avatar_basic_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/avatar.ipynb 12
+# %% ../../../nbs/components/data_display/avatar.ipynb 13
 def test_avatar_rounded_and_mask_fasthtml_examples():
     """Test avatar rounded and avatar with mask from daisyUI v5 documentation."""
     from fasthtml.common import Div, Img
@@ -223,7 +223,7 @@ def test_avatar_rounded_and_mask_fasthtml_examples():
 # Run the tests
 test_avatar_rounded_and_mask_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/avatar.ipynb 13
+# %% ../../../nbs/components/data_display/avatar.ipynb 15
 def test_avatar_group_fasthtml_examples():
     """Test avatar group and avatar group with counter from daisyUI v5 documentation."""
     from fasthtml.common import Div, Img, Span
@@ -325,7 +325,7 @@ def test_avatar_group_fasthtml_examples():
 # Run the tests
 test_avatar_group_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/avatar.ipynb 14
+# %% ../../../nbs/components/data_display/avatar.ipynb 17
 def test_avatar_ring_and_presence_fasthtml_examples():
     """Test avatar with ring and avatar with presence indicator from daisyUI v5 documentation."""
     from fasthtml.common import Div, Img
@@ -344,7 +344,6 @@ def test_avatar_ring_and_presence_fasthtml_examples():
                 w._24,
                 rounded.full,
                 ring._2,
-                "ring-offset-2"
             )
         ),
         cls=str(avatar)
@@ -356,7 +355,6 @@ def test_avatar_ring_and_presence_fasthtml_examples():
     assert "w-24" in ring_div.attrs['class']
     assert "rounded-full" in ring_div.attrs['class']
     assert "ring-2" in ring_div.attrs['class']
-    assert "ring-offset-2" in ring_div.attrs['class']
     assert ring_div.children[0].attrs['src'] == "https://img.daisyui.com/images/profile/demo/spiderperson@192.webp"
     
     # Avatar with presence indicator - online
@@ -395,7 +393,7 @@ def test_avatar_ring_and_presence_fasthtml_examples():
 # Run the tests
 test_avatar_ring_and_presence_fasthtml_examples()
 
-# %% ../../../nbs/components/data_display/avatar.ipynb 15
+# %% ../../../nbs/components/data_display/avatar.ipynb 19
 def test_avatar_placeholder_fasthtml_examples():
     """Test avatar placeholder from daisyUI v5 documentation."""
     from fasthtml.common import Div, Span

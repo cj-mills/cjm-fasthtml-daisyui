@@ -128,7 +128,7 @@ def test_swap_basic_fasthtml_examples():
     )
 
 # Run the tests
-test_swap_basic_fasthtml_examples();
+test_swap_basic_fasthtml_examples()
 
 # %% ../../../nbs/components/actions/swap.ipynb 13
 def test_swap_effects_fasthtml_examples():
@@ -193,7 +193,7 @@ def test_swap_effects_fasthtml_examples():
     )
 
 # Run the tests
-test_swap_effects_fasthtml_examples();
+test_swap_effects_fasthtml_examples()
 
 # %% ../../../nbs/components/actions/swap.ipynb 15
 def test_swap_advanced_fasthtml_examples():
@@ -283,4 +283,4 @@ def test_swap_advanced_fasthtml_examples():
     )
 
 # Run the tests
-test_swap_advanced_fasthtml_examples();
+test_swap_advanced_fasthtml_examples()
