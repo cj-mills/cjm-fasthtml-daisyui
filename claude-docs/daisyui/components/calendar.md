@@ -53,3 +53,16 @@ import "cally";
 </div>
 ```
 
+## 2. Pikaday Calendar
+
+Pikaday is a JS datepicker library and you can use it from CDN or as a JS dependency[Read the docs](https://github.com/Pikaday/Pikaday)
+
+### Pikaday CDN Example
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+<input type="text" class="input pika-single" id="myDatepicker">
+<script>
+  var picker = new Pikaday({ field: document.getElementById('myDatepicker') });
+</script>
+```

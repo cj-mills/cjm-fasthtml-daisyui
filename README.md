@@ -176,11 +176,11 @@ graph LR
     core_themes[core.themes<br/>themes]
     core_utility_classes[core.utility_classes<br/>utility_classes]
 
-    components_actions_button --> builders_styles
     components_actions_button --> builders_colors
+    components_actions_button --> builders_styles
+    components_actions_button --> builders_sizes
     components_actions_button --> core_testing
     components_actions_button --> core_themes
-    components_actions_button --> builders_sizes
     components_actions_dropdown --> core_testing
     components_actions_dropdown --> core_themes
     components_actions_modal --> core_testing
@@ -194,15 +194,15 @@ graph LR
     components_data_display_accordion --> core_themes
     components_data_display_avatar --> core_testing
     components_data_display_avatar --> core_themes
-    components_data_display_badge --> builders_styles
     components_data_display_badge --> builders_colors
+    components_data_display_badge --> builders_styles
+    components_data_display_badge --> builders_sizes
     components_data_display_badge --> core_testing
     components_data_display_badge --> core_themes
-    components_data_display_badge --> builders_sizes
-    components_data_display_card --> core_testing
     components_data_display_card --> builders_styles
-    components_data_display_card --> core_themes
     components_data_display_card --> builders_sizes
+    components_data_display_card --> core_testing
+    components_data_display_card --> core_themes
     components_data_display_carousel --> core_testing
     components_data_display_carousel --> core_themes
     components_data_display_chat_bubble --> builders_colors
@@ -214,80 +214,80 @@ graph LR
     components_data_display_countdown --> core_themes
     components_data_display_diff --> core_testing
     components_data_display_diff --> core_themes
+    components_data_display_kbd --> builders_sizes
     components_data_display_kbd --> core_testing
     components_data_display_kbd --> core_themes
-    components_data_display_kbd --> builders_sizes
     components_data_display_list --> core_testing
     components_data_display_list --> core_themes
     components_data_display_stat --> core_testing
     components_data_display_stat --> core_themes
     components_data_display_status --> builders_colors
+    components_data_display_status --> builders_sizes
     components_data_display_status --> core_testing
     components_data_display_status --> core_themes
-    components_data_display_status --> builders_sizes
+    components_data_display_table --> builders_sizes
     components_data_display_table --> core_testing
     components_data_display_table --> core_themes
-    components_data_display_table --> builders_sizes
     components_data_display_timeline --> core_testing
     components_data_display_timeline --> core_themes
     components_data_input_calendar --> core_testing
     components_data_input_calendar --> core_themes
-    components_data_input_checkbox --> core_testing
     components_data_input_checkbox --> builders_colors
     components_data_input_checkbox --> builders_sizes
+    components_data_input_checkbox --> core_testing
     components_data_input_checkbox --> core_themes
     components_data_input_fieldset --> core_testing
     components_data_input_fieldset --> core_themes
-    components_data_input_file_input --> builders_styles
     components_data_input_file_input --> builders_colors
-    components_data_input_file_input --> core_testing
-    components_data_input_file_input --> core_themes
     components_data_input_file_input --> builders_sizes
+    components_data_input_file_input --> core_testing
+    components_data_input_file_input --> builders_styles
+    components_data_input_file_input --> core_themes
     components_data_input_filter --> core_testing
     components_data_input_filter --> core_themes
     components_data_input_label --> core_testing
     components_data_input_label --> core_themes
-    components_data_input_radio --> core_testing
     components_data_input_radio --> builders_colors
     components_data_input_radio --> builders_sizes
+    components_data_input_radio --> core_testing
     components_data_input_radio --> core_themes
-    components_data_input_range_slider --> core_testing
     components_data_input_range_slider --> builders_colors
     components_data_input_range_slider --> builders_sizes
+    components_data_input_range_slider --> core_testing
     components_data_input_range_slider --> core_themes
-    components_data_input_rating --> core_testing
     components_data_input_rating --> builders_sizes
+    components_data_input_rating --> core_testing
     components_data_input_rating --> core_themes
-    components_data_input_select --> builders_styles
-    components_data_input_select --> core_testing
     components_data_input_select --> builders_colors
     components_data_input_select --> builders_sizes
+    components_data_input_select --> core_testing
     components_data_input_select --> core_themes
-    components_data_input_text_input --> builders_styles
+    components_data_input_select --> builders_styles
     components_data_input_text_input --> builders_colors
-    components_data_input_text_input --> core_testing
-    components_data_input_text_input --> core_themes
     components_data_input_text_input --> builders_sizes
-    components_data_input_textarea --> builders_styles
-    components_data_input_textarea --> core_testing
+    components_data_input_text_input --> core_testing
+    components_data_input_text_input --> builders_styles
+    components_data_input_text_input --> core_themes
     components_data_input_textarea --> builders_colors
     components_data_input_textarea --> builders_sizes
+    components_data_input_textarea --> core_testing
     components_data_input_textarea --> core_themes
-    components_data_input_toggle --> core_testing
+    components_data_input_textarea --> builders_styles
     components_data_input_toggle --> builders_colors
     components_data_input_toggle --> builders_sizes
+    components_data_input_toggle --> core_testing
     components_data_input_toggle --> core_themes
     components_data_input_validator --> core_testing
     components_data_input_validator --> core_themes
-    components_feedback_alert --> builders_styles
     components_feedback_alert --> core_testing
+    components_feedback_alert --> builders_styles
     components_feedback_alert --> builders_colors
     components_feedback_alert --> core_themes
-    components_feedback_loading --> core_testing
     components_feedback_loading --> builders_sizes
+    components_feedback_loading --> core_testing
     components_feedback_loading --> core_themes
-    components_feedback_progress --> core_testing
     components_feedback_progress --> builders_colors
+    components_feedback_progress --> core_testing
     components_feedback_progress --> core_themes
     components_feedback_radial_progress --> core_testing
     components_feedback_radial_progress --> core_themes
@@ -295,11 +295,11 @@ graph LR
     components_feedback_skeleton --> core_themes
     components_feedback_toast --> core_testing
     components_feedback_toast --> core_themes
-    components_feedback_tooltip --> core_testing
     components_feedback_tooltip --> builders_colors
+    components_feedback_tooltip --> core_testing
     components_feedback_tooltip --> core_themes
-    components_layout_divider --> core_testing
     components_layout_divider --> builders_colors
+    components_layout_divider --> core_testing
     components_layout_divider --> core_themes
     components_layout_drawer --> core_testing
     components_layout_drawer --> core_themes
@@ -325,32 +325,32 @@ graph LR
     components_mockup_window --> core_themes
     components_navigation_breadcrumbs --> core_testing
     components_navigation_breadcrumbs --> core_themes
-    components_navigation_dock --> core_testing
     components_navigation_dock --> builders_sizes
+    components_navigation_dock --> core_testing
     components_navigation_dock --> core_themes
-    components_navigation_link --> core_testing
     components_navigation_link --> builders_colors
     components_navigation_link --> builders_sizes
+    components_navigation_link --> core_testing
     components_navigation_link --> core_themes
-    components_navigation_menu --> core_testing
     components_navigation_menu --> builders_sizes
+    components_navigation_menu --> core_testing
     components_navigation_menu --> core_themes
     components_navigation_navbar --> core_testing
     components_navigation_navbar --> core_themes
     components_navigation_pagination --> components_layout_join
     components_navigation_pagination --> core_testing
     components_navigation_pagination --> core_themes
-    components_navigation_steps --> core_testing
     components_navigation_steps --> builders_colors
+    components_navigation_steps --> core_testing
     components_navigation_steps --> core_themes
     components_navigation_tabs --> builders_styles
-    components_navigation_tabs --> core_testing
     components_navigation_tabs --> builders_sizes
+    components_navigation_tabs --> core_testing
     components_navigation_tabs --> core_themes
     core_testing --> core_resources
     core_testing --> core_utility_classes
-    core_testing --> components_actions_button
     core_testing --> core_themes
+    core_testing --> components_actions_button
     core_utility_classes --> builders_colors
 ```
 
@@ -848,7 +848,9 @@ from cjm_fasthtml_daisyui.components.data_input.calendar import (
     pika_single,
     react_day_picker,
     test_calendar_basic_examples,
-    test_calendar_cally_basic_fasthtml_example
+    test_calendar_cally_basic_fasthtml_example,
+    test_cally_date_picker_fasthtml_examples,
+    test_pikaday_calendar_fasthtml_examples
 )
 ```
 
@@ -860,24 +862,18 @@ def test_calendar_basic_examples()
 ```
 
 ``` python
-def test_calendar_cally_basic_fasthtml_example():
-    """Test Cally calendar example from daisyUI v5 documentation."""
-    from fasthtml.common import Div, Script
-    from fasthtml.core import FT
-    from fasthtml.svg import Svg, Path
-    from cjm_fasthtml_tailwind.utilities.sizing import size_util
-    from cjm_fasthtml_tailwind.utilities.svg import fill
-    from cjm_fasthtml_tailwind.utilities.borders import border
-    from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_tailwind.core.base import SingleValueFactory
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
-    
-    # Create rounded-box factory
-    rounded_box = SingleValueFactory('rounded-box', 'Rounded box utility')
-    
-    # Create custom calendar elements using FT
-    def CalendarDate(*children, **kwargs)
+def test_calendar_cally_basic_fasthtml_example()
     "Test Cally calendar example from daisyUI v5 documentation."
+```
+
+``` python
+def test_cally_date_picker_fasthtml_examples()
+    "Test Cally date picker example from daisyUI v5 documentation."
+```
+
+``` python
+def test_pikaday_calendar_fasthtml_examples()
+    "Test Pikaday calendar CDN example from daisyUI v5 documentation."
 ```
 
 #### Variables
