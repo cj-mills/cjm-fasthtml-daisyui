@@ -4,7 +4,10 @@
 
 # %% auto 0
 __all__ = ['mask', 'mask_styles', 'mask_modifiers', 'MaskStyle', 'MaskModifier', 'test_mask_basic_examples',
-           'test_mask_styles_examples', 'test_mask_modifiers_examples']
+           'test_mask_styles_examples', 'test_mask_modifiers_examples',
+           'test_mask_squircle_heart_hexagon_fasthtml_examples',
+           'test_mask_hexagon2_decagon_pentagon_fasthtml_examples', 'test_mask_diamond_square_circle_fasthtml_examples',
+           'test_mask_star_variations_fasthtml_examples', 'test_mask_triangle_variations_fasthtml_examples']
 
 # %% ../../../nbs/components/layout/mask.ipynb 3
 from enum import Enum
@@ -95,3 +98,218 @@ def test_mask_modifiers_examples():
 
 # Run the tests
 test_mask_modifiers_examples()
+
+# %% ../../../nbs/components/layout/mask.ipynb 14
+def test_mask_squircle_heart_hexagon_fasthtml_examples():
+    """Test mask with squircle, heart, and hexagon shapes from daisyUI v5 documentation."""
+    from fasthtml.common import Img, Div
+    
+    # Use the same image source as in documentation
+    img_src = "https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp"
+    
+    # Squircle mask
+    squircle_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.squircle)
+    )
+    assert squircle_mask.tag == "img"
+    assert squircle_mask.attrs['src'] == img_src
+    assert "mask" in squircle_mask.attrs['class']
+    assert "mask-squircle" in squircle_mask.attrs['class']
+    
+    # Heart mask
+    heart_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.heart)
+    )
+    assert heart_mask.tag == "img"
+    assert heart_mask.attrs['src'] == img_src
+    assert "mask" in heart_mask.attrs['class']
+    assert "mask-heart" in heart_mask.attrs['class']
+    
+    # Hexagon mask
+    hexagon_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.hexagon)
+    )
+    assert hexagon_mask.tag == "img"
+    assert hexagon_mask.attrs['src'] == img_src
+    assert "mask" in hexagon_mask.attrs['class']
+    assert "mask-hexagon" in hexagon_mask.attrs['class']
+    
+    return Div(squircle_mask, heart_mask, hexagon_mask)
+
+# Run the tests
+test_mask_squircle_heart_hexagon_fasthtml_examples()
+
+# %% ../../../nbs/components/layout/mask.ipynb 16
+def test_mask_hexagon2_decagon_pentagon_fasthtml_examples():
+    """Test mask with hexagon-2, decagon, and pentagon shapes from daisyUI v5 documentation."""
+    from fasthtml.common import Img, Div
+    
+    # Use the same image source as in documentation
+    img_src = "https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp"
+    
+    # Hexagon-2 mask (horizontal hexagon)
+    hexagon2_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.hexagon_2)
+    )
+    assert hexagon2_mask.tag == "img"
+    assert hexagon2_mask.attrs['src'] == img_src
+    assert "mask" in hexagon2_mask.attrs['class']
+    assert "mask-hexagon-2" in hexagon2_mask.attrs['class']
+    
+    # Decagon mask
+    decagon_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.decagon)
+    )
+    assert decagon_mask.tag == "img"
+    assert decagon_mask.attrs['src'] == img_src
+    assert "mask" in decagon_mask.attrs['class']
+    assert "mask-decagon" in decagon_mask.attrs['class']
+    
+    # Pentagon mask
+    pentagon_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.pentagon)
+    )
+    assert pentagon_mask.tag == "img"
+    assert pentagon_mask.attrs['src'] == img_src
+    assert "mask" in pentagon_mask.attrs['class']
+    assert "mask-pentagon" in pentagon_mask.attrs['class']
+    
+    return Div(hexagon2_mask, decagon_mask, pentagon_mask)
+
+# Run the tests
+test_mask_hexagon2_decagon_pentagon_fasthtml_examples()
+
+# %% ../../../nbs/components/layout/mask.ipynb 18
+def test_mask_diamond_square_circle_fasthtml_examples():
+    """Test mask with diamond, square, and circle shapes from daisyUI v5 documentation."""
+    from fasthtml.common import Img, Div
+    
+    # Use the same image source as in documentation
+    img_src = "https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp"
+    
+    # Diamond mask
+    diamond_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.diamond)
+    )
+    assert diamond_mask.tag == "img"
+    assert diamond_mask.attrs['src'] == img_src
+    assert "mask" in diamond_mask.attrs['class']
+    assert "mask-diamond" in diamond_mask.attrs['class']
+    
+    # Square mask
+    square_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.square)
+    )
+    assert square_mask.tag == "img"
+    assert square_mask.attrs['src'] == img_src
+    assert "mask" in square_mask.attrs['class']
+    assert "mask-square" in square_mask.attrs['class']
+    
+    # Circle mask
+    circle_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.circle)
+    )
+    assert circle_mask.tag == "img"
+    assert circle_mask.attrs['src'] == img_src
+    assert "mask" in circle_mask.attrs['class']
+    assert "mask-circle" in circle_mask.attrs['class']
+    
+    return Div(diamond_mask, square_mask, circle_mask)
+
+# Run the tests
+test_mask_diamond_square_circle_fasthtml_examples()
+
+# %% ../../../nbs/components/layout/mask.ipynb 20
+def test_mask_star_variations_fasthtml_examples():
+    """Test mask with star and star-2 shapes from daisyUI v5 documentation."""
+    from fasthtml.common import Img, Div
+    
+    # Use the same image source as in documentation
+    img_src = "https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp"
+    
+    # Star mask
+    star_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.star)
+    )
+    assert star_mask.tag == "img"
+    assert star_mask.attrs['src'] == img_src
+    assert "mask" in star_mask.attrs['class']
+    assert "mask-star" in star_mask.attrs['class']
+    
+    # Star-2 mask (bold star)
+    star2_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.star_2)
+    )
+    assert star2_mask.tag == "img"
+    assert star2_mask.attrs['src'] == img_src
+    assert "mask" in star2_mask.attrs['class']
+    assert "mask-star-2" in star2_mask.attrs['class']
+    
+    return Div(star_mask, star2_mask)
+
+# Run the tests
+test_mask_star_variations_fasthtml_examples()
+
+# %% ../../../nbs/components/layout/mask.ipynb 22
+def test_mask_triangle_variations_fasthtml_examples():
+    """Test mask with triangle variations from daisyUI v5 documentation."""
+    from fasthtml.common import Img, Div
+    
+    # Use the same image source as in documentation
+    img_src = "https://img.daisyui.com/images/stock/photo-1567653418876-5bb0e566e1c2.webp"
+    
+    # Triangle mask (pointing top)
+    triangle_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.triangle)
+    )
+    assert triangle_mask.tag == "img"
+    assert triangle_mask.attrs['src'] == img_src
+    assert "mask" in triangle_mask.attrs['class']
+    assert "mask-triangle" in triangle_mask.attrs['class']
+    
+    # Triangle-2 mask (pointing down)
+    triangle2_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.triangle_2)
+    )
+    assert triangle2_mask.tag == "img"
+    assert triangle2_mask.attrs['src'] == img_src
+    assert "mask" in triangle2_mask.attrs['class']
+    assert "mask-triangle-2" in triangle2_mask.attrs['class']
+    
+    # Triangle-3 mask (pointing left)
+    triangle3_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.triangle_3)
+    )
+    assert triangle3_mask.tag == "img"
+    assert triangle3_mask.attrs['src'] == img_src
+    assert "mask" in triangle3_mask.attrs['class']
+    assert "mask-triangle-3" in triangle3_mask.attrs['class']
+    
+    # Triangle-4 mask (pointing right)
+    triangle4_mask = Img(
+        src=img_src,
+        cls=combine_classes(mask, mask_styles.triangle_4)
+    )
+    assert triangle4_mask.tag == "img"
+    assert triangle4_mask.attrs['src'] == img_src
+    assert "mask" in triangle4_mask.attrs['class']
+    assert "mask-triangle-4" in triangle4_mask.attrs['class']
+    
+    return Div(triangle_mask, triangle2_mask, triangle3_mask, triangle4_mask)
+
+# Run the tests
+test_mask_triangle_variations_fasthtml_examples()

@@ -1714,6 +1714,10 @@ Validator class changes the color of form elements to error or success based on 
 <div class="validator-hint">Enter valid email address</div>
 ```
 
+> Note: `validator-hint`class will be invisible if it comes after a`validator`class, then if the input is invalid,`validator-hint`will get visible.
+>  `validator-hint`still occupies space even if it's invisible because we don't want a layout shift when the hint appears.
+>  If you prefer to hide the hint when it's not visible, add`hidden`class to`validator-hint`. It will take no space when it's hidden, and if input is invalid, it will appear and take space.
+
 ### Password requirement validator
 
 ```html
