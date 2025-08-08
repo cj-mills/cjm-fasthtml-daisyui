@@ -176,27 +176,27 @@ graph LR
     core_themes[core.themes<br/>themes]
     core_utility_classes[core.utility_classes<br/>utility_classes]
 
-    components_actions_button --> builders_colors
     components_actions_button --> builders_styles
     components_actions_button --> core_themes
+    components_actions_button --> builders_colors
     components_actions_button --> core_testing
     components_actions_button --> builders_sizes
-    components_actions_dropdown --> core_testing
     components_actions_dropdown --> core_themes
-    components_actions_modal --> core_testing
+    components_actions_dropdown --> core_testing
     components_actions_modal --> core_themes
-    components_actions_swap --> core_testing
+    components_actions_modal --> core_testing
     components_actions_swap --> core_themes
-    components_actions_theme_controller --> core_testing
+    components_actions_swap --> core_testing
     components_actions_theme_controller --> core_themes
-    components_data_display_accordion --> core_themes
+    components_actions_theme_controller --> core_testing
     components_data_display_accordion --> components_data_display_collapse
+    components_data_display_accordion --> core_themes
     components_data_display_accordion --> core_testing
     components_data_display_avatar --> core_themes
     components_data_display_avatar --> core_testing
-    components_data_display_badge --> builders_colors
     components_data_display_badge --> builders_styles
     components_data_display_badge --> core_themes
+    components_data_display_badge --> builders_colors
     components_data_display_badge --> core_testing
     components_data_display_badge --> builders_sizes
     components_data_display_card --> builders_styles
@@ -205,8 +205,8 @@ graph LR
     components_data_display_card --> builders_sizes
     components_data_display_carousel --> core_themes
     components_data_display_carousel --> core_testing
-    components_data_display_chat_bubble --> builders_colors
     components_data_display_chat_bubble --> core_themes
+    components_data_display_chat_bubble --> builders_colors
     components_data_display_chat_bubble --> core_testing
     components_data_display_collapse --> core_themes
     components_data_display_collapse --> core_testing
@@ -221,8 +221,8 @@ graph LR
     components_data_display_list --> core_testing
     components_data_display_stat --> core_themes
     components_data_display_stat --> core_testing
-    components_data_display_status --> builders_colors
     components_data_display_status --> core_themes
+    components_data_display_status --> builders_colors
     components_data_display_status --> core_testing
     components_data_display_status --> builders_sizes
     components_data_display_table --> core_themes
@@ -230,126 +230,126 @@ graph LR
     components_data_display_table --> builders_sizes
     components_data_display_timeline --> core_themes
     components_data_display_timeline --> core_testing
-    components_data_input_calendar --> core_testing
     components_data_input_calendar --> core_themes
-    components_data_input_checkbox --> builders_colors
-    components_data_input_checkbox --> core_testing
+    components_data_input_calendar --> core_testing
     components_data_input_checkbox --> core_themes
+    components_data_input_checkbox --> core_testing
+    components_data_input_checkbox --> builders_colors
     components_data_input_checkbox --> builders_sizes
-    components_data_input_fieldset --> core_testing
     components_data_input_fieldset --> core_themes
-    components_data_input_file_input --> builders_colors
-    components_data_input_file_input --> core_themes
-    components_data_input_file_input --> core_testing
+    components_data_input_fieldset --> core_testing
     components_data_input_file_input --> builders_styles
+    components_data_input_file_input --> core_themes
+    components_data_input_file_input --> builders_colors
+    components_data_input_file_input --> core_testing
     components_data_input_file_input --> builders_sizes
-    components_data_input_filter --> core_testing
     components_data_input_filter --> core_themes
-    components_data_input_label --> core_testing
+    components_data_input_filter --> core_testing
     components_data_input_label --> core_themes
-    components_data_input_radio --> builders_colors
-    components_data_input_radio --> core_testing
+    components_data_input_label --> core_testing
     components_data_input_radio --> core_themes
+    components_data_input_radio --> core_testing
+    components_data_input_radio --> builders_colors
     components_data_input_radio --> builders_sizes
-    components_data_input_range_slider --> builders_colors
-    components_data_input_range_slider --> core_testing
     components_data_input_range_slider --> core_themes
+    components_data_input_range_slider --> core_testing
+    components_data_input_range_slider --> builders_colors
     components_data_input_range_slider --> builders_sizes
-    components_data_input_rating --> core_testing
     components_data_input_rating --> core_themes
+    components_data_input_rating --> core_testing
     components_data_input_rating --> builders_sizes
+    components_data_input_select --> core_themes
+    components_data_input_select --> core_testing
     components_data_input_select --> builders_colors
     components_data_input_select --> builders_styles
-    components_data_input_select --> core_testing
-    components_data_input_select --> core_themes
     components_data_input_select --> builders_sizes
-    components_data_input_text_input --> builders_colors
     components_data_input_text_input --> builders_styles
-    components_data_input_text_input --> core_testing
     components_data_input_text_input --> core_themes
+    components_data_input_text_input --> builders_colors
+    components_data_input_text_input --> core_testing
     components_data_input_text_input --> builders_sizes
+    components_data_input_textarea --> core_themes
+    components_data_input_textarea --> core_testing
     components_data_input_textarea --> builders_colors
     components_data_input_textarea --> builders_styles
-    components_data_input_textarea --> core_testing
-    components_data_input_textarea --> core_themes
     components_data_input_textarea --> builders_sizes
-    components_data_input_toggle --> builders_colors
-    components_data_input_toggle --> core_testing
     components_data_input_toggle --> core_themes
+    components_data_input_toggle --> core_testing
+    components_data_input_toggle --> builders_colors
     components_data_input_toggle --> builders_sizes
-    components_data_input_validator --> core_testing
     components_data_input_validator --> core_themes
-    components_feedback_alert --> builders_colors
+    components_data_input_validator --> core_testing
+    components_feedback_alert --> core_themes
     components_feedback_alert --> core_testing
     components_feedback_alert --> builders_styles
-    components_feedback_alert --> core_themes
-    components_feedback_loading --> core_testing
+    components_feedback_alert --> builders_colors
     components_feedback_loading --> core_themes
+    components_feedback_loading --> core_testing
     components_feedback_loading --> builders_sizes
-    components_feedback_progress --> builders_colors
-    components_feedback_progress --> core_testing
     components_feedback_progress --> core_themes
-    components_feedback_radial_progress --> core_testing
+    components_feedback_progress --> core_testing
+    components_feedback_progress --> builders_colors
     components_feedback_radial_progress --> core_themes
-    components_feedback_skeleton --> core_testing
+    components_feedback_radial_progress --> core_testing
     components_feedback_skeleton --> core_themes
-    components_feedback_toast --> core_testing
+    components_feedback_skeleton --> core_testing
     components_feedback_toast --> core_themes
-    components_feedback_tooltip --> builders_colors
-    components_feedback_tooltip --> core_testing
+    components_feedback_toast --> core_testing
     components_feedback_tooltip --> core_themes
-    components_layout_divider --> builders_colors
-    components_layout_divider --> core_testing
+    components_feedback_tooltip --> core_testing
+    components_feedback_tooltip --> builders_colors
     components_layout_divider --> core_themes
-    components_layout_drawer --> core_testing
+    components_layout_divider --> core_testing
+    components_layout_divider --> builders_colors
     components_layout_drawer --> core_themes
+    components_layout_drawer --> core_testing
     components_layout_footer --> core_themes
     components_layout_footer --> core_testing
-    components_layout_hero --> core_testing
     components_layout_hero --> core_themes
-    components_layout_indicator --> core_testing
+    components_layout_hero --> core_testing
     components_layout_indicator --> core_themes
-    components_layout_join --> core_testing
+    components_layout_indicator --> core_testing
     components_layout_join --> core_themes
-    components_layout_mask --> core_testing
+    components_layout_join --> core_testing
     components_layout_mask --> core_themes
-    components_layout_stack --> core_testing
+    components_layout_mask --> core_testing
     components_layout_stack --> core_themes
-    components_mockup_browser --> core_testing
+    components_layout_stack --> core_testing
     components_mockup_browser --> core_themes
-    components_mockup_code --> core_testing
+    components_mockup_browser --> core_testing
     components_mockup_code --> core_themes
-    components_mockup_phone --> core_testing
+    components_mockup_code --> core_testing
     components_mockup_phone --> core_themes
-    components_mockup_window --> core_testing
+    components_mockup_phone --> core_testing
     components_mockup_window --> core_themes
-    components_navigation_breadcrumbs --> core_testing
+    components_mockup_window --> core_testing
     components_navigation_breadcrumbs --> core_themes
-    components_navigation_dock --> core_testing
+    components_navigation_breadcrumbs --> core_testing
     components_navigation_dock --> core_themes
+    components_navigation_dock --> core_testing
     components_navigation_dock --> builders_sizes
-    components_navigation_link --> builders_colors
-    components_navigation_link --> core_testing
     components_navigation_link --> core_themes
+    components_navigation_link --> core_testing
+    components_navigation_link --> builders_colors
     components_navigation_link --> builders_sizes
-    components_navigation_menu --> core_testing
     components_navigation_menu --> core_themes
+    components_navigation_menu --> core_testing
     components_navigation_menu --> builders_sizes
-    components_navigation_navbar --> core_testing
     components_navigation_navbar --> core_themes
+    components_navigation_navbar --> core_testing
+    components_navigation_pagination --> core_themes
     components_navigation_pagination --> components_layout_join
     components_navigation_pagination --> core_testing
-    components_navigation_pagination --> core_themes
-    components_navigation_steps --> builders_colors
-    components_navigation_steps --> core_testing
     components_navigation_steps --> core_themes
-    components_navigation_tabs --> core_testing
-    components_navigation_tabs --> builders_styles
+    components_navigation_steps --> core_testing
+    components_navigation_steps --> builders_colors
     components_navigation_tabs --> core_themes
+    components_navigation_tabs --> core_testing
     components_navigation_tabs --> builders_sizes
+    components_navigation_tabs --> builders_styles
     core_testing --> core_themes
-    core_testing --> components_actions_button
     core_testing --> core_utility_classes
+    core_testing --> components_actions_button
     core_testing --> core_resources
     core_utility_classes --> builders_colors
 ```
@@ -835,7 +835,8 @@ from cjm_fasthtml_daisyui.components.data_input.calendar import (
     cally,
     pika_single,
     react_day_picker,
-    test_calendar_basic_examples
+    test_calendar_basic_examples,
+    test_calendar_cally_basic_fasthtml_example
 )
 ```
 
@@ -844,6 +845,27 @@ from cjm_fasthtml_daisyui.components.data_input.calendar import (
 ``` python
 def test_calendar_basic_examples()
     "Test basic calendar utilities."
+```
+
+``` python
+def test_calendar_cally_basic_fasthtml_example():
+    """Test Cally calendar example from daisyUI v5 documentation."""
+    from fasthtml.common import Div, Script
+    from fasthtml.core import FT
+    from fasthtml.svg import Svg, Path
+    from cjm_fasthtml_tailwind.utilities.sizing import size_util
+    from cjm_fasthtml_tailwind.utilities.svg import fill
+    from cjm_fasthtml_tailwind.utilities.borders import border
+    from cjm_fasthtml_tailwind.utilities.effects import shadow
+    from cjm_fasthtml_tailwind.core.base import SingleValueFactory
+    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    
+    # Create rounded-box factory
+    rounded_box = SingleValueFactory('rounded-box', 'Rounded box utility')
+    
+    # Create custom calendar elements using FT
+    def CalendarDate(*children, **kwargs)
+    "Test Cally calendar example from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -1081,7 +1103,14 @@ from cjm_fasthtml_daisyui.components.data_input.checkbox import (
     checkbox_sizes,
     test_checkbox_basic_examples,
     test_checkbox_colors_examples,
-    test_checkbox_sizes_examples
+    test_checkbox_sizes_examples,
+    test_checkbox_basic_fasthtml_examples,
+    test_checkbox_with_fieldset_fasthtml_examples,
+    test_checkbox_sizes_fasthtml_examples,
+    test_checkbox_colors_fasthtml_examples,
+    test_checkbox_disabled_fasthtml_examples,
+    test_checkbox_indeterminate_fasthtml_examples,
+    test_checkbox_custom_colors_fasthtml_examples
 )
 ```
 
@@ -1100,6 +1129,46 @@ def test_checkbox_colors_examples()
 ``` python
 def test_checkbox_sizes_examples()
     "Test checkbox size variants."
+```
+
+``` python
+def test_checkbox_basic_fasthtml_examples()
+    "Test basic checkbox example from daisyUI v5 documentation."
+```
+
+``` python
+def test_checkbox_with_fieldset_fasthtml_examples()
+    "Test checkbox with fieldset and label from daisyUI v5 documentation."
+```
+
+``` python
+def test_checkbox_sizes_fasthtml_examples()
+    "Test checkbox size variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_checkbox_colors_fasthtml_examples()
+    "Test checkbox color variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_checkbox_disabled_fasthtml_examples()
+    "Test disabled checkbox variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_checkbox_indeterminate_fasthtml_examples():
+    """Test indeterminate checkbox from daisyUI v5 documentation."""
+    from fasthtml.common import Input, Script, Div
+    
+    # Indeterminate checkbox (requires JavaScript to set the state)
+    # Note: The indeterminate state must be set via JavaScript
+    "Test indeterminate checkbox from daisyUI v5 documentation."
+```
+
+``` python
+def test_checkbox_custom_colors_fasthtml_examples()
+    "Test checkbox with custom colors from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -1741,7 +1810,12 @@ from cjm_fasthtml_daisyui.components.data_input.fieldset import (
     fieldset,
     label,
     fieldset_legend,
-    test_fieldset_basic_examples
+    test_fieldset_basic_examples,
+    test_fieldset_basic_fasthtml_examples,
+    test_fieldset_with_background_fasthtml_examples,
+    test_fieldset_multiple_inputs_fasthtml_examples,
+    test_fieldset_join_items_fasthtml_examples,
+    test_fieldset_login_form_fasthtml_examples
 )
 ```
 
@@ -1750,6 +1824,31 @@ from cjm_fasthtml_daisyui.components.data_input.fieldset import (
 ``` python
 def test_fieldset_basic_examples()
     "Test basic fieldset utilities."
+```
+
+``` python
+def test_fieldset_basic_fasthtml_examples()
+    "Test basic fieldset with legend and label from daisyUI v5 documentation."
+```
+
+``` python
+def test_fieldset_with_background_fasthtml_examples()
+    "Test fieldset with background and border from daisyUI v5 documentation."
+```
+
+``` python
+def test_fieldset_multiple_inputs_fasthtml_examples()
+    "Test fieldset with multiple inputs from daisyUI v5 documentation."
+```
+
+``` python
+def test_fieldset_join_items_fasthtml_examples()
+    "Test fieldset with multiple join items from daisyUI v5 documentation."
+```
+
+``` python
+def test_fieldset_login_form_fasthtml_examples()
+    "Test login form with fieldset from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -1775,7 +1874,12 @@ from cjm_fasthtml_daisyui.components.data_input.file_input import (
     test_file_input_basic_examples,
     test_file_input_styles_examples,
     test_file_input_colors_examples,
-    test_file_input_sizes_examples
+    test_file_input_sizes_examples,
+    test_file_input_basic_fasthtml_examples,
+    test_file_input_with_fieldset_fasthtml_examples,
+    test_file_input_sizes_fasthtml_examples,
+    test_file_input_colors_fasthtml_examples,
+    test_file_input_states_fasthtml_examples
 )
 ```
 
@@ -1801,6 +1905,31 @@ def test_file_input_sizes_examples()
     "Test file_input size variants."
 ```
 
+``` python
+def test_file_input_basic_fasthtml_examples()
+    "Test basic file input and ghost style from daisyUI v5 documentation."
+```
+
+``` python
+def test_file_input_with_fieldset_fasthtml_examples()
+    "Test file input with fieldset and label from daisyUI v5 documentation."
+```
+
+``` python
+def test_file_input_sizes_fasthtml_examples()
+    "Test file input size variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_file_input_colors_fasthtml_examples()
+    "Test file input color variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_file_input_states_fasthtml_examples()
+    "Test disabled file input from daisyUI v5 documentation."
+```
+
 #### Variables
 
 ``` python
@@ -1821,7 +1950,9 @@ file_input_sizes  # File input size variants
 from cjm_fasthtml_daisyui.components.data_input.filter import (
     filter_dui,
     filter_dui_reset,
-    test_filter_basic_examples
+    test_filter_basic_examples,
+    test_filter_with_form_fasthtml_examples,
+    test_filter_without_form_fasthtml_examples
 )
 ```
 
@@ -1830,6 +1961,16 @@ from cjm_fasthtml_daisyui.components.data_input.filter import (
 ``` python
 def test_filter_basic_examples()
     "Test basic filter utilities."
+```
+
+``` python
+def test_filter_with_form_fasthtml_examples()
+    "Test filter using HTML form, radio buttons and reset button from daisyUI v5 documentation."
+```
+
+``` python
+def test_filter_without_form_fasthtml_examples()
+    "Test filter without HTML form from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -2079,7 +2220,11 @@ kbd_sizes  # Kbd size variants
 from cjm_fasthtml_daisyui.components.data_input.label import (
     label,
     floating_label,
-    test_label_basic_examples
+    test_label_basic_examples,
+    test_label_for_input_fasthtml_examples,
+    test_label_for_select_and_date_fasthtml_examples,
+    test_floating_label_fasthtml_examples,
+    test_floating_label_sizes_fasthtml_examples
 )
 ```
 
@@ -2088,6 +2233,26 @@ from cjm_fasthtml_daisyui.components.data_input.label import (
 ``` python
 def test_label_basic_examples()
     "Test basic label utilities."
+```
+
+``` python
+def test_label_for_input_fasthtml_examples()
+    "Test label for input examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_label_for_select_and_date_fasthtml_examples()
+    "Test label for select and date input examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_floating_label_fasthtml_examples()
+    "Test floating label example from daisyUI v5 documentation."
+```
+
+``` python
+def test_floating_label_sizes_fasthtml_examples()
+    "Test floating label with different sizes from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -2832,7 +2997,12 @@ from cjm_fasthtml_daisyui.components.data_input.radio import (
     radio_sizes,
     test_radio_basic_examples,
     test_radio_colors_examples,
-    test_radio_sizes_examples
+    test_radio_sizes_examples,
+    test_radio_basic_fasthtml_examples,
+    test_radio_sizes_fasthtml_examples,
+    test_radio_colors_fasthtml_examples,
+    test_radio_disabled_fasthtml_examples,
+    test_radio_custom_colors_fasthtml_examples
 )
 ```
 
@@ -2851,6 +3021,31 @@ def test_radio_colors_examples()
 ``` python
 def test_radio_sizes_examples()
     "Test radio size variants."
+```
+
+``` python
+def test_radio_basic_fasthtml_examples()
+    "Test basic radio button examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_radio_sizes_fasthtml_examples()
+    "Test radio button size variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_radio_colors_fasthtml_examples()
+    "Test radio button color variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_radio_disabled_fasthtml_examples()
+    "Test disabled radio button examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_radio_custom_colors_fasthtml_examples()
+    "Test radio buttons with custom colors from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -2888,6 +3083,31 @@ def test_range_sizes_examples()
     "Test range size variants."
 ```
 
+``` python
+def test_range_basic_fasthtml_examples()
+    "Test basic range slider from daisyUI v5 documentation."
+```
+
+``` python
+def test_range_with_steps_fasthtml_examples()
+    "Test range with steps and measure from daisyUI v5 documentation."
+```
+
+``` python
+def test_range_colors_fasthtml_examples()
+    "Test range color variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_range_sizes_fasthtml_examples()
+    "Test range size variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_range_custom_fasthtml_examples()
+    "Test range with custom color and no fill from daisyUI v5 documentation."
+```
+
 #### Variables
 
 ``` python
@@ -2911,7 +3131,13 @@ from cjm_fasthtml_daisyui.components.data_input.rating import (
     RatingModifier,
     test_rating_basic_examples,
     test_rating_modifiers_examples,
-    test_rating_sizes_examples
+    test_rating_sizes_examples,
+    test_rating_basic_fasthtml_examples,
+    test_rating_readonly_fasthtml_examples,
+    test_rating_with_colors_fasthtml_examples,
+    test_rating_sizes_fasthtml_examples,
+    test_rating_with_hidden_fasthtml_examples,
+    test_rating_half_stars_fasthtml_examples
 )
 ```
 
@@ -2930,6 +3156,36 @@ def test_rating_modifiers_examples()
 ``` python
 def test_rating_sizes_examples()
     "Test rating size variants."
+```
+
+``` python
+def test_rating_basic_fasthtml_examples()
+    "Test basic rating example from daisyUI v5 documentation."
+```
+
+``` python
+def test_rating_readonly_fasthtml_examples()
+    "Test read-only rating from daisyUI v5 documentation."
+```
+
+``` python
+def test_rating_with_colors_fasthtml_examples()
+    "Test rating with different colors from daisyUI v5 documentation."
+```
+
+``` python
+def test_rating_sizes_fasthtml_examples()
+    "Test rating size variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_rating_with_hidden_fasthtml_examples()
+    "Test rating with hidden clear option from daisyUI v5 documentation."
+```
+
+``` python
+def test_rating_half_stars_fasthtml_examples()
+    "Test rating with half stars from daisyUI v5 documentation."
 ```
 
 #### Classes
@@ -3040,7 +3296,11 @@ from cjm_fasthtml_daisyui.components.data_input.select import (
     test_select_basic_examples,
     test_select_styles_examples,
     test_select_colors_examples,
-    test_select_sizes_examples
+    test_select_sizes_examples,
+    test_select_basic_fasthtml_examples,
+    test_select_colors_fasthtml_examples,
+    test_select_sizes_fasthtml_examples,
+    test_select_special_fasthtml_examples
 )
 ```
 
@@ -3064,6 +3324,26 @@ def test_select_colors_examples()
 ``` python
 def test_select_sizes_examples()
     "Test select size variants."
+```
+
+``` python
+def test_select_basic_fasthtml_examples()
+    "Test basic select example from daisyUI v5 documentation."
+```
+
+``` python
+def test_select_colors_fasthtml_examples()
+    "Test select with different color variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_select_sizes_fasthtml_examples()
+    "Test select with different sizes from daisyUI v5 documentation."
+```
+
+``` python
+def test_select_special_fasthtml_examples()
+    "Test select with special styles (ghost, fieldset, disabled) from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -3781,7 +4061,15 @@ from cjm_fasthtml_daisyui.components.data_input.text_input import (
     test_text_input_basic_examples,
     test_text_input_styles_examples,
     test_text_input_colors_examples,
-    test_text_input_sizes_examples
+    test_text_input_sizes_examples,
+    test_text_input_basic_fasthtml_examples,
+    test_text_input_with_labels_fasthtml_examples,
+    test_text_input_styles_and_fieldset_fasthtml_examples,
+    test_text_input_colors_fasthtml_examples,
+    test_text_input_sizes_fasthtml_examples,
+    test_text_input_special_types_fasthtml_examples,
+    test_text_input_validators_part1_fasthtml_examples,
+    test_text_input_validators_part2_fasthtml_examples
 )
 ```
 
@@ -3805,6 +4093,46 @@ def test_text_input_colors_examples()
 ``` python
 def test_text_input_sizes_examples()
     "Test text_input size variants."
+```
+
+``` python
+def test_text_input_basic_fasthtml_examples()
+    "Test basic text input examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_text_input_with_labels_fasthtml_examples()
+    "Test text input with labels from daisyUI v5 documentation."
+```
+
+``` python
+def test_text_input_styles_and_fieldset_fasthtml_examples()
+    "Test text input styles and fieldset from daisyUI v5 documentation."
+```
+
+``` python
+def test_text_input_colors_fasthtml_examples()
+    "Test text input color variants from daisyUI v5 documentation."
+```
+
+``` python
+def test_text_input_sizes_fasthtml_examples()
+    "Test text input size variants from daisyUI v5 documentation."
+```
+
+``` python
+def test_text_input_special_types_fasthtml_examples()
+    "Test special input types from daisyUI v5 documentation."
+```
+
+``` python
+def test_text_input_validators_part1_fasthtml_examples()
+    "Test text input validators part 1: username, search, email from daisyUI v5 documentation."
+```
+
+``` python
+def test_text_input_validators_part2_fasthtml_examples()
+    "Test text input validators part 2: password, number, phone, URL from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -3831,7 +4159,13 @@ from cjm_fasthtml_daisyui.components.data_input.textarea import (
     test_textarea_basic_examples,
     test_textarea_styles_examples,
     test_textarea_colors_examples,
-    test_textarea_sizes_examples
+    test_textarea_sizes_examples,
+    test_textarea_basic_fasthtml_examples,
+    test_textarea_ghost_fasthtml_examples,
+    test_textarea_with_form_control_fasthtml_examples,
+    test_textarea_colors_fasthtml_examples,
+    test_textarea_sizes_fasthtml_examples,
+    test_textarea_disabled_fasthtml_examples
 )
 ```
 
@@ -3855,6 +4189,36 @@ def test_textarea_colors_examples()
 ``` python
 def test_textarea_sizes_examples()
     "Test textarea size variants."
+```
+
+``` python
+def test_textarea_basic_fasthtml_examples()
+    "Test basic textarea example from daisyUI v5 documentation."
+```
+
+``` python
+def test_textarea_ghost_fasthtml_examples()
+    "Test ghost textarea (no background) from daisyUI v5 documentation."
+```
+
+``` python
+def test_textarea_with_form_control_fasthtml_examples()
+    "Test textarea with form control and labels from daisyUI v5 documentation."
+```
+
+``` python
+def test_textarea_colors_fasthtml_examples()
+    "Test textarea color variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_textarea_sizes_fasthtml_examples()
+    "Test textarea size variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_textarea_disabled_fasthtml_examples()
+    "Test disabled textarea from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -4173,7 +4537,15 @@ from cjm_fasthtml_daisyui.components.data_input.toggle import (
     toggle_sizes,
     test_toggle_basic_examples,
     test_toggle_colors_examples,
-    test_toggle_sizes_examples
+    test_toggle_sizes_examples,
+    test_toggle_basic_fasthtml_examples,
+    test_toggle_with_fieldset_fasthtml_examples,
+    test_toggle_sizes_fasthtml_examples,
+    test_toggle_colors_fasthtml_examples,
+    test_toggle_disabled_fasthtml_examples,
+    test_toggle_with_icons_fasthtml_examples,
+    test_toggle_custom_colors_fasthtml_examples,
+    test_toggle_indeterminate_fasthtml_examples
 )
 ```
 
@@ -4192,6 +4564,51 @@ def test_toggle_colors_examples()
 ``` python
 def test_toggle_sizes_examples()
     "Test toggle size variants."
+```
+
+``` python
+def test_toggle_basic_fasthtml_examples()
+    "Test basic toggle example from daisyUI v5 documentation."
+```
+
+``` python
+def test_toggle_with_fieldset_fasthtml_examples()
+    "Test toggle with fieldset and label from daisyUI v5 documentation."
+```
+
+``` python
+def test_toggle_sizes_fasthtml_examples()
+    "Test toggle size variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_toggle_colors_fasthtml_examples()
+    "Test toggle color variations from daisyUI v5 documentation."
+```
+
+``` python
+def test_toggle_disabled_fasthtml_examples()
+    "Test disabled toggle states from daisyUI v5 documentation."
+```
+
+``` python
+def test_toggle_with_icons_fasthtml_examples()
+    "Test toggle with icons inside from daisyUI v5 documentation."
+```
+
+``` python
+def test_toggle_custom_colors_fasthtml_examples()
+    "Test toggle with custom colors from daisyUI v5 documentation."
+```
+
+``` python
+def test_toggle_indeterminate_fasthtml_examples():
+    """Test indeterminate toggle state from daisyUI v5 documentation."""
+    from fasthtml.common import Input, Script, Div
+    
+    # Indeterminate toggle
+    # Note: The indeterminate state must be set via JavaScript
+    "Test indeterminate toggle state from daisyUI v5 documentation."
 ```
 
 #### Variables
@@ -4434,7 +4851,13 @@ glass  # Glass morphism effect
 from cjm_fasthtml_daisyui.components.data_input.validator import (
     validator,
     validator_hint,
-    test_validator_basic_examples
+    test_validator_basic_examples,
+    test_validator_basic_fasthtml_examples,
+    test_validator_with_hint_fasthtml_examples,
+    test_validator_password_fasthtml_examples,
+    test_validator_username_phone_fasthtml_examples,
+    test_validator_url_date_number_fasthtml_examples,
+    test_validator_checkbox_toggle_select_fasthtml_examples
 )
 ```
 
@@ -4443,6 +4866,36 @@ from cjm_fasthtml_daisyui.components.data_input.validator import (
 ``` python
 def test_validator_basic_examples()
     "Test basic validator utilities."
+```
+
+``` python
+def test_validator_basic_fasthtml_examples()
+    "Test basic validator example from daisyUI v5 documentation."
+```
+
+``` python
+def test_validator_with_hint_fasthtml_examples()
+    "Test validator with hint from daisyUI v5 documentation."
+```
+
+``` python
+def test_validator_password_fasthtml_examples()
+    "Test password requirement validator from daisyUI v5 documentation."
+```
+
+``` python
+def test_validator_username_phone_fasthtml_examples()
+    "Test username and phone requirement validators from daisyUI v5 documentation."
+```
+
+``` python
+def test_validator_url_date_number_fasthtml_examples()
+    "Test URL, date, and number requirement validators from daisyUI v5 documentation."
+```
+
+``` python
+def test_validator_checkbox_toggle_select_fasthtml_examples()
+    "Test checkbox, toggle, and select requirement validators from daisyUI v5 documentation."
 ```
 
 #### Variables

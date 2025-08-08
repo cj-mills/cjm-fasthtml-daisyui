@@ -22,7 +22,7 @@ def create_theme_selector(
     "Create a daisyUI theme selector dropdown component. Uses theme-change library to persist theme selection in localStorage."
     from fasthtml.common import Input, Label, Div, Ul, Li
     from fasthtml.svg import Svg, Path, Circle, G
-    from cjm_fasthtml_tailwind.utilities.sizing import h, w
+    from cjm_fasthtml_tailwind.utilities.sizing import h, w, max_h
     from cjm_fasthtml_tailwind.utilities.svg import fill, stroke, stroke_width
     from cjm_fasthtml_tailwind.utilities.layout import z, display_tw, overflow
     from cjm_fasthtml_tailwind.utilities.sizing import h
@@ -122,7 +122,7 @@ def create_theme_selector(
                 w._52,
                 p._2,
                 shadow._2xl,
-                h._96, 
+                max_h("calc(100dvh-56px)"), 
                 overflow.x.auto
             )
         ),

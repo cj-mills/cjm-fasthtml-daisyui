@@ -753,6 +753,8 @@ Rating is a set of radio buttons that allow the user to rate something.
 
 ## HTML Examples
 
+Items in each rating should have unique `name` attributes to avoid conflicts with other ratings on the same page.
+
 ### Rating
 
 ```html

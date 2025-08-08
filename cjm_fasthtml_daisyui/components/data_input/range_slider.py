@@ -4,7 +4,9 @@
 
 # %% auto 0
 __all__ = ['range_dui', 'range_colors', 'range_sizes', 'test_range_basic_examples', 'test_range_colors_examples',
-           'test_range_sizes_examples']
+           'test_range_sizes_examples', 'test_range_basic_fasthtml_examples', 'test_range_with_steps_fasthtml_examples',
+           'test_range_colors_fasthtml_examples', 'test_range_sizes_fasthtml_examples',
+           'test_range_custom_fasthtml_examples']
 
 # %% ../../../nbs/components/data_input/range.ipynb 3
 from cjm_fasthtml_tailwind.core.base import (
@@ -79,3 +81,340 @@ def test_range_sizes_examples():
 
 # Run the tests
 test_range_sizes_examples()
+
+# %% ../../../nbs/components/data_input/range.ipynb 14
+def test_range_basic_fasthtml_examples():
+    """Test basic range slider from daisyUI v5 documentation."""
+    from fasthtml.common import Input, Div
+    
+    # Basic range slider
+    basic_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=str(range_dui)
+    )
+    
+    # Verify attributes
+    assert basic_range.tag == "input"
+    assert basic_range.attrs['type'] == "range"
+    assert basic_range.attrs['min'] == "0"
+    assert basic_range.attrs['max'] == "100"
+    assert basic_range.attrs['value'] == "40"
+    assert basic_range.attrs['class'] == "range"
+    
+    return basic_range
+
+# Run the tests
+test_range_basic_fasthtml_examples()
+
+# %% ../../../nbs/components/data_input/range.ipynb 17
+def test_range_with_steps_fasthtml_examples():
+    """Test range with steps and measure from daisyUI v5 documentation."""
+    from fasthtml.common import Input, Div, Span
+    from cjm_fasthtml_tailwind.utilities.sizing import w, max_w
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify
+    from cjm_fasthtml_tailwind.utilities.spacing import p, m
+    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.layout import display_tw
+    
+    # Range with steps and measure
+    range_with_steps = Div(
+        Input(
+            type="range",
+            min="0",
+            max="100",
+            value="25",
+            step="25",
+            cls=str(range_dui)
+        ),
+        Div(
+            Span("|"),
+            Span("|"),
+            Span("|"),
+            Span("|"),
+            Span("|"),
+            cls=combine_classes(justify.between, display_tw.flex, p.x(2.5), m.t._2, text.xs)
+        ),
+        Div(
+            Span("1"),
+            Span("2"),
+            Span("3"),
+            Span("4"),
+            Span("5"),
+            cls=combine_classes(justify.between, display_tw.flex, p.x(2.5), m.t._2, text.xs)
+        ),
+        cls=combine_classes(w.full, max_w.xs)
+    )
+    
+    # Verify container structure
+    assert range_with_steps.tag == "div"
+    assert "w-full" in range_with_steps.attrs['class']
+    assert "max-w-xs" in range_with_steps.attrs['class']
+    
+    # Verify range input
+    range_input = range_with_steps.children[0]
+    assert range_input.tag == "input"
+    assert range_input.attrs['type'] == "range"
+    assert range_input.attrs['min'] == "0"
+    assert range_input.attrs['max'] == "100"
+    assert range_input.attrs['value'] == "25"
+    assert range_input.attrs['step'] == "25"
+    assert range_input.attrs['class'] == "range"
+    
+    # Verify tick marks div
+    tick_marks = range_with_steps.children[1]
+    assert tick_marks.tag == "div"
+    assert "flex" in tick_marks.attrs['class']
+    assert "justify-between" in tick_marks.attrs['class']
+    assert "px-2.5" in tick_marks.attrs['class']
+    assert "mt-2" in tick_marks.attrs['class']
+    assert "text-xs" in tick_marks.attrs['class']
+    assert len(tick_marks.children) == 5
+    for i in range(5):
+        assert tick_marks.children[i].tag == "span"
+        assert tick_marks.children[i].children[0] == "|"
+    
+    # Verify labels div
+    labels = range_with_steps.children[2]
+    assert labels.tag == "div"
+    assert "flex" in labels.attrs['class']
+    assert "justify-between" in labels.attrs['class']
+    assert "px-2.5" in labels.attrs['class']
+    assert "mt-2" in labels.attrs['class']
+    assert "text-xs" in labels.attrs['class']
+    assert len(labels.children) == 5
+    for i in range(5):
+        assert labels.children[i].tag == "span"
+        assert labels.children[i].children[0] == str(i + 1)
+    
+    return range_with_steps
+
+# Run the tests
+test_range_with_steps_fasthtml_examples()
+
+# %% ../../../nbs/components/data_input/range.ipynb 20
+def test_range_colors_fasthtml_examples():
+    """Test range color variations from daisyUI v5 documentation."""
+    from fasthtml.common import Input, Div
+    
+    # Neutral color
+    neutral_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=combine_classes(range_dui, range_colors.neutral)
+    )
+    assert neutral_range.attrs['type'] == "range"
+    assert "range" in neutral_range.attrs['class']
+    assert "range-neutral" in neutral_range.attrs['class']
+    
+    # Primary color
+    primary_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=combine_classes(range_dui, range_colors.primary)
+    )
+    assert "range" in primary_range.attrs['class']
+    assert "range-primary" in primary_range.attrs['class']
+    
+    # Secondary color
+    secondary_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=combine_classes(range_dui, range_colors.secondary)
+    )
+    assert "range" in secondary_range.attrs['class']
+    assert "range-secondary" in secondary_range.attrs['class']
+    
+    # Accent color
+    accent_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=combine_classes(range_dui, range_colors.accent)
+    )
+    assert "range" in accent_range.attrs['class']
+    assert "range-accent" in accent_range.attrs['class']
+    
+    # Success color
+    success_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=combine_classes(range_dui, range_colors.success)
+    )
+    assert "range" in success_range.attrs['class']
+    assert "range-success" in success_range.attrs['class']
+    
+    # Warning color
+    warning_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=combine_classes(range_dui, range_colors.warning)
+    )
+    assert "range" in warning_range.attrs['class']
+    assert "range-warning" in warning_range.attrs['class']
+    
+    # Info color
+    info_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=combine_classes(range_dui, range_colors.info)
+    )
+    assert "range" in info_range.attrs['class']
+    assert "range-info" in info_range.attrs['class']
+    
+    # Error color
+    error_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=combine_classes(range_dui, range_colors.error)
+    )
+    assert "range" in error_range.attrs['class']
+    assert "range-error" in error_range.attrs['class']
+    
+    # Return all color variations in a Div
+    return Div(
+        neutral_range,
+        primary_range,
+        secondary_range,
+        accent_range,
+        success_range,
+        warning_range,
+        info_range,
+        error_range
+    )
+
+# Run the tests
+test_range_colors_fasthtml_examples()
+
+# %% ../../../nbs/components/data_input/range.ipynb 23
+def test_range_sizes_fasthtml_examples():
+    """Test range size variations from daisyUI v5 documentation."""
+    from fasthtml.common import Input, Div
+    
+    # Extra small size
+    xs_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="30",
+        cls=combine_classes(range_dui, range_sizes.xs)
+    )
+    assert xs_range.attrs['type'] == "range"
+    assert xs_range.attrs['value'] == "30"
+    assert "range" in xs_range.attrs['class']
+    assert "range-xs" in xs_range.attrs['class']
+    
+    # Small size
+    sm_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=combine_classes(range_dui, range_sizes.sm)
+    )
+    assert sm_range.attrs['value'] == "40"
+    assert "range" in sm_range.attrs['class']
+    assert "range-sm" in sm_range.attrs['class']
+    
+    # Medium size (default)
+    md_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="50",
+        cls=combine_classes(range_dui, range_sizes.md)
+    )
+    assert md_range.attrs['value'] == "50"
+    assert "range" in md_range.attrs['class']
+    assert "range-md" in md_range.attrs['class']
+    
+    # Large size
+    lg_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="60",
+        cls=combine_classes(range_dui, range_sizes.lg)
+    )
+    assert lg_range.attrs['value'] == "60"
+    assert "range" in lg_range.attrs['class']
+    assert "range-lg" in lg_range.attrs['class']
+    
+    # Extra large size
+    xl_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="70",
+        cls=combine_classes(range_dui, range_sizes.xl)
+    )
+    assert xl_range.attrs['value'] == "70"
+    assert "range" in xl_range.attrs['class']
+    assert "range-xl" in xl_range.attrs['class']
+    
+    # Return all size variations in a Div
+    return Div(
+        xs_range,
+        sm_range,
+        md_range,
+        lg_range,
+        xl_range
+    )
+
+# Run the tests
+test_range_sizes_fasthtml_examples()
+
+# %% ../../../nbs/components/data_input/range.ipynb 26
+def test_range_custom_fasthtml_examples():
+    """Test range with custom color and no fill from daisyUI v5 documentation."""
+    from fasthtml.common import Input, Div
+    from cjm_fasthtml_tailwind.utilities.typography import text
+    
+    # Range with custom color and no fill using CSS variables
+    custom_range = Input(
+        type="range",
+        min="0",
+        max="100",
+        value="40",
+        cls=combine_classes(
+            range_dui,
+            text.blue_300,
+            "[--range-bg:orange]",
+            "[--range-thumb:blue]",
+            "[--range-fill:0]"
+        )
+    )
+    
+    # Verify attributes
+    assert custom_range.tag == "input"
+    assert custom_range.attrs['type'] == "range"
+    assert custom_range.attrs['min'] == "0"
+    assert custom_range.attrs['max'] == "100"
+    assert custom_range.attrs['value'] == "40"
+    assert "range" in custom_range.attrs['class']
+    assert "text-blue-300" in custom_range.attrs['class']
+    assert "[--range-bg:orange]" in custom_range.attrs['class']
+    assert "[--range-thumb:blue]" in custom_range.attrs['class']
+    assert "[--range-fill:0]" in custom_range.attrs['class']
+    
+    return custom_range
+
+# Run the tests
+test_range_custom_fasthtml_examples()
