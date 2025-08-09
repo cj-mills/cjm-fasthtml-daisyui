@@ -4,7 +4,7 @@
 
 # %% auto 0
 __all__ = ['cally', 'pika_single', 'react_day_picker', 'test_calendar_basic_examples',
-           'test_calendar_cally_basic_fasthtml_example', 'test_cally_date_picker_fasthtml_examples',
+           'test_calendar_cally_basic_fasthtml_examples', 'test_cally_date_picker_fasthtml_examples',
            'test_pikaday_calendar_fasthtml_examples']
 
 # %% ../../../nbs/components/data_input/calendar.ipynb 3
@@ -39,7 +39,7 @@ def test_calendar_basic_examples():
 test_calendar_basic_examples()
 
 # %% ../../../nbs/components/data_input/calendar.ipynb 8
-def test_calendar_cally_basic_fasthtml_example():
+def test_calendar_cally_basic_fasthtml_examples():
     """Test Cally calendar example from daisyUI v5 documentation."""
     from fasthtml.common import Div, Script
     from fasthtml.svg import Svg, Path
@@ -126,7 +126,7 @@ def test_calendar_cally_basic_fasthtml_example():
     )
 
 # Run the tests
-test_calendar_cally_basic_fasthtml_example()
+test_calendar_cally_basic_fasthtml_examples()
 
 # %% ../../../nbs/components/data_input/calendar.ipynb 10
 def test_cally_date_picker_fasthtml_examples():

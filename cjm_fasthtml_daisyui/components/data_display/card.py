@@ -5,8 +5,8 @@
 # %% auto 0
 __all__ = ['card', 'card_title', 'card_body', 'card_actions', 'card_styles', 'card_modifiers', 'card_sizes',
            'test_card_basic_examples', 'test_card_styles_examples', 'test_card_modifiers_examples',
-           'test_card_sizes_examples', 'test_card_basic_fasthtml_examples', 'test_card_pricing_fasthtml_example',
-           'test_card_style_fasthtml_variations', 'test_card_layout_fasthtml_variations',
+           'test_card_sizes_examples', 'test_card_basic_fasthtml_examples', 'test_card_pricing_fasthtml_examples',
+           'test_card_style_fasthtml_examples', 'test_card_layout_fasthtml_examples',
            'test_card_special_fasthtml_examples']
 
 # %% ../../../nbs/components/data_display/card.ipynb 3
@@ -198,7 +198,7 @@ def test_card_basic_fasthtml_examples():
 test_card_basic_fasthtml_examples()
 
 # %% ../../../nbs/components/data_display/card.ipynb 20
-def test_card_pricing_fasthtml_example():
+def test_card_pricing_fasthtml_examples():
     """Test pricing card example from daisyUI v5 documentation."""
     from fasthtml.common import Div, H2, Span, Ul, Li, Button
     from fasthtml.svg import Svg, Path
@@ -359,10 +359,10 @@ def test_card_pricing_fasthtml_example():
     return Div(pricing_card)
 
 # Run the tests
-test_card_pricing_fasthtml_example()
+test_card_pricing_fasthtml_examples()
 
 # %% ../../../nbs/components/data_display/card.ipynb 22
-def test_card_style_fasthtml_variations():
+def test_card_style_fasthtml_examples():
     """Test card style variations from daisyUI v5 documentation."""
     from fasthtml.common import Div, H2, P, Button
     from cjm_fasthtml_tailwind.utilities.sizing import w
@@ -499,10 +499,10 @@ def test_card_style_fasthtml_variations():
     )
 
 # Run the tests
-test_card_style_fasthtml_variations()
+test_card_style_fasthtml_examples()
 
 # %% ../../../nbs/components/data_display/card.ipynb 24
-def test_card_layout_fasthtml_variations():
+def test_card_layout_fasthtml_examples():
     """Test card layout variations from daisyUI v5 documentation."""
     from fasthtml.common import Div, Figure, Img, H2, P, Button
     from cjm_fasthtml_tailwind.utilities.sizing import w
@@ -663,7 +663,7 @@ def test_card_layout_fasthtml_variations():
     )
 
 # Run the tests
-test_card_layout_fasthtml_variations()
+test_card_layout_fasthtml_examples()
 
 # %% ../../../nbs/components/data_display/card.ipynb 26
 def test_card_special_fasthtml_examples():
