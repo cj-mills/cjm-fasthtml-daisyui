@@ -392,7 +392,7 @@ def test_radio_custom_colors_fasthtml_examples():
     from fasthtml.common import Input, Div
     from cjm_fasthtml_tailwind.utilities.backgrounds import bg
     from cjm_fasthtml_tailwind.utilities.borders import border_color
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     
     # Radio with custom red colors
     red_radio = Input(
@@ -404,7 +404,7 @@ def test_radio_custom_colors_fasthtml_examples():
             bg.red_100,
             border_color.red_300,
             bg.red_200.checked,
-            text.red_600.checked,
+            text_color.red_600.checked,
             border_color.red_600.checked
         )
     )
@@ -429,7 +429,7 @@ def test_radio_custom_colors_fasthtml_examples():
             bg.blue_100,
             border_color.blue_300,
             bg.blue_200.checked,
-            text.blue_600.checked,
+            text_color.blue_600.checked,
             border_color.blue_600.checked
         )
     )

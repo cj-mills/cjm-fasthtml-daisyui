@@ -362,7 +362,7 @@ def test_toggle_custom_colors_fasthtml_examples():
     from fasthtml.common import Input, Div
     from cjm_fasthtml_tailwind.utilities.borders import border_color
     from cjm_fasthtml_tailwind.utilities.backgrounds import bg
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     
     # Toggle with custom colors
     custom_toggle = Input(
@@ -374,7 +374,7 @@ def test_toggle_custom_colors_fasthtml_examples():
             bg.indigo_500,
             border_color.orange_500.checked,
             bg.orange_400.checked,
-            text.orange_800.checked
+            text_color.orange_800.checked
         )
     )
     

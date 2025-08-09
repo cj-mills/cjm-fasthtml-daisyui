@@ -206,7 +206,7 @@ def test_card_pricing_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.effects import shadow, opacity
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify, flex, gap
     from cjm_fasthtml_tailwind.utilities.spacing import m, me
-    from cjm_fasthtml_tailwind.utilities.typography import text, font, line_through
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, line_through
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.svg import stroke, stroke_width, fill
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
@@ -248,8 +248,8 @@ def test_card_pricing_fasthtml_examples():
         Div(
             Span("Most Popular", cls=combine_classes(badge, badge_sizes.xs, badge_colors.warning)),
             Div(
-                H2("Premium", cls=combine_classes(text._3xl, font.bold)),
-                Span("29/mo", cls=str(text.xl)),
+                H2("Premium", cls=combine_classes(font_size._3xl, font_weight.bold)),
+                Span("29/mo", cls=str(font_size.xl)),
                 cls=combine_classes(display_tw.flex, justify.between)
             ),
             Ul(
@@ -279,7 +279,7 @@ def test_card_pricing_fasthtml_examples():
                     Span("Real-time collaboration tools", cls=str(line_through)),
                     cls=str(opacity._50)
                 ),
-                cls=combine_classes(m.t._6, display_tw.flex, flex.col, gap._2, text.xs)
+                cls=combine_classes(m.t._6, display_tw.flex, flex.col, gap._2, font_size.xs)
             ),
             Div(
                 Button("Subscribe", cls=combine_classes(btn, btn_colors.primary, btn_modifiers.block)),

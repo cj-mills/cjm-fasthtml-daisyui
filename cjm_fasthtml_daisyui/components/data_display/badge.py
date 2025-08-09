@@ -505,13 +505,13 @@ test_badge_icon_fasthtml_examples()
 def test_badge_in_text_fasthtml_examples():
     """Test badge in text from daisyUI v5 documentation."""
     from fasthtml.common import H1, H2, H3, H4, H5, P, Span, Div
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     
     # Badge in a text
     h1 = H1(
         "Heading 1 ",
         Span("Badge", cls=combine_classes(badge, badge_sizes.xl)),
-        cls=combine_classes(text.xl, font.semibold)
+        cls=combine_classes(font_size.xl, font_weight.semibold)
     )
     assert h1.tag == "h1"
     assert "text-xl" in h1.attrs['class']
@@ -524,7 +524,7 @@ def test_badge_in_text_fasthtml_examples():
     h2 = H2(
         "Heading 2 ",
         Span("Badge", cls=combine_classes(badge, badge_sizes.lg)),
-        cls=combine_classes(text.lg, font.semibold)
+        cls=combine_classes(font_size.lg, font_weight.semibold)
     )
     assert h2.tag == "h2"
     assert "text-lg" in h2.attrs['class']
@@ -533,7 +533,7 @@ def test_badge_in_text_fasthtml_examples():
     h3 = H3(
         "Heading 3 ",
         Span("Badge", cls=combine_classes(badge, badge_sizes.md)),
-        cls=combine_classes(text.base, font.semibold)
+        cls=combine_classes(font_size.base, font_weight.semibold)
     )
     assert h3.tag == "h3"
     assert "text-base" in h3.attrs['class']
@@ -542,7 +542,7 @@ def test_badge_in_text_fasthtml_examples():
     h4 = H4(
         "Heading 4 ",
         Span("Badge", cls=combine_classes(badge, badge_sizes.sm)),
-        cls=combine_classes(text.sm, font.semibold)
+        cls=combine_classes(font_size.sm, font_weight.semibold)
     )
     assert h4.tag == "h4"
     assert "text-sm" in h4.attrs['class']
@@ -551,7 +551,7 @@ def test_badge_in_text_fasthtml_examples():
     h5 = H5(
         "Heading 5 ",
         Span("Badge", cls=combine_classes(badge, badge_sizes.xs)),
-        cls=combine_classes(text.xs, font.semibold)
+        cls=combine_classes(font_size.xs, font_weight.semibold)
     )
     assert h5.tag == "h5"
     assert "text-xs" in h5.attrs['class']
@@ -560,7 +560,7 @@ def test_badge_in_text_fasthtml_examples():
     p = P(
         "Paragraph ",
         Span("Badge", cls=combine_classes(badge, badge_sizes.xs)),
-        cls=str(text.xs)
+        cls=str(font_size.xs)
     )
     assert p.tag == "p"
     assert p.attrs['class'] == "text-xs"

@@ -37,7 +37,7 @@ btn_colors = enums_to_simple_factory(btn, [SemanticColorBrand, SemanticColorStat
 class LinkStyle(str, Enum):
     LINK = "link"
 
-btn_styles = enums_to_simple_factory(btn, [OutlineStyle, DashStyle, SoftStyle, GhostStyle, LinkStyle]) # Button style variants
+btn_styles = enums_to_simple_factory(btn, [OutlineStyle, DashStyle, SoftStyle, GhostStyle, LinkStyle], "Button style variants") # Button style variants
 
 # %% ../../../nbs/components/actions/button.ipynb 11
 btn_sizes = enums_to_simple_factory(btn, [DaisyUINamedSize], "Button size variants from extra small to extra large") # Button size variants

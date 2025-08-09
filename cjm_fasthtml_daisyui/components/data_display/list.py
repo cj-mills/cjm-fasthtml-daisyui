@@ -69,7 +69,7 @@ def test_list_basic_fasthtml_examples():
     from fasthtml.svg import Svg, Path, G
     from cjm_fasthtml_tailwind.utilities.sizing import size_util
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import opacity, shadow
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_modifiers, btn_styles
@@ -105,7 +105,7 @@ def test_list_basic_fasthtml_examples():
     
     # List with second column growing (default behavior)
     list_second_column_grows = Ul(
-        Li("Most played songs this week", cls=combine_classes(p._4, p.b._2, text.xs, opacity._60, "tracking-wide")),
+        Li("Most played songs this week", cls=combine_classes(p._4, p.b._2, font_size.xs, opacity._60, "tracking-wide")),
         Li(
             Div(
                 Img(
@@ -115,7 +115,7 @@ def test_list_basic_fasthtml_examples():
             ),
             Div(
                 Div("Dio Lupa"),
-                Div("Remaining Reason", cls=combine_classes(text.xs, "uppercase", font.semibold, opacity._60))
+                Div("Remaining Reason", cls=combine_classes(font_size.xs, "uppercase", font_weight.semibold, opacity._60))
             ),
             Button(
                 play_icon,
@@ -136,7 +136,7 @@ def test_list_basic_fasthtml_examples():
             ),
             Div(
                 Div("Ellie Beilish"),
-                Div("Bears of a fever", cls=combine_classes(text.xs, "uppercase", font.semibold, opacity._60))
+                Div("Bears of a fever", cls=combine_classes(font_size.xs, "uppercase", font_weight.semibold, opacity._60))
             ),
             Button(
                 play_icon,
@@ -157,7 +157,7 @@ def test_list_basic_fasthtml_examples():
             ),
             Div(
                 Div("Sabrino Gardener"),
-                Div("Cappuccino", cls=combine_classes(text.xs, "uppercase", font.semibold, opacity._60))
+                Div("Cappuccino", cls=combine_classes(font_size.xs, "uppercase", font_weight.semibold, opacity._60))
             ),
             Button(
                 play_icon,
@@ -258,7 +258,7 @@ def test_list_column_grow_fasthtml_examples():
     from fasthtml.svg import Svg, Path, G
     from cjm_fasthtml_tailwind.utilities.sizing import size_util
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import opacity, shadow
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_modifiers, btn_styles
@@ -280,9 +280,9 @@ def test_list_column_grow_fasthtml_examples():
     
     # List with third column growing using list-col-grow
     list_third_column_grows = Ul(
-        Li("Most played songs this week", cls=combine_classes(p._4, p.b._2, text.xs, opacity._60, "tracking-wide")),
+        Li("Most played songs this week", cls=combine_classes(p._4, p.b._2, font_size.xs, opacity._60, "tracking-wide")),
         Li(
-            Div("01", cls=combine_classes(text._4xl, "font-thin", opacity._30, "tabular-nums")),
+            Div("01", cls=combine_classes(font_size._4xl, "font-thin", opacity._30, "tabular-nums")),
             Div(
                 Img(
                     src="https://img.daisyui.com/images/profile/demo/1@94.webp",
@@ -291,7 +291,7 @@ def test_list_column_grow_fasthtml_examples():
             ),
             Div(
                 Div("Dio Lupa"),
-                Div("Remaining Reason", cls=combine_classes(text.xs, "uppercase", font.semibold, opacity._60)),
+                Div("Remaining Reason", cls=combine_classes(font_size.xs, "uppercase", font_weight.semibold, opacity._60)),
                 cls=str(list_modifiers.col_grow)
             ),
             Button(
@@ -301,7 +301,7 @@ def test_list_column_grow_fasthtml_examples():
             cls=str(list_row)
         ),
         Li(
-            Div("02", cls=combine_classes(text._4xl, "font-thin", opacity._30, "tabular-nums")),
+            Div("02", cls=combine_classes(font_size._4xl, "font-thin", opacity._30, "tabular-nums")),
             Div(
                 Img(
                     src="https://img.daisyui.com/images/profile/demo/4@94.webp",
@@ -310,7 +310,7 @@ def test_list_column_grow_fasthtml_examples():
             ),
             Div(
                 Div("Ellie Beilish"),
-                Div("Bears of a fever", cls=combine_classes(text.xs, "uppercase", font.semibold, opacity._60)),
+                Div("Bears of a fever", cls=combine_classes(font_size.xs, "uppercase", font_weight.semibold, opacity._60)),
                 cls=str(list_modifiers.col_grow)
             ),
             Button(
@@ -320,7 +320,7 @@ def test_list_column_grow_fasthtml_examples():
             cls=str(list_row)
         ),
         Li(
-            Div("03", cls=combine_classes(text._4xl, "font-thin", opacity._30, "tabular-nums")),
+            Div("03", cls=combine_classes(font_size._4xl, "font-thin", opacity._30, "tabular-nums")),
             Div(
                 Img(
                     src="https://img.daisyui.com/images/profile/demo/3@94.webp",
@@ -329,7 +329,7 @@ def test_list_column_grow_fasthtml_examples():
             ),
             Div(
                 Div("Sabrino Gardener"),
-                Div("Cappuccino", cls=combine_classes(text.xs, "uppercase", font.semibold, opacity._60)),
+                Div("Cappuccino", cls=combine_classes(font_size.xs, "uppercase", font_weight.semibold, opacity._60)),
                 cls=str(list_modifiers.col_grow)
             ),
             Button(
@@ -437,7 +437,7 @@ def test_list_column_wrap_fasthtml_examples():
     from fasthtml.svg import Svg, Path, G
     from cjm_fasthtml_tailwind.utilities.sizing import size_util
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import opacity, shadow
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_modifiers, btn_styles
@@ -473,7 +473,7 @@ def test_list_column_wrap_fasthtml_examples():
     
     # List with third column wrapping to next row using list-col-wrap
     list_column_wraps = Ul(
-        Li("Most played songs this week", cls=combine_classes(p._4, p.b._2, text.xs, opacity._60, "tracking-wide")),
+        Li("Most played songs this week", cls=combine_classes(p._4, p.b._2, font_size.xs, opacity._60, "tracking-wide")),
         Li(
             Div(
                 Img(
@@ -483,11 +483,11 @@ def test_list_column_wrap_fasthtml_examples():
             ),
             Div(
                 Div("Dio Lupa"),
-                Div("Remaining Reason", cls=combine_classes(text.xs, "uppercase", font.semibold, opacity._60))
+                Div("Remaining Reason", cls=combine_classes(font_size.xs, "uppercase", font_weight.semibold, opacity._60))
             ),
             P(
                 '"Remaining Reason" became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa\'s most iconic tracks.',
-                cls=combine_classes(list_modifiers.col_wrap, text.xs)
+                cls=combine_classes(list_modifiers.col_wrap, font_size.xs)
             ),
             Button(
                 play_icon,
@@ -508,11 +508,11 @@ def test_list_column_wrap_fasthtml_examples():
             ),
             Div(
                 Div("Ellie Beilish"),
-                Div("Bears of a fever", cls=combine_classes(text.xs, "uppercase", font.semibold, opacity._60))
+                Div("Bears of a fever", cls=combine_classes(font_size.xs, "uppercase", font_weight.semibold, opacity._60))
             ),
             P(
                 '"Bears of a Fever" captivated audiences with its intense energy and mysterious lyrics. Its popularity skyrocketed after fans shared it widely online, earning Ellie critical acclaim.',
-                cls=combine_classes(list_modifiers.col_wrap, text.xs)
+                cls=combine_classes(list_modifiers.col_wrap, font_size.xs)
             ),
             Button(
                 play_icon,
@@ -533,11 +533,11 @@ def test_list_column_wrap_fasthtml_examples():
             ),
             Div(
                 Div("Sabrino Gardener"),
-                Div("Cappuccino", cls=combine_classes(text.xs, "uppercase", font.semibold, opacity._60))
+                Div("Cappuccino", cls=combine_classes(font_size.xs, "uppercase", font_weight.semibold, opacity._60))
             ),
             P(
                 '"Cappuccino" quickly gained attention for its smooth melody and relatable themes. The song\'s success propelled Sabrino into the spotlight, solidifying their status as a rising star.',
-                cls=combine_classes(list_modifiers.col_wrap, text.xs)
+                cls=combine_classes(list_modifiers.col_wrap, font_size.xs)
             ),
             Button(
                 play_icon,

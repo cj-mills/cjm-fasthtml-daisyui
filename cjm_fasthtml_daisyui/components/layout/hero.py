@@ -44,9 +44,8 @@ def test_hero_centered_fasthtml_examples():
     """Test centered hero example from daisyUI v5 documentation."""
     from fasthtml.common import Div, H1, P, Button
     from cjm_fasthtml_tailwind.utilities.sizing import min_h, max_w
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, text_align
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_tailwind.utilities.typography import text_align
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     
@@ -54,7 +53,7 @@ def test_hero_centered_fasthtml_examples():
     centered_hero = Div(
         Div(
             Div(
-                H1("Hello there", cls=combine_classes(text._5xl, font.bold)),
+                H1("Hello there", cls=combine_classes(font_size._5xl, font_weight.bold)),
                 P(
                     "Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
                     cls=str(p.y._6)
@@ -111,7 +110,7 @@ def test_hero_with_figure_fasthtml_examples():
     """Test hero with figure examples from daisyUI v5 documentation."""
     from fasthtml.common import Div, H1, P, Button, Img
     from cjm_fasthtml_tailwind.utilities.sizing import min_h, max_w
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     from cjm_fasthtml_tailwind.utilities.effects import shadow
@@ -127,7 +126,7 @@ def test_hero_with_figure_fasthtml_examples():
                 cls=combine_classes(max_w.sm, rounded.lg, shadow._2xl)
             ),
             Div(
-                H1("Box Office News!", cls=combine_classes(text._5xl, font.bold)),
+                H1("Box Office News!", cls=combine_classes(font_size._5xl, font_weight.bold)),
                 P(
                     "Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
                     cls=str(p.y._6)
@@ -189,7 +188,7 @@ def test_hero_with_figure_fasthtml_examples():
                 cls=combine_classes(max_w.sm, rounded.lg, shadow._2xl)
             ),
             Div(
-                H1("Box Office News!", cls=combine_classes(text._5xl, font.bold)),
+                H1("Box Office News!", cls=combine_classes(font_size._5xl, font_weight.bold)),
                 P(
                     "Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
                     cls=str(p.y._6)
@@ -222,7 +221,7 @@ def test_hero_with_form_fasthtml_examples():
     """Test hero with form example from daisyUI v5 documentation."""
     from fasthtml.common import Div, H1, P, Button, Input, Label, Fieldset, A
     from cjm_fasthtml_tailwind.utilities.sizing import min_h, max_w, w
-    from cjm_fasthtml_tailwind.utilities.typography import text, font, text_align
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, text_align
     from cjm_fasthtml_tailwind.utilities.spacing import p, m
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, shrink
     from cjm_fasthtml_tailwind.utilities.effects import shadow
@@ -237,7 +236,7 @@ def test_hero_with_form_fasthtml_examples():
     hero_with_form = Div(
         Div(
             Div(
-                H1("Login now!", cls=combine_classes(text._5xl, font.bold)),
+                H1("Login now!", cls=combine_classes(font_size._5xl, font_weight.bold)),
                 P(
                     "Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
                     cls=str(p.y._6)
@@ -359,7 +358,7 @@ def test_hero_with_overlay_fasthtml_examples():
     """Test hero with overlay image example from daisyUI v5 documentation."""
     from fasthtml.common import Div, H1, P, Button
     from cjm_fasthtml_tailwind.utilities.sizing import min_h, max_w
-    from cjm_fasthtml_tailwind.utilities.typography import text, font, text_align
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, text_align
     from cjm_fasthtml_tailwind.utilities.spacing import m
     from cjm_fasthtml_daisyui.core.utility_classes import text_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
@@ -369,7 +368,7 @@ def test_hero_with_overlay_fasthtml_examples():
         Div(cls=str(hero_overlay)),
         Div(
             Div(
-                H1("Hello there", cls=combine_classes(m.b._5, text._5xl, font.bold)),
+                H1("Hello there", cls=combine_classes(m.b._5, font_size._5xl, font_weight.bold)),
                 P(
                     "Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
                     cls=str(m.b._5)

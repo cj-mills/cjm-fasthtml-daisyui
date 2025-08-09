@@ -42,7 +42,7 @@ test_mockup_phone_basic_examples()
 def test_phone_mockup_basic_fasthtml_examples():
     """Test basic iPhone mockup from daisyUI v5 documentation."""
     from fasthtml.common import Div
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content
     
@@ -51,7 +51,7 @@ def test_phone_mockup_basic_fasthtml_examples():
         Div(cls=str(mockup_phone_camera)),
         Div(
             "It's Glowtime.",
-            cls=combine_classes(mockup_phone_display, text.white, display_tw.grid, place_content.center)
+            cls=combine_classes(mockup_phone_display, text_color.white, display_tw.grid, place_content.center)
         ),
         cls=str(mockup_phone)
     )

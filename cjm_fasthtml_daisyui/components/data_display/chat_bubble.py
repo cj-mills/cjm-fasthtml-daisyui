@@ -255,7 +255,7 @@ def test_chat_with_header_footer_fasthtml_examples():
     from fasthtml.common import Div, Img, Time
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import opacity
     from cjm_fasthtml_daisyui.components.data_display.avatar import avatar
     
@@ -275,7 +275,7 @@ def test_chat_with_header_footer_fasthtml_examples():
         ),
         Div(
             "Obi-Wan Kenobi",
-            Time("12:45", cls=combine_classes(text.xs, opacity._50)),
+            Time("12:45", cls=combine_classes(font_size.xs, opacity._50)),
             cls=str(chat_header)
         ),
         Div(
@@ -321,7 +321,7 @@ def test_chat_with_header_footer_fasthtml_examples():
         ),
         Div(
             "Anakin",
-            Time("12:46", cls=combine_classes(text.xs, opacity._50)),
+            Time("12:46", cls=combine_classes(font_size.xs, opacity._50)),
             cls=str(chat_header)
         ),
         Div(
@@ -346,7 +346,7 @@ def test_chat_with_header_footer_fasthtml_examples():
     chat_no_image_1 = Div(
         Div(
             "Obi-Wan Kenobi",
-            Time("2 hours ago", cls=combine_classes(text.xs, opacity._50)),
+            Time("2 hours ago", cls=combine_classes(font_size.xs, opacity._50)),
             cls=str(chat_header)
         ),
         Div(
@@ -371,7 +371,7 @@ def test_chat_with_header_footer_fasthtml_examples():
     chat_no_image_2 = Div(
         Div(
             "Obi-Wan Kenobi",
-            Time("2 hour ago", cls=combine_classes(text.xs, opacity._50)),
+            Time("2 hour ago", cls=combine_classes(font_size.xs, opacity._50)),
             cls=str(chat_header)
         ),
         Div(

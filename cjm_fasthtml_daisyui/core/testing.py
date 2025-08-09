@@ -194,7 +194,7 @@ def create_test_page(
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, justify, items, flex_wrap
     from cjm_fasthtml_tailwind.utilities.sizing import container
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, from_dui, to_dui
     
     # Build navbar with proper structure using TailwindBuilder
@@ -208,7 +208,7 @@ def create_test_page(
             
             # Center section with title
             Div(
-                H1(title, cls=combine_classes(text._2xl, font.bold, display_tw.flex, flex_wrap)),
+                H1(title, cls=combine_classes(font_size._2xl, font_weight.bold, display_tw.flex, flex_wrap)),
                 # cls=str(flex.none)
             ),
             

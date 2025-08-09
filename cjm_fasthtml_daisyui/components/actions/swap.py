@@ -137,7 +137,7 @@ def test_swap_effects_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.svg import fill
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     
     # Create sun icon SVG
     sun_icon = Svg(
@@ -178,7 +178,7 @@ def test_swap_effects_fasthtml_examples():
         Input(type="checkbox"),
         Div("😈", cls=str(swap_on)),
         Div("😇", cls=str(swap_off)),
-        cls=combine_classes(swap, swap_styles.flip, text._9xl)
+        cls=combine_classes(swap, swap_styles.flip, font_size._9xl)
     )
     assert "swap" in flip_swap.attrs['class']
     assert "swap-flip" in flip_swap.attrs['class']
@@ -201,7 +201,7 @@ def test_swap_advanced_fasthtml_examples():
     from fasthtml.common import Label, Input, Div
     from fasthtml.svg import Svg, Path, Polygon
     from cjm_fasthtml_tailwind.utilities.svg import fill
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_modifiers
     
     # Hamburger button
@@ -243,7 +243,7 @@ def test_swap_advanced_fasthtml_examples():
     class_swap_inactive = Label(
         Div("🥵", cls=str(swap_on)),
         Div("🥶", cls=str(swap_off)),
-        cls=combine_classes(swap, text._6xl)
+        cls=combine_classes(swap, font_size._6xl)
     )
     assert "swap" in class_swap_inactive.attrs['class']
     assert "text-6xl" in class_swap_inactive.attrs['class']
@@ -255,7 +255,7 @@ def test_swap_advanced_fasthtml_examples():
     class_swap_active = Label(
         Div("🥳", cls=str(swap_on)),
         Div("😭", cls=str(swap_off)),
-        cls=combine_classes(swap, swap_styles.active, text._6xl)
+        cls=combine_classes(swap, swap_styles.active, font_size._6xl)
     )
     assert "swap" in class_swap_active.attrs['class']
     assert "swap-active" in class_swap_active.attrs['class']

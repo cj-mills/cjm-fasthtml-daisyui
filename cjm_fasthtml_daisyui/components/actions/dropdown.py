@@ -435,7 +435,7 @@ def test_dropdown_content_variations_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import z, display_tw
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
     from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, items, justify
     from cjm_fasthtml_tailwind.utilities.svg import stroke
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius, text_dui
@@ -468,7 +468,7 @@ def test_dropdown_content_variations_fasthtml_examples():
     # Dropdown in navbar
     navbar_dropdown = Div(
         Div(
-            A("daisyUI", cls=combine_classes(text.lg, font.bold)),
+            A("daisyUI", cls=combine_classes(font_size.lg, font_weight.bold)),
             cls=str(ps._4)
         ),
         Div(

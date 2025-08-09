@@ -60,16 +60,16 @@ def test_accordion_basic_fasthtml_examples():
     """Test basic accordion using radio inputs from daisyUI v5 documentation."""
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
     
     # First accordion item
     accordion_item_1 = Div(
         Input(type="radio", name="my-accordion-1", checked="checked"),
-        Div("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, bg_dui.base_100, border(), border_dui.base_300)
     )
@@ -89,10 +89,10 @@ def test_accordion_basic_fasthtml_examples():
     # Second accordion item
     accordion_item_2 = Div(
         Input(type="radio", name="my-accordion-1"),
-        Div("I forgot my password. What should I do?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("I forgot my password. What should I do?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click on "Forgot Password" on the login page and follow the instructions sent to your email.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, bg_dui.base_100, border(), border_dui.base_300)
     )
@@ -102,10 +102,10 @@ def test_accordion_basic_fasthtml_examples():
     # Third accordion item
     accordion_item_3 = Div(
         Input(type="radio", name="my-accordion-1"),
-        Div("How do I update my profile information?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I update my profile information?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Go to "My Account" settings and select "Edit Profile" to make changes.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, bg_dui.base_100, border(), border_dui.base_300)
     )
@@ -127,16 +127,16 @@ def test_accordion_arrow_fasthtml_examples():
     """Test accordion with arrow icon from daisyUI v5 documentation."""
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
     
     # First accordion item with arrow
     accordion_arrow_1 = Div(
         Input(type="radio", name="my-accordion-2", checked="checked"),
-        Div("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, collapse_modifiers.arrow, bg_dui.base_100, border(), border_dui.base_300)
     )
@@ -152,10 +152,10 @@ def test_accordion_arrow_fasthtml_examples():
     # Second accordion item with arrow
     accordion_arrow_2 = Div(
         Input(type="radio", name="my-accordion-2"),
-        Div("I forgot my password. What should I do?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("I forgot my password. What should I do?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click on "Forgot Password" on the login page and follow the instructions sent to your email.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, collapse_modifiers.arrow, bg_dui.base_100, border(), border_dui.base_300)
     )
@@ -166,10 +166,10 @@ def test_accordion_arrow_fasthtml_examples():
     # Third accordion item with arrow
     accordion_arrow_3 = Div(
         Input(type="radio", name="my-accordion-2"),
-        Div("How do I update my profile information?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I update my profile information?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Go to "My Account" settings and select "Edit Profile" to make changes.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, collapse_modifiers.arrow, bg_dui.base_100, border(), border_dui.base_300)
     )
@@ -191,16 +191,16 @@ def test_accordion_plus_fasthtml_examples():
     """Test accordion with plus/minus icon from daisyUI v5 documentation."""
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
     
     # First accordion item with plus/minus
     accordion_plus_1 = Div(
         Input(type="radio", name="my-accordion-3", checked="checked"),
-        Div("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, collapse_modifiers.plus, bg_dui.base_100, border(), border_dui.base_300)
     )
@@ -216,10 +216,10 @@ def test_accordion_plus_fasthtml_examples():
     # Second accordion item with plus/minus
     accordion_plus_2 = Div(
         Input(type="radio", name="my-accordion-3"),
-        Div("I forgot my password. What should I do?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("I forgot my password. What should I do?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click on "Forgot Password" on the login page and follow the instructions sent to your email.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, collapse_modifiers.plus, bg_dui.base_100, border(), border_dui.base_300)
     )
@@ -230,10 +230,10 @@ def test_accordion_plus_fasthtml_examples():
     # Third accordion item with plus/minus
     accordion_plus_3 = Div(
         Input(type="radio", name="my-accordion-3"),
-        Div("How do I update my profile information?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I update my profile information?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Go to "My Account" settings and select "Edit Profile" to make changes.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, collapse_modifiers.plus, bg_dui.base_100, border(), border_dui.base_300)
     )
@@ -256,35 +256,35 @@ def test_accordion_join_fasthtml_examples():
     """Test accordion with join from daisyUI v5 documentation."""
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
     
     # Accordion group using Join
     accordion_join = Div(
         Div(
             Input(type="radio", name="my-accordion-4", checked="checked"),
-            Div("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+            Div("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
             Div(
                 'Click the "Sign Up" button in the top right corner and follow the registration process.',
-                cls=combine_classes(collapse_content, text.sm)
+                cls=combine_classes(collapse_content, font_size.sm)
             ),
             cls=combine_classes(collapse, collapse_modifiers.arrow, "join-item", border_dui.base_300, border())
         ),
         Div(
             Input(type="radio", name="my-accordion-4"),
-            Div("I forgot my password. What should I do?", cls=combine_classes(collapse_title, font.semibold)),
+            Div("I forgot my password. What should I do?", cls=combine_classes(collapse_title, font_weight.semibold)),
             Div(
                 'Click on "Forgot Password" on the login page and follow the instructions sent to your email.',
-                cls=combine_classes(collapse_content, text.sm)
+                cls=combine_classes(collapse_content, font_size.sm)
             ),
             cls=combine_classes(collapse, collapse_modifiers.arrow, "join-item", border_dui.base_300, border())
         ),
         Div(
             Input(type="radio", name="my-accordion-4"),
-            Div("How do I update my profile information?", cls=combine_classes(collapse_title, font.semibold)),
+            Div("How do I update my profile information?", cls=combine_classes(collapse_title, font_weight.semibold)),
             Div(
                 'Go to "My Account" settings and select "Edit Profile" to make changes.',
-                cls=combine_classes(collapse_content, text.sm)
+                cls=combine_classes(collapse_content, font_size.sm)
             ),
             cls=combine_classes(collapse, collapse_modifiers.arrow, "join-item", border_dui.base_300, border())
         ),

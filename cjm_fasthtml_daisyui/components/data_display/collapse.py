@@ -74,15 +74,15 @@ def test_collapse_basic_fasthtml_examples():
     """Test basic collapse examples: focus, checkbox, and details/summary from daisyUI v5 documentation."""
     from fasthtml.common import Div, Input, Details, Summary
     from cjm_fasthtml_tailwind.utilities.borders import border
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
     
     # Collapse with focus (tabindex)
     focus_collapse = Div(
-        Div("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         tabindex="0",
         cls=combine_classes(collapse, bg_dui.base_100, border_dui.base_300, border())
@@ -101,10 +101,10 @@ def test_collapse_basic_fasthtml_examples():
     # Collapse with checkbox
     checkbox_collapse = Div(
         Input(type="checkbox"),
-        Div("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, bg_dui.base_100, border_dui.base_300, border())
     )
@@ -119,10 +119,10 @@ def test_collapse_basic_fasthtml_examples():
     
     # Collapse using details and summary tag
     details_collapse = Details(
-        Summary("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+        Summary("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         cls=combine_classes(collapse, bg_dui.base_100, border_dui.base_300, border())
     )
@@ -149,15 +149,15 @@ def test_collapse_style_fasthtml_examples():
     """Test collapse style examples: without border/background, with arrow icon, with plus/minus icon from daisyUI v5 documentation."""
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
     
     # Collapse without border and background
     minimal_collapse = Div(
-        Div("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         tabindex="0",
         cls=str(collapse)
@@ -172,10 +172,10 @@ def test_collapse_style_fasthtml_examples():
     
     # Collapse with arrow icon
     arrow_collapse = Div(
-        Div("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         tabindex="0",
         cls=combine_classes(collapse, collapse_modifiers.arrow, bg_dui.base_100, border_dui.base_300, border())
@@ -191,10 +191,10 @@ def test_collapse_style_fasthtml_examples():
     
     # Collapse with plus/minus icon
     plus_collapse = Div(
-        Div("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         tabindex="0",
         cls=combine_classes(collapse, collapse_modifiers.plus, bg_dui.base_100, border_dui.base_300, border())
@@ -222,15 +222,15 @@ def test_collapse_state_fasthtml_examples():
     """Test collapse state examples: force open and force close from daisyUI v5 documentation."""
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.utilities.borders import border 
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
     
     # Force open collapse
     open_collapse = Div(
-        Div("I have collapse-open class", cls=combine_classes(collapse_title, font.semibold)),
+        Div("I have collapse-open class", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         tabindex="0",
         cls=combine_classes(collapse, collapse_modifiers.open, bg_dui.base_100, border_dui.base_300, border())
@@ -249,10 +249,10 @@ def test_collapse_state_fasthtml_examples():
     
     # Force close collapse  
     close_collapse = Div(
-        Div("I have collapse-close class", cls=combine_classes(collapse_title, font.semibold)),
+        Div("I have collapse-close class", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         tabindex="0",
         cls=combine_classes(collapse, collapse_modifiers.close, bg_dui.base_100, border_dui.base_300, border())
@@ -280,15 +280,15 @@ def test_collapse_color_fasthtml_examples():
     """Test collapse color examples: custom colors for focus and checkbox from daisyUI v5 documentation."""
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui, text_dui
     
     # Custom colors for collapse that works with focus
     custom_focus_collapse = Div(
-        Div("How do I create an account?", cls=combine_classes(collapse_title, font.semibold)),
+        Div("How do I create an account?", cls=combine_classes(collapse_title, font_weight.semibold)),
         Div(
             'Click the "Sign Up" button in the top right corner and follow the registration process.',
-            cls=combine_classes(collapse_content, text.sm)
+            cls=combine_classes(collapse_content, font_size.sm)
         ),
         tabindex="0",
         cls=combine_classes(

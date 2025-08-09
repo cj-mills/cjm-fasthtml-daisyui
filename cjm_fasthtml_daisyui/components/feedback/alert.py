@@ -462,7 +462,7 @@ def test_alert_with_title_description_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import shrink
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import stroke_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes
     
@@ -484,8 +484,8 @@ def test_alert_with_title_description_fasthtml_examples():
     title_desc_alert = Div(
         info_icon,
         Div(
-            H3("New message!", cls=str(font.bold)),
-            Div("You have 1 unread message", cls=str(text.xs))
+            H3("New message!", cls=str(font_weight.bold)),
+            Div("You have 1 unread message", cls=str(font_size.xs))
         ),
         Button("See", cls=combine_classes(btn, btn_sizes.sm)),
         role="alert",

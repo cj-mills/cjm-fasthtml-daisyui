@@ -947,10 +947,8 @@ def test_timeline_snap_icon_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.spacing import m
-    from cjm_fasthtml_tailwind.utilities.typography import text, font, italic
-    # from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import max_content
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, italic, text_align
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_tailwind.utilities.typography import text_align
     
     # Create checkmark SVG icon as reusable component
     checkmark_icon = Svg(
@@ -970,8 +968,8 @@ def test_timeline_snap_icon_fasthtml_examples():
         Li(
             Div(checkmark_icon, cls=str(timeline_middle)),
             Div(
-                Time("1984", cls=combine_classes(font.mono, italic)),
-                Div("First Macintosh computer", cls=combine_classes(text.lg, font.black)),
+                Time("1984", cls=combine_classes(font_family.mono, italic)),
+                Div("First Macintosh computer", cls=combine_classes(font_size.lg, font_weight.black)),
                 "The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh personal computer. It played a pivotal role in establishing desktop publishing as a general office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed in a beige case with integrated carrying handle; it came with a keyboard and single-button mouse.",
                 cls=combine_classes(timeline_start, m.b._10, text_align.end.md)
             ),
@@ -981,8 +979,8 @@ def test_timeline_snap_icon_fasthtml_examples():
             Hr(),
             Div(checkmark_icon, cls=str(timeline_middle)),
             Div(
-                Time("1998", cls=combine_classes(font.mono, italic)),
-                Div("iMac", cls=combine_classes(text.lg, font.black)),
+                Time("1998", cls=combine_classes(font_family.mono, italic)),
+                Div("iMac", cls=combine_classes(font_size.lg, font_weight.black)),
                 "iMac is a family of all-in-one Mac desktop computers designed and built by Apple Inc. It has been the primary part of Apple's consumer desktop offerings since its debut in August 1998, and has evolved through seven distinct forms",
                 cls=combine_classes(timeline_end, m.b._10.md)
             ),
@@ -992,8 +990,8 @@ def test_timeline_snap_icon_fasthtml_examples():
             Hr(),
             Div(checkmark_icon, cls=str(timeline_middle)),
             Div(
-                Time("2001", cls=combine_classes(font.mono, italic)),
-                Div("iPod", cls=combine_classes(text.lg, font.black)),
+                Time("2001", cls=combine_classes(font_family.mono, italic)),
+                Div("iPod", cls=combine_classes(font_size.lg, font_weight.black)),
                 "The iPod is a discontinued series of portable media players and multi-purpose mobile devices designed and marketed by Apple Inc. The first version was released on October 23, 2001, about 8+1⁄2 months after the Macintosh version of iTunes was released. Apple sold an estimated 450 million iPod products as of 2022. Apple discontinued the iPod product line on May 10, 2022. At over 20 years, the iPod brand is the oldest to be discontinued by Apple",
                 cls=combine_classes(timeline_start, m.b._10, text_align.end.md)
             ),
@@ -1003,8 +1001,8 @@ def test_timeline_snap_icon_fasthtml_examples():
             Hr(),
             Div(checkmark_icon, cls=str(timeline_middle)),
             Div(
-                Time("2007", cls=combine_classes(font.mono, italic)),
-                Div("iPhone", cls=combine_classes(text.lg, font.black)),
+                Time("2007", cls=combine_classes(font_family.mono, italic)),
+                Div("iPhone", cls=combine_classes(font_size.lg, font_weight.black)),
                 "iPhone is a line of smartphones produced by Apple Inc. that use Apple's own iOS mobile operating system. The first-generation iPhone was announced by then-Apple CEO Steve Jobs on January 9, 2007. Since then, Apple has annually released new iPhone models and iOS updates. As of November 1, 2018, more than 2.2 billion iPhones had been sold. As of 2022, the iPhone accounts for 15.6% of global smartphone market share",
                 cls=combine_classes(timeline_end, m.b._10.md)
             ),
@@ -1014,8 +1012,8 @@ def test_timeline_snap_icon_fasthtml_examples():
             Hr(),
             Div(checkmark_icon, cls=str(timeline_middle)),
             Div(
-                Time("2015", cls=combine_classes(font.mono, italic)),
-                Div("Apple Watch", cls=combine_classes(text.lg, font.black)),
+                Time("2015", cls=combine_classes(font_family.mono, italic)),
+                Div("Apple Watch", cls=combine_classes(font_size.lg, font_weight.black)),
                 "The Apple Watch is a line of smartwatches produced by Apple Inc. It incorporates fitness tracking, health-oriented capabilities, and wireless telecommunication, and integrates with iOS and other Apple products and services",
                 cls=combine_classes(timeline_start, m.b._10, text_align.end.md)
             )

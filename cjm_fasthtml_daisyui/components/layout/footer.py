@@ -698,7 +698,7 @@ def test_footer_centered_with_logo_fasthtml_examples():
     from datetime import datetime
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.svg import fill
-    from cjm_fasthtml_tailwind.utilities.typography import font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
@@ -759,7 +759,7 @@ def test_footer_centered_with_logo_fasthtml_examples():
                 "ACME Industries Ltd.",
                 Br(),
                 "Providing reliable tech since 1992",
-                cls=str(font.bold)
+                cls=str(font_weight.bold)
             ),
             P(f"Copyright © {datetime.now().year} - All right reserved")
         ),

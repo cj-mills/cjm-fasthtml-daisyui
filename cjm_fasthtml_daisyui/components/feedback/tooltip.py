@@ -144,7 +144,7 @@ def test_tooltip_with_content_fasthtml_examples():
     """Test tooltip with tooltip-content from daisyUI v5 documentation."""
     from fasthtml.common import Div, Button
     from cjm_fasthtml_tailwind.utilities.transitions_and_animation import animate
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.transforms import rotate
     from cjm_fasthtml_daisyui.components.actions.button import btn
     
@@ -155,10 +155,10 @@ def test_tooltip_with_content_fasthtml_examples():
                 "Wow!",
                 cls=combine_classes(
                     animate.bounce,
-                    text.orange._400,
+                    text_color.orange._400,
                     rotate(10, negative=True),
-                    text._2xl,
-                    font.black
+                    font_size._2xl,
+                    font_weight.black
                 )
             ),
             cls=str(tooltip_content)

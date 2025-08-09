@@ -42,7 +42,7 @@ test_countdown_basic_examples()
 def test_countdown_basic_fasthtml_examples():
     """Test basic countdown and large text from daisyUI v5 documentation."""
     from fasthtml.common import Span, Div
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     
     # Basic countdown
     basic_countdown = Span(
@@ -62,7 +62,7 @@ def test_countdown_basic_fasthtml_examples():
     # Large text
     large_countdown = Span(
         Span("59", style="--value:59;", aria_live="polite", aria_label="59"),
-        cls=combine_classes(countdown, font.mono, text._6xl)
+        cls=combine_classes(countdown, font_family.mono, font_size._6xl)
     )
     assert large_countdown.tag == "span"
     assert "countdown" in large_countdown.attrs['class']
@@ -84,7 +84,7 @@ test_countdown_basic_fasthtml_examples()
 def test_countdown_clock_fasthtml_examples():
     """Test clock countdown and clock countdown with colons from daisyUI v5 documentation."""
     from fasthtml.common import Span, Div
-    from cjm_fasthtml_tailwind.utilities.typography import font, text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     
     # Clock countdown
     clock_countdown = Span(
@@ -94,7 +94,7 @@ def test_countdown_clock_fasthtml_examples():
         "m",
         Span("59", style="--value:59;", aria_live="polite", aria_label="59"),
         "s",
-        cls=combine_classes(countdown, font.mono, text._2xl)
+        cls=combine_classes(countdown, font_family.mono, font_size._2xl)
     )
     assert clock_countdown.tag == "span"
     assert "countdown" in clock_countdown.attrs['class']
@@ -122,7 +122,7 @@ def test_countdown_clock_fasthtml_examples():
         Span("24", style="--value:24;", aria_live="polite", aria_label="24"),
         ":",
         Span("59", style="--value:59;", aria_live="polite", aria_label="59"),
-        cls=combine_classes(countdown, font.mono, text._2xl)
+        cls=combine_classes(countdown, font_family.mono, font_size._2xl)
     )
     assert clock_colons.tag == "span"
     assert "countdown" in clock_colons.attrs['class']
@@ -150,7 +150,7 @@ test_countdown_clock_fasthtml_examples()
 def test_countdown_labels_fasthtml_examples():
     """Test large text with labels and labels under from daisyUI v5 documentation."""
     from fasthtml.common import Div, Span
-    from cjm_fasthtml_tailwind.utilities.typography import font, text, text_align
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, text_align
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, flex_direction, auto_cols, grid_flow
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     
@@ -159,28 +159,28 @@ def test_countdown_labels_fasthtml_examples():
         Div(
             Span(
                 Span("15", style="--value:15;", aria_live="polite", aria_label="15"),
-                cls=combine_classes(countdown, font.mono, text._4xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._4xl)
             ),
             "days"
         ),
         Div(
             Span(
                 Span("10", style="--value:10;", aria_live="polite", aria_label="10"),
-                cls=combine_classes(countdown, font.mono, text._4xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._4xl)
             ),
             "hours"
         ),
         Div(
             Span(
                 Span("24", style="--value:24;", aria_live="polite", aria_label="24"),
-                cls=combine_classes(countdown, font.mono, text._4xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._4xl)
             ),
             "min"
         ),
         Div(
             Span(
                 Span("59", style="--value:59;", aria_live="polite", aria_label="59"),
-                cls=combine_classes(countdown, font.mono, text._4xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._4xl)
             ),
             "sec"
         ),
@@ -211,7 +211,7 @@ def test_countdown_labels_fasthtml_examples():
         Div(
             Span(
                 Span("15", style="--value:15;", aria_live="polite", aria_label="15"),
-                cls=combine_classes(countdown, font.mono, text._5xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "days",
             cls=combine_classes(display_tw.flex, flex_direction.col)
@@ -219,7 +219,7 @@ def test_countdown_labels_fasthtml_examples():
         Div(
             Span(
                 Span("10", style="--value:10;", aria_live="polite", aria_label="10"),
-                cls=combine_classes(countdown, font.mono, text._5xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "hours",
             cls=combine_classes(display_tw.flex, flex_direction.col)
@@ -227,7 +227,7 @@ def test_countdown_labels_fasthtml_examples():
         Div(
             Span(
                 Span("24", style="--value:24;", aria_live="polite", aria_label="24"),
-                cls=combine_classes(countdown, font.mono, text._5xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "min",
             cls=combine_classes(display_tw.flex, flex_direction.col)
@@ -235,7 +235,7 @@ def test_countdown_labels_fasthtml_examples():
         Div(
             Span(
                 Span("59", style="--value:59;", aria_live="polite", aria_label="59"),
-                cls=combine_classes(countdown, font.mono, text._5xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "sec",
             cls=combine_classes(display_tw.flex, flex_direction.col)
@@ -275,7 +275,7 @@ test_countdown_labels_fasthtml_examples()
 def test_countdown_boxes_fasthtml_examples():
     """Test countdown in boxes from daisyUI v5 documentation."""
     from fasthtml.common import Div, Span
-    from cjm_fasthtml_tailwind.utilities.typography import font, text, text_align
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, text_align
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, flex_direction, auto_cols, grid_flow
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.spacing import p
@@ -286,7 +286,7 @@ def test_countdown_boxes_fasthtml_examples():
         Div(
             Span(
                 Span("15", style="--value:15;", aria_live="polite", aria_label="15"),
-                cls=combine_classes(countdown, font.mono, text._5xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "days",
             cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, display_tw.flex, flex_direction.col, p._2)
@@ -294,7 +294,7 @@ def test_countdown_boxes_fasthtml_examples():
         Div(
             Span(
                 Span("10", style="--value:10;", aria_live="polite", aria_label="10"),
-                cls=combine_classes(countdown, font.mono, text._5xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "hours",
             cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, display_tw.flex, flex_direction.col, p._2)
@@ -302,7 +302,7 @@ def test_countdown_boxes_fasthtml_examples():
         Div(
             Span(
                 Span("24", style="--value:24;", aria_live="polite", aria_label="24"),
-                cls=combine_classes(countdown, font.mono, text._5xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "min",
             cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, display_tw.flex, flex_direction.col, p._2)
@@ -310,7 +310,7 @@ def test_countdown_boxes_fasthtml_examples():
         Div(
             Span(
                 Span("59", style="--value:59;", aria_live="polite", aria_label="59"),
-                cls=combine_classes(countdown, font.mono, text._5xl)
+                cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "sec",
             cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, display_tw.flex, flex_direction.col, p._2)

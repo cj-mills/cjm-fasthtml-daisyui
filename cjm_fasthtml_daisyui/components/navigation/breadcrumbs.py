@@ -38,7 +38,7 @@ test_breadcrumbs_basic_examples()
 def test_breadcrumbs_basic_fasthtml_examples():
     """Test basic breadcrumbs example from daisyUI v5 documentation."""
     from fasthtml.common import Div, Ul, Li, A
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     
     # Basic breadcrumbs
     basic_breadcrumbs = Div(
@@ -47,7 +47,7 @@ def test_breadcrumbs_basic_fasthtml_examples():
             Li(A("Documents", href="#")),
             Li("Add Document")
         ),
-        cls=combine_classes(breadcrumbs, text.sm)
+        cls=combine_classes(breadcrumbs, font_size.sm)
     )
     
     # Verify structure
@@ -91,7 +91,7 @@ def test_breadcrumbs_with_icons_fasthtml_examples():
     """Test breadcrumbs with icons from daisyUI v5 documentation."""
     from fasthtml.common import Div, Ul, Li, A, Span
     from fasthtml.svg import Svg, Path
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.svg import stroke
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
@@ -150,7 +150,7 @@ def test_breadcrumbs_with_icons_fasthtml_examples():
                 )
             )
         ),
-        cls=combine_classes(breadcrumbs, text.sm)
+        cls=combine_classes(breadcrumbs, font_size.sm)
     )
     
     # Verify structure
@@ -198,7 +198,7 @@ test_breadcrumbs_with_icons_fasthtml_examples()
 def test_breadcrumbs_with_max_width_fasthtml_examples():
     """Test breadcrumbs with max-width from daisyUI v5 documentation."""
     from fasthtml.common import Div, Ul, Li
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.sizing import max_w
     
     # Breadcrumbs with max-width
@@ -210,7 +210,7 @@ def test_breadcrumbs_with_max_width_fasthtml_examples():
             Li("Long text 4"),
             Li("Long text 5")
         ),
-        cls=combine_classes(breadcrumbs, max_w.xs, text.sm)
+        cls=combine_classes(breadcrumbs, max_w.xs, font_size.sm)
     )
     
     # Verify structure

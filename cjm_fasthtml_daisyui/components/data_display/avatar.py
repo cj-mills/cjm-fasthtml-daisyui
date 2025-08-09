@@ -399,13 +399,13 @@ def test_avatar_placeholder_fasthtml_examples():
     from fasthtml.common import Div, Span
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
     
     # Basic avatar placeholder
     placeholder_d = Div(
         Div(
-            Span("D", cls=str(text._3xl)),
+            Span("D", cls=str(font_size._3xl)),
             cls=combine_classes(bg_dui.neutral, text_dui.neutral_content, w._24, rounded.full)
         ),
         cls=combine_classes(avatar, avatar_modifiers.placeholder)
@@ -424,7 +424,7 @@ def test_avatar_placeholder_fasthtml_examples():
     # Avatar placeholder with online status
     online_placeholder = Div(
         Div(
-            Span("AI", cls=str(text.xl)),
+            Span("AI", cls=str(font_size.xl)),
             cls=combine_classes(bg_dui.neutral, text_dui.neutral_content, w._16, rounded.full)
         ),
         cls=combine_classes(avatar, avatar_modifiers.online, avatar_modifiers.placeholder)
@@ -450,7 +450,7 @@ def test_avatar_placeholder_fasthtml_examples():
     # Extra small avatar placeholder
     placeholder_ui = Div(
         Div(
-            Span("UI", cls=str(text.xs)),
+            Span("UI", cls=str(font_size.xs)),
             cls=combine_classes(bg_dui.neutral, text_dui.neutral_content, w._8, rounded.full)
         ),
         cls=combine_classes(avatar, avatar_modifiers.placeholder)

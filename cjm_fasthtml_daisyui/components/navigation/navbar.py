@@ -49,14 +49,14 @@ test_navbar_basic_examples()
 def test_navbar_title_only_fasthtml_examples():
     """Test navbar with title only from daisyUI v5 documentation."""
     from fasthtml.common import Div, A
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles
     
     # Navbar with title only
     navbar_title_only = Div(
-        A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+        A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
         cls=combine_classes(navbar, bg_dui.base_100, shadow.sm)
     )
     
@@ -84,7 +84,7 @@ def test_navbar_with_title_and_icon_fasthtml_examples():
     """Test navbar with title and icon from daisyUI v5 documentation."""
     from fasthtml.common import Div, A, Button
     from fasthtml.svg import Svg, Path
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
@@ -110,7 +110,7 @@ def test_navbar_with_title_and_icon_fasthtml_examples():
     # Navbar with title and icon
     navbar_with_icon = Div(
         Div(
-            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
             cls=combine_classes(flex._1)
         ),
         Div(
@@ -155,7 +155,7 @@ def test_navbar_with_icons_fasthtml_examples():
     """Test navbar with icon at start and end from daisyUI v5 documentation."""
     from fasthtml.common import Div, A, Button
     from fasthtml.svg import Svg, Path
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
@@ -202,7 +202,7 @@ def test_navbar_with_icons_fasthtml_examples():
             cls=combine_classes(flex.none)
         ),
         Div(
-            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
             cls=combine_classes(flex._1)
         ),
         Div(
@@ -254,7 +254,7 @@ test_navbar_with_icons_fasthtml_examples()
 def test_navbar_with_menu_fasthtml_examples():
     """Test navbar with menu and submenu from daisyUI v5 documentation."""
     from fasthtml.common import Div, A, Ul, Li, Details, Summary
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex
     from cjm_fasthtml_tailwind.utilities.spacing import p
@@ -266,7 +266,7 @@ def test_navbar_with_menu_fasthtml_examples():
     # Navbar with menu and submenu
     navbar_with_menu = Div(
         Div(
-            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
             cls=combine_classes(flex._1)
         ),
         Div(
@@ -341,7 +341,7 @@ test_navbar_with_menu_fasthtml_examples()
 def test_navbar_with_search_and_dropdown_fasthtml_examples():
     """Test navbar with search input and dropdown from daisyUI v5 documentation."""
     from fasthtml.common import Div, A, Ul, Li, Span, Input, Img
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, gap, justify
     from cjm_fasthtml_tailwind.utilities.sizing import w
@@ -359,7 +359,7 @@ def test_navbar_with_search_and_dropdown_fasthtml_examples():
     # Navbar with search input and dropdown
     navbar_search_dropdown = Div(
         Div(
-            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
             cls=combine_classes(flex._1)
         ),
         Div(
@@ -485,7 +485,7 @@ def test_navbar_with_icon_indicator_and_dropdown_fasthtml_examples():
     """Test navbar with icon, indicator and dropdown from daisyUI v5 documentation."""
     from fasthtml.common import Div, A, Ul, Li, Span, Button, Img
     from fasthtml.svg import Svg, Path
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, justify
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
@@ -519,7 +519,7 @@ def test_navbar_with_icon_indicator_and_dropdown_fasthtml_examples():
     # Navbar with icon, indicator and dropdown
     navbar_icon_indicator = Div(
         Div(
-            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
             cls=combine_classes(flex._1)
         ),
         Div(
@@ -537,7 +537,7 @@ def test_navbar_with_icon_indicator_and_dropdown_fasthtml_examples():
                 ),
                 Div(
                     Div(
-                        Span("8 Items", cls=combine_classes(text.lg, font.bold)),
+                        Span("8 Items", cls=combine_classes(font_size.lg, font_weight.bold)),
                         Span("Subtotal: $999", cls=str(text_dui.info)),
                         Div(
                             Button("View cart", cls=combine_classes(btn, btn_colors.primary, btn_modifiers.block)),
@@ -691,7 +691,7 @@ def test_navbar_with_dropdown_center_logo_fasthtml_examples():
     """Test navbar with dropdown, center logo and icon from daisyUI v5 documentation."""
     from fasthtml.common import Div, A, Button, Ul, Li, Span
     from fasthtml.svg import Svg, Path
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
@@ -774,7 +774,7 @@ def test_navbar_with_dropdown_center_logo_fasthtml_examples():
             cls=str(navbar_start)
         ),
         Div(
-            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
             cls=str(navbar_center)
         ),
         Div(
@@ -836,7 +836,7 @@ def test_navbar_responsive_fasthtml_examples():
     """Test responsive navbar from daisyUI v5 documentation."""
     from fasthtml.common import Div, A, Ul, Li, Details, Summary, Button
     from fasthtml.svg import Svg, Path
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
@@ -891,7 +891,7 @@ def test_navbar_responsive_fasthtml_examples():
                 ),
                 cls=str(dropdown)
             ),
-            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+            A("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
             cls=str(navbar_start)
         ),
         Div(
@@ -955,13 +955,13 @@ test_navbar_responsive_fasthtml_examples()
 def test_navbar_colors_fasthtml_examples():
     """Test navbar with colors from daisyUI v5 documentation."""
     from fasthtml.common import Div, Button
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles
     
     # Navbar with neutral color
     navbar_neutral = Div(
-        Button("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+        Button("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
         cls=combine_classes(navbar, bg_dui.neutral, text_dui.neutral_content)
     )
     
@@ -975,7 +975,7 @@ def test_navbar_colors_fasthtml_examples():
     
     # Navbar with base-300 color
     navbar_base300 = Div(
-        Button("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+        Button("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
         cls=combine_classes(navbar, bg_dui.base_300)
     )
     
@@ -985,7 +985,7 @@ def test_navbar_colors_fasthtml_examples():
     
     # Navbar with primary color
     navbar_primary = Div(
-        Button("daisyUI", cls=combine_classes(btn, btn_styles.ghost, text.xl)),
+        Button("daisyUI", cls=combine_classes(btn, btn_styles.ghost, font_size.xl)),
         cls=combine_classes(navbar, bg_dui.primary, text_dui.primary_content)
     )
     

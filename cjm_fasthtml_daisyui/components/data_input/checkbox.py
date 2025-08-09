@@ -396,7 +396,7 @@ def test_checkbox_custom_colors_fasthtml_examples():
     from fasthtml.common import Input, Div
     from cjm_fasthtml_tailwind.utilities.borders import border_color
     from cjm_fasthtml_tailwind.utilities.backgrounds import bg
-    from cjm_fasthtml_tailwind.utilities.typography import text
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     
     # Checkbox with custom colors
     custom_color_checkbox = Input(
@@ -408,7 +408,7 @@ def test_checkbox_custom_colors_fasthtml_examples():
             bg.indigo._500,
             border_color.orange._500.checked,
             bg.orange._400.checked,
-            text.orange._800.checked
+            text_color.orange._800.checked
         )
     )
     

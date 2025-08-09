@@ -374,7 +374,7 @@ def test_table_visual_elements_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import display_tw, overflow
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import items, gap
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import opacity
     from cjm_fasthtml_tailwind.core.base import combine_classes
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles, btn_sizes
@@ -416,8 +416,8 @@ def test_table_visual_elements_fasthtml_examples():
                                 cls="avatar"
                             ),
                             Div(
-                                Div("Hart Hagerty", cls=str(font.bold)),
-                                Div("United States", cls=combine_classes(text.sm, opacity._50))
+                                Div("Hart Hagerty", cls=str(font_weight.bold)),
+                                Div("United States", cls=combine_classes(font_size.sm, opacity._50))
                             ),
                             cls=combine_classes(display_tw.flex, items.center, gap._3)
                         )
@@ -451,8 +451,8 @@ def test_table_visual_elements_fasthtml_examples():
                                 cls="avatar"
                             ),
                             Div(
-                                Div("Brice Swyre", cls=str(font.bold)),
-                                Div("China", cls=combine_classes(text.sm, opacity._50))
+                                Div("Brice Swyre", cls=str(font_weight.bold)),
+                                Div("China", cls=combine_classes(font_size.sm, opacity._50))
                             ),
                             cls=combine_classes(display_tw.flex, items.center, gap._3)
                         )
@@ -486,8 +486,8 @@ def test_table_visual_elements_fasthtml_examples():
                                 cls="avatar"
                             ),
                             Div(
-                                Div("Marjy Ferencz", cls=str(font.bold)),
-                                Div("Russia", cls=combine_classes(text.sm, opacity._50))
+                                Div("Marjy Ferencz", cls=str(font_weight.bold)),
+                                Div("Russia", cls=combine_classes(font_size.sm, opacity._50))
                             ),
                             cls=combine_classes(display_tw.flex, items.center, gap._3)
                         )
@@ -521,8 +521,8 @@ def test_table_visual_elements_fasthtml_examples():
                                 cls="avatar"
                             ),
                             Div(
-                                Div("Yancy Tear", cls=str(font.bold)),
-                                Div("Brazil", cls=combine_classes(text.sm, opacity._50))
+                                Div("Yancy Tear", cls=str(font_weight.bold)),
+                                Div("Brazil", cls=combine_classes(font_size.sm, opacity._50))
                             ),
                             cls=combine_classes(display_tw.flex, items.center, gap._3)
                         )

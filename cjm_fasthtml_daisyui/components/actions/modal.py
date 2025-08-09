@@ -73,7 +73,7 @@ def test_modal_dialog_fasthtml_examples():
     """Test modal examples using HTML dialog element (recommended method)."""
     from fasthtml.common import Dialog, Div, Button, H3, P, Form
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.sizing import w, max_w
     from cjm_fasthtml_tailwind.utilities.layout import position, right, top
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_modifiers, btn_styles
@@ -81,7 +81,7 @@ def test_modal_dialog_fasthtml_examples():
     # Basic dialog modal
     dialog_modal = Dialog(
         Div(
-            H3("Hello!", cls=combine_classes(text.lg, font.bold)),
+            H3("Hello!", cls=combine_classes(font_size.lg, font_weight.bold)),
             P("Press ESC key or click the button below to close", cls=p.y._4),
             Div(
                 Form(
@@ -104,7 +104,7 @@ def test_modal_dialog_fasthtml_examples():
     # Dialog modal with backdrop (closes when clicked outside)
     backdrop_modal = Dialog(
         Div(
-            H3("Hello!", cls=combine_classes(text.lg, font.bold)),
+            H3("Hello!", cls=combine_classes(font_size.lg, font_weight.bold)),
             P("Press ESC key or click outside to close", cls=p.y._4),
             cls=str(modal_box)
         ),
@@ -138,7 +138,7 @@ def test_modal_dialog_fasthtml_examples():
                 ),
                 method="dialog"
             ),
-            H3("Hello!", cls=combine_classes(text.lg, font.bold)),
+            H3("Hello!", cls=combine_classes(font_size.lg, font_weight.bold)),
             P("Press ESC key or click on ✕ button to close", cls=p.y._4),
             cls=str(modal_box)
         ),
@@ -154,7 +154,7 @@ def test_modal_dialog_fasthtml_examples():
     # Dialog modal with custom width
     wide_modal = Dialog(
         Div(
-            H3("Hello!", cls=combine_classes(text.lg, font.bold)),
+            H3("Hello!", cls=combine_classes(font_size.lg, font_weight.bold)),
             P("Click the button below to close", cls=p.y._4),
             Div(
                 Form(
@@ -174,7 +174,7 @@ def test_modal_dialog_fasthtml_examples():
     # Responsive modal (bottom on mobile, middle on larger screens)
     responsive_modal = Dialog(
         Div(
-            H3("Hello!", cls=combine_classes(text.lg, font.bold)),
+            H3("Hello!", cls=combine_classes(font_size.lg, font_weight.bold)),
             P("Press ESC key or click the button below to close", cls=p.y._4),
             Div(
                 Form(
@@ -216,7 +216,7 @@ test_modal_dialog_fasthtml_examples()
 def test_modal_checkbox_fasthtml_examples():
     """Test modal examples using checkbox method (legacy)."""
     from fasthtml.common import Label, Input, Div, H3, P
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_modifiers, btn_styles
     
@@ -225,7 +225,7 @@ def test_modal_checkbox_fasthtml_examples():
     checkbox_input = Input(type="checkbox", id="my_modal_6", cls=str(modal_toggle))
     checkbox_modal = Div(
         Div(
-            H3("Hello!", cls=combine_classes(text.lg, font.bold)),
+            H3("Hello!", cls=combine_classes(font_size.lg, font_weight.bold)),
             P("This modal works with a hidden checkbox!", cls=p.y._4),
             Div(
                 Label("Close!", for_="my_modal_6", cls=str(btn)),
@@ -251,7 +251,7 @@ def test_modal_checkbox_fasthtml_examples():
     backdrop_checkbox_input = Input(type="checkbox", id="my_modal_7", cls=str(modal_toggle))
     backdrop_checkbox_modal = Div(
         Div(
-            H3("Hello!", cls=combine_classes(text.lg, font.bold)),
+            H3("Hello!", cls=combine_classes(font_size.lg, font_weight.bold)),
             P("This modal works with a hidden checkbox!", cls=p.y._4),
             cls=str(modal_box)
         ),
@@ -293,7 +293,7 @@ test_modal_checkbox_fasthtml_examples()
 def test_modal_anchor_fasthtml_examples():
     """Test modal examples using anchor links (legacy method)."""
     from fasthtml.common import A, Div, H3, P
-    from cjm_fasthtml_tailwind.utilities.typography import text, font
+    from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_modifiers, btn_styles
     
@@ -303,7 +303,7 @@ def test_modal_anchor_fasthtml_examples():
     # Anchor modal
     anchor_modal = Div(
         Div(
-            H3("Hello!", cls=combine_classes(text.lg, font.bold)),
+            H3("Hello!", cls=combine_classes(font_size.lg, font_weight.bold)),
             P("This modal works with anchor links", cls=p.y._4),
             Div(
                 A("Yay!", href="#", cls=str(btn)),
