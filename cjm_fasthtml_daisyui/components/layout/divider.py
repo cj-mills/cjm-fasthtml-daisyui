@@ -99,7 +99,7 @@ test_divider_placement_examples()
 def test_divider_basic_fasthtml_examples():
     """Test basic divider and divider with no text from daisyUI v5 documentation."""
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, place_items, grow
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, place_items, grow, grid_display, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
@@ -109,14 +109,14 @@ def test_divider_basic_fasthtml_examples():
     divider_with_text = Div(
         Div(
             "content",
-            cls=combine_classes(card, bg_dui.base_300, rounded.box, display_tw.grid, h._20, place_items.center)
+            cls=combine_classes(card, bg_dui.base_300, rounded.box, grid_display, h._20, place_items.center)
         ),
         Div("OR", cls=str(divider)),
         Div(
             "content",
-            cls=combine_classes(card, bg_dui.base_300, rounded.box, display_tw.grid, h._20, place_items.center)
+            cls=combine_classes(card, bg_dui.base_300, rounded.box, grid_display, h._20, place_items.center)
         ),
-        cls=combine_classes(display_tw.flex, w.full, flex_direction.col)
+        cls=combine_classes(flex_display, w.full, flex_direction.col)
     )
     
     # Verify structure
@@ -152,14 +152,14 @@ def test_divider_basic_fasthtml_examples():
     divider_no_text = Div(
         Div(
             "content",
-            cls=combine_classes(card, bg_dui.base_300, rounded.box, display_tw.grid, h._20, place_items.center)
+            cls=combine_classes(card, bg_dui.base_300, rounded.box, grid_display, h._20, place_items.center)
         ),
         Div(cls=str(divider)),  # No text
         Div(
             "content",
-            cls=combine_classes(card, bg_dui.base_300, rounded.box, display_tw.grid, h._20, place_items.center)
+            cls=combine_classes(card, bg_dui.base_300, rounded.box, grid_display, h._20, place_items.center)
         ),
-        cls=combine_classes(display_tw.flex, w.full, flex_direction.col)
+        cls=combine_classes(flex_display, w.full, flex_direction.col)
     )
     
     # Verify divider with no text
@@ -176,7 +176,7 @@ test_divider_basic_fasthtml_examples()
 def test_divider_horizontal_fasthtml_examples():
     """Test horizontal divider from daisyUI v5 documentation."""
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grow
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grow, grid_display, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
@@ -186,7 +186,7 @@ def test_divider_horizontal_fasthtml_examples():
     horizontal_divider = Div(
         Div(
             "content",
-            cls=combine_classes(card, bg_dui.base_300, rounded.box, display_tw.grid, h._20, grow(), place_items.center)
+            cls=combine_classes(card, bg_dui.base_300, rounded.box, grid_display, h._20, grow(), place_items.center)
         ),
         Div(
             "OR",
@@ -194,9 +194,9 @@ def test_divider_horizontal_fasthtml_examples():
         ),
         Div(
             "content",
-            cls=combine_classes(card, bg_dui.base_300, rounded.box, display_tw.grid, h._20, grow(), place_items.center)
+            cls=combine_classes(card, bg_dui.base_300, rounded.box, grid_display, h._20, grow(), place_items.center)
         ),
-        cls=combine_classes(display_tw.flex, w.full)
+        cls=combine_classes(flex_display, w.full)
     )
     
     # Verify structure
@@ -241,7 +241,7 @@ test_divider_horizontal_fasthtml_examples()
 def test_divider_responsive_fasthtml_examples():
     """Test responsive divider (lg:divider-horizontal) from daisyUI v5 documentation."""
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, place_items, grow
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, place_items, grow, grid_display, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
@@ -251,7 +251,7 @@ def test_divider_responsive_fasthtml_examples():
     responsive_divider = Div(
         Div(
             "content",
-            cls=combine_classes(card, bg_dui.base_300, rounded.box, display_tw.grid, h._32, grow(), place_items.center)
+            cls=combine_classes(card, bg_dui.base_300, rounded.box, grid_display, h._32, grow(), place_items.center)
         ),
         Div(
             "OR",
@@ -259,9 +259,9 @@ def test_divider_responsive_fasthtml_examples():
         ),
         Div(
             "content",
-            cls=combine_classes(card, bg_dui.base_300, rounded.box, display_tw.grid, h._32, grow(), place_items.center)
+            cls=combine_classes(card, bg_dui.base_300, rounded.box, grid_display, h._32, grow(), place_items.center)
         ),
-        cls=combine_classes(display_tw.flex, w.full, flex_direction.col, flex_direction.row.lg)
+        cls=combine_classes(flex_display, w.full, flex_direction.col, flex_direction.row.lg)
     )
     
     # Verify structure
@@ -308,7 +308,7 @@ def test_divider_colors_fasthtml_examples():
     """Test divider with colors from daisyUI v5 documentation."""
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, flex_display
     
     # Divider with colors
     divider_colors_example = Div(
@@ -321,7 +321,7 @@ def test_divider_colors_fasthtml_examples():
         Div("Warning", cls=combine_classes(divider, divider_colors.warning)),
         Div("Info", cls=combine_classes(divider, divider_colors.info)),
         Div("Error", cls=combine_classes(divider, divider_colors.error)),
-        cls=combine_classes(display_tw.flex, w.full, flex_direction.col)
+        cls=combine_classes(flex_display, w.full, flex_direction.col)
     )
     
     # Verify structure
@@ -397,14 +397,14 @@ def test_divider_positions_fasthtml_examples():
     """Test divider in different positions (vertical and horizontal) from daisyUI v5 documentation."""
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, flex_display
     
     # Divider in different positions (vertical)
     vertical_positions = Div(
         Div("Start", cls=combine_classes(divider, divider_placement.start)),
         Div("Default", cls=str(divider)),
         Div("End", cls=combine_classes(divider, divider_placement.end)),
-        cls=combine_classes(display_tw.flex, w.full, flex_direction.col)
+        cls=combine_classes(flex_display, w.full, flex_direction.col)
     )
     
     # Verify vertical positions structure
@@ -448,7 +448,7 @@ def test_divider_positions_fasthtml_examples():
             "End",
             cls=combine_classes(divider, divider_directions.horizontal, divider_placement.end)
         ),
-        cls=combine_classes(display_tw.flex, w.full)
+        cls=combine_classes(flex_display, w.full)
     )
     
     # Verify horizontal positions structure

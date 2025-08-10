@@ -841,6 +841,7 @@ def test_navbar_responsive_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
     from cjm_fasthtml_tailwind.utilities.layout import z, display_tw
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown, dropdown_content
@@ -910,7 +911,7 @@ def test_navbar_responsive_fasthtml_examples():
                 Li(A("Item 3")),
                 cls=combine_classes(menu, menu_directions.horizontal, p.x._1)
             ),
-            cls=combine_classes(navbar_center, display_tw.hidden, display_tw.flex.lg)
+            cls=combine_classes(navbar_center, display_tw.hidden, flex_display.lg)
         ),
         Div(
             A("Button", cls=str(btn)),

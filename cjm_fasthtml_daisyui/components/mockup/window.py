@@ -39,7 +39,7 @@ def test_window_mockup_with_border_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
     from cjm_fasthtml_daisyui.core.utility_classes import border_dui
     
     # Window mockup with border
@@ -47,7 +47,7 @@ def test_window_mockup_with_border_fasthtml_examples():
         Div(
             "Hello!",
             cls=combine_classes(
-                display_tw.grid, 
+                grid_display, 
                 place_content.center, 
                 border.t(), 
                 border_dui.base_300, 
@@ -86,14 +86,14 @@ def test_window_mockup_with_background_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.sizing import h
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
     
     # Window mockup with background color
     window_with_bg = Div(
         Div(
             "Hello!",
-            cls=combine_classes(display_tw.grid, place_content.center, h._80)
+            cls=combine_classes(grid_display, place_content.center, h._80)
         ),
         cls=combine_classes(mockup_window, bg_dui.base_100, border(), border_dui.base_300)
     )

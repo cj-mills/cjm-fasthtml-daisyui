@@ -43,7 +43,7 @@ def test_browser_mockup_with_border_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input
     from cjm_fasthtml_daisyui.core.utility_classes import border_dui
     
@@ -55,7 +55,7 @@ def test_browser_mockup_with_border_fasthtml_examples():
         ),
         Div(
             "Hello!",
-            cls=combine_classes(display_tw.grid, place_content.center, border.t(), border_dui.base_300, h._80)
+            cls=combine_classes(grid_display, place_content.center, border.t(), border_dui.base_300, h._80)
         ),
         cls=combine_classes(mockup_browser, border_dui.base_300, border(), w.full)
     )
@@ -100,7 +100,7 @@ def test_browser_mockup_with_background_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input
     from cjm_fasthtml_daisyui.core.utility_classes import border_dui
     
@@ -112,7 +112,7 @@ def test_browser_mockup_with_background_fasthtml_examples():
         ),
         Div(
             "Hello!",
-            cls=combine_classes(display_tw.grid, place_content.center, h._80)
+            cls=combine_classes(grid_display, place_content.center, h._80)
         ),
         cls=combine_classes(mockup_browser, border(), border_dui.base_300, w.full)
     )

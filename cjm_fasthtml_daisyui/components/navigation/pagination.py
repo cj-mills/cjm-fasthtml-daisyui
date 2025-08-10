@@ -299,7 +299,7 @@ def test_pagination_grid_fasthtml_examples():
     """Test next/prev outline buttons with equal width from daisyUI v5 documentation."""
     from fasthtml.common import Div, Button
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_cols
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_cols, grid_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles
     
@@ -307,7 +307,7 @@ def test_pagination_grid_fasthtml_examples():
     pagination_grid = Div(
         Button("Previous page", cls=combine_classes(join_item, btn, btn_styles.outline)),
         Button("Next", cls=combine_classes(join_item, btn, btn_styles.outline)),
-        cls=combine_classes(join, display_tw.grid, grid_cols._2)
+        cls=combine_classes(join, grid_display, grid_cols._2)
     )
     
     # Verify structure

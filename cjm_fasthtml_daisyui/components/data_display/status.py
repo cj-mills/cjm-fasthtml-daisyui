@@ -222,6 +222,7 @@ test_status_colors_fasthtml_examples()
 def test_status_animation_fasthtml_examples():
     """Test status with ping and bounce animations from daisyUI v5 documentation."""
     from fasthtml.common import Div
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.transitions_and_animation import animate
     
@@ -230,7 +231,7 @@ def test_status_animation_fasthtml_examples():
         Div(cls=combine_classes(status, status_colors.error, animate.ping)),
         Div(cls=combine_classes(status, status_colors.error)),
         " Server is down",
-        cls=combine_classes(display_tw.inline_grid, "*:[grid-area:1/1]")
+        cls=combine_classes(grid_display.inline, "*:[grid-area:1/1]")
     )
     assert ping_container.tag == "div"
     assert "inline-grid" in ping_container.attrs['class']

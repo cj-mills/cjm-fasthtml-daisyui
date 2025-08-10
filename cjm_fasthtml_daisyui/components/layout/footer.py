@@ -326,7 +326,7 @@ def test_footer_with_social_icons_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.svg import fill
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, grid_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
     
@@ -394,7 +394,7 @@ def test_footer_with_social_icons_fasthtml_examples():
                 A(twitter_icon, href="#"),
                 A(youtube_icon, href="#"),
                 A(facebook_icon, href="#"),
-                cls=combine_classes(display_tw.grid, grid_flow.col, gap._4)
+                cls=combine_classes(grid_display, grid_flow.col, gap._4)
             )
         ),
         cls=combine_classes(footer, footer_directions.horizontal.sm, bg_dui.neutral, text_dui.neutral_content, p._10)
@@ -588,7 +588,7 @@ def test_footer_with_links_and_social_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.svg import fill
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, grid_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
     
@@ -648,7 +648,7 @@ def test_footer_with_links_and_social_fasthtml_examples():
                 A(twitter_icon, href="#"),
                 A(youtube_icon, href="#"),
                 A(facebook_icon, href="#"),
-                cls=combine_classes(display_tw.grid, grid_flow.col, gap._4)
+                cls=combine_classes(grid_display, grid_flow.col, gap._4)
             )
         ),
         cls=combine_classes(footer, footer_directions.horizontal.sm, bg_dui.base_300, text_dui.base_content, p._10)
@@ -700,7 +700,7 @@ def test_footer_centered_with_logo_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.svg import fill
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, grid_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
     
     # Create reusable logo SVG
@@ -768,7 +768,7 @@ def test_footer_centered_with_logo_fasthtml_examples():
                 A(twitter_icon, href="#"),
                 A(youtube_icon, href="#"),
                 A(facebook_icon, href="#"),
-                cls=combine_classes(display_tw.grid, grid_flow.col, gap._4)
+                cls=combine_classes(grid_display, grid_flow.col, gap._4)
             )
         ),
         cls=combine_classes(footer, footer_directions.horizontal, footer_placement.center, bg_dui.primary, text_dui.primary_content, p._10)
@@ -897,7 +897,7 @@ def test_footer_centered_with_social_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.svg import fill
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, grid_display
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
@@ -943,14 +943,14 @@ def test_footer_centered_with_social_fasthtml_examples():
             A("Contact", href="#", cls=combine_classes(link, link_styles.hover)),
             A("Jobs", href="#", cls=combine_classes(link, link_styles.hover)),
             A("Press kit", href="#", cls=combine_classes(link, link_styles.hover)),
-            cls=combine_classes(display_tw.grid, grid_flow.col, gap._4)
+            cls=combine_classes(grid_display, grid_flow.col, gap._4)
         ),
         Nav(
             Div(
                 A(twitter_icon, href="#"),
                 A(youtube_icon, href="#"),
                 A(facebook_icon, href="#"),
-                cls=combine_classes(display_tw.grid, grid_flow.col, gap._4)
+                cls=combine_classes(grid_display, grid_flow.col, gap._4)
             )
         ),
         Aside(
@@ -1013,7 +1013,7 @@ def test_footer_two_stacked_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.svg import fill
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, items, place_self, justify_self
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, items, place_self, justify_self, grid_display
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui, border_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
@@ -1108,7 +1108,7 @@ def test_footer_two_stacked_fasthtml_examples():
                     A(twitter_icon, href="#"),
                     A(youtube_icon, href="#"),
                     A(facebook_icon, href="#"),
-                    cls=combine_classes(display_tw.grid, grid_flow.col, gap._4)
+                    cls=combine_classes(grid_display, grid_flow.col, gap._4)
                 ),
                 cls=combine_classes(place_self.center.md, justify_self.end.md)
             ),

@@ -191,7 +191,7 @@ def create_test_page(
     from cjm_fasthtml_tailwind.utilities.backgrounds import bg_linear
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, justify, items, flex_wrap
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, justify, items, flex_wrap, flex_display
     from cjm_fasthtml_tailwind.utilities.sizing import container
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
@@ -204,20 +204,20 @@ def create_test_page(
         # Container for navbar content with flex layout
         Div(
             # Left section (empty for now)
-            Div(cls=combine_classes(display_tw.flex, flex(1))),
+            Div(cls=combine_classes(flex_display, flex(1))),
             
             # Center section with title
             Div(
-                H1(title, cls=combine_classes(font_size._2xl, font_weight.bold, display_tw.flex, flex_wrap)),
+                H1(title, cls=combine_classes(font_size._2xl, font_weight.bold, flex_display, flex_wrap)),
                 # cls=str(flex.none)
             ),
             
             # Right section with theme selector
             Div(
                 create_theme_selector(custom_themes=custom_theme_names) if include_theme_selector else "",
-                cls=combine_classes(display_tw.flex, justify.end, flex(1))
+                cls=combine_classes(flex_display, justify.end, flex(1))
             ),
-            cls=combine_classes(container, m.x.auto, display_tw.flex, items.center)
+            cls=combine_classes(container, m.x.auto, flex_display, items.center)
         ),
         cls=combine_classes("navbar", bg_dui.base_100, shadow.lg)
     )

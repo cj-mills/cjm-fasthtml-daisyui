@@ -151,7 +151,7 @@ def test_countdown_labels_fasthtml_examples():
     """Test large text with labels and labels under from daisyUI v5 documentation."""
     from fasthtml.common import Div, Span
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, text_align
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, flex_direction, auto_cols, grid_flow
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, flex_direction, auto_cols, grid_flow, flex_display, grid_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     
     # Large text with labels
@@ -184,7 +184,7 @@ def test_countdown_labels_fasthtml_examples():
             ),
             "sec"
         ),
-        cls=combine_classes(display_tw.flex, gap._5)
+        cls=combine_classes(flex_display, gap._5)
     )
     assert labels_side.tag == "div"
     assert "flex" in labels_side.attrs['class']
@@ -214,7 +214,7 @@ def test_countdown_labels_fasthtml_examples():
                 cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "days",
-            cls=combine_classes(display_tw.flex, flex_direction.col)
+            cls=combine_classes(flex_display, flex_direction.col)
         ),
         Div(
             Span(
@@ -222,7 +222,7 @@ def test_countdown_labels_fasthtml_examples():
                 cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "hours",
-            cls=combine_classes(display_tw.flex, flex_direction.col)
+            cls=combine_classes(flex_display, flex_direction.col)
         ),
         Div(
             Span(
@@ -230,7 +230,7 @@ def test_countdown_labels_fasthtml_examples():
                 cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "min",
-            cls=combine_classes(display_tw.flex, flex_direction.col)
+            cls=combine_classes(flex_display, flex_direction.col)
         ),
         Div(
             Span(
@@ -238,9 +238,9 @@ def test_countdown_labels_fasthtml_examples():
                 cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "sec",
-            cls=combine_classes(display_tw.flex, flex_direction.col)
+            cls=combine_classes(flex_display, flex_direction.col)
         ),
-        cls=combine_classes(display_tw.grid, auto_cols.max, grid_flow.col, gap._5, text_align.center)
+        cls=combine_classes(grid_display, auto_cols.max, grid_flow.col, gap._5, text_align.center)
     )
     assert labels_under.tag == "div"
     assert "grid" in labels_under.attrs['class']
@@ -276,7 +276,7 @@ def test_countdown_boxes_fasthtml_examples():
     """Test countdown in boxes from daisyUI v5 documentation."""
     from fasthtml.common import Div, Span
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, text_align
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, flex_direction, auto_cols, grid_flow
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, flex_direction, auto_cols, grid_flow, flex_display, grid_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui, border_radius
@@ -289,7 +289,7 @@ def test_countdown_boxes_fasthtml_examples():
                 cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "days",
-            cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, display_tw.flex, flex_direction.col, p._2)
+            cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, flex_display, flex_direction.col, p._2)
         ),
         Div(
             Span(
@@ -297,7 +297,7 @@ def test_countdown_boxes_fasthtml_examples():
                 cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "hours",
-            cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, display_tw.flex, flex_direction.col, p._2)
+            cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, flex_display, flex_direction.col, p._2)
         ),
         Div(
             Span(
@@ -305,7 +305,7 @@ def test_countdown_boxes_fasthtml_examples():
                 cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "min",
-            cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, display_tw.flex, flex_direction.col, p._2)
+            cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, flex_display, flex_direction.col, p._2)
         ),
         Div(
             Span(
@@ -313,9 +313,9 @@ def test_countdown_boxes_fasthtml_examples():
                 cls=combine_classes(countdown, font_family.mono, font_size._5xl)
             ),
             "sec",
-            cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, display_tw.flex, flex_direction.col, p._2)
+            cls=combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, flex_display, flex_direction.col, p._2)
         ),
-        cls=combine_classes(display_tw.grid, auto_cols.max, grid_flow.col, gap._5, text_align.center)
+        cls=combine_classes(grid_display, auto_cols.max, grid_flow.col, gap._5, text_align.center)
     )
     assert in_boxes.tag == "div"
     assert "grid" in in_boxes.attrs['class']

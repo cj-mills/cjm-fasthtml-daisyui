@@ -179,7 +179,7 @@ def test_kbd_keyboard_fasthtml_examples():
     """Test full keyboard and arrow keys from daisyUI v5 documentation."""
     from fasthtml.common import Kbd, Div
     from cjm_fasthtml_tailwind.utilities.spacing import m
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, justify
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, justify, flex_display
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.core.base import combine_classes
@@ -196,7 +196,7 @@ def test_kbd_keyboard_fasthtml_examples():
         Kbd("i", cls=str(kbd)),
         Kbd("o", cls=str(kbd)),
         Kbd("p", cls=str(kbd)),
-        cls=combine_classes(m.y_1, display_tw.flex, w.full, justify.center, gap._1)
+        cls=combine_classes(m.y_1, flex_display, w.full, justify.center, gap._1)
     )
     assert row1.tag == "div"
     assert "m-y-1" in row1.attrs['class']
@@ -221,7 +221,7 @@ def test_kbd_keyboard_fasthtml_examples():
         Kbd("j", cls=str(kbd)),
         Kbd("k", cls=str(kbd)),
         Kbd("l", cls=str(kbd)),
-        cls=combine_classes(m.y_1, display_tw.flex, w.full, justify.center, gap._1)
+        cls=combine_classes(m.y_1, flex_display, w.full, justify.center, gap._1)
     )
     assert len(row2.children) == 9
     for i, letter in enumerate("asdfghjkl"):
@@ -237,7 +237,7 @@ def test_kbd_keyboard_fasthtml_examples():
         Kbd("n", cls=str(kbd)),
         Kbd("m", cls=str(kbd)),
         Kbd("/", cls=str(kbd)),
-        cls=combine_classes(m.y_1, display_tw.flex, w.full, justify.center, gap._1)
+        cls=combine_classes(m.y_1, flex_display, w.full, justify.center, gap._1)
     )
     assert len(row3.children) == 8
     for i, char in enumerate("zxcvbnm/"):
@@ -247,7 +247,7 @@ def test_kbd_keyboard_fasthtml_examples():
     # Up arrow
     up_row = Div(
         Kbd("▲", cls=str(kbd)),
-        cls=combine_classes(display_tw.flex, w.full, justify.center)
+        cls=combine_classes(flex_display, w.full, justify.center)
     )
     assert up_row.tag == "div"
     assert "flex" in up_row.attrs['class']
@@ -260,7 +260,7 @@ def test_kbd_keyboard_fasthtml_examples():
     middle_row = Div(
         Kbd("◀︎", cls=str(kbd)),
         Kbd("▶︎", cls=str(kbd)),
-        cls=combine_classes(display_tw.flex, w.full, justify.center, gap._12)
+        cls=combine_classes(flex_display, w.full, justify.center, gap._12)
     )
     assert "gap-12" in middle_row.attrs['class']
     assert len(middle_row.children) == 2
@@ -270,7 +270,7 @@ def test_kbd_keyboard_fasthtml_examples():
     # Down arrow
     down_row = Div(
         Kbd("▼", cls=str(kbd)),
-        cls=combine_classes(display_tw.flex, w.full, justify.center)
+        cls=combine_classes(flex_display, w.full, justify.center)
     )
     assert len(down_row.children) == 1
     assert down_row.children[0].children[0] == "▼"

@@ -43,7 +43,7 @@ test_theme_controller_basic_examples()
 def test_theme_controller_basic_fasthtml_examples():
     """Test basic theme controller examples with toggle and checkbox inputs."""
     from fasthtml.common import Input, Label, Span, Div
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, items
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, items, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.interactivity import cursor
     
@@ -76,7 +76,7 @@ def test_theme_controller_basic_fasthtml_examples():
             cls=combine_classes("toggle", theme_controller)
         ),
         Span("Synthwave", cls="label-text"),
-        cls=combine_classes(display_tw.flex, cursor.pointer, gap._2)
+        cls=combine_classes(flex_display, cursor.pointer, gap._2)
     )
     assert toggle_with_text.tag == "label"
     assert "flex" in toggle_with_text.attrs['class']
@@ -171,7 +171,7 @@ test_theme_controller_swap_fasthtml_examples()
 def test_theme_controller_radio_fasthtml_examples():
     """Test theme controller examples using radio inputs."""
     from fasthtml.common import Input, Label, Fieldset, Div
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, items
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, items, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.interactivity import cursor
     from cjm_fasthtml_daisyui.components.actions.button import btn
@@ -186,7 +186,7 @@ def test_theme_controller_radio_fasthtml_examples():
                 value="default"
             ),
             "Default",
-            cls=combine_classes(display_tw.flex, gap._2, cursor.pointer, items.center)
+            cls=combine_classes(flex_display, gap._2, cursor.pointer, items.center)
         ),
         Label(
             Input(
@@ -196,7 +196,7 @@ def test_theme_controller_radio_fasthtml_examples():
                 value="retro"
             ),
             "Retro",
-            cls=combine_classes(display_tw.flex, gap._2, cursor.pointer, items.center)
+            cls=combine_classes(flex_display, gap._2, cursor.pointer, items.center)
         ),
         Label(
             Input(
@@ -206,7 +206,7 @@ def test_theme_controller_radio_fasthtml_examples():
                 value="cyberpunk"
             ),
             "Cyberpunk",
-            cls=combine_classes(display_tw.flex, gap._2, cursor.pointer, items.center)
+            cls=combine_classes(flex_display, gap._2, cursor.pointer, items.center)
         ),
         Label(
             Input(
@@ -216,7 +216,7 @@ def test_theme_controller_radio_fasthtml_examples():
                 value="valentine"
             ),
             "Valentine",
-            cls=combine_classes(display_tw.flex, gap._2, cursor.pointer, items.center)
+            cls=combine_classes(flex_display, gap._2, cursor.pointer, items.center)
         ),
         Label(
             Input(
@@ -226,7 +226,7 @@ def test_theme_controller_radio_fasthtml_examples():
                 value="aqua"
             ),
             "Aqua",
-            cls=combine_classes(display_tw.flex, gap._2, cursor.pointer, items.center)
+            cls=combine_classes(flex_display, gap._2, cursor.pointer, items.center)
         ),
         cls="fieldset"
     )
@@ -318,7 +318,7 @@ def test_theme_controller_advanced_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.borders import border_color
     from cjm_fasthtml_tailwind.utilities.backgrounds import bg
     from cjm_fasthtml_tailwind.utilities.interactivity import cursor
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, flex_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_modifiers, btn_styles
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown, dropdown_content
@@ -359,7 +359,7 @@ def test_theme_controller_advanced_fasthtml_examples():
             cls=combine_classes("toggle", theme_controller)
         ),
         moon_svg,
-        cls=combine_classes(display_tw.flex, cursor.pointer, gap._2)
+        cls=combine_classes(flex_display, cursor.pointer, gap._2)
     )
     assert len(toggle_with_icons.children) == 3
     assert toggle_with_icons.children[0].tag == "svg"

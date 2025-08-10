@@ -95,7 +95,7 @@ def test_breadcrumbs_with_icons_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.svg import stroke
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import items, gap
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import items, gap, flex_display
     
     # Create reusable folder icon SVG
     folder_icon = Svg(
@@ -146,7 +146,7 @@ def test_breadcrumbs_with_icons_fasthtml_examples():
                 Span(
                     add_doc_icon,
                     "Add Document",
-                    cls=combine_classes(display_tw.inline_flex, items.center, gap._2)
+                    cls=combine_classes(flex_display.inline, items.center, gap._2)
                 )
             )
         ),

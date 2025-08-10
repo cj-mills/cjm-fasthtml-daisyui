@@ -48,7 +48,7 @@ def test_diff_basic_fasthtml_examples():
     from fasthtml.common import Figure, Div, Img
     from cjm_fasthtml_tailwind.utilities.layout import aspect
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.core.base import combine_classes
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
@@ -115,7 +115,7 @@ def test_diff_basic_fasthtml_examples():
         Div(
             Div(
                 "DAISY",
-                cls=combine_classes(bg_dui.primary, text_dui.primary_content, display_tw.grid, place_content.center, font_size._9xl, font_weight.black)
+                cls=combine_classes(bg_dui.primary, text_dui.primary_content, grid_display, place_content.center, font_size._9xl, font_weight.black)
             ),
             cls=str(diff_item_1),
             role="img",
@@ -124,7 +124,7 @@ def test_diff_basic_fasthtml_examples():
         Div(
             Div(
                 "DAISY",
-                cls=combine_classes(bg_dui.base_200, display_tw.grid, place_content.center, font_size._9xl, font_weight.black)
+                cls=combine_classes(bg_dui.base_200, grid_display, place_content.center, font_size._9xl, font_weight.black)
             ),
             cls=str(diff_item_2),
             role="img"

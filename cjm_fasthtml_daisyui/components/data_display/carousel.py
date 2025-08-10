@@ -523,7 +523,7 @@ def test_carousel_navigation_fasthtml_examples():
     """Test carousel with navigation examples from daisyUI v5 documentation."""
     from fasthtml.common import Div, Img, A
     from cjm_fasthtml_tailwind.utilities.sizing import w
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify, gap
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify, gap, flex_display
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.layout import display_tw, position, left, right, top
     from cjm_fasthtml_tailwind.utilities.transforms import translate, transform
@@ -571,7 +571,7 @@ def test_carousel_navigation_fasthtml_examples():
             A("2", href="#item2", cls=combine_classes(btn, btn_sizes.xs)),
             A("3", href="#item3", cls=combine_classes(btn, btn_sizes.xs)),
             A("4", href="#item4", cls=combine_classes(btn, btn_sizes.xs)),
-            cls=combine_classes(display_tw.flex, w.full, justify.center, gap._2, p.y._2)
+            cls=combine_classes(flex_display, w.full, justify.center, gap._2, p.y._2)
         )
     )
     
@@ -619,7 +619,7 @@ def test_carousel_navigation_fasthtml_examples():
                     left._5,
                     right._5,
                     top("1/2"),
-                    display_tw.flex,
+                    flex_display,
                     translate.y("1/2", negative=True),
                     justify.between
                 )
@@ -640,7 +640,7 @@ def test_carousel_navigation_fasthtml_examples():
                     left._5,
                     right._5,
                     top("1/2"),
-                    display_tw.flex,
+                    flex_display,
                     translate.y("1/2", negative=True),
                     justify.between
                 )
@@ -661,7 +661,7 @@ def test_carousel_navigation_fasthtml_examples():
                     left._5,
                     right._5,
                     top("1/2"),
-                    display_tw.flex,
+                    flex_display,
                     translate.y("1/2", negative=True),
                     justify.between
                 )
@@ -682,7 +682,7 @@ def test_carousel_navigation_fasthtml_examples():
                     left._5,
                     right._5,
                     top("1/2"),
-                    display_tw.flex,
+                    flex_display,
                     translate.y("1/2", negative=True),
                     justify.between
                 )

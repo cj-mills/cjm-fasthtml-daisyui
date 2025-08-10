@@ -63,7 +63,7 @@ def test_skeleton_circle_with_content_fasthtml_examples():
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, items, gap, shrink
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, items, gap, shrink, flex_display
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     
     # Skeleton circle with content
@@ -73,12 +73,12 @@ def test_skeleton_circle_with_content_fasthtml_examples():
             Div(
                 Div(cls=combine_classes(skeleton, h._4, w._20)),
                 Div(cls=combine_classes(skeleton, h._4, w._28)),
-                cls=combine_classes(display_tw.flex, flex_direction.col, gap._4)
+                cls=combine_classes(flex_display, flex_direction.col, gap._4)
             ),
-            cls=combine_classes(display_tw.flex, items.center, gap._4)
+            cls=combine_classes(flex_display, items.center, gap._4)
         ),
         Div(cls=combine_classes(skeleton, h._32, w.full)),
-        cls=combine_classes(display_tw.flex, w._52, flex_direction.col, gap._4)
+        cls=combine_classes(flex_display, w._52, flex_direction.col, gap._4)
     )
     
     # Verify outer container
@@ -141,7 +141,7 @@ def test_skeleton_rectangle_with_content_fasthtml_examples():
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, gap
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, gap, flex_display
     
     # Skeleton rectangle with content
     rectangle_with_content = Div(
@@ -149,7 +149,7 @@ def test_skeleton_rectangle_with_content_fasthtml_examples():
         Div(cls=combine_classes(skeleton, h._4, w._28)),
         Div(cls=combine_classes(skeleton, h._4, w.full)),
         Div(cls=combine_classes(skeleton, h._4, w.full)),
-        cls=combine_classes(display_tw.flex, w._52, flex_direction.col, gap._4)
+        cls=combine_classes(flex_display, w._52, flex_direction.col, gap._4)
     )
     
     # Verify outer container

@@ -176,7 +176,7 @@ def test_drawer_navbar_mobile_fasthtml_examples():
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
     from cjm_fasthtml_tailwind.utilities.sizing import w, h, min_h
     from cjm_fasthtml_tailwind.utilities.spacing import p, m
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, flex_direction
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, flex_direction, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.svg import stroke
     
@@ -223,7 +223,7 @@ def test_drawer_navbar_mobile_fasthtml_examples():
             ),
             # Page content here
             "Content",
-            cls=combine_classes(drawer_content, display_tw.flex, flex.col)
+            cls=combine_classes(drawer_content, flex_display, flex.col)
         ),
         Div(
             Label(_for="my-drawer-3", aria_label="close sidebar", cls=str(drawer_overlay)),
@@ -315,7 +315,7 @@ def test_drawer_responsive_fasthtml_examples():
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
     from cjm_fasthtml_tailwind.utilities.sizing import w, min_h
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, items, justify
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, items, justify, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     
     # Responsive drawer (vertical on small screen, horizontal on large screen)
@@ -328,7 +328,7 @@ def test_drawer_responsive_fasthtml_examples():
                 _for="my-drawer-2", 
                 cls=combine_classes(btn, btn_colors.primary, display_tw.hidden.lg)
             ),
-            cls=combine_classes(drawer_content, display_tw.flex, flex.col, items.center, justify.center)
+            cls=combine_classes(drawer_content, flex_display, flex.col, items.center, justify.center)
         ),
         Div(
             Label(_for="my-drawer-2", aria_label="close sidebar", cls=str(drawer_overlay)),

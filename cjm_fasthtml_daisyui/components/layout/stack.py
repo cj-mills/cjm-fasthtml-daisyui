@@ -64,14 +64,14 @@ def test_stack_basic_divs_fasthtml_examples():
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui, border_radius
     
     # 3 divs in a stack
     stack_divs = Div(
-        Div("1", cls=combine_classes(bg_dui.primary, text_dui.primary_content, display_tw.grid, place_content.center, border_radius.box)),
-        Div("2", cls=combine_classes(bg_dui.accent, text_dui.accent_content, display_tw.grid, place_content.center, border_radius.box)),
-        Div("3", cls=combine_classes(bg_dui.secondary, text_dui.secondary_content, display_tw.grid, place_content.center, border_radius.box)),
+        Div("1", cls=combine_classes(bg_dui.primary, text_dui.primary_content, grid_display, place_content.center, border_radius.box)),
+        Div("2", cls=combine_classes(bg_dui.accent, text_dui.accent_content, grid_display, place_content.center, border_radius.box)),
+        Div("3", cls=combine_classes(bg_dui.secondary, text_dui.secondary_content, grid_display, place_content.center, border_radius.box)),
         cls=combine_classes(stack, h._20, w._32)
     )
     

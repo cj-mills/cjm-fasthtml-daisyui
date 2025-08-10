@@ -44,14 +44,14 @@ def test_phone_mockup_basic_fasthtml_examples():
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
     
     # iPhone mockup
     iphone_mockup = Div(
         Div(cls=str(mockup_phone_camera)),
         Div(
             "It's Glowtime.",
-            cls=combine_classes(mockup_phone_display, text_color.white, display_tw.grid, place_content.center)
+            cls=combine_classes(mockup_phone_display, text_color.white, grid_display, place_content.center)
         ),
         cls=str(mockup_phone)
     )

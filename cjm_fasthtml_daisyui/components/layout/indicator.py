@@ -71,7 +71,7 @@ def test_indicator_basic_fasthtml_examples():
     """Test basic indicator examples from daisyUI v5 documentation."""
     from fasthtml.common import Div, Span, Button
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grid_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colors
     from cjm_fasthtml_daisyui.components.data_display.status import status, status_colors
@@ -82,7 +82,7 @@ def test_indicator_basic_fasthtml_examples():
         Span(cls=combine_classes(indicator_item, status, status_colors.success)),
         Div(
             "content",
-            cls=combine_classes(bg_dui.base_300, display_tw.grid, h._32, w._32, place_items.center)
+            cls=combine_classes(bg_dui.base_300, grid_display, h._32, w._32, place_items.center)
         ),
         cls=str(indicator)
     )
@@ -106,7 +106,7 @@ def test_indicator_basic_fasthtml_examples():
         Span("New", cls=combine_classes(indicator_item, badge, badge_colors.primary)),
         Div(
             "content",
-            cls=combine_classes(bg_dui.base_300, display_tw.grid, h._32, w._32, place_items.center)
+            cls=combine_classes(bg_dui.base_300, grid_display, h._32, w._32, place_items.center)
         ),
         cls=str(indicator)
     )
@@ -364,7 +364,7 @@ def test_indicator_positions_fasthtml_examples():
     """Test all indicator position combinations from daisyUI v5 documentation."""
     from fasthtml.common import Div, Span
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grid_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colors
@@ -376,7 +376,7 @@ def test_indicator_positions_fasthtml_examples():
             Span(cls=combine_classes(indicator_item, *position_classes, badge, badge_colors.secondary)),
             Div(
                 "content",
-                cls=combine_classes(bg_dui.base_300, display_tw.grid, h._32, w._32, place_items.center)
+                cls=combine_classes(bg_dui.base_300, grid_display, h._32, w._32, place_items.center)
             ),
             cls=str(indicator)
         )
@@ -446,7 +446,7 @@ def test_indicator_multiple_fasthtml_examples():
     from fasthtml.common import Div, Span
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grid_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.badge import badge
     
@@ -463,7 +463,7 @@ def test_indicator_multiple_fasthtml_examples():
         Span("↘︎", cls=combine_classes(indicator_item, indicator_placement.bottom, indicator_placement.end, badge)),
         Div(
             "Box",
-            cls=combine_classes(bg_dui.base_300, display_tw.grid, h._32, w._60, place_items.center)
+            cls=combine_classes(bg_dui.base_300, grid_display, h._32, w._60, place_items.center)
         ),
         cls=str(indicator)
     )
@@ -533,7 +533,7 @@ def test_indicator_responsive_fasthtml_examples():
     from fasthtml.common import Div, Span
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grid_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colors
     
@@ -553,7 +553,7 @@ def test_indicator_responsive_fasthtml_examples():
         ),
         Div(
             "content",
-            cls=combine_classes(bg_dui.base_300, display_tw.grid, h._32, w._32, place_items.center)
+            cls=combine_classes(bg_dui.base_300, grid_display, h._32, w._32, place_items.center)
         ),
         cls=str(indicator)
     )

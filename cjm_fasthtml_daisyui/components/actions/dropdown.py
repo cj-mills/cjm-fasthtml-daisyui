@@ -436,7 +436,7 @@ def test_dropdown_content_variations_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, items, justify
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, items, justify, flex_display
     from cjm_fasthtml_tailwind.utilities.svg import stroke
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius, text_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles, btn_modifiers, btn_sizes
@@ -499,9 +499,9 @@ def test_dropdown_content_variations_fasthtml_examples():
                     ),
                     cls=combine_classes(dropdown, dropdown_placement.end)
                 ),
-                cls=combine_classes(display_tw.flex, items.stretch)
+                cls=combine_classes(flex_display, items.stretch)
             ),
-            cls=combine_classes(display_tw.flex, flex.grow, justify.end, p.x._2)
+            cls=combine_classes(flex_display, flex.grow, justify.end, p.x._2)
         ),
         cls=combine_classes("navbar", bg_dui.base_200)
     )

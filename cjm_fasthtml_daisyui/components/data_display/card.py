@@ -104,7 +104,7 @@ def test_card_basic_fasthtml_examples():
     from fasthtml.common import Div, Figure, Img, H2, P, Button
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify, flex_display
     from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     
@@ -204,7 +204,7 @@ def test_card_pricing_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.sizing import w, size_util
     from cjm_fasthtml_tailwind.utilities.effects import shadow, opacity
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify, flex, gap
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify, flex, gap, flex_display
     from cjm_fasthtml_tailwind.utilities.spacing import m, me
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, line_through
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
@@ -250,7 +250,7 @@ def test_card_pricing_fasthtml_examples():
             Div(
                 H2("Premium", cls=combine_classes(font_size._3xl, font_weight.bold)),
                 Span("29/mo", cls=str(font_size.xl)),
-                cls=combine_classes(display_tw.flex, justify.between)
+                cls=combine_classes(flex_display, justify.between)
             ),
             Ul(
                 Li(
@@ -279,7 +279,7 @@ def test_card_pricing_fasthtml_examples():
                     Span("Real-time collaboration tools", cls=str(line_through)),
                     cls=str(opacity._50)
                 ),
-                cls=combine_classes(m.t._6, display_tw.flex, flex.col, gap._2, font_size.xs)
+                cls=combine_classes(m.t._6, flex_display, flex.col, gap._2, font_size.xs)
             ),
             Div(
                 Button("Subscribe", cls=combine_classes(btn, btn_colors.primary, btn_modifiers.block)),

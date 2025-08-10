@@ -114,7 +114,7 @@ def test_range_with_steps_fasthtml_examples():
     """Test range with steps and measure from daisyUI v5 documentation."""
     from fasthtml.common import Input, Div, Span
     from cjm_fasthtml_tailwind.utilities.sizing import w, max_w
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify, flex_display
     from cjm_fasthtml_tailwind.utilities.spacing import p, m
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
@@ -135,7 +135,7 @@ def test_range_with_steps_fasthtml_examples():
             Span("|"),
             Span("|"),
             Span("|"),
-            cls=combine_classes(justify.between, display_tw.flex, p.x(2.5), m.t._2, font_size.xs)
+            cls=combine_classes(justify.between, flex_display, p.x(2.5), m.t._2, font_size.xs)
         ),
         Div(
             Span("1"),
@@ -143,7 +143,7 @@ def test_range_with_steps_fasthtml_examples():
             Span("3"),
             Span("4"),
             Span("5"),
-            cls=combine_classes(justify.between, display_tw.flex, p.x(2.5), m.t._2, font_size.xs)
+            cls=combine_classes(justify.between, flex_display, p.x(2.5), m.t._2, font_size.xs)
         ),
         cls=combine_classes(w.full, max_w.xs)
     )
