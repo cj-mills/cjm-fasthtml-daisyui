@@ -46,7 +46,7 @@ def test_hero_centered_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import min_h, max_w
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, text_align
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     
     # Centered hero
@@ -115,7 +115,7 @@ def test_hero_with_figure_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     
     # Hero with figure
@@ -225,7 +225,7 @@ def test_hero_with_form_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import p, m
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, shrink
     from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     from cjm_fasthtml_daisyui.components.data_display.card import card, card_body
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input 
@@ -360,7 +360,7 @@ def test_hero_with_overlay_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import min_h, max_w
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, text_align
     from cjm_fasthtml_tailwind.utilities.spacing import m
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     
     # Hero with overlay image

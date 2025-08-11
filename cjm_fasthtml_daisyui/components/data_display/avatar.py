@@ -229,7 +229,7 @@ def test_avatar_group_fasthtml_examples():
     from fasthtml.common import Div, Img, Span
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.spacing import space
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     
     # Avatar group
     avatar_group_example = Div(
@@ -332,7 +332,7 @@ def test_avatar_ring_and_presence_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     from cjm_fasthtml_tailwind.utilities.effects import ring
-    from cjm_fasthtml_daisyui.core.utility_classes import ring_dui, ring_offset_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import ring_dui, ring_offset_dui
     
     # Avatar with ring
     ring_avatar = Div(
@@ -400,7 +400,7 @@ def test_avatar_placeholder_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     
     # Basic avatar placeholder
     placeholder_d = Div(

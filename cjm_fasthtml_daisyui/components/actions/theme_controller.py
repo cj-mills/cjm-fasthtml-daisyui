@@ -319,7 +319,8 @@ def test_theme_controller_advanced_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.backgrounds import bg
     from cjm_fasthtml_tailwind.utilities.interactivity import cursor
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, flex_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_modifiers, btn_styles
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown, dropdown_content
     

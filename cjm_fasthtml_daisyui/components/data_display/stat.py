@@ -135,7 +135,7 @@ def test_stat_with_icons_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.svg import stroke
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     from cjm_fasthtml_daisyui.components.data_display.avatar import avatar, avatar_modifiers
     
     # Define reusable SVG icons
@@ -272,7 +272,7 @@ def test_stat_detailed_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.svg import stroke
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     
     # Define reusable SVG icons
     info_icon = Svg(
@@ -401,7 +401,7 @@ def test_stat_centered_fasthtml_examples():
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     
     # Centered stats
     centered_stats = Div(
@@ -572,7 +572,7 @@ def test_stat_with_actions_fasthtml_examples():
     from fasthtml.common import Div, Button
     from cjm_fasthtml_tailwind.core.base import combine_classes
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_colors
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
     # Stats with custom colors and buttons
     stats_with_actions = Div(

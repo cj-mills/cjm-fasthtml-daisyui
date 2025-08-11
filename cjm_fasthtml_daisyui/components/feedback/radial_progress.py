@@ -139,7 +139,7 @@ test_radial_progress_values_fasthtml_examples()
 def test_radial_progress_colors_fasthtml_examples():
     """Test radial progress with custom colors from daisyUI v5 documentation."""
     from fasthtml.common import Div
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui, bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui, bg_dui, border_dui
     from cjm_fasthtml_tailwind.utilities.borders import border
     
     # Custom color

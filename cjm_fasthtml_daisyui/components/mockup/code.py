@@ -76,7 +76,7 @@ def test_mockup_code_multi_line_fasthtml_examples():
     """Test multi-line mockup code from daisyUI v5 documentation."""
     from fasthtml.common import Div, Pre, Code
     from cjm_fasthtml_tailwind.utilities.sizing import w
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     
     # Multi-line mockup code
     multi_line_code = Div(
@@ -125,7 +125,7 @@ def test_mockup_code_highlighted_line_fasthtml_examples():
     """Test mockup code with highlighted line from daisyUI v5 documentation."""
     from fasthtml.common import Div, Pre, Code
     from cjm_fasthtml_tailwind.utilities.sizing import w
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     
     # Mockup code with highlighted line
     highlighted_code = Div(
@@ -241,7 +241,7 @@ def test_mockup_code_with_color_fasthtml_examples():
     """Test mockup code with custom color from daisyUI v5 documentation."""
     from fasthtml.common import Div, Pre, Code
     from cjm_fasthtml_tailwind.utilities.sizing import w
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     
     # Mockup code with custom color
     colored_code = Div(

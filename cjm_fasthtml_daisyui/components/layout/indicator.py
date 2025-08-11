@@ -72,7 +72,7 @@ def test_indicator_basic_fasthtml_examples():
     from fasthtml.common import Div, Span, Button
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grid_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colors
     from cjm_fasthtml_daisyui.components.data_display.status import status, status_colors
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
@@ -254,7 +254,7 @@ def test_indicator_card_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     from cjm_fasthtml_daisyui.components.data_display.card import card, card_body, card_title
-    from cjm_fasthtml_daisyui.core.utility_classes import border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import border_dui
     
     # A button as an indicator for a card
     card_with_indicator = Div(
@@ -366,7 +366,7 @@ def test_indicator_positions_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grid_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colors
     from cjm_fasthtml_daisyui.components.layout.divider import divider, divider_directions
     
@@ -447,7 +447,7 @@ def test_indicator_multiple_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grid_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.badge import badge
     
     # Multiple indicators
@@ -534,7 +534,7 @@ def test_indicator_responsive_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grid_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colors
     
     # Responsive indicator

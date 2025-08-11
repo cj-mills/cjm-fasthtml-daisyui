@@ -75,7 +75,7 @@ def test_collapse_basic_fasthtml_examples():
     from fasthtml.common import Div, Input, Details, Summary
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
     # Collapse with focus (tabindex)
     focus_collapse = Div(
@@ -150,7 +150,7 @@ def test_collapse_style_fasthtml_examples():
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
     # Collapse without border and background
     minimal_collapse = Div(
@@ -223,7 +223,7 @@ def test_collapse_state_fasthtml_examples():
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.utilities.borders import border 
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
     # Force open collapse
     open_collapse = Div(
@@ -281,7 +281,7 @@ def test_collapse_color_fasthtml_examples():
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui, text_dui
     
     # Custom colors for collapse that works with focus
     custom_focus_collapse = Div(

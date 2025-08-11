@@ -35,7 +35,8 @@ def create_theme_selector(
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap
     from cjm_fasthtml_tailwind.utilities.borders import divide
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_modifiers, btn_styles
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown, dropdown_content, dropdown_modifiers, dropdown_placement 
     from cjm_fasthtml_daisyui.components.actions.theme_controller import theme_controller
@@ -195,7 +196,8 @@ def create_test_page(
     from cjm_fasthtml_tailwind.utilities.sizing import container
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, from_dui, to_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_gradients import from_dui, to_dui
     
     # Build navbar with proper structure using TailwindBuilder
     navbar = Div(

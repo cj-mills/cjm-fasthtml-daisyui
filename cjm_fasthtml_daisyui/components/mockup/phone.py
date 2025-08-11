@@ -85,7 +85,7 @@ test_phone_mockup_basic_fasthtml_examples()
 def test_phone_mockup_with_color_and_wallpaper_fasthtml_examples():
     """Test phone mockup with color and wallpaper from daisyUI v5 documentation."""
     from fasthtml.common import Div, Img
-    from cjm_fasthtml_daisyui.core.utility_classes import border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import border_dui
     
     # Phone mockup with color and wallpaper
     phone_with_wallpaper = Div(

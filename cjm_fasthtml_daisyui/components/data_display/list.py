@@ -71,7 +71,8 @@ def test_list_basic_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import opacity, shadow
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_modifiers, btn_styles
     
     # Create SVG icons as reusable components
@@ -260,7 +261,8 @@ def test_list_column_grow_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import opacity, shadow
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_modifiers, btn_styles
     
     # Create reusable play icon
@@ -439,7 +441,8 @@ def test_list_column_wrap_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import opacity, shadow
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_modifiers, btn_styles
     
     # Create reusable SVG icons

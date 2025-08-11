@@ -376,7 +376,7 @@ test_loading_infinity_fasthtml_examples()
 def test_loading_with_colors_fasthtml_examples():
     """Test loading with colors from daisyUI v5 documentation."""
     from fasthtml.common import Span, Div
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     
     # Loading spinner with primary color
     primary_spinner = Span(cls=combine_classes(loading, loading_styles.spinner, text_dui.primary))

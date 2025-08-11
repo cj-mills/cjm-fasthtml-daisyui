@@ -91,9 +91,10 @@ def test_table_basic_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import overflow
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     
-    # Basic table
+    # Basic tablefrom cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui,
     basic_table = Div(
         Table(
             Thead(
@@ -133,7 +134,6 @@ def test_table_basic_fasthtml_examples():
     assert "table" in basic_table.children[0].attrs['class']
     # Verify table structure
     thead = basic_table.children[0].children[0]
-    print(thead.children[0].children[0].children)
     
     assert thead.tag == "thead"
     assert thead.children[0].tag == "tr"
@@ -212,7 +212,7 @@ def test_table_style_fasthtml_examples():
     from fasthtml.common import Div, Table, Thead, Tbody, Tr, Th, Td
     from cjm_fasthtml_tailwind.utilities.layout import overflow
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     
     # Table with an active row
     active_row_table = Div(
@@ -939,7 +939,7 @@ def test_table_pinned_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import overflow
     from cjm_fasthtml_tailwind.utilities.sizing import h
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     
     # Table with pinned rows
     pinned_rows_table = Div(

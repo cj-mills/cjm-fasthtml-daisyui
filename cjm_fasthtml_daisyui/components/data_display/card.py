@@ -105,7 +105,7 @@ def test_card_basic_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify, flex_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     
     # Basic card with figure
@@ -209,7 +209,7 @@ def test_card_pricing_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color, line_through
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.svg import stroke, stroke_width, fill
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors, btn_modifiers
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colors, badge_sizes, badge_styles
     
@@ -368,7 +368,7 @@ def test_card_style_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     
     # Card sizes - Extra Small
@@ -511,7 +511,7 @@ def test_card_layout_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.typography import text_align
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_styles, badge_colors
     
@@ -675,7 +675,7 @@ def test_card_special_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify, items
     from cjm_fasthtml_tailwind.utilities.typography import text_align
     from cjm_fasthtml_tailwind.utilities.svg import stroke, stroke_width, fill
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors, btn_modifiers, btn_sizes, btn_styles
     
     # Card with custom color

@@ -110,7 +110,7 @@ def test_toggle_with_fieldset_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import border, rounded
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     from cjm_fasthtml_daisyui.components.data_input.fieldset import fieldset, fieldset_legend
     from cjm_fasthtml_daisyui.components.data_input.label import label
     
@@ -290,7 +290,7 @@ def test_toggle_with_icons_fasthtml_examples():
     """Test toggle with icons inside from daisyUI v5 documentation."""
     from fasthtml.common import Label, Input, Div
     from fasthtml.svg import Svg, G, Path
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     
     # Create checkmark icon for enabled state
     checkmark_icon = Svg(

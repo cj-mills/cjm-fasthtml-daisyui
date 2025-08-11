@@ -96,7 +96,8 @@ def test_fieldset_with_background_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input
     
     # Fieldset with background and border
@@ -156,7 +157,8 @@ def test_fieldset_multiple_inputs_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input
     
     # Fieldset with multiple inputs
@@ -243,7 +245,8 @@ def test_fieldset_join_items_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input
     from cjm_fasthtml_daisyui.components.actions.button import btn
     from cjm_fasthtml_daisyui.components.layout.join import join, join_item
@@ -315,7 +318,8 @@ def test_fieldset_login_form_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.spacing import p, m
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     

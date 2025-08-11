@@ -326,7 +326,7 @@ test_tabs_sizes_fasthtml_examples()
 def test_tabs_with_content_fasthtml_examples():
     """Test tabs with content panels from daisyUI v5 documentation."""
     from fasthtml.common import Div, Input
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     from cjm_fasthtml_tailwind.utilities.spacing import p
     
     # Radio tabs-border + tab content
@@ -425,7 +425,7 @@ def test_tabs_with_icons_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.sizing import size_util
     from cjm_fasthtml_tailwind.utilities.spacing import me, p
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
     # Create reusable icon SVGs
     play_icon = Svg(
@@ -547,7 +547,7 @@ test_tabs_with_icons_fasthtml_examples()
 def test_tabs_special_fasthtml_examples():
     """Test special tabs variations from daisyUI v5 documentation."""
     from fasthtml.common import Div, Input, A
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui, text_dui
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.sizing import max_w, min_w
     from cjm_fasthtml_tailwind.utilities.layout import overflow, position, z, start

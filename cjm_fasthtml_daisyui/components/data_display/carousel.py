@@ -83,7 +83,7 @@ def test_carousel_snap_alignment_fasthtml_examples():
     """Test carousel snap alignment examples from daisyUI v5 documentation."""
     from fasthtml.common import Div, Img
     from cjm_fasthtml_tailwind.utilities.sizing import w
-    from cjm_fasthtml_daisyui.core.utility_classes import border_radius
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     
     # Snap to start (default)
     snap_start_carousel = Div(
@@ -262,7 +262,8 @@ def test_carousel_layout_fasthtml_variations():
     from fasthtml.common import Div, Img
     from cjm_fasthtml_tailwind.utilities.sizing import w, h, max_w
     from cjm_fasthtml_tailwind.utilities.spacing import space, p
-    from cjm_fasthtml_daisyui.core.utility_classes import border_radius, bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     
     # Carousel with full width items
     full_width_carousel = Div(

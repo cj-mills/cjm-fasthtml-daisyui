@@ -113,7 +113,7 @@ def test_checkbox_with_fieldset_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.borders import border, rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     from cjm_fasthtml_daisyui.components.data_input.fieldset import fieldset, fieldset_legend, label
     
     # Checkbox with fieldset and label

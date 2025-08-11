@@ -102,7 +102,7 @@ def test_divider_basic_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, place_items, grow, grid_display, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.card import card
     
     # Divider with text
@@ -179,7 +179,7 @@ def test_divider_horizontal_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grow, grid_display, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.card import card
     
     # Horizontal divider
@@ -244,7 +244,7 @@ def test_divider_responsive_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_direction, place_items, grow, grid_display, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.card import card
     
     # Responsive divider (vertical on small, horizontal on large)

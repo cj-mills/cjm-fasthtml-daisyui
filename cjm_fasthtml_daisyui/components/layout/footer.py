@@ -80,7 +80,7 @@ def test_footer_basic_fasthtml_examples():
     """Test basic footer with navigation sections from daisyUI v5 documentation."""
     from fasthtml.common import Footer, Nav, H6, A
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
     
     # Footer (vertical by default, horizontal for sm and up)
@@ -140,7 +140,7 @@ def test_footer_with_logo_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.svg import fill
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
     
     # Create reusable logo SVG
@@ -226,7 +226,7 @@ def test_footer_with_form_fasthtml_examples():
     from fasthtml.common import Footer, Nav, Form, Fieldset, Label, H6, A, Input, Button, Div
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.sizing import w
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input, text_input_styles
     from cjm_fasthtml_daisyui.components.layout.join import join, join_item
@@ -327,7 +327,7 @@ def test_footer_with_social_icons_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.svg import fill
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, grid_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
     
     # Create reusable logo SVG
@@ -442,7 +442,7 @@ def test_footer_copyright_fasthtml_examples():
     from fasthtml.common import Footer, Aside, P
     from datetime import datetime
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     
     # Footer with copyright text
     copyright_footer = Footer(
@@ -482,7 +482,7 @@ def test_footer_copyright_with_icons_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.svg import fill
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, items, place_self, justify_self
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     
     # Create reusable logo SVG
     logo_svg = Svg(
@@ -589,7 +589,7 @@ def test_footer_with_links_and_social_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.svg import fill
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, grid_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
     
     # Create social media icons
@@ -701,7 +701,7 @@ def test_footer_centered_with_logo_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, grid_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     
     # Create reusable logo SVG
     logo_svg = Svg(
@@ -813,7 +813,7 @@ def test_footer_with_two_rows_fasthtml_examples():
     from fasthtml.common import Footer, Nav, H6, A
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_rows
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
     
     # Footer with 2 rows
@@ -899,7 +899,7 @@ def test_footer_centered_with_social_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, grid_display
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
     
     # Create social media icons
@@ -1015,7 +1015,7 @@ def test_footer_two_stacked_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import grid_flow, gap, items, place_self, justify_self, grid_display
     from cjm_fasthtml_tailwind.utilities.borders import border
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui, border_dui
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
     
     # Create reusable logo SVG

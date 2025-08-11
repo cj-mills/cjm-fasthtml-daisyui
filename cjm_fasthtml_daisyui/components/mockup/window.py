@@ -40,7 +40,7 @@ def test_window_mockup_with_border_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
-    from cjm_fasthtml_daisyui.core.utility_classes import border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import border_dui
     
     # Window mockup with border
     window_with_border = Div(
@@ -87,7 +87,7 @@ def test_window_mockup_with_background_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
     # Window mockup with background color
     window_with_bg = Div(

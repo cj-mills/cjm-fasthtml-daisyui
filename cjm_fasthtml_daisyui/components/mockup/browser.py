@@ -45,7 +45,7 @@ def test_browser_mockup_with_border_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input
-    from cjm_fasthtml_daisyui.core.utility_classes import border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import border_dui
     
     # Browser mockup with border
     browser_with_border = Div(
@@ -102,7 +102,7 @@ def test_browser_mockup_with_background_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input
-    from cjm_fasthtml_daisyui.core.utility_classes import border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import border_dui
     
     # Browser mockup with background color (no border-t on content)
     browser_with_background = Div(

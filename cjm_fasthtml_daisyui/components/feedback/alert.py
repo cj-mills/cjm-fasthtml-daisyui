@@ -97,7 +97,7 @@ def test_alert_basic_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import shrink
-    from cjm_fasthtml_daisyui.core.utility_classes import stroke_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import stroke_dui
     
     # Basic alert
     basic_alert = Div(
@@ -386,7 +386,7 @@ def test_alert_with_buttons_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import shrink
-    from cjm_fasthtml_daisyui.core.utility_classes import stroke_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import stroke_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_colors
     
     # Create reusable info icon
@@ -463,7 +463,7 @@ def test_alert_with_title_description_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import shrink
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import stroke_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import stroke_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes
     
     # Create reusable info icon

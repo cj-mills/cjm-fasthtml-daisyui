@@ -112,7 +112,7 @@ def test_menu_basic_fasthtml_examples():
     from fasthtml.common import Ul, Li, A
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     
     # Basic menu
     basic_menu = Ul(
@@ -148,7 +148,7 @@ def test_menu_responsive_fasthtml_examples():
     """Test responsive menu and horizontal menu from daisyUI v5 documentation."""
     from fasthtml.common import Ul, Li, A, Div
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     
     # Responsive: vertical on small screen, horizontal on large screen
     responsive_menu = Ul(
@@ -193,7 +193,7 @@ def test_menu_icons_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     from cjm_fasthtml_tailwind.utilities.spacing import m
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_sizes, badge_colors
     from cjm_fasthtml_daisyui.components.feedback.tooltip import tooltip, tooltip_placement
     
@@ -404,7 +404,7 @@ def test_menu_sizes_fasthtml_examples():
     from fasthtml.common import Ul, Li, A, Div
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     
     # Extra small menu
     xs_menu = Ul(
@@ -475,7 +475,7 @@ def test_menu_with_title_fasthtml_examples():
     from fasthtml.common import Ul, Li, A, H2, Div
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     
     # Menu with title
     menu_with_title = Ul(
@@ -526,7 +526,7 @@ def test_menu_submenu_fasthtml_examples():
     from fasthtml.common import Ul, Li, A, Details, Summary, Span, Div
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     
     # Basic submenu
     basic_submenu = Ul(
@@ -668,7 +668,7 @@ def test_menu_states_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     
     # Menu with disabled items
     menu_with_disabled = Ul(

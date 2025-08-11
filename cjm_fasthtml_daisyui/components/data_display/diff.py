@@ -51,7 +51,7 @@ def test_diff_basic_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     
     # Basic diff
     img_diff = Figure(

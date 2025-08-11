@@ -81,7 +81,7 @@ def test_drawer_basic_fasthtml_examples():
     from fasthtml.common import Div, Input, Label, Ul, Li, A
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     from cjm_fasthtml_daisyui.components.navigation.menu import menu
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_tailwind.utilities.sizing import w, min_h
     from cjm_fasthtml_tailwind.utilities.spacing import p
     
@@ -173,7 +173,7 @@ def test_drawer_navbar_mobile_fasthtml_examples():
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_modifiers, btn_styles
     from cjm_fasthtml_daisyui.components.navigation.menu import menu, menu_directions
     from cjm_fasthtml_daisyui.components.navigation.navbar import navbar
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_tailwind.utilities.sizing import w, h, min_h
     from cjm_fasthtml_tailwind.utilities.spacing import p, m
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, flex_direction, flex_display
@@ -312,7 +312,7 @@ def test_drawer_responsive_fasthtml_examples():
     from fasthtml.common import Div, Input, Label, Ul, Li, A
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     from cjm_fasthtml_daisyui.components.navigation.menu import menu
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_tailwind.utilities.sizing import w, min_h
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, items, justify, flex_display
@@ -406,7 +406,7 @@ def test_drawer_end_fasthtml_examples():
     from fasthtml.common import Div, Input, Label, Ul, Li, A
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_colors
     from cjm_fasthtml_daisyui.components.navigation.menu import menu
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_tailwind.utilities.sizing import w, min_h
     from cjm_fasthtml_tailwind.utilities.spacing import p
     

@@ -279,7 +279,8 @@ def test_countdown_boxes_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, flex_direction, auto_cols, grid_flow, flex_display, grid_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.spacing import p
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     
     # In boxes
     in_boxes = Div(

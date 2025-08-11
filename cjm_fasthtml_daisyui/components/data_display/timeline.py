@@ -325,7 +325,7 @@ def test_timeline_alternating_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui, bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui, bg_dui
     
     # Create checkmark SVG icon as reusable component
     checkmark_icon = Svg(
@@ -550,7 +550,7 @@ def test_timeline_vertical_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui, bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui, bg_dui
     
     # Create checkmark SVG icon as reusable component
     checkmark_icon = Svg(
@@ -701,7 +701,7 @@ def test_timeline_vertical_advanced_fasthtml_examples():
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.core.base import combine_classes
-    from cjm_fasthtml_daisyui.core.utility_classes import text_dui, bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui, bg_dui
     
     # Create checkmark SVG icon as reusable component
     checkmark_icon = Svg(

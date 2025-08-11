@@ -61,7 +61,7 @@ def test_accordion_basic_fasthtml_examples():
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
     # First accordion item
     accordion_item_1 = Div(
@@ -128,7 +128,7 @@ def test_accordion_arrow_fasthtml_examples():
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
     # First accordion item with arrow
     accordion_arrow_1 = Div(
@@ -192,7 +192,7 @@ def test_accordion_plus_fasthtml_examples():
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
     # First accordion item with plus/minus
     accordion_plus_1 = Div(
@@ -257,7 +257,7 @@ def test_accordion_join_fasthtml_examples():
     from fasthtml.common import Div, Input
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
     # Accordion group using Join
     accordion_join = Div(

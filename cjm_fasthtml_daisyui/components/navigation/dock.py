@@ -442,7 +442,7 @@ def test_dock_custom_colors_fasthtml_examples():
     from fasthtml.svg import Svg, G, Polyline, Path, Line, Rect, Circle
     from cjm_fasthtml_tailwind.utilities.sizing import size_util
     from cjm_fasthtml_tailwind.utilities.svg import fill, stroke
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     
     # Create reusable icons (same as in basic example)
     home_icon = Svg(

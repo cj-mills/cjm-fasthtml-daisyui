@@ -26,6 +26,9 @@ pip install cjm-fasthtml-daisyui
     │   ├── colors.ipynb  # Semantic color system builders for daisyUI components
     │   ├── sizes.ipynb   # Named sizes support for DaisyUI components
     │   └── styles.ipynb  # Named style support for daisyUI components
+    ├── cli/ (2)
+    │   ├── cli_config.ipynb  # Configuration for the DaisyUI CLI tool
+    │   └── explorer.ipynb    # CLI tool for exploring cjm-fasthtml-daisyui components and builders
     ├── components/ (61)
     │   ├── actions/ (5)
     │   │   ├── button.ipynb            # Buttons allow the user to take actions or make choices.
@@ -95,13 +98,17 @@ pip install cjm-fasthtml-daisyui
     │       ├── pagination.ipynb   # Pagination is a group of buttons that allow the user to navigate between a set of related content.
     │       ├── steps.ipynb        # Steps can be used to show a list of steps in a process.
     │       └── tabs.ipynb         # Tabs can be used to show a list of links in a tabbed format.
-    └── core/ (4)
-        ├── resources.ipynb        # CDN resources and headers for daisyUI and Tailwind CSS
-        ├── testing.ipynb          # Standardized test page creation for Jupyter notebooks with FastHTML
-        ├── themes.ipynb           # Type-safe theme management for daisyUI
-        └── utility_classes.ipynb  # daisyUI semantic color utility classes, border radius, and glass utility classes
+    ├── core/ (3)
+    │   ├── resources.ipynb  # CDN resources and headers for daisyUI and Tailwind CSS
+    │   ├── testing.ipynb    # Standardized test page creation for Jupyter notebooks with FastHTML
+    │   └── themes.ipynb     # Type-safe theme management for daisyUI
+    └── utilities/ (4)
+        ├── border_radius.ipynb       # daisyUI provides additional tokenized border radius values that can be customized based on the theme:
+        ├── glass.ipynb               # The glass utility creates a glass morphism effect on elements:
+        ├── semantic_colors.ipynb     # daisyUI extends many Tailwind CSS utility classes to support semantic colors. These factories provide type-safe access to semantic color utilities with full modifier support:
+        └── semantic_gradients.ipynb  # For Tailwind CSS gradient utilities, daisyUI extends the from, via, and to utilities with semantic color support:
 
-Total: 68 notebooks across 3 directories
+Total: 73 notebooks across 5 directories
 
 ## Module Dependencies
 
@@ -110,6 +117,8 @@ graph LR
     builders_colors[builders.colors<br/>colors]
     builders_sizes[builders.sizes<br/>sizes]
     builders_styles[builders.styles<br/>styles]
+    cli_cli_config[cli.cli_config<br/>DaisyUI CLI Configuration]
+    cli_explorer[cli.explorer<br/>DaisyUI Explorer]
     components_actions_button[components.actions.button<br/>button]
     components_actions_dropdown[components.actions.dropdown<br/>dropdown]
     components_actions_modal[components.actions.modal<br/>modal]
@@ -174,13 +183,17 @@ graph LR
     core_resources[core.resources<br/>resources]
     core_testing[core.testing<br/>testing]
     core_themes[core.themes<br/>themes]
-    core_utility_classes[core.utility_classes<br/>utility_classes]
+    utilities_border_radius[utilities.border_radius<br/>Border Radius Utilities]
+    utilities_glass[utilities.glass<br/>Glass Effect Utility]
+    utilities_semantic_colors[utilities.semantic_colors<br/>Semantic Color Utility Classes]
+    utilities_semantic_gradients[utilities.semantic_gradients<br/>Gradient Stop Utilities]
 
-    components_actions_button --> core_testing
-    components_actions_button --> builders_styles
-    components_actions_button --> builders_sizes
-    components_actions_button --> builders_colors
+    cli_explorer --> cli_cli_config
     components_actions_button --> core_themes
+    components_actions_button --> builders_colors
+    components_actions_button --> builders_styles
+    components_actions_button --> core_testing
+    components_actions_button --> builders_sizes
     components_actions_dropdown --> core_testing
     components_actions_dropdown --> core_themes
     components_actions_modal --> core_testing
@@ -189,93 +202,93 @@ graph LR
     components_actions_swap --> core_themes
     components_actions_theme_controller --> core_testing
     components_actions_theme_controller --> core_themes
-    components_data_display_accordion --> core_testing
-    components_data_display_accordion --> components_data_display_collapse
     components_data_display_accordion --> core_themes
-    components_data_display_avatar --> core_testing
+    components_data_display_accordion --> components_data_display_collapse
+    components_data_display_accordion --> core_testing
     components_data_display_avatar --> core_themes
-    components_data_display_badge --> core_testing
-    components_data_display_badge --> builders_styles
-    components_data_display_badge --> builders_sizes
-    components_data_display_badge --> builders_colors
+    components_data_display_avatar --> core_testing
     components_data_display_badge --> core_themes
-    components_data_display_card --> core_testing
-    components_data_display_card --> builders_styles
-    components_data_display_card --> builders_sizes
+    components_data_display_badge --> builders_colors
+    components_data_display_badge --> builders_styles
+    components_data_display_badge --> core_testing
+    components_data_display_badge --> builders_sizes
     components_data_display_card --> core_themes
-    components_data_display_carousel --> core_testing
+    components_data_display_card --> builders_styles
+    components_data_display_card --> core_testing
+    components_data_display_card --> builders_sizes
     components_data_display_carousel --> core_themes
-    components_data_display_chat_bubble --> core_testing
-    components_data_display_chat_bubble --> builders_colors
+    components_data_display_carousel --> core_testing
     components_data_display_chat_bubble --> core_themes
-    components_data_display_collapse --> core_testing
+    components_data_display_chat_bubble --> builders_colors
+    components_data_display_chat_bubble --> core_testing
     components_data_display_collapse --> core_themes
-    components_data_display_countdown --> core_testing
+    components_data_display_collapse --> core_testing
     components_data_display_countdown --> core_themes
-    components_data_display_diff --> core_testing
+    components_data_display_countdown --> core_testing
     components_data_display_diff --> core_themes
+    components_data_display_diff --> core_testing
+    components_data_display_kbd --> core_themes
     components_data_display_kbd --> core_testing
     components_data_display_kbd --> builders_sizes
-    components_data_display_kbd --> core_themes
-    components_data_display_list --> core_testing
     components_data_display_list --> core_themes
-    components_data_display_stat --> core_testing
+    components_data_display_list --> core_testing
     components_data_display_stat --> core_themes
+    components_data_display_stat --> core_testing
+    components_data_display_status --> core_themes
+    components_data_display_status --> builders_colors
     components_data_display_status --> core_testing
     components_data_display_status --> builders_sizes
-    components_data_display_status --> builders_colors
-    components_data_display_status --> core_themes
+    components_data_display_table --> core_themes
     components_data_display_table --> core_testing
     components_data_display_table --> builders_sizes
-    components_data_display_table --> core_themes
-    components_data_display_timeline --> core_testing
     components_data_display_timeline --> core_themes
+    components_data_display_timeline --> core_testing
     components_data_input_calendar --> core_testing
     components_data_input_calendar --> core_themes
+    components_data_input_checkbox --> builders_sizes
     components_data_input_checkbox --> core_testing
     components_data_input_checkbox --> builders_colors
-    components_data_input_checkbox --> builders_sizes
     components_data_input_checkbox --> core_themes
     components_data_input_fieldset --> core_testing
     components_data_input_fieldset --> core_themes
-    components_data_input_file_input --> core_testing
-    components_data_input_file_input --> builders_styles
-    components_data_input_file_input --> builders_sizes
-    components_data_input_file_input --> builders_colors
     components_data_input_file_input --> core_themes
+    components_data_input_file_input --> builders_colors
+    components_data_input_file_input --> builders_styles
+    components_data_input_file_input --> core_testing
+    components_data_input_file_input --> builders_sizes
     components_data_input_filter --> core_testing
     components_data_input_filter --> core_themes
     components_data_input_label --> core_testing
     components_data_input_label --> core_themes
+    components_data_input_radio --> builders_sizes
     components_data_input_radio --> core_testing
     components_data_input_radio --> builders_colors
-    components_data_input_radio --> builders_sizes
     components_data_input_radio --> core_themes
+    components_data_input_range_slider --> builders_sizes
     components_data_input_range_slider --> core_testing
     components_data_input_range_slider --> builders_colors
-    components_data_input_range_slider --> builders_sizes
     components_data_input_range_slider --> core_themes
     components_data_input_rating --> core_testing
-    components_data_input_rating --> builders_sizes
     components_data_input_rating --> core_themes
+    components_data_input_rating --> builders_sizes
+    components_data_input_select --> builders_sizes
     components_data_input_select --> core_testing
     components_data_input_select --> builders_colors
-    components_data_input_select --> builders_styles
-    components_data_input_select --> builders_sizes
     components_data_input_select --> core_themes
-    components_data_input_text_input --> core_testing
-    components_data_input_text_input --> builders_styles
-    components_data_input_text_input --> builders_sizes
-    components_data_input_text_input --> builders_colors
+    components_data_input_select --> builders_styles
     components_data_input_text_input --> core_themes
+    components_data_input_text_input --> builders_colors
+    components_data_input_text_input --> builders_styles
+    components_data_input_text_input --> core_testing
+    components_data_input_text_input --> builders_sizes
+    components_data_input_textarea --> builders_sizes
     components_data_input_textarea --> core_testing
     components_data_input_textarea --> builders_colors
-    components_data_input_textarea --> builders_styles
-    components_data_input_textarea --> builders_sizes
     components_data_input_textarea --> core_themes
+    components_data_input_textarea --> builders_styles
+    components_data_input_toggle --> builders_sizes
     components_data_input_toggle --> core_testing
     components_data_input_toggle --> builders_colors
-    components_data_input_toggle --> builders_sizes
     components_data_input_toggle --> core_themes
     components_data_input_validator --> core_testing
     components_data_input_validator --> core_themes
@@ -284,8 +297,8 @@ graph LR
     components_feedback_alert --> builders_styles
     components_feedback_alert --> core_themes
     components_feedback_loading --> core_testing
-    components_feedback_loading --> builders_sizes
     components_feedback_loading --> core_themes
+    components_feedback_loading --> builders_sizes
     components_feedback_progress --> core_testing
     components_feedback_progress --> builders_colors
     components_feedback_progress --> core_themes
@@ -303,8 +316,8 @@ graph LR
     components_layout_divider --> core_themes
     components_layout_drawer --> core_testing
     components_layout_drawer --> core_themes
-    components_layout_footer --> core_testing
     components_layout_footer --> core_themes
+    components_layout_footer --> core_testing
     components_layout_hero --> core_testing
     components_layout_hero --> core_themes
     components_layout_indicator --> core_testing
@@ -326,41 +339,145 @@ graph LR
     components_navigation_breadcrumbs --> core_testing
     components_navigation_breadcrumbs --> core_themes
     components_navigation_dock --> core_testing
-    components_navigation_dock --> builders_sizes
     components_navigation_dock --> core_themes
+    components_navigation_dock --> builders_sizes
+    components_navigation_link --> builders_sizes
     components_navigation_link --> core_testing
     components_navigation_link --> builders_colors
-    components_navigation_link --> builders_sizes
     components_navigation_link --> core_themes
     components_navigation_menu --> core_testing
-    components_navigation_menu --> builders_sizes
     components_navigation_menu --> core_themes
+    components_navigation_menu --> builders_sizes
     components_navigation_navbar --> core_testing
     components_navigation_navbar --> core_themes
+    components_navigation_pagination --> components_layout_join
     components_navigation_pagination --> core_testing
     components_navigation_pagination --> core_themes
-    components_navigation_pagination --> components_layout_join
     components_navigation_steps --> core_testing
     components_navigation_steps --> builders_colors
     components_navigation_steps --> core_themes
     components_navigation_tabs --> core_testing
+    components_navigation_tabs --> core_themes
     components_navigation_tabs --> builders_styles
     components_navigation_tabs --> builders_sizes
-    components_navigation_tabs --> core_themes
-    core_testing --> components_actions_button
+    core_testing --> utilities_semantic_colors
     core_testing --> core_themes
-    core_testing --> core_utility_classes
+    core_testing --> utilities_semantic_gradients
     core_testing --> core_resources
-    core_utility_classes --> core_testing
-    core_utility_classes --> builders_colors
-    core_utility_classes --> core_themes
+    core_testing --> components_actions_button
+    utilities_border_radius --> core_themes
+    utilities_border_radius --> builders_colors
+    utilities_border_radius --> core_testing
+    utilities_glass --> core_themes
+    utilities_glass --> builders_colors
+    utilities_glass --> core_testing
+    utilities_semantic_colors --> core_themes
+    utilities_semantic_colors --> builders_colors
+    utilities_semantic_colors --> core_testing
+    utilities_semantic_gradients --> core_themes
+    utilities_semantic_gradients --> builders_colors
+    utilities_semantic_gradients --> core_testing
 ```
 
-*178 cross-module dependencies detected*
+*189 cross-module dependencies detected*
 
 ## CLI Reference
 
-No CLI commands found in this project.
+### `cjm-daisyui-explore` Command
+
+    usage: cjm-daisyui-explore [-h]
+                               {modules,factories,factory,examples,example,helpers,helper,search,test-code,core-utils,core-util,imports,scan}
+                               ...
+
+    cjm_fasthtml_daisyui CLI Explorer
+
+    This tool helps you explore the cjm_fasthtml_daisyui library, which provides:
+    - Python-native DaisyUI v5 utility class builders for FastHTML projects
+    - Type-safe, dynamic CSS class generation without hardcoded strings
+    - Comprehensive utility factories (btn, btn_behaviors, btn_colors, btn_modifiers, etc.)
+    - Helper functions for common patterns
+    - Full integration with FastHTML components
+
+    Purpose: This CLI tool enables autonomous exploration of the library's API by:
+    - Discovering all available utility modules and their documentation
+    - Listing factory instances with their built-in documentation
+    - Showing usage examples from test functions
+    - Providing source code for helper functions
+    - Searching across all library components
+    - CRITICALLY: Testing code snippets with automatic imports BEFORE implementation
+    - Generating recommended import statements
+    - Scanning existing code for replaceable CSS patterns
+
+    All information is dynamically extracted from the library itself - nothing is hardcoded.
+
+    positional arguments:
+      {modules,factories,factory,examples,example,helpers,helper,search,test-code,core-utils,core-util,imports,scan}
+                            Available commands
+        modules             List all utility modules
+        factories           List factories
+        factory             Show detailed info for a specific factory
+        examples            Show usage examples
+        example             Show source code for a specific example
+        helpers             Show helper functions
+        helper              Show source code for a specific helper
+        search              Search across all library components
+        test-code           ⚠️ CRITICAL: Test code snippets using the library
+                            (ALWAYS use before implementation)
+        core-utils          List core utility functions
+        core-util           Show source code for a core utility
+        imports             Show recommended import statements
+        scan                Scan code for replaceable CSS patterns
+
+    options:
+      -h, --help            show this help message and exit
+
+    Getting Started:
+      1. List all modules:     cjm-daisyui-explore modules
+      2. View factories:       cjm-daisyui-explore factories
+      3. Search for patterns:  cjm-daisyui-explore search <query>
+      4. CRITICAL: Test code:  cjm-daisyui-explore test-code "<code>"
+      5. Get imports:         cjm-daisyui-explore imports
+      6. Scan existing code:  cjm-daisyui-explore scan <file>
+
+    Exploration Workflow:
+      - Start with 'modules' to see available utility categories
+      - Use 'factories -m <module>' to explore specific modules
+      - Use 'factory <module> <name>' for detailed factory information
+      - Use 'examples' to see test-based usage patterns
+      - Use 'search' to find specific functionality
+      - CRITICAL: ALWAYS use 'test-code' to validate code BEFORE implementation
+      - Use 'scan' to analyze existing code for migration opportunities
+
+    IMPORTANT: Code Validation
+      ⚠️  ALWAYS use 'test-code' to verify generated code before using it
+      ⚠️  This ensures correct syntax, proper imports, and expected output
+      ⚠️  Never skip this step - it prevents errors and saves debugging time
+
+    Key Concepts:
+      - Factories: Objects that generate CSS classes (e.g., btn, btn_behaviors, btn_colors, btn_modifiers)
+      - Modules: Categories of utilities (actions.button, actions.dropdown, actions.modal, etc.)
+      - Examples: Test functions demonstrating usage patterns
+      - Helpers: Convenience functions for common patterns
+
+    Tips for Coding Assistants:
+      - MANDATORY: Use 'test-code' to validate ALL generated code before implementation
+      - Use 'search --include-source' to find usage patterns in code
+      - Use 'imports' to get all necessary import statements
+      - Use 'scan' to identify replaceable hardcoded CSS classes
+      - Factory names are intuitive: btn, btn_behaviors, btn_colors, btn_modifiers
+      - Combine utilities with combine_classes() function
+      - All factories support method chaining and attribute access
+
+    Example Usage Flow:
+      cjm-daisyui-explore modules                    # See what's available
+      cjm-daisyui-explore factories -m actions.button       # Explore actions.button utilities
+      cjm-daisyui-explore factory actions.button btn          # Learn about btn factory
+      cjm-daisyui-explore example actions.button basic      # See usage examples
+      cjm-daisyui-explore test-code 'print(str(btn))'   # CRITICAL: Test your understanding
+      cjm-daisyui-explore scan app.py                # Analyze existing code
+
+For detailed help on any command, use
+`cjm-daisyui-explore <command> --help`.
 
 ## Module Overview
 
@@ -645,6 +762,41 @@ badge  # Badge container
 badge_colors  # Badge color variants
 badge_styles  # Badge style variants
 badge_sizes  # Badge size variants
+```
+
+### Border Radius Utilities (`border_radius.ipynb`)
+
+> daisyUI provides additional tokenized border radius values that can be
+> customized based on the theme:
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.utilities.border_radius import (
+    BORDER_RADIUS_VALUES,
+    border_radius,
+    test_border_radius_basic_examples,
+    test_border_radius_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_border_radius_basic_examples()
+    "Test daisyUI's tokenized border radius utilities."
+```
+
+``` python
+def test_border_radius_fasthtml_examples()
+    "Test practical usage patterns with FastHTML components."
+```
+
+#### Variables
+
+``` python
+BORDER_RADIUS_VALUES = {3 items}
+border_radius  # The daisyUI border radius factory
 ```
 
 ### breadcrumbs (`breadcrumbs.ipynb`)
@@ -1187,6 +1339,33 @@ def test_checkbox_custom_colors_fasthtml_examples()
 checkbox  # Base checkbox component
 checkbox_colors  # Checkbox color variants
 checkbox_sizes  # Checkbox size variants
+```
+
+### DaisyUI CLI Configuration (`cli_config.ipynb`)
+
+> Configuration for the DaisyUI CLI tool
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.cli.cli_config import (
+    get_daisyui_config
+)
+```
+
+#### Functions
+
+``` python
+def get_daisyui_config() -> LibraryConfig
+    """
+    Get configuration for cjm-fasthtml-daisyui library.
+    
+    This configuration defines:
+    - Module discovery paths (components and builders)
+    - Core utilities specific to DaisyUI
+    - CLI command name
+    - Import paths
+    """
 ```
 
 ### code mockup (`code.ipynb`)
@@ -1873,7 +2052,8 @@ def test_dropdown_placement_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import z
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn
     
     # Helper function to create dropdown content
@@ -1896,6 +2076,31 @@ def test_dropdown_content_variations_fasthtml_examples()
 ``` python
 dropdown  # Dropdown container
 dropdown_content  # Dropdown content
+```
+
+### DaisyUI Explorer (`explorer.ipynb`)
+
+> CLI tool for exploring cjm-fasthtml-daisyui components and builders
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.cli.explorer import (
+    initialize_daisyui_cli,
+    main
+)
+```
+
+#### Functions
+
+``` python
+def initialize_daisyui_cli()
+    "Initialize the CLI with DaisyUI configuration."
+```
+
+``` python
+def main()
+    "CLI entry point for exploring cjm-fasthtml-daisyui components."
 ```
 
 ### fieldset (`fieldset.ipynb`)
@@ -2202,6 +2407,38 @@ footer_placement  # footer placement
 footer_directions  # footer directions
 ```
 
+### Glass Effect Utility (`glass.ipynb`)
+
+> The glass utility creates a glass morphism effect on elements:
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.utilities.glass import (
+    glass,
+    test_glass_basic_examples,
+    test_glass_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_glass_basic_examples()
+    "Test glass morphism effect utility."
+```
+
+``` python
+def test_glass_fasthtml_examples()
+    "Test practical usage patterns with FastHTML components."
+```
+
+#### Variables
+
+``` python
+glass  # Glass morphism effect
+```
+
 ### hero (`hero.ipynb`)
 
 > Hero is a component for displaying a large box or image with a title
@@ -2321,7 +2558,7 @@ def test_indicator_positions_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items, grid_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_colors
     from cjm_fasthtml_daisyui.components.layout.divider import divider, divider_directions
     
@@ -2935,7 +3172,7 @@ def test_menu_responsive_fasthtml_examples():
     """Test responsive menu and horizontal menu from daisyUI v5 documentation."""
     from fasthtml.common import Ul, Li, A, Div
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     
     # Responsive: vertical on small screen, horizontal on large screen
     "Test responsive menu and horizontal menu from daisyUI v5 documentation."
@@ -3714,6 +3951,129 @@ select_colors  # select color variants
 select_sizes  # select size variants
 ```
 
+### Semantic Color Utility Classes (`semantic_colors.ipynb`)
+
+> daisyUI extends many Tailwind CSS utility classes to support semantic
+> colors. These factories provide type-safe access to semantic color
+> utilities with full modifier support:
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.utilities.semantic_colors import (
+    bg_dui,
+    text_dui,
+    border_dui,
+    ring_dui,
+    fill_dui,
+    stroke_dui,
+    caret_dui,
+    accent_dui,
+    shadow_dui,
+    outline_dui,
+    decoration_dui,
+    placeholder_dui,
+    divide_dui,
+    ring_offset_dui,
+    test_semantic_colors_basic_examples,
+    test_semantic_colors_opacity_examples,
+    test_semantic_color_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_semantic_colors_basic_examples()
+    "Test semantic color utility classes for various CSS properties."
+```
+
+``` python
+def test_semantic_colors_opacity_examples()
+    "Test semantic color utilities with opacity modifiers."
+```
+
+``` python
+def test_semantic_color_fasthtml_examples()
+    "Test practical usage patterns with FastHTML components."
+```
+
+#### Variables
+
+``` python
+bg_dui  # The semantic background color factory
+text_dui  # The semantic text color factory
+border_dui  # The semantic border color factory
+ring_dui  # The semantic ring color factory
+fill_dui  # The semantic fill color factory
+stroke_dui  # The semantic stroke color factory
+caret_dui  # The semantic caret color factory
+accent_dui  # The semantic accent color factory
+shadow_dui  # The semantic shadow color factory
+outline_dui  # The semantic outline color factory
+decoration_dui  # The semantic decoration color factory
+placeholder_dui  # The semantic placeholder color factory
+divide_dui  # The semantic divide color factory
+ring_offset_dui  # The semantic ring offset color factory
+```
+
+### Gradient Stop Utilities (`semantic_gradients.ipynb`)
+
+> For Tailwind CSS gradient utilities, daisyUI extends the from, via,
+> and to utilities with semantic color support:
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.utilities.semantic_gradients import (
+    from_dui,
+    via_dui,
+    to_dui,
+    GradientStopFactoryDaisyUI,
+    test_semantic_gradients_basic_examples,
+    test_semantic_gradients_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_semantic_gradients_basic_examples()
+    "Test gradient utilities with semantic colors."
+```
+
+``` python
+def test_semantic_gradients_fasthtml_examples()
+    "Test practical usage patterns with FastHTML components."
+```
+
+#### Classes
+
+``` python
+class GradientStopFactoryDaisyUI:
+    def __init__(
+        self,
+        stop_type: str,  # Type of stop (from, via, to)
+        doc: Optional[str] = None  # Documentation
+    )
+    "Enhanced factory for gradient color stops with semantic color support."
+    
+    def __init__(
+            self,
+            stop_type: str,  # Type of stop (from, via, to)
+            doc: Optional[str] = None  # Documentation
+        )
+        "Initialize gradient stop factory."
+```
+
+#### Variables
+
+``` python
+from_dui  # Semantic gradient from color factory
+via_dui  # Semantic gradient via color factory
+to_dui  # Semantic gradient to color factory
+```
+
 ### sizes (`sizes.ipynb`)
 
 > Named sizes support for DaisyUI components
@@ -3833,7 +4193,7 @@ def test_stack_cards_directions_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import size_util
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import text_align
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     from cjm_fasthtml_daisyui.components.data_display.card import card, card_body
     
     # Helper function to create a card
@@ -5116,127 +5476,6 @@ tooltip_content  # Base tooltip content part
 tooltip_placement  # tooltip placement options
 tooltip_modifiers  # tooltip modifiers
 tooltip_colors  # Tooltip color variants
-```
-
-### utility_classes (`utility_classes.ipynb`)
-
-> daisyUI semantic color utility classes, border radius, and glass
-> utility classes
-
-#### Import
-
-``` python
-from cjm_fasthtml_daisyui.core.utility_classes import (
-    bg_dui,
-    text_dui,
-    border_dui,
-    ring_dui,
-    fill_dui,
-    stroke_dui,
-    caret_dui,
-    accent_dui,
-    shadow_dui,
-    outline_dui,
-    decoration_dui,
-    placeholder_dui,
-    divide_dui,
-    ring_offset_dui,
-    from_dui,
-    via_dui,
-    to_dui,
-    BORDER_RADIUS_VALUES,
-    border_radius,
-    glass,
-    test_utility_classes_semantic_colors_examples,
-    GradientStopFactoryDaisyUI,
-    test_utility_classes_gradient_examples,
-    test_utility_classes_opacity_examples,
-    test_utility_classes_border_radius_examples,
-    test_utility_classes_glass_examples,
-    test_utility_classes_modifiers_examples,
-    test_utility_classes_fasthtml_examples
-)
-```
-
-#### Functions
-
-``` python
-def test_utility_classes_semantic_colors_examples()
-    "Test semantic color utility classes for various CSS properties."
-```
-
-``` python
-def test_utility_classes_gradient_examples()
-    "Test gradient utilities with semantic colors."
-```
-
-``` python
-def test_utility_classes_opacity_examples()
-    "Test semantic color utilities with opacity modifiers."
-```
-
-``` python
-def test_utility_classes_border_radius_examples()
-    "Test daisyUI's tokenized border radius utilities."
-```
-
-``` python
-def test_utility_classes_glass_examples()
-    "Test glass morphism effect utility."
-```
-
-``` python
-def test_utility_classes_modifiers_examples()
-    "Test semantic color utilities with Tailwind modifiers."
-```
-
-``` python
-def test_utility_classes_fasthtml_examples()
-    "Test practical usage patterns with FastHTML components."
-```
-
-#### Classes
-
-``` python
-class GradientStopFactoryDaisyUI:
-    def __init__(
-        self,
-        stop_type: str,  # Type of stop (from, via, to)
-        doc: Optional[str] = None  # Documentation
-    )
-    "Enhanced factory for gradient color stops with semantic color support."
-    
-    def __init__(
-            self,
-            stop_type: str,  # Type of stop (from, via, to)
-            doc: Optional[str] = None  # Documentation
-        )
-        "Initialize gradient stop factory."
-```
-
-#### Variables
-
-``` python
-bg_dui  # The semantic background color factory
-text_dui  # The semantic text color factory
-border_dui  # The semantic border color factory
-ring_dui  # The semantic ring color factory
-fill_dui  # The semantic fill color factory
-stroke_dui  # The semantic stroke color factory
-caret_dui  # The semantic caret color factory
-accent_dui  # The semantic accent color factory
-shadow_dui  # The semantic shadow color factory
-outline_dui  # The semantic outline color factory
-decoration_dui  # The semantic decoration color factory
-placeholder_dui  # The semantic placeholder color factory
-divide_dui  # The semantic divide color factory
-ring_offset_dui  # The semantic ring offset color factory
-from_dui  # Semantic gradient from color factory
-via_dui  # Semantic gradient via color factory
-to_dui  # Semantic gradient to color factory
-BORDER_RADIUS_VALUES = {3 items}
-border_radius  # The daisyUI border radius factory
-glass  # Glass morphism effect
 ```
 
 ### validator (`validator.ipynb`)

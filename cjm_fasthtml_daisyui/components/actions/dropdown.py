@@ -99,7 +99,8 @@ def test_dropdown_basic_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import z
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn
     
     # Dropdown using details and summary
@@ -189,7 +190,8 @@ def test_dropdown_placement_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import z
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn
     
     # Helper function to create dropdown content
@@ -368,7 +370,8 @@ def test_dropdown_hover_and_state_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import z
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn
     
     # Dropdown on hover
@@ -438,7 +441,8 @@ def test_dropdown_content_variations_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex, items, justify, flex_display
     from cjm_fasthtml_tailwind.utilities.svg import stroke
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles, btn_modifiers, btn_sizes
     
     # Card as dropdown content

@@ -65,7 +65,8 @@ def test_stack_basic_divs_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_content, grid_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     
     # 3 divs in a stack
     stack_divs = Div(
@@ -116,7 +117,7 @@ def test_stack_images_fasthtml_examples():
     """Test stacked images from daisyUI v5 documentation."""
     from fasthtml.common import Div, Img
     from cjm_fasthtml_tailwind.utilities.sizing import w
-    from cjm_fasthtml_daisyui.core.utility_classes import border_radius
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     
     # Stacked images
     stack_images = Div(
@@ -164,7 +165,7 @@ def test_stack_cards_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import size_util
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import text_align
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     from cjm_fasthtml_daisyui.components.data_display.card import card, card_body
     
     # Stacked cards
@@ -219,7 +220,7 @@ def test_stack_cards_directions_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import size_util
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import text_align
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     from cjm_fasthtml_daisyui.components.data_display.card import card, card_body
     
     # Helper function to create a card
@@ -290,7 +291,7 @@ def test_stack_cards_shadow_fasthtml_examples():
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.utilities.typography import text_align
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.card import card, card_body
     
     # Stacked cards with shadow
@@ -351,7 +352,7 @@ def test_stack_notification_cards_fasthtml_examples():
     """Test stacked notification cards from daisyUI v5 documentation."""
     from fasthtml.common import Div, H2, P
     from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.data_display.card import card, card_body, card_title
     
     # Stacked notification cards

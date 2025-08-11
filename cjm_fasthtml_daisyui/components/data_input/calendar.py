@@ -48,7 +48,8 @@ def test_calendar_cally_basic_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.core.base import SingleValueFactory
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
 
     from fasthtml.components import Calendar_date, Calendar_month # Automatic creation of custom FT components
     
@@ -138,7 +139,8 @@ def test_cally_date_picker_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input, text_input_styles
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     
     from fasthtml.components import Calendar_date, Calendar_month  # Automatic creation of custom FT components
     

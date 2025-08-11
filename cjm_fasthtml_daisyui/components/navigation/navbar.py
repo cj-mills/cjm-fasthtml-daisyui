@@ -51,7 +51,7 @@ def test_navbar_title_only_fasthtml_examples():
     from fasthtml.common import Div, A
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_tailwind.utilities.effects import shadow
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles
     
     # Navbar with title only
@@ -90,7 +90,7 @@ def test_navbar_with_title_and_icon_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.svg import stroke
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles, btn_modifiers
     
     # Create menu dots icon
@@ -161,7 +161,7 @@ def test_navbar_with_icons_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.svg import stroke
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles, btn_modifiers
     
     # Create hamburger menu icon
@@ -259,7 +259,7 @@ def test_navbar_with_menu_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex
     from cjm_fasthtml_tailwind.utilities.spacing import p
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles
     from cjm_fasthtml_daisyui.components.navigation.menu import menu, menu_directions
     
@@ -348,7 +348,8 @@ def test_navbar_with_search_and_dropdown_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
     from cjm_fasthtml_tailwind.utilities.layout import z
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles, btn_modifiers
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown, dropdown_placement, dropdown_content
     from cjm_fasthtml_daisyui.components.navigation.menu import menu, menu_sizes
@@ -492,7 +493,8 @@ def test_navbar_with_icon_indicator_and_dropdown_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
     from cjm_fasthtml_tailwind.utilities.layout import z
     from cjm_fasthtml_tailwind.utilities.borders import rounded
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles, btn_modifiers, btn_colors
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown, dropdown_placement, dropdown_content
     from cjm_fasthtml_daisyui.components.navigation.menu import menu, menu_sizes
@@ -696,7 +698,8 @@ def test_navbar_with_dropdown_center_logo_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import h, w
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
     from cjm_fasthtml_tailwind.utilities.layout import z
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles, btn_modifiers
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown, dropdown_content
     from cjm_fasthtml_daisyui.components.navigation.menu import menu, menu_sizes
@@ -842,7 +845,8 @@ def test_navbar_responsive_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
     from cjm_fasthtml_tailwind.utilities.layout import z, display_tw
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import flex_display
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, border_radius
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown, dropdown_content
     from cjm_fasthtml_daisyui.components.navigation.menu import menu, menu_sizes, menu_directions
@@ -957,7 +961,7 @@ def test_navbar_colors_fasthtml_examples():
     """Test navbar with colors from daisyUI v5 documentation."""
     from fasthtml.common import Div, Button
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
-    from cjm_fasthtml_daisyui.core.utility_classes import bg_dui, text_dui
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles
     
     # Navbar with neutral color
