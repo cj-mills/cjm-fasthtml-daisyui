@@ -7,7 +7,7 @@ __all__ = ['get_daisyui_config']
 
 # %% ../../nbs/cli/cli_config.ipynb 3
 # Import the base configuration class from the installed tailwind package
-from cjm_fasthtml_tailwind.cli.cli_config import LibraryConfig
+from cjm_fasthtml_tailwind.cli.cli_config import LibraryConfig, get_tailwind_config
 
 # %% ../../nbs/cli/cli_config.ipynb 5
 def get_daisyui_config() -> LibraryConfig:
@@ -19,6 +19,9 @@ def get_daisyui_config() -> LibraryConfig:
     - CLI command name
     - Import paths
     """
+
+    tailwind_config = get_tailwind_config()
+    
     return LibraryConfig(
         package_name='cjm_fasthtml_daisyui',
         cli_command='cjm-daisyui-explore',
@@ -32,5 +35,6 @@ def get_daisyui_config() -> LibraryConfig:
             ('combine_classes', 'cjm_fasthtml_tailwind.core.base'),
             ('get_daisyui_headers', 'cjm_fasthtml_daisyui.core.resources')
         ],
-        base_imports=['from fasthtml.common import *']
+        base_imports=['from fasthtml.common import *'],
+        # tailwind_config=tailwind_config,
     )
