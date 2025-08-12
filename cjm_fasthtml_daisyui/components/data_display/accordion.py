@@ -258,6 +258,7 @@ def test_accordion_join_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
+    from cjm_fasthtml_daisyui.components.layout.join import join, join_item, join_directions
     
     # Accordion group using Join
     accordion_join = Div(
@@ -268,7 +269,7 @@ def test_accordion_join_fasthtml_examples():
                 'Click the "Sign Up" button in the top right corner and follow the registration process.',
                 cls=combine_classes(collapse_content, font_size.sm)
             ),
-            cls=combine_classes(collapse, collapse_modifiers.arrow, "join-item", border_dui.base_300, border())
+            cls=combine_classes(collapse, collapse_modifiers.arrow, join_item, border_dui.base_300, border())
         ),
         Div(
             Input(type="radio", name="my-accordion-4"),
@@ -277,7 +278,7 @@ def test_accordion_join_fasthtml_examples():
                 'Click on "Forgot Password" on the login page and follow the instructions sent to your email.',
                 cls=combine_classes(collapse_content, font_size.sm)
             ),
-            cls=combine_classes(collapse, collapse_modifiers.arrow, "join-item", border_dui.base_300, border())
+            cls=combine_classes(collapse, collapse_modifiers.arrow, join_item, border_dui.base_300, border())
         ),
         Div(
             Input(type="radio", name="my-accordion-4"),
@@ -286,9 +287,9 @@ def test_accordion_join_fasthtml_examples():
                 'Go to "My Account" settings and select "Edit Profile" to make changes.',
                 cls=combine_classes(collapse_content, font_size.sm)
             ),
-            cls=combine_classes(collapse, collapse_modifiers.arrow, "join-item", border_dui.base_300, border())
+            cls=combine_classes(collapse, collapse_modifiers.arrow, join_item, border_dui.base_300, border())
         ),
-        cls=combine_classes("join", "join-vertical", bg_dui.base_100)
+        cls=combine_classes(join, join_directions.vertical, bg_dui.base_100)
     )
     
     # Verify container structure

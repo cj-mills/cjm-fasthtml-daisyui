@@ -231,6 +231,7 @@ def test_hero_with_form_fasthtml_examples():
     from cjm_fasthtml_daisyui.components.data_input.text_input import text_input 
     from cjm_fasthtml_daisyui.components.data_input.label import label
     from cjm_fasthtml_daisyui.components.navigation.link import link, link_styles
+    from cjm_fasthtml_daisyui.components.data_input.fieldset import fieldset
     
     # Hero with form
     hero_with_form = Div(
@@ -254,7 +255,7 @@ def test_hero_with_form_fasthtml_examples():
                             A("Forgot password?", cls=combine_classes(link, link_styles.hover))
                         ),
                         Button("Login", cls=combine_classes(btn, btn_colors.neutral, m.t._4)),
-                        cls="fieldset"
+                        cls=str(fieldset)
                     ),
                     cls=str(card_body)
                 ),

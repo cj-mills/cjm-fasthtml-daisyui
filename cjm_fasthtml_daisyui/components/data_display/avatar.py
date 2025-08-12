@@ -153,6 +153,7 @@ def test_avatar_rounded_and_mask_fasthtml_examples():
     from fasthtml.common import Div, Img
     from cjm_fasthtml_tailwind.utilities.sizing import w
     from cjm_fasthtml_tailwind.utilities.borders import rounded
+    from cjm_fasthtml_daisyui.components.layout.mask import mask, mask_styles
     
     # Avatar rounded
     rounded_xl_avatar = Div(
@@ -182,33 +183,36 @@ def test_avatar_rounded_and_mask_fasthtml_examples():
     mask_heart_avatar = Div(
         Div(
             Img(src="https://img.daisyui.com/images/profile/demo/distracted3@192.webp"),
-            cls=combine_classes("mask mask-heart", w._24)
+            cls=combine_classes(mask, mask_styles.heart, w._24)
         ),
         cls=str(avatar)
     )
     assert "avatar" in mask_heart_avatar.attrs['class']
-    assert "mask mask-heart" in mask_heart_avatar.children[0].attrs['class']
+    assert "mask" in mask_heart_avatar.children[0].attrs['class']
+    assert "mask-heart" in mask_heart_avatar.children[0].attrs['class']
     assert "w-24" in mask_heart_avatar.children[0].attrs['class']
     assert mask_heart_avatar.children[0].children[0].attrs['src'] == "https://img.daisyui.com/images/profile/demo/distracted3@192.webp"
     
     mask_squircle_avatar = Div(
         Div(
             Img(src="https://img.daisyui.com/images/profile/demo/distracted1@192.webp"),
-            cls=combine_classes("mask mask-squircle", w._24)
+            cls=combine_classes(mask, mask_styles.squircle, w._24)
         ),
         cls=str(avatar)
     )
-    assert "mask mask-squircle" in mask_squircle_avatar.children[0].attrs['class']
+    assert "mask" in mask_squircle_avatar.children[0].attrs['class']
+    assert "mask-squircle" in mask_squircle_avatar.children[0].attrs['class']
     assert mask_squircle_avatar.children[0].children[0].attrs['src'] == "https://img.daisyui.com/images/profile/demo/distracted1@192.webp"
     
     mask_hexagon_2_avatar = Div(
         Div(
             Img(src="https://img.daisyui.com/images/profile/demo/distracted2@192.webp"),
-            cls=combine_classes("mask mask-hexagon-2", w._24)
+            cls=combine_classes(mask, mask_styles.hexagon_2, w._24)
         ),
         cls=str(avatar)
     )
-    assert "mask mask-hexagon-2" in mask_hexagon_2_avatar.children[0].attrs['class']
+    assert "mask" in mask_hexagon_2_avatar.children[0].attrs['class']
+    assert "mask-hexagon-2" in mask_hexagon_2_avatar.children[0].attrs['class']
     assert mask_hexagon_2_avatar.children[0].children[0].attrs['src'] == "https://img.daisyui.com/images/profile/demo/distracted2@192.webp"
     
     # Return all examples in a Div

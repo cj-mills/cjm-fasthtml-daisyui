@@ -78,6 +78,7 @@ def test_stat_basic_fasthtml_examples():
     """Test basic stat examples from daisyUI v5 documentation."""
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.core.base import combine_classes
+    from cjm_fasthtml_tailwind.utilities.effects import shadow
     
     # Basic stat
     basic_stat = Div(
@@ -87,7 +88,7 @@ def test_stat_basic_fasthtml_examples():
             Div("21% more than last month", cls=str(stat_desc)),
             cls=str(stat)
         ),
-        cls=combine_classes(str(stats), "shadow")
+        cls=combine_classes(str(stats), shadow())
     )
     
     # Verify structure
@@ -134,6 +135,7 @@ def test_stat_with_icons_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.svg import stroke
+    from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.core.base import combine_classes
     from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     from cjm_fasthtml_daisyui.components.data_display.avatar import avatar, avatar_modifiers
@@ -206,7 +208,7 @@ def test_stat_with_icons_fasthtml_examples():
             Div("31 tasks remaining", cls=combine_classes(stat_desc, text_dui.secondary)),
             cls=str(stat)
         ),
-        cls=combine_classes(stats, "shadow")
+        cls=combine_classes(stats, shadow())
     )
     
     # Verify structure
@@ -271,6 +273,7 @@ def test_stat_detailed_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.sizing import w, h
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.svg import stroke
+    from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.core.base import combine_classes
     from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     
@@ -349,7 +352,7 @@ def test_stat_detailed_fasthtml_examples():
             Div("↘︎ 90 (14%)", cls=str(stat_desc)),
             cls=str(stat)
         ),
-        cls=combine_classes(stats, "shadow")
+        cls=combine_classes(stats, shadow())
     )
     
     # Verify structure
@@ -400,6 +403,7 @@ def test_stat_centered_fasthtml_examples():
     """Test centered stat items examples from daisyUI v5 documentation."""
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import place_items
+    from cjm_fasthtml_tailwind.utilities.effects import shadow
     from cjm_fasthtml_tailwind.core.base import combine_classes
     from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     
@@ -426,7 +430,7 @@ def test_stat_centered_fasthtml_examples():
             Div("↘︎ 90 (14%)", cls=str(stat_desc)),
             cls=combine_classes(stat, place_items.center)
         ),
-        cls=combine_classes(stats, "shadow")
+        cls=combine_classes(stats, shadow())
     )
     
     # Verify structure
@@ -483,6 +487,7 @@ def test_stat_vertical_fasthtml_examples():
     """Test vertical and responsive stat examples from daisyUI v5 documentation."""
     from fasthtml.common import Div
     from cjm_fasthtml_tailwind.core.base import combine_classes
+    from cjm_fasthtml_tailwind.utilities.effects import shadow
     
     # Vertical stats
     vertical_stats = Div(
@@ -504,7 +509,7 @@ def test_stat_vertical_fasthtml_examples():
             Div("↘︎ 90 (14%)", cls=str(stat_desc)),
             cls=str(stat)
         ),
-        cls=combine_classes(stats, stats_direction.vertical, "shadow")
+        cls=combine_classes(stats, stats_direction.vertical, shadow())
     )
     
     # Verify vertical stats
@@ -546,7 +551,7 @@ def test_stat_vertical_fasthtml_examples():
             Div("↘︎ 90 (14%)", cls=stat_desc),
             cls=stat
         ),
-        cls=combine_classes(stats, stats_direction.vertical, "lg:stats-horizontal", "shadow")
+        cls=combine_classes(stats, stats_direction.vertical, stats_direction.horizontal.lg, shadow())
     )
     
     # Verify responsive stats
@@ -571,6 +576,7 @@ def test_stat_with_actions_fasthtml_examples():
     """Test stat with custom colors and button actions from daisyUI v5 documentation."""
     from fasthtml.common import Div, Button
     from cjm_fasthtml_tailwind.core.base import combine_classes
+    from cjm_fasthtml_tailwind.utilities.borders import border
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_colors
     from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, border_dui
     
@@ -597,7 +603,7 @@ def test_stat_with_actions_fasthtml_examples():
             ),
             cls=str(stat)
         ),
-        cls=combine_classes(stats, bg_dui.base_100, border_dui.base_300, "border")
+        cls=combine_classes(stats, bg_dui.base_100, border_dui.base_300, border())
     )
     
     # Verify structure

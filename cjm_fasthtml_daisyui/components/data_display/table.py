@@ -379,6 +379,9 @@ def test_table_visual_elements_fasthtml_examples():
     from cjm_fasthtml_tailwind.core.base import combine_classes
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles, btn_sizes
     from cjm_fasthtml_daisyui.components.data_display.badge import badge, badge_styles, badge_sizes
+    from cjm_fasthtml_daisyui.components.data_display.avatar import avatar
+    from cjm_fasthtml_daisyui.components.data_input.checkbox import checkbox as checkbox_factory
+    from cjm_fasthtml_daisyui.components.layout.mask import mask, mask_styles
     
     # Table with visual elements
     visual_table = Div(
@@ -387,7 +390,7 @@ def test_table_visual_elements_fasthtml_examples():
                 Tr(
                     Th(
                         Label(
-                            Input(type="checkbox", cls="checkbox")
+                            Input(type="checkbox", cls=str(checkbox_factory))
                         )
                     ),
                     Th("Name"),
@@ -400,7 +403,7 @@ def test_table_visual_elements_fasthtml_examples():
                 Tr(
                     Th(
                         Label(
-                            Input(type="checkbox", cls="checkbox")
+                            Input(type="checkbox", cls=str(checkbox_factory))
                         )
                     ),
                     Td(
@@ -411,9 +414,9 @@ def test_table_visual_elements_fasthtml_examples():
                                         src="https://img.daisyui.com/images/profile/demo/2@94.webp",
                                         alt="Avatar Tailwind CSS Component"
                                     ),
-                                    cls=combine_classes("mask mask-squircle", h._12, w._12)
+                                    cls=combine_classes(mask, mask_styles.squircle, h._12, w._12)
                                 ),
-                                cls="avatar"
+                                cls=str(avatar)
                             ),
                             Div(
                                 Div("Hart Hagerty", cls=str(font_weight.bold)),
@@ -435,7 +438,7 @@ def test_table_visual_elements_fasthtml_examples():
                 Tr(
                     Th(
                         Label(
-                            Input(type="checkbox", cls="checkbox")
+                            Input(type="checkbox", cls=str(checkbox_factory))
                         )
                     ),
                     Td(
@@ -446,9 +449,9 @@ def test_table_visual_elements_fasthtml_examples():
                                         src="https://img.daisyui.com/images/profile/demo/3@94.webp",
                                         alt="Avatar Tailwind CSS Component"
                                     ),
-                                    cls=combine_classes("mask mask-squircle", h._12, w._12)
+                                    cls=combine_classes(mask, mask_styles.squircle, h._12, w._12)
                                 ),
-                                cls="avatar"
+                                cls=str(avatar)
                             ),
                             Div(
                                 Div("Brice Swyre", cls=str(font_weight.bold)),
@@ -470,7 +473,7 @@ def test_table_visual_elements_fasthtml_examples():
                 Tr(
                     Th(
                         Label(
-                            Input(type="checkbox", cls="checkbox")
+                            Input(type="checkbox", cls=str(checkbox_factory))
                         )
                     ),
                     Td(
@@ -481,9 +484,9 @@ def test_table_visual_elements_fasthtml_examples():
                                         src="https://img.daisyui.com/images/profile/demo/4@94.webp",
                                         alt="Avatar Tailwind CSS Component"
                                     ),
-                                    cls=combine_classes("mask mask-squircle", h._12, w._12)
+                                    cls=combine_classes(mask, mask_styles.squircle, h._12, w._12)
                                 ),
-                                cls="avatar"
+                                cls=str(avatar)
                             ),
                             Div(
                                 Div("Marjy Ferencz", cls=str(font_weight.bold)),
@@ -505,7 +508,7 @@ def test_table_visual_elements_fasthtml_examples():
                 Tr(
                     Th(
                         Label(
-                            Input(type="checkbox", cls="checkbox")
+                            Input(type="checkbox", cls=str(checkbox_factory))
                         )
                     ),
                     Td(
@@ -516,9 +519,9 @@ def test_table_visual_elements_fasthtml_examples():
                                         src="https://img.daisyui.com/images/profile/demo/5@94.webp",
                                         alt="Avatar Tailwind CSS Component"
                                     ),
-                                    cls=combine_classes("mask mask-squircle", h._12, w._12)
+                                    cls=combine_classes(mask, mask_styles.squircle, h._12, w._12)
                                 ),
-                                cls="avatar"
+                                cls=str(avatar)
                             ),
                             Div(
                                 Div("Yancy Tear", cls=str(font_weight.bold)),
@@ -596,7 +599,8 @@ def test_table_visual_elements_fasthtml_examples():
     avatar_div = flex_container.children[0]
     assert "avatar" in avatar_div.attrs['class']
     mask_div = avatar_div.children[0]
-    assert "mask mask-squircle" in mask_div.attrs['class']
+    assert "mask" in mask_div.attrs['class']
+    assert "mask-squircle" in mask_div.attrs['class']
     assert "h-12" in mask_div.attrs['class']
     assert "w-12" in mask_div.attrs['class']
     assert mask_div.children[0].tag == "img"
