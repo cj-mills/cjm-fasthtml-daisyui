@@ -387,8 +387,8 @@ def test_theme_controller_advanced_fasthtml_examples():
             border_color.sky._400,
             bg.amber._300,
             "[--tglbg:var(--color-sky-500)]",
-            "checked:border-blue-800",
-            "checked:bg-blue-300",
+            border_color.blue._800.checked,
+            bg.blue._800.checked,
             "checked:[--tglbg:var(--color-blue-900)]"
         )
     )
