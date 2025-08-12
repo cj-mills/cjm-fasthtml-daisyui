@@ -444,6 +444,7 @@ def test_button_with_content_fasthtml_examples():
     from fasthtml.common import Button, Span, Div
     from fasthtml.svg import Svg, Path
     from cjm_fasthtml_tailwind.utilities.sizing import size_util
+    from cjm_fasthtml_daisyui.components.feedback.loading import loading, loading_styles
     
     # Create reusable heart icon SVG
     heart_icon = Svg(
@@ -480,15 +481,15 @@ def test_button_with_content_fasthtml_examples():
     
     # Button with loading spinner (using daisyUI loading classes)
     loading_square_btn = Button(
-        Span(cls="loading loading-spinner"),
+        Span(cls=combine_classes(loading, loading_styles.spinner)),
         cls=combine_classes(btn, btn_modifiers.square)
     )
     assert "btn-square" in loading_square_btn.attrs['class']
     assert "loading loading-spinner" in loading_square_btn.children[0].attrs['class']
     
     loading_text_btn = Button(
-        Span(cls="loading loading-spinner"),
-        "loading",
+        Span(cls=combine_classes(loading, loading_styles.spinner)),
+        loading,
         cls=str(btn)
     )
     assert loading_text_btn.attrs['class'] == "btn"

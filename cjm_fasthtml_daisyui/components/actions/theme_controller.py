@@ -46,12 +46,15 @@ def test_theme_controller_basic_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import gap, items, flex_display
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.interactivity import cursor
+    from cjm_fasthtml_daisyui.components.data_input.toggle import toggle
+    from cjm_fasthtml_daisyui.components.data_input.checkbox import checkbox
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import text_dui
     
     # Basic toggle theme controller
     toggle_theme = Input(
         type="checkbox",
         value="synthwave",
-        cls=combine_classes("toggle", theme_controller)
+        cls=combine_classes(toggle, theme_controller)
     )
     assert toggle_theme.attrs['type'] == "checkbox"
     assert toggle_theme.attrs['value'] == "synthwave"
@@ -62,7 +65,7 @@ def test_theme_controller_basic_fasthtml_examples():
     checkbox_theme = Input(
         type="checkbox",
         value="synthwave",
-        cls=combine_classes("checkbox", theme_controller)
+        cls=combine_classes(checkbox, theme_controller)
     )
     assert "checkbox" in checkbox_theme.attrs['class']
     assert "theme-controller" in checkbox_theme.attrs['class']
@@ -73,7 +76,7 @@ def test_theme_controller_basic_fasthtml_examples():
         Input(
             type="checkbox",
             value="synthwave",
-            cls=combine_classes("toggle", theme_controller)
+            cls=combine_classes(toggle, theme_controller)
         ),
         Span("Synthwave", cls="label-text"),
         cls=combine_classes(flex_display, cursor.pointer, gap._2)
@@ -92,7 +95,7 @@ def test_theme_controller_basic_fasthtml_examples():
             cls=str(theme_controller)
         ),
         # SVG icons would be children of the label
-        cls=combine_classes("toggle", "text-base-content")
+        cls=combine_classes(toggle, text_dui.base_content)
     )
     assert "toggle" in toggle_with_icons_inside.attrs['class']
     assert "text-base-content" in toggle_with_icons_inside.attrs['class']
@@ -175,6 +178,9 @@ def test_theme_controller_radio_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import display_tw
     from cjm_fasthtml_tailwind.utilities.interactivity import cursor
     from cjm_fasthtml_daisyui.components.actions.button import btn
+    from cjm_fasthtml_daisyui.components.data_input.radio import radio, radio_sizes
+    from cjm_fasthtml_daisyui.components.data_input.fieldset import fieldset
+    from cjm_fasthtml_daisyui.components.layout.join import join, join_item, join_directions
     
     # Radio button theme selector
     radio_themes = Fieldset(
@@ -182,7 +188,7 @@ def test_theme_controller_radio_fasthtml_examples():
             Input(
                 type="radio",
                 name="theme-radios",
-                cls=combine_classes("radio radio-sm", theme_controller),
+                cls=combine_classes(radio, radio_sizes.sm, theme_controller),
                 value="default"
             ),
             "Default",
@@ -192,7 +198,7 @@ def test_theme_controller_radio_fasthtml_examples():
             Input(
                 type="radio",
                 name="theme-radios",
-                cls=combine_classes("radio radio-sm", theme_controller),
+                cls=combine_classes(radio, radio_sizes.sm, theme_controller),
                 value="retro"
             ),
             "Retro",
@@ -202,7 +208,7 @@ def test_theme_controller_radio_fasthtml_examples():
             Input(
                 type="radio",
                 name="theme-radios",
-                cls=combine_classes("radio radio-sm", theme_controller),
+                cls=combine_classes(radio, radio_sizes.sm, theme_controller),
                 value="cyberpunk"
             ),
             "Cyberpunk",
@@ -212,7 +218,7 @@ def test_theme_controller_radio_fasthtml_examples():
             Input(
                 type="radio",
                 name="theme-radios",
-                cls=combine_classes("radio radio-sm", theme_controller),
+                cls=combine_classes(radio, radio_sizes.sm, theme_controller),
                 value="valentine"
             ),
             "Valentine",
@@ -222,13 +228,13 @@ def test_theme_controller_radio_fasthtml_examples():
             Input(
                 type="radio",
                 name="theme-radios",
-                cls=combine_classes("radio radio-sm", theme_controller),
+                cls=combine_classes(radio, radio_sizes.sm, theme_controller),
                 value="aqua"
             ),
             "Aqua",
             cls=combine_classes(flex_display, gap._2, cursor.pointer, items.center)
         ),
-        cls="fieldset"
+        cls=str(fieldset)
     )
     
     # Verify radio button structure
@@ -248,39 +254,39 @@ def test_theme_controller_radio_fasthtml_examples():
         Input(
             type="radio",
             name="theme-buttons",
-            cls=combine_classes(btn, theme_controller, "join-item"),
+            cls=combine_classes(btn, theme_controller, join_item),
             aria_label="Default",
             value="default"
         ),
         Input(
             type="radio",
             name="theme-buttons",
-            cls=combine_classes(btn, theme_controller, "join-item"),
+            cls=combine_classes(btn, theme_controller, join_item),
             aria_label="Retro",
             value="retro"
         ),
         Input(
             type="radio",
             name="theme-buttons",
-            cls=combine_classes(btn, theme_controller, "join-item"),
+            cls=combine_classes(btn, theme_controller, join_item),
             aria_label="Cyberpunk",
             value="cyberpunk"
         ),
         Input(
             type="radio",
             name="theme-buttons",
-            cls=combine_classes(btn, theme_controller, "join-item"),
+            cls=combine_classes(btn, theme_controller, join_item),
             aria_label="Valentine",
             value="valentine"
         ),
         Input(
             type="radio",
             name="theme-buttons",
-            cls=combine_classes(btn, theme_controller, "join-item"),
+            cls=combine_classes(btn, theme_controller, join_item),
             aria_label="Aqua",
             value="aqua"
         ),
-        cls="join join-vertical"
+        cls=combine_classes(join, join_directions.vertical)
     )
     
     # Verify button group structure
@@ -323,6 +329,7 @@ def test_theme_controller_advanced_fasthtml_examples():
     from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_modifiers, btn_styles
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown, dropdown_content
+    from cjm_fasthtml_daisyui.components.data_input.toggle import toggle
     
     # Toggle with external icons
     sun_svg = Svg(
@@ -357,7 +364,7 @@ def test_theme_controller_advanced_fasthtml_examples():
         Input(
             type="checkbox",
             value="synthwave",
-            cls=combine_classes("toggle", theme_controller)
+            cls=combine_classes(toggle, theme_controller)
         ),
         moon_svg,
         cls=combine_classes(flex_display, cursor.pointer, gap._2)
@@ -372,7 +379,7 @@ def test_theme_controller_advanced_fasthtml_examples():
         type="checkbox",
         value="synthwave",
         cls=combine_classes(
-            "toggle",
+            toggle,
             theme_controller,
             "col-span-2",
             "col-start-1",

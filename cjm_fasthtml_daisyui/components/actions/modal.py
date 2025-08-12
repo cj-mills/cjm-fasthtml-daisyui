@@ -344,7 +344,7 @@ def test_modal_anchor_fasthtml_examples():
     # Return all elements in a Div
     return Div(
         anchor_trigger,
-        anchor_modal
+        anchor_modal,
     )
 
 # Run the tests

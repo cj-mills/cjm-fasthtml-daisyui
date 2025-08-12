@@ -102,6 +102,7 @@ def test_dropdown_basic_fasthtml_examples():
     from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn
+    from cjm_fasthtml_daisyui.components.navigation.menu import menu
     
     # Dropdown using details and summary
     dropdown_details = Details(
@@ -110,7 +111,7 @@ def test_dropdown_basic_fasthtml_examples():
             Li(A("Item 1")),
             Li(A("Item 2")),
             cls=combine_classes(
-                "menu",
+                menu,
                 dropdown_content,
                 bg_dui.base_100,
                 border_radius.box,
@@ -137,7 +138,7 @@ def test_dropdown_basic_fasthtml_examples():
     popover_menu = Ul(
         Li(A("Item 1")),
         Li(A("Item 2")),
-        cls=combine_classes(dropdown, "menu", w._52, border_radius.box, bg_dui.base_100, shadow.sm),
+        cls=combine_classes(dropdown, menu, w._52, border_radius.box, bg_dui.base_100, shadow.sm),
         popover=True,
         id="popover-1",
         style="position-anchor:--anchor-1"
@@ -155,7 +156,7 @@ def test_dropdown_basic_fasthtml_examples():
             tabindex="0",
             cls=combine_classes(
                 dropdown_content,
-                "menu",
+                menu,
                 bg_dui.base_100,
                 border_radius.box,
                 z._1,
@@ -193,6 +194,7 @@ def test_dropdown_placement_fasthtml_examples():
     from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn
+    from cjm_fasthtml_daisyui.components.navigation.menu import menu
     
     # Helper function to create dropdown content
     def create_dropdown_content():
@@ -202,7 +204,7 @@ def test_dropdown_placement_fasthtml_examples():
             tabindex="0",
             cls=combine_classes(
                 dropdown_content,
-                "menu",
+                menu,
                 bg_dui.base_100,
                 border_radius.box,
                 z._1,
@@ -373,6 +375,7 @@ def test_dropdown_hover_and_state_fasthtml_examples():
     from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn
+    from cjm_fasthtml_daisyui.components.navigation.menu import menu
     
     # Dropdown on hover
     dropdown_hover = Div(
@@ -383,7 +386,7 @@ def test_dropdown_hover_and_state_fasthtml_examples():
             tabindex="0",
             cls=combine_classes(
                 dropdown_content,
-                "menu",
+                menu,
                 bg_dui.base_100,
                 border_radius.box,
                 z._1,
@@ -406,7 +409,7 @@ def test_dropdown_hover_and_state_fasthtml_examples():
             tabindex="0",
             cls=combine_classes(
                 dropdown_content,
-                "menu",
+                menu,
                 bg_dui.base_100,
                 border_radius.box,
                 z._1,
@@ -444,6 +447,9 @@ def test_dropdown_content_variations_fasthtml_examples():
     from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui, text_dui
     from cjm_fasthtml_daisyui.utilities.border_radius import border_radius
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_styles, btn_modifiers, btn_sizes
+    from cjm_fasthtml_daisyui.components.navigation.menu import menu
+    from cjm_fasthtml_daisyui.components.navigation.navbar import navbar
+    from cjm_fasthtml_daisyui.components.data_display.card import card, card_body, card_title, card_sizes
     
     # Card as dropdown content
     dropdown_card = Div(
@@ -451,12 +457,13 @@ def test_dropdown_content_variations_fasthtml_examples():
         Div(
             Div(
                 P("This is a card. You can use any element as a dropdown."),
-                cls="card-body"
+                cls=str(card_body)
             ),
             tabindex="0",
             cls=combine_classes(
                 dropdown_content,
-                "card card-sm",
+                card,
+                card_sizes.sm,
                 bg_dui.base_100,
                 z._1,
                 w._64,
@@ -477,20 +484,20 @@ def test_dropdown_content_variations_fasthtml_examples():
         ),
         Div(
             Div(
-                A("Button", cls=combine_classes(btn, btn_styles.ghost, "rounded-field")),
+                A("Button", cls=combine_classes(btn, btn_styles.ghost, border_radius.field)),
                 Div(
                     Div(
                         "Dropdown",
                         tabindex="0",
                         role="button",
-                        cls=combine_classes(btn, btn_styles.ghost, "rounded-field")
+                        cls=combine_classes(btn, btn_styles.ghost, border_radius.field)
                     ),
                     Ul(
                         Li(A("Item 1")),
                         Li(A("Item 2")),
                         tabindex="0",
                         cls=combine_classes(
-                            "menu",
+                            menu,
                             dropdown_content,
                             bg_dui.base_200,
                             border_radius.box,
@@ -507,7 +514,7 @@ def test_dropdown_content_variations_fasthtml_examples():
             ),
             cls=combine_classes(flex_display, flex.grow, justify.end, p.x._2)
         ),
-        cls=combine_classes("navbar", bg_dui.base_200)
+        cls=combine_classes(navbar, bg_dui.base_200)
     )
     assert "navbar" in navbar_dropdown.attrs['class']
     dropdown_in_navbar = navbar_dropdown.children[1].children[0].children[1]
@@ -546,14 +553,15 @@ def test_dropdown_content_variations_fasthtml_examples():
             ),
             Div(
                 Div(
-                    H2("You needed more info?", cls="card-title"),
+                    H2("You needed more info?", cls=str(card_title)),
                     P("Here is a description!"),
                     tabindex="0",
-                    cls="card-body"
+                    cls=str(card_body)
                 ),
                 tabindex="0",
                 cls=combine_classes(
-                    "card card-sm",
+                    card,
+                    card_sizes.sm,
                     dropdown_content,
                     bg_dui.base_100,
                     border_radius.box,
