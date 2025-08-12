@@ -189,11 +189,11 @@ graph LR
     utilities_semantic_gradients[utilities.semantic_gradients<br/>Gradient Stop Utilities]
 
     cli_explorer --> cli_cli_config
-    components_actions_button --> builders_styles
-    components_actions_button --> core_testing
     components_actions_button --> builders_colors
-    components_actions_button --> builders_sizes
+    components_actions_button --> core_testing
+    components_actions_button --> builders_styles
     components_actions_button --> core_themes
+    components_actions_button --> builders_sizes
     components_actions_dropdown --> core_testing
     components_actions_dropdown --> core_themes
     components_actions_modal --> core_testing
@@ -202,24 +202,24 @@ graph LR
     components_actions_swap --> core_themes
     components_actions_theme_controller --> core_testing
     components_actions_theme_controller --> core_themes
-    components_data_display_accordion --> core_testing
     components_data_display_accordion --> components_data_display_collapse
+    components_data_display_accordion --> core_testing
     components_data_display_accordion --> core_themes
     components_data_display_avatar --> core_testing
     components_data_display_avatar --> core_themes
-    components_data_display_badge --> builders_styles
-    components_data_display_badge --> core_testing
     components_data_display_badge --> builders_colors
-    components_data_display_badge --> builders_sizes
+    components_data_display_badge --> core_testing
+    components_data_display_badge --> builders_styles
     components_data_display_badge --> core_themes
-    components_data_display_card --> core_testing
+    components_data_display_badge --> builders_sizes
     components_data_display_card --> builders_styles
-    components_data_display_card --> builders_sizes
+    components_data_display_card --> core_testing
     components_data_display_card --> core_themes
+    components_data_display_card --> builders_sizes
     components_data_display_carousel --> core_testing
     components_data_display_carousel --> core_themes
-    components_data_display_chat_bubble --> core_testing
     components_data_display_chat_bubble --> builders_colors
+    components_data_display_chat_bubble --> core_testing
     components_data_display_chat_bubble --> core_themes
     components_data_display_collapse --> core_testing
     components_data_display_collapse --> core_themes
@@ -228,77 +228,77 @@ graph LR
     components_data_display_diff --> core_testing
     components_data_display_diff --> core_themes
     components_data_display_kbd --> core_testing
-    components_data_display_kbd --> builders_sizes
     components_data_display_kbd --> core_themes
+    components_data_display_kbd --> builders_sizes
     components_data_display_list --> core_testing
     components_data_display_list --> core_themes
     components_data_display_stat --> core_testing
     components_data_display_stat --> core_themes
-    components_data_display_status --> core_testing
     components_data_display_status --> builders_colors
-    components_data_display_status --> builders_sizes
+    components_data_display_status --> core_testing
     components_data_display_status --> core_themes
+    components_data_display_status --> builders_sizes
     components_data_display_table --> core_testing
-    components_data_display_table --> builders_sizes
     components_data_display_table --> core_themes
+    components_data_display_table --> builders_sizes
     components_data_display_timeline --> core_testing
     components_data_display_timeline --> core_themes
     components_data_input_calendar --> core_testing
     components_data_input_calendar --> core_themes
     components_data_input_checkbox --> core_testing
-    components_data_input_checkbox --> builders_sizes
     components_data_input_checkbox --> builders_colors
     components_data_input_checkbox --> core_themes
+    components_data_input_checkbox --> builders_sizes
     components_data_input_fieldset --> core_testing
     components_data_input_fieldset --> core_themes
-    components_data_input_file_input --> core_testing
     components_data_input_file_input --> builders_colors
-    components_data_input_file_input --> builders_sizes
-    components_data_input_file_input --> builders_styles
+    components_data_input_file_input --> core_testing
     components_data_input_file_input --> core_themes
+    components_data_input_file_input --> builders_styles
+    components_data_input_file_input --> builders_sizes
     components_data_input_filter --> core_testing
     components_data_input_filter --> core_themes
     components_data_input_label --> core_testing
     components_data_input_label --> core_themes
     components_data_input_radio --> core_testing
-    components_data_input_radio --> builders_sizes
     components_data_input_radio --> builders_colors
     components_data_input_radio --> core_themes
+    components_data_input_radio --> builders_sizes
     components_data_input_range_slider --> core_testing
-    components_data_input_range_slider --> builders_sizes
     components_data_input_range_slider --> builders_colors
     components_data_input_range_slider --> core_themes
+    components_data_input_range_slider --> builders_sizes
     components_data_input_rating --> core_testing
-    components_data_input_rating --> builders_sizes
     components_data_input_rating --> core_themes
-    components_data_input_select --> core_testing
-    components_data_input_select --> builders_sizes
+    components_data_input_rating --> builders_sizes
     components_data_input_select --> builders_styles
+    components_data_input_select --> core_testing
     components_data_input_select --> builders_colors
     components_data_input_select --> core_themes
-    components_data_input_text_input --> core_testing
+    components_data_input_select --> builders_sizes
     components_data_input_text_input --> builders_colors
-    components_data_input_text_input --> builders_sizes
-    components_data_input_text_input --> builders_styles
+    components_data_input_text_input --> core_testing
     components_data_input_text_input --> core_themes
-    components_data_input_textarea --> core_testing
-    components_data_input_textarea --> builders_sizes
+    components_data_input_text_input --> builders_styles
+    components_data_input_text_input --> builders_sizes
     components_data_input_textarea --> builders_styles
+    components_data_input_textarea --> core_testing
     components_data_input_textarea --> builders_colors
     components_data_input_textarea --> core_themes
+    components_data_input_textarea --> builders_sizes
     components_data_input_toggle --> core_testing
-    components_data_input_toggle --> builders_sizes
     components_data_input_toggle --> builders_colors
     components_data_input_toggle --> core_themes
+    components_data_input_toggle --> builders_sizes
     components_data_input_validator --> core_testing
     components_data_input_validator --> core_themes
-    components_feedback_alert --> builders_styles
     components_feedback_alert --> core_testing
     components_feedback_alert --> builders_colors
     components_feedback_alert --> core_themes
+    components_feedback_alert --> builders_styles
     components_feedback_loading --> core_testing
-    components_feedback_loading --> builders_sizes
     components_feedback_loading --> core_themes
+    components_feedback_loading --> builders_sizes
     components_feedback_progress --> core_testing
     components_feedback_progress --> builders_colors
     components_feedback_progress --> core_themes
@@ -339,15 +339,15 @@ graph LR
     components_navigation_breadcrumbs --> core_testing
     components_navigation_breadcrumbs --> core_themes
     components_navigation_dock --> core_testing
-    components_navigation_dock --> builders_sizes
     components_navigation_dock --> core_themes
+    components_navigation_dock --> builders_sizes
     components_navigation_link --> core_testing
-    components_navigation_link --> builders_sizes
     components_navigation_link --> builders_colors
     components_navigation_link --> core_themes
+    components_navigation_link --> builders_sizes
     components_navigation_menu --> core_testing
-    components_navigation_menu --> builders_sizes
     components_navigation_menu --> core_themes
+    components_navigation_menu --> builders_sizes
     components_navigation_navbar --> core_testing
     components_navigation_navbar --> core_themes
     components_navigation_pagination --> core_testing
@@ -357,36 +357,38 @@ graph LR
     components_navigation_steps --> builders_colors
     components_navigation_steps --> core_themes
     components_navigation_tabs --> core_testing
-    components_navigation_tabs --> builders_sizes
-    components_navigation_tabs --> builders_styles
     components_navigation_tabs --> core_themes
-    core_testing --> utilities_semantic_gradients
-    core_testing --> core_themes
-    core_testing --> utilities_semantic_colors
-    core_testing --> components_actions_button
+    components_navigation_tabs --> builders_styles
+    components_navigation_tabs --> builders_sizes
+    core_testing --> components_feedback_alert
+    core_testing --> components_data_display_card
     core_testing --> core_resources
-    utilities_border_radius --> builders_colors
+    core_testing --> utilities_semantic_colors
+    core_testing --> core_themes
+    core_testing --> utilities_semantic_gradients
+    core_testing --> components_actions_button
     utilities_border_radius --> core_testing
+    utilities_border_radius --> builders_colors
     utilities_border_radius --> core_themes
-    utilities_glass --> builders_colors
     utilities_glass --> core_testing
+    utilities_glass --> builders_colors
     utilities_glass --> core_themes
-    utilities_semantic_colors --> builders_colors
     utilities_semantic_colors --> core_testing
+    utilities_semantic_colors --> builders_colors
     utilities_semantic_colors --> core_themes
-    utilities_semantic_gradients --> builders_colors
     utilities_semantic_gradients --> core_testing
+    utilities_semantic_gradients --> builders_colors
     utilities_semantic_gradients --> core_themes
 ```
 
-*189 cross-module dependencies detected*
+*191 cross-module dependencies detected*
 
 ## CLI Reference
 
 ### `cjm-daisyui-explore` Command
 
     usage: cjm-daisyui-explore [-h]
-                               {modules,factories,factory,examples,example,helpers,helper,search,test-code,core-utils,core-util,imports,scan}
+                               {modules,factories,factory,examples,example,search,test-code,core-utils,core-util,imports,scan}
                                ...
 
     cjm_fasthtml_daisyui CLI Explorer
@@ -411,15 +413,13 @@ graph LR
     All information is dynamically extracted from the library itself - nothing is hardcoded.
 
     positional arguments:
-      {modules,factories,factory,examples,example,helpers,helper,search,test-code,core-utils,core-util,imports,scan}
+      {modules,factories,factory,examples,example,search,test-code,core-utils,core-util,imports,scan}
                             Available commands
         modules             List all utility modules
         factories           List factories
         factory             Show detailed info for a specific factory
         examples            Show usage examples
         example             Show source code for a specific example
-        helpers             Show helper functions
-        helper              Show source code for a specific helper
         search              Search across all library components
         test-code           ⚠️ CRITICAL: Test code snippets using the library
                             (ALWAYS use before implementation)

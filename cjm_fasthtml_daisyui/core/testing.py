@@ -40,6 +40,7 @@ def create_theme_selector(
     from cjm_fasthtml_daisyui.components.actions.button import btn, btn_sizes, btn_modifiers, btn_styles
     from cjm_fasthtml_daisyui.components.actions.dropdown import dropdown, dropdown_content, dropdown_modifiers, dropdown_placement 
     from cjm_fasthtml_daisyui.components.actions.theme_controller import theme_controller
+    from cjm_fasthtml_daisyui.components.layout.divider import divider
 
     
     
@@ -69,7 +70,7 @@ def create_theme_selector(
             )
 
         # Add a divider between custom and built-in themes
-        theme_options.append(Li(Div(cls=combine_classes("divider", m.y(0)))))
+        theme_options.append(Li(Div(cls=combine_classes(divider, m.y(0)))))
         
 
     # Add built-in themes
@@ -100,7 +101,7 @@ def create_theme_selector(
         Path(d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"),
         width="12px",
         height="12px",
-        cls=combine_classes("inline-block", h._2, w._2, fill.current, opacity._60),
+        cls=combine_classes(display_tw.inline_block, h._2, w._2, fill.current, opacity._60),
         xmlns="http://www.w3.org/2000/svg",
         viewBox="0 0 2048 2048"
     )
@@ -198,11 +199,12 @@ def create_test_page(
     from cjm_fasthtml_tailwind.utilities.typography import font_size, font_weight, font_family, text_color
     from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
     from cjm_fasthtml_daisyui.utilities.semantic_gradients import from_dui, to_dui
+    from cjm_fasthtml_daisyui.components.navigation.navbar import navbar as navbar_factory
     
     # Build navbar with proper structure using TailwindBuilder
     navbar = Div(
         # Include hidden element to enable Tailwind JIT compilation of semantic color gradients.
-        Div(cls="hidden from-[--p] to-[--s]"),
+        Div(cls=combine_classes(display_tw.hidden, "from-[--p]", "to-[--s]")),
         # Container for navbar content with flex layout
         Div(
             # Left section (empty for now)
@@ -221,7 +223,7 @@ def create_test_page(
             ),
             cls=combine_classes(container, m.x.auto, flex_display, items.center)
         ),
-        cls=combine_classes("navbar", bg_dui.base_100, shadow.lg)
+        cls=combine_classes(navbar_factory, bg_dui.base_100, shadow.lg)
     )
     
     main_classes = combine_classes(container, m.x.auto) if use_container else None
