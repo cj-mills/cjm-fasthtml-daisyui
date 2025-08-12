@@ -320,7 +320,7 @@ def test_theme_controller_advanced_fasthtml_examples():
     from cjm_fasthtml_tailwind.utilities.layout import z, display_tw
     from cjm_fasthtml_tailwind.utilities.spacing import m, p
     from cjm_fasthtml_tailwind.utilities.effects import shadow, opacity
-    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify
+    from cjm_fasthtml_tailwind.utilities.flexbox_and_grid import justify, col_span, col_start, row_start
     from cjm_fasthtml_tailwind.utilities.borders import border_color
     from cjm_fasthtml_tailwind.utilities.backgrounds import bg
     from cjm_fasthtml_tailwind.utilities.interactivity import cursor
@@ -381,9 +381,9 @@ def test_theme_controller_advanced_fasthtml_examples():
         cls=combine_classes(
             toggle,
             theme_controller,
-            "col-span-2",
-            "col-start-1",
-            "row-start-1",
+            col_span(2),
+            col_start(1),
+            row_start(1),
             border_color.sky._400,
             bg.amber._300,
             "[--tglbg:var(--color-sky-500)]",
@@ -402,7 +402,7 @@ def test_theme_controller_advanced_fasthtml_examples():
         Path(d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"),
         width="12px",
         height="12px",
-        cls=combine_classes("inline-block", h._2, w._2, fill.current, opacity._60),
+        cls=combine_classes(display_tw.inline_block, h._2, w._2, fill.current, opacity._60),
         xmlns="http://www.w3.org/2000/svg",
         viewBox="0 0 2048 2048"
     )
