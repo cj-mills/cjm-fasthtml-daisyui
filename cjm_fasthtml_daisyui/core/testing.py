@@ -136,7 +136,6 @@ def create_theme_selector(
 # %% ../../nbs/core/testing.ipynb 8
 def create_test_app(
     theme: Union[DaisyUITheme, str] = DaisyUITheme.LIGHT,  # Default theme
-    include_theme_selector: bool = True,  # Include theme selector in app
     custom_css: Optional[List[Union[str, Link]]] = None,  # Additional CSS
     custom_js: Optional[List[Union[str, Script]]] = None,  # Additional JS
     custom_theme_css: Optional[str] = None,  # Custom theme CSS as string
@@ -166,14 +165,6 @@ def create_test_app(
         htmlkw={'data-theme': theme_value},
         debug=debug
     )
-    
-    # Add theme selector route if requested
-    if include_theme_selector:
-        @rt('/theme-selector')
-        def theme_selector(
-        ) -> Div: # Theme selector dropdown component
-            "Route handler that returns the theme selector dropdown component"
-            return create_theme_selector(custom_themes=custom_theme_names)
     
     return app, rt
 
