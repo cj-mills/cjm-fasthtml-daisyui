@@ -141,7 +141,8 @@ def create_test_app(
     custom_theme_css: Optional[str] = None,  # Custom theme CSS as string
     custom_theme_paths: Optional[List[Union[str, Path]]] = None,  # List of paths to custom theme CSS files
     custom_theme_names: Optional[List[str]] = None,  # Names of custom themes to include in selector
-    debug: bool = True  # Enable debug mode
+    debug: bool = True,  # Enable debug mode
+    **kwargs
 ) -> tuple: # Tuple containing (app, rt) - FastHTML app instance and route decorator
     """
     Create a standardized test app for Jupyter notebooks with daisyUI and Tailwind.
@@ -163,7 +164,8 @@ def create_test_app(
         pico=False,  # Disable pico since we're using daisyUI
         hdrs=headers,
         htmlkw={'data-theme': theme_value},
-        debug=debug
+        debug=debug,
+        **kwargs
     )
     
     return app, rt
