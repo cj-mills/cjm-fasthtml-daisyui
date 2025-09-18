@@ -23,10 +23,11 @@ pip install cjm-fasthtml-daisyui
     ├── cli/ (2)
     │   ├── cli_config.ipynb  # Configuration for the DaisyUI CLI tool
     │   └── explorer.ipynb    # CLI tool for exploring cjm-fasthtml-daisyui components and builders
-    ├── components/ (61)
-    │   ├── actions/ (5)
+    ├── components/ (62)
+    │   ├── actions/ (6)
     │   │   ├── button.ipynb            # Buttons allow the user to take actions or make choices.
     │   │   ├── dropdown.ipynb          # Dropdown can open a menu or any other element when the button is clicked.
+    │   │   ├── fab.ipynb               # FAB (Floating Action Button) stays in the bottom corner of screen. It includes a focusable and accessible element with button role. Clicking or focusing it shows additional buttons (known as Speed Dial buttons) in a vertical arrangement or a flower shape (quarter circle with up to 4 buttons).
     │   │   ├── modal.ipynb             # Modal is used to show a dialog or a box when you click a button.
     │   │   ├── swap.ipynb              # Swap allows you to toggle the visibility of two elements using a checkbox or a class name.
     │   │   └── theme_controller.ipynb  # If a checked checkbox input or a checked radio input with theme-controller class exists in the page, The page will have the same theme as that input's value.
@@ -102,7 +103,7 @@ pip install cjm-fasthtml-daisyui
         ├── semantic_colors.ipynb     # daisyUI extends many Tailwind CSS utility classes to support semantic colors. These factories provide type-safe access to semantic color utilities with full modifier support:
         └── semantic_gradients.ipynb  # For Tailwind CSS gradient utilities, daisyUI extends the from, via, and to utilities with semantic color support:
 
-Total: 73 notebooks across 5 directories
+Total: 74 notebooks across 5 directories
 
 ## Module Dependencies
 
@@ -115,6 +116,7 @@ graph LR
     cli_explorer[cli.explorer<br/>DaisyUI Explorer]
     components_actions_button[components.actions.button<br/>button]
     components_actions_dropdown[components.actions.dropdown<br/>dropdown]
+    components_actions_fab[components.actions.fab<br/>FAB / Speed Dial]
     components_actions_modal[components.actions.modal<br/>modal]
     components_actions_swap[components.actions.swap<br/>swap]
     components_actions_theme_controller[components.actions.theme_controller<br/>theme controller]
@@ -183,199 +185,204 @@ graph LR
     utilities_semantic_gradients[utilities.semantic_gradients<br/>Gradient Stop Utilities]
 
     cli_explorer --> cli_cli_config
-    components_actions_button --> builders_styles
     components_actions_button --> builders_colors
-    components_actions_button --> core_testing
+    components_actions_button --> builders_styles
     components_actions_button --> core_themes
+    components_actions_button --> core_testing
     components_actions_button --> builders_sizes
-    components_actions_dropdown --> core_testing
     components_actions_dropdown --> core_themes
-    components_actions_modal --> core_testing
+    components_actions_dropdown --> core_testing
+    components_actions_fab --> builders_colors
+    components_actions_fab --> builders_styles
+    components_actions_fab --> core_themes
+    components_actions_fab --> core_testing
+    components_actions_fab --> builders_sizes
     components_actions_modal --> core_themes
-    components_actions_swap --> core_testing
+    components_actions_modal --> core_testing
     components_actions_swap --> core_themes
-    components_actions_theme_controller --> core_testing
+    components_actions_swap --> core_testing
     components_actions_theme_controller --> core_themes
-    components_data_display_accordion --> components_data_display_collapse
-    components_data_display_accordion --> core_testing
+    components_actions_theme_controller --> core_testing
     components_data_display_accordion --> core_themes
-    components_data_display_avatar --> core_testing
+    components_data_display_accordion --> core_testing
+    components_data_display_accordion --> components_data_display_collapse
     components_data_display_avatar --> core_themes
-    components_data_display_badge --> builders_styles
+    components_data_display_avatar --> core_testing
     components_data_display_badge --> builders_colors
-    components_data_display_badge --> core_testing
+    components_data_display_badge --> builders_styles
     components_data_display_badge --> core_themes
+    components_data_display_badge --> core_testing
     components_data_display_badge --> builders_sizes
     components_data_display_card --> builders_styles
-    components_data_display_card --> core_testing
     components_data_display_card --> core_themes
+    components_data_display_card --> core_testing
     components_data_display_card --> builders_sizes
-    components_data_display_carousel --> core_testing
     components_data_display_carousel --> core_themes
+    components_data_display_carousel --> core_testing
     components_data_display_chat_bubble --> builders_colors
-    components_data_display_chat_bubble --> core_testing
     components_data_display_chat_bubble --> core_themes
-    components_data_display_collapse --> core_testing
+    components_data_display_chat_bubble --> core_testing
     components_data_display_collapse --> core_themes
-    components_data_display_countdown --> core_testing
+    components_data_display_collapse --> core_testing
     components_data_display_countdown --> core_themes
-    components_data_display_diff --> core_testing
+    components_data_display_countdown --> core_testing
     components_data_display_diff --> core_themes
-    components_data_display_kbd --> core_testing
+    components_data_display_diff --> core_testing
     components_data_display_kbd --> core_themes
+    components_data_display_kbd --> core_testing
     components_data_display_kbd --> builders_sizes
-    components_data_display_list --> core_testing
     components_data_display_list --> core_themes
-    components_data_display_stat --> core_testing
+    components_data_display_list --> core_testing
     components_data_display_stat --> core_themes
+    components_data_display_stat --> core_testing
     components_data_display_status --> builders_colors
-    components_data_display_status --> core_testing
     components_data_display_status --> core_themes
+    components_data_display_status --> core_testing
     components_data_display_status --> builders_sizes
-    components_data_display_table --> core_testing
     components_data_display_table --> core_themes
+    components_data_display_table --> core_testing
     components_data_display_table --> builders_sizes
-    components_data_display_timeline --> core_testing
     components_data_display_timeline --> core_themes
-    components_data_input_calendar --> core_testing
+    components_data_display_timeline --> core_testing
     components_data_input_calendar --> core_themes
-    components_data_input_checkbox --> core_testing
-    components_data_input_checkbox --> core_themes
-    components_data_input_checkbox --> builders_colors
+    components_data_input_calendar --> core_testing
     components_data_input_checkbox --> builders_sizes
-    components_data_input_fieldset --> core_testing
+    components_data_input_checkbox --> builders_colors
+    components_data_input_checkbox --> core_themes
+    components_data_input_checkbox --> core_testing
     components_data_input_fieldset --> core_themes
+    components_data_input_fieldset --> core_testing
     components_data_input_file_input --> builders_colors
-    components_data_input_file_input --> core_testing
-    components_data_input_file_input --> core_themes
     components_data_input_file_input --> builders_styles
+    components_data_input_file_input --> core_themes
+    components_data_input_file_input --> core_testing
     components_data_input_file_input --> builders_sizes
-    components_data_input_filter --> core_testing
     components_data_input_filter --> core_themes
-    components_data_input_label --> core_testing
+    components_data_input_filter --> core_testing
     components_data_input_label --> core_themes
-    components_data_input_radio --> core_testing
-    components_data_input_radio --> core_themes
-    components_data_input_radio --> builders_colors
+    components_data_input_label --> core_testing
     components_data_input_radio --> builders_sizes
-    components_data_input_range_slider --> core_testing
-    components_data_input_range_slider --> core_themes
-    components_data_input_range_slider --> builders_colors
+    components_data_input_radio --> builders_colors
+    components_data_input_radio --> core_themes
+    components_data_input_radio --> core_testing
     components_data_input_range_slider --> builders_sizes
-    components_data_input_rating --> core_testing
-    components_data_input_rating --> core_themes
+    components_data_input_range_slider --> builders_colors
+    components_data_input_range_slider --> core_themes
+    components_data_input_range_slider --> core_testing
     components_data_input_rating --> builders_sizes
-    components_data_input_select --> core_testing
-    components_data_input_select --> core_themes
-    components_data_input_select --> builders_colors
+    components_data_input_rating --> core_themes
+    components_data_input_rating --> core_testing
     components_data_input_select --> builders_sizes
+    components_data_input_select --> builders_colors
+    components_data_input_select --> core_themes
+    components_data_input_select --> core_testing
     components_data_input_select --> builders_styles
     components_data_input_text_input --> builders_colors
-    components_data_input_text_input --> core_testing
-    components_data_input_text_input --> core_themes
     components_data_input_text_input --> builders_styles
+    components_data_input_text_input --> core_themes
+    components_data_input_text_input --> core_testing
     components_data_input_text_input --> builders_sizes
-    components_data_input_textarea --> core_testing
-    components_data_input_textarea --> core_themes
-    components_data_input_textarea --> builders_colors
     components_data_input_textarea --> builders_sizes
+    components_data_input_textarea --> builders_colors
+    components_data_input_textarea --> core_themes
+    components_data_input_textarea --> core_testing
     components_data_input_textarea --> builders_styles
-    components_data_input_toggle --> core_testing
-    components_data_input_toggle --> core_themes
-    components_data_input_toggle --> builders_colors
     components_data_input_toggle --> builders_sizes
-    components_data_input_validator --> core_testing
+    components_data_input_toggle --> builders_colors
+    components_data_input_toggle --> core_themes
+    components_data_input_toggle --> core_testing
     components_data_input_validator --> core_themes
+    components_data_input_validator --> core_testing
     components_feedback_alert --> builders_styles
-    components_feedback_alert --> core_testing
     components_feedback_alert --> core_themes
+    components_feedback_alert --> core_testing
     components_feedback_alert --> builders_colors
-    components_feedback_loading --> core_testing
-    components_feedback_loading --> core_themes
     components_feedback_loading --> builders_sizes
-    components_feedback_progress --> core_testing
-    components_feedback_progress --> core_themes
+    components_feedback_loading --> core_themes
+    components_feedback_loading --> core_testing
     components_feedback_progress --> builders_colors
-    components_feedback_radial_progress --> core_testing
+    components_feedback_progress --> core_themes
+    components_feedback_progress --> core_testing
     components_feedback_radial_progress --> core_themes
-    components_feedback_skeleton --> core_testing
+    components_feedback_radial_progress --> core_testing
     components_feedback_skeleton --> core_themes
-    components_feedback_toast --> core_testing
+    components_feedback_skeleton --> core_testing
     components_feedback_toast --> core_themes
-    components_feedback_tooltip --> core_testing
-    components_feedback_tooltip --> core_themes
+    components_feedback_toast --> core_testing
     components_feedback_tooltip --> builders_colors
-    components_layout_divider --> core_testing
-    components_layout_divider --> core_themes
+    components_feedback_tooltip --> core_themes
+    components_feedback_tooltip --> core_testing
     components_layout_divider --> builders_colors
-    components_layout_drawer --> core_testing
+    components_layout_divider --> core_themes
+    components_layout_divider --> core_testing
     components_layout_drawer --> core_themes
-    components_layout_footer --> core_testing
+    components_layout_drawer --> core_testing
     components_layout_footer --> core_themes
-    components_layout_hero --> core_testing
+    components_layout_footer --> core_testing
     components_layout_hero --> core_themes
-    components_layout_indicator --> core_testing
+    components_layout_hero --> core_testing
     components_layout_indicator --> core_themes
-    components_layout_join --> core_testing
+    components_layout_indicator --> core_testing
     components_layout_join --> core_themes
-    components_layout_mask --> core_testing
+    components_layout_join --> core_testing
     components_layout_mask --> core_themes
-    components_layout_stack --> core_testing
+    components_layout_mask --> core_testing
     components_layout_stack --> core_themes
-    components_mockup_browser --> core_testing
+    components_layout_stack --> core_testing
     components_mockup_browser --> core_themes
-    components_mockup_code --> core_testing
+    components_mockup_browser --> core_testing
     components_mockup_code --> core_themes
-    components_mockup_phone --> core_testing
+    components_mockup_code --> core_testing
     components_mockup_phone --> core_themes
-    components_mockup_window --> core_testing
+    components_mockup_phone --> core_testing
     components_mockup_window --> core_themes
-    components_navigation_breadcrumbs --> core_testing
+    components_mockup_window --> core_testing
     components_navigation_breadcrumbs --> core_themes
-    components_navigation_dock --> core_testing
-    components_navigation_dock --> core_themes
+    components_navigation_breadcrumbs --> core_testing
     components_navigation_dock --> builders_sizes
-    components_navigation_link --> core_testing
-    components_navigation_link --> core_themes
-    components_navigation_link --> builders_colors
+    components_navigation_dock --> core_themes
+    components_navigation_dock --> core_testing
     components_navigation_link --> builders_sizes
-    components_navigation_menu --> core_testing
-    components_navigation_menu --> core_themes
+    components_navigation_link --> builders_colors
+    components_navigation_link --> core_themes
+    components_navigation_link --> core_testing
     components_navigation_menu --> builders_sizes
-    components_navigation_navbar --> core_testing
+    components_navigation_menu --> core_themes
+    components_navigation_menu --> core_testing
     components_navigation_navbar --> core_themes
+    components_navigation_navbar --> core_testing
+    components_navigation_pagination --> core_themes
     components_navigation_pagination --> core_testing
     components_navigation_pagination --> components_layout_join
-    components_navigation_pagination --> core_themes
-    components_navigation_steps --> core_testing
-    components_navigation_steps --> core_themes
     components_navigation_steps --> builders_colors
-    components_navigation_tabs --> builders_styles
-    components_navigation_tabs --> core_testing
-    components_navigation_tabs --> core_themes
+    components_navigation_steps --> core_themes
+    components_navigation_steps --> core_testing
     components_navigation_tabs --> builders_sizes
-    core_testing --> components_actions_button
+    components_navigation_tabs --> builders_styles
+    components_navigation_tabs --> core_themes
+    components_navigation_tabs --> core_testing
     core_testing --> components_feedback_alert
+    core_testing --> components_actions_button
+    core_testing --> utilities_semantic_colors
+    core_testing --> core_resources
     core_testing --> utilities_semantic_gradients
     core_testing --> core_themes
-    core_testing --> core_resources
-    core_testing --> utilities_semantic_colors
     core_testing --> components_data_display_card
+    utilities_border_radius --> core_themes
     utilities_border_radius --> core_testing
     utilities_border_radius --> builders_colors
-    utilities_border_radius --> core_themes
+    utilities_glass --> core_themes
     utilities_glass --> core_testing
     utilities_glass --> builders_colors
-    utilities_glass --> core_themes
+    utilities_semantic_colors --> core_themes
     utilities_semantic_colors --> core_testing
     utilities_semantic_colors --> builders_colors
-    utilities_semantic_colors --> core_themes
+    utilities_semantic_gradients --> core_themes
     utilities_semantic_gradients --> core_testing
     utilities_semantic_gradients --> builders_colors
-    utilities_semantic_gradients --> core_themes
 ```
 
-*191 cross-module dependencies detected*
+*196 cross-module dependencies detected*
 
 ## CLI Reference
 
@@ -449,7 +456,7 @@ graph LR
 
     Key Concepts:
       - Factories: Objects that generate CSS classes (e.g., btn, btn_behaviors, btn_colors, btn_modifiers)
-      - Modules: Categories of utilities (actions.button, actions.dropdown, actions.modal, etc.)
+      - Modules: Categories of utilities (actions.button, actions.dropdown, actions.fab, etc.)
       - Examples: Test functions demonstrating usage patterns
       - Helpers: Convenience functions for common patterns
 
@@ -2120,6 +2127,107 @@ def main():
     # If no command specified, show help
     if args.command is None
     "CLI entry point for exploring cjm-fasthtml-daisyui components."
+```
+
+### FAB / Speed Dial (`fab.ipynb`)
+
+> FAB (Floating Action Button) stays in the bottom corner of screen. It
+> includes a focusable and accessible element with button role. Clicking
+> or focusing it shows additional buttons (known as Speed Dial buttons)
+> in a vertical arrangement or a flower shape (quarter circle with up to
+> 4 buttons).
+
+#### Import
+
+``` python
+from cjm_fasthtml_daisyui.components.actions.fab import (
+    fab,
+    fab_close,
+    fab_main_action,
+    fab_modifiers,
+    test_fab_basic_examples,
+    test_fab_modifiers_examples,
+    test_fab_basic_fasthtml_examples,
+    test_fab_with_svgs_fasthtml_examples,
+    test_fab_with_labels_fasthtml_examples,
+    test_fab_rectangle_buttons_fasthtml_examples,
+    test_fab_close_fasthtml_examples,
+    test_fab_main_action_fasthtml_examples,
+    test_fab_single_fasthtml_examples,
+    test_fab_flower_fasthtml_examples,
+    test_fab_flower_with_svgs_fasthtml_examples,
+    test_fab_flower_with_tooltip_fasthtml_examples
+)
+```
+
+#### Functions
+
+``` python
+def test_fab_basic_examples()
+    "Test basic FAB utilities."
+```
+
+``` python
+def test_fab_modifiers_examples()
+    "Test button FAB utilities."
+```
+
+``` python
+def test_fab_basic_fasthtml_examples()
+    "Test basic FAB examples from daisyUI v5 documentation."
+```
+
+``` python
+def test_fab_with_svgs_fasthtml_examples()
+    "Test FAB with SVG icons from daisyUI v5 documentation."
+```
+
+``` python
+def test_fab_with_labels_fasthtml_examples()
+    "Test FAB with labels from daisyUI v5 documentation."
+```
+
+``` python
+def test_fab_rectangle_buttons_fasthtml_examples()
+    "Test FAB with rectangle buttons from daisyUI v5 documentation."
+```
+
+``` python
+def test_fab_close_fasthtml_examples()
+    "Test FAB with close button from daisyUI v5 documentation."
+```
+
+``` python
+def test_fab_main_action_fasthtml_examples()
+    "Test FAB with main action button from daisyUI v5 documentation."
+```
+
+``` python
+def test_fab_single_fasthtml_examples()
+    "Test a single FAB from daisyUI v5 documentation."
+```
+
+``` python
+def test_fab_flower_fasthtml_examples()
+    "Test FAB flower modifier from daisyUI v5 documentation."
+```
+
+``` python
+def test_fab_flower_with_svgs_fasthtml_examples()
+    "Test FAB flower modifier with SVG icons from daisyUI v5 documentation."
+```
+
+``` python
+def test_fab_flower_with_tooltip_fasthtml_examples()
+    "Test FAB flower modifier with tooltip from daisyUI v5 documentation."
+```
+
+#### Variables
+
+``` python
+fab  # Fab container element
+fab_close  # Fab close part
+fab_main_action  # FAB main action part
 ```
 
 ### fieldset (`fieldset.ipynb`)
