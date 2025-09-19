@@ -174,7 +174,7 @@ Button("Full width button", cls=button_classes)
 
 ## Key Module Categories
 
-### DaisyUI Modules (65 total)
+### DaisyUI Modules (67 total)
 - **Actions**: button, dropdown, modal, swap, theme_controller
 - **Data Display**: card, badge, table, stat, carousel, chat_bubble, accordion
 - **Data Input**: text_input, checkbox, radio, select, toggle, file_input
