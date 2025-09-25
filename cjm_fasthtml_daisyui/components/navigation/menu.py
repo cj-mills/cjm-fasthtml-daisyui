@@ -8,7 +8,9 @@ __all__ = ['menu', 'menu_title', 'menu_dropdown', 'menu_dropdown_toggle', 'menu_
            'test_menu_directions_examples', 'test_menu_basic_fasthtml_examples',
            'test_menu_responsive_fasthtml_examples', 'test_menu_icons_fasthtml_examples',
            'test_menu_sizes_fasthtml_examples', 'test_menu_with_title_fasthtml_examples',
-           'test_menu_submenu_fasthtml_examples', 'test_menu_states_fasthtml_examples']
+           'test_menu_submenu_fasthtml_examples', 'test_menu_states_fasthtml_examples',
+           'test_menu_file_tree_fasthtml_examples', 'test_menu_mega_menu_fasthtml_examples',
+           'test_menu_collapsible_responsive_fasthtml_examples']
 
 # %% ../../../nbs/components/navigation/menu.ipynb 3
 from cjm_fasthtml_tailwind.core.base import (
@@ -715,3 +717,338 @@ def test_menu_states_fasthtml_examples():
 
 # Run the tests
 test_menu_states_fasthtml_examples()
+
+# %% ../../../nbs/components/navigation/menu.ipynb 31
+def test_menu_file_tree_fasthtml_examples():
+    """Test file tree menu from daisyUI v5 documentation."""
+    from fasthtml.common import Ul, Li, A, Details, Summary
+    from fasthtml.svg import Svg, Path
+    from cjm_fasthtml_tailwind.utilities.sizing import h, w, max_w
+    from cjm_fasthtml_tailwind.utilities.borders import rounded
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    
+    # Create reusable icons
+    file_icon = Svg(
+        Path(
+            stroke_linecap="round",
+            stroke_linejoin="round",
+            d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+        ),
+        xmlns="http://www.w3.org/2000/svg",
+        cls=combine_classes(h._4, w._4),
+        fill="none",
+        viewBox="0 0 24 24",
+        stroke_width="1.5",
+        stroke="currentColor"
+    )
+    
+    folder_icon = Svg(
+        Path(
+            stroke_linecap="round",
+            stroke_linejoin="round",
+            d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"
+        ),
+        xmlns="http://www.w3.org/2000/svg",
+        cls=combine_classes(h._4, w._4),
+        fill="none",
+        viewBox="0 0 24 24",
+        stroke_width="1.5",
+        stroke="currentColor"
+    )
+    
+    image_icon = Svg(
+        Path(
+            stroke_linecap="round",
+            stroke_linejoin="round",
+            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+        ),
+        xmlns="http://www.w3.org/2000/svg",
+        cls=combine_classes(h._4, w._4),
+        fill="none",
+        viewBox="0 0 24 24",
+        stroke_width="1.5",
+        stroke="currentColor"
+    )
+    
+    # File tree menu
+    file_tree = Ul(
+        Li(A(file_icon, "resume.pdf", href="#")),
+        Li(
+            Details(
+                Summary(folder_icon, "My Files"),
+                Ul(
+                    Li(A(file_icon, "Project-final.psd", href="#")),
+                    Li(A(file_icon, "Project-final-2.psd", href="#")),
+                    Li(
+                        Details(
+                            Summary(folder_icon, "Images"),
+                            Ul(
+                                Li(A(image_icon, "Screenshot1.png", href="#")),
+                                Li(A(image_icon, "Screenshot2.png", href="#")),
+                                Li(
+                                    Details(
+                                        Summary(folder_icon, "Others"),
+                                        Ul(
+                                            Li(A(image_icon, "Screenshot3.png", href="#"))
+                                        ),
+                                        open=True
+                                    )
+                                )
+                            ),
+                            open=True
+                        )
+                    )
+                ),
+                open=True
+            )
+        ),
+        Li(A(file_icon, "reports-final-2.pdf", href="#")),
+        cls=combine_classes(menu, menu_sizes.xs, bg_dui.base_200, rounded.box, max_w.xs, w.full)
+    )
+    
+    # Verify structure
+    assert file_tree.tag == "ul"
+    assert "menu" in file_tree.attrs['class']
+    assert "menu-xs" in file_tree.attrs['class']
+    assert "max-w-xs" in file_tree.attrs['class']
+    assert "w-full" in file_tree.attrs['class']
+    
+    # Verify top-level items
+    assert len(file_tree.children) == 3
+    assert file_tree.children[0].children[0].children[0].tag == "svg"  # file icon
+    assert file_tree.children[0].children[0].children[1] == "resume.pdf"
+    
+    # Verify nested folder structure
+    my_files = file_tree.children[1].children[0]
+    assert my_files.tag == "details"
+    assert my_files.attrs['open'] == True
+    assert my_files.children[0].tag == "summary"
+    assert my_files.children[0].children[0].tag == "svg"  # folder icon
+    assert my_files.children[0].children[1] == "My Files"
+    
+    # Verify nested files
+    my_files_list = my_files.children[1]
+    assert my_files_list.tag == "ul"
+    assert len(my_files_list.children) == 3
+    assert my_files_list.children[0].children[0].children[1] == "Project-final.psd"
+    assert my_files_list.children[1].children[0].children[1] == "Project-final-2.psd"
+    
+    # Verify images folder
+    images_folder = my_files_list.children[2].children[0]
+    assert images_folder.tag == "details"
+    assert images_folder.attrs['open'] == True
+    assert images_folder.children[0].children[1] == "Images"
+    
+    # Verify images list
+    images_list = images_folder.children[1]
+    assert images_list.tag == "ul"
+    assert len(images_list.children) == 3
+    assert images_list.children[0].children[0].children[1] == "Screenshot1.png"
+    assert images_list.children[1].children[0].children[1] == "Screenshot2.png"
+    
+    # Verify Others subfolder
+    others_folder = images_list.children[2].children[0]
+    assert others_folder.tag == "details"
+    assert others_folder.children[0].children[1] == "Others"
+    others_list = others_folder.children[1]
+    assert others_list.children[0].children[0].children[1] == "Screenshot3.png"
+    
+    # Verify last file
+    assert file_tree.children[2].children[0].children[1] == "reports-final-2.pdf"
+    
+    return file_tree
+
+# Run the tests
+test_menu_file_tree_fasthtml_examples()
+
+# %% ../../../nbs/components/navigation/menu.ipynb 33
+def test_menu_mega_menu_fasthtml_examples():
+    """Test mega menu with submenu (responsive) from daisyUI v5 documentation."""
+    from fasthtml.common import Ul, Li, A
+    from cjm_fasthtml_tailwind.utilities.borders import rounded
+    from cjm_fasthtml_tailwind.utilities.sizing import min_w
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    
+    # Mega menu with submenu (responsive)
+    mega_menu = Ul(
+        Li(
+            A("Solutions", href="#"),
+            Ul(
+                Li(A("Design", href="#")),
+                Li(A("Development", href="#")),
+                Li(A("Hosting", href="#")),
+                Li(A("Domain register", href="#"))
+            )
+        ),
+        Li(
+            A("Enterprise", href="#"),
+            Ul(
+                Li(A("CRM software", href="#")),
+                Li(A("Marketing management", href="#")),
+                Li(A("Security", href="#")),
+                Li(A("Consulting", href="#"))
+            )
+        ),
+        Li(
+            A("Products", href="#"),
+            Ul(
+                Li(A("UI Kit", href="#")),
+                Li(A("WordPress themes", href="#")),
+                Li(A("WordPress plugins", href="#")),
+                Li(
+                    A("Open source", href="#"),
+                    Ul(
+                        Li(A("Auth management system", href="#")),
+                        Li(A("VScode theme", href="#")),
+                        Li(A("Color picker app", href="#"))
+                    )
+                )
+            )
+        ),
+        Li(
+            A("Company", href="#"),
+            Ul(
+                Li(A("About us", href="#")),
+                Li(A("Contact us", href="#")),
+                Li(A("Privacy policy", href="#")),
+                Li(A("Press kit", href="#"))
+            )
+        ),
+        cls=combine_classes(menu, menu_directions.horizontal.xl, bg_dui.base_200, rounded.box, min_w.max.lg)
+    )
+    
+    # Verify structure
+    assert mega_menu.tag == "ul"
+    assert "menu" in mega_menu.attrs['class']
+    assert "xl:menu-horizontal" in mega_menu.attrs['class']
+    assert "lg:min-w-max" in mega_menu.attrs['class']
+    assert "bg-base-200" in mega_menu.attrs['class']
+    assert "rounded-box" in mega_menu.attrs['class']
+    
+    # Verify main menu items
+    assert len(mega_menu.children) == 4
+    assert mega_menu.children[0].children[0].children[0] == "Solutions"
+    assert mega_menu.children[1].children[0].children[0] == "Enterprise"
+    assert mega_menu.children[2].children[0].children[0] == "Products"
+    assert mega_menu.children[3].children[0].children[0] == "Company"
+    
+    # Verify Solutions submenu
+    solutions_submenu = mega_menu.children[0].children[1]
+    assert solutions_submenu.tag == "ul"
+    assert len(solutions_submenu.children) == 4
+    assert solutions_submenu.children[0].children[0].children[0] == "Design"
+    assert solutions_submenu.children[1].children[0].children[0] == "Development"
+    assert solutions_submenu.children[2].children[0].children[0] == "Hosting"
+    assert solutions_submenu.children[3].children[0].children[0] == "Domain register"
+    
+    # Verify Enterprise submenu
+    enterprise_submenu = mega_menu.children[1].children[1]
+    assert len(enterprise_submenu.children) == 4
+    assert enterprise_submenu.children[0].children[0].children[0] == "CRM software"
+    assert enterprise_submenu.children[1].children[0].children[0] == "Marketing management"
+    
+    # Verify Products submenu with nested submenu
+    products_submenu = mega_menu.children[2].children[1]
+    assert len(products_submenu.children) == 4
+    assert products_submenu.children[0].children[0].children[0] == "UI Kit"
+    assert products_submenu.children[3].children[0].children[0] == "Open source"
+    
+    # Verify nested Open source submenu
+    open_source_submenu = products_submenu.children[3].children[1]
+    assert open_source_submenu.tag == "ul"
+    assert len(open_source_submenu.children) == 3
+    assert open_source_submenu.children[0].children[0].children[0] == "Auth management system"
+    assert open_source_submenu.children[1].children[0].children[0] == "VScode theme"
+    assert open_source_submenu.children[2].children[0].children[0] == "Color picker app"
+    
+    # Verify Company submenu
+    company_submenu = mega_menu.children[3].children[1]
+    assert len(company_submenu.children) == 4
+    assert company_submenu.children[0].children[0].children[0] == "About us"
+    assert company_submenu.children[3].children[0].children[0] == "Press kit"
+    
+    return mega_menu
+
+# Run the tests
+test_menu_mega_menu_fasthtml_examples()
+
+# %% ../../../nbs/components/navigation/menu.ipynb 35
+def test_menu_collapsible_responsive_fasthtml_examples():
+    """Test collapsible with submenu (responsive) from daisyUI v5 documentation."""
+    from fasthtml.common import Ul, Li, A, Details, Summary
+    from cjm_fasthtml_tailwind.utilities.borders import rounded
+    from cjm_fasthtml_tailwind.utilities.spacing import m
+    from cjm_fasthtml_daisyui.utilities.semantic_colors import bg_dui
+    
+    # Collapsible with submenu (responsive)
+    collapsible_responsive = Ul(
+        Li(A("Item 1", href="#")),
+        Li(
+            Details(
+                Summary("Parent item"),
+                Ul(
+                    Li(A("Submenu 1", href="#")),
+                    Li(A("Submenu 2", href="#")),
+                    Li(
+                        Details(
+                            Summary("Parent"),
+                            Ul(
+                                Li(A("item 1", href="#")),
+                                Li(A("item 2", href="#"))
+                            ),
+                            open=True
+                        )
+                    )
+                ),
+                open=True
+            )
+        ),
+        Li(A("Item 3", href="#")),
+        cls=combine_classes(menu, menu_directions.horizontal.lg, bg_dui.base_200, rounded.box, m.b._64.lg)
+    )
+    
+    # Verify structure
+    assert collapsible_responsive.tag == "ul"
+    assert "menu" in collapsible_responsive.attrs['class']
+    assert "lg:menu-horizontal" in collapsible_responsive.attrs['class']
+    assert "bg-base-200" in collapsible_responsive.attrs['class']
+    assert "rounded-box" in collapsible_responsive.attrs['class']
+    assert "lg:mb-64" in collapsible_responsive.attrs['class']
+    
+    # Verify main items
+    assert len(collapsible_responsive.children) == 3
+    assert collapsible_responsive.children[0].children[0].children[0] == "Item 1"
+    assert collapsible_responsive.children[2].children[0].children[0] == "Item 3"
+    
+    # Verify parent item with details
+    parent_details = collapsible_responsive.children[1].children[0]
+    assert parent_details.tag == "details"
+    assert parent_details.attrs['open'] == True
+    assert parent_details.children[0].tag == "summary"
+    assert parent_details.children[0].children[0] == "Parent item"
+    
+    # Verify parent submenu
+    parent_submenu = parent_details.children[1]
+    assert parent_submenu.tag == "ul"
+    assert len(parent_submenu.children) == 3
+    assert parent_submenu.children[0].children[0].children[0] == "Submenu 1"
+    assert parent_submenu.children[1].children[0].children[0] == "Submenu 2"
+    
+    # Verify nested parent details
+    nested_parent = parent_submenu.children[2].children[0]
+    assert nested_parent.tag == "details"
+    assert nested_parent.attrs['open'] == True
+    assert nested_parent.children[0].tag == "summary"
+    assert nested_parent.children[0].children[0] == "Parent"
+    
+    # Verify nested submenu
+    nested_submenu = nested_parent.children[1]
+    assert nested_submenu.tag == "ul"
+    assert len(nested_submenu.children) == 2
+    assert nested_submenu.children[0].children[0].children[0] == "item 1"
+    assert nested_submenu.children[1].children[0].children[0] == "item 2"
+    
+    return collapsible_responsive
+
+# Run the tests
+test_menu_collapsible_responsive_fasthtml_examples()
