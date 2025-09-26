@@ -18,8 +18,8 @@ from .themes import DaisyUITheme, get_theme_value
 # %% ../../nbs/core/testing.ipynb 6
 def create_theme_selector(
     custom_themes: Optional[List[str]] = None  # Optional list of custom theme names to include
-) -> Div:  # Div containing theme selector dropdown with theme-change script
-    "Create a daisyUI theme selector dropdown component. Uses theme-change library to persist theme selection in localStorage."
+) -> Div:  # Div containing theme selector dropdown
+    "Create a daisyUI theme selector dropdown component."
     from fasthtml.common import Input, Label, Div, Ul, Li
     from fasthtml.svg import Svg, Path, Circle, G
     from cjm_fasthtml_tailwind.utilities.sizing import h, w, max_h
