@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Loading shows an animation to indicate that something is loading.">
+
+<title>loading – cjm-fasthtml-daisyui</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-000f0825b9c55ed21d14970d810c14a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="loading – cjm-fasthtml-daisyui">
+<meta property="og:description" content="Loading shows an animation to indicate that something is loading.">
+<meta property="og:site_name" content="cjm-fasthtml-daisyui">
+<meta name="twitter:title" content="loading – cjm-fasthtml-daisyui">
+<meta name="twitter:description" content="Loading shows an animation to indicate that something is loading.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">cjm-fasthtml-daisyui</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">components</li><li class="breadcrumb-item"><a href="../../components/feedback/alert.html">feedback</a></li><li class="breadcrumb-item"><a href="../../components/feedback/loading.html">loading</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">cjm-fasthtml-daisyui</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">builders</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../builders/colors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">colors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../builders/sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">sizes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../builders/styles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">styles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">cli</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../cli/cli_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DaisyUI CLI Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../cli/explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DaisyUI Explorer</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">components</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">actions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/button.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">button</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/dropdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dropdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/fab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAB / Speed Dial</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/modal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">modal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/swap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">swap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/theme_controller.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">theme controller</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">data_display</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/accordion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">accordion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/avatar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">avatar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/badge.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">badge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/card.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">card</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/carousel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">carousel</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/chat_bubble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chat bubble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/collapse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">collapse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/countdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">countdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/diff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">diff</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/hover_gallery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">hover gallery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/kbd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">kbd</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">list</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/stat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">stat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/status.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">status</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/timeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">timeline</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">data_input</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/checkbox.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">checkbox</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/fieldset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">fieldset</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/file_input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">file input</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/filter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">filter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/label.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">label</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/radio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">radio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/range.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">range slider</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/rating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">rating</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/select.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">select</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/text_input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">text input</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/textarea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">textarea</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/toggle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">toggle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/validator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">validator</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">feedback</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/alert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">alert</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/loading.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">loading</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/progress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">progress</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/radial_progress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">radial progress</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/skeleton.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">skeleton</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/toast.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">toast</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/tooltip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">tooltip</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">layout</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/divider.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">divider</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/drawer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">drawer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/footer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">footer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/hero.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">hero</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/indicator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">indicator</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/join.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">join</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/mask.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">mask</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/stack.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">stack</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">mockup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/browser.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">browser mockup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">code mockup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/phone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">phone mockup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/window.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">window mockup</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">navigation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/breadcrumbs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">breadcrumbs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/dock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dock</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/link.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">link</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/menu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">menu</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/navbar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">navbar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/pagination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">pagination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">steps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/tabs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">tabs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">core</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../core/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../core/testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../core/themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">themes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">utilities</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/border_radius.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Border Radius Utilities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/glass.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glass Effect Utility</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/semantic_colors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semantic Color Utility Classes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/semantic_gradients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient Stop Utilities</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#base-loading" id="toc-base-loading" class="nav-link active" data-scroll-target="#base-loading">Base Loading</a></li>
+  <li><a href="#loading-styles" id="toc-loading-styles" class="nav-link" data-scroll-target="#loading-styles">Loading Styles</a></li>
+  <li><a href="#loadingstyle" id="toc-loadingstyle" class="nav-link" data-scroll-target="#loadingstyle">LoadingStyle</a></li>
+  <li><a href="#loading-sizes" id="toc-loading-sizes" class="nav-link" data-scroll-target="#loading-sizes">Loading Sizes</a></li>
+  <li><a href="#loading-test-examples" id="toc-loading-test-examples" class="nav-link" data-scroll-target="#loading-test-examples">Loading Test Examples</a></li>
+  <li><a href="#test_loading_basic_examples" id="toc-test_loading_basic_examples" class="nav-link" data-scroll-target="#test_loading_basic_examples">test_loading_basic_examples</a></li>
+  <li><a href="#test_loading_styles_examples" id="toc-test_loading_styles_examples" class="nav-link" data-scroll-target="#test_loading_styles_examples">test_loading_styles_examples</a></li>
+  <li><a href="#test_loading_sizes_examples" id="toc-test_loading_sizes_examples" class="nav-link" data-scroll-target="#test_loading_sizes_examples">test_loading_sizes_examples</a></li>
+  <li><a href="#test_loading_spinner_fasthtml_examples" id="toc-test_loading_spinner_fasthtml_examples" class="nav-link" data-scroll-target="#test_loading_spinner_fasthtml_examples">test_loading_spinner_fasthtml_examples</a></li>
+  <li><a href="#test_loading_dots_fasthtml_examples" id="toc-test_loading_dots_fasthtml_examples" class="nav-link" data-scroll-target="#test_loading_dots_fasthtml_examples">test_loading_dots_fasthtml_examples</a></li>
+  <li><a href="#test_loading_ring_fasthtml_examples" id="toc-test_loading_ring_fasthtml_examples" class="nav-link" data-scroll-target="#test_loading_ring_fasthtml_examples">test_loading_ring_fasthtml_examples</a></li>
+  <li><a href="#test_loading_ball_fasthtml_examples" id="toc-test_loading_ball_fasthtml_examples" class="nav-link" data-scroll-target="#test_loading_ball_fasthtml_examples">test_loading_ball_fasthtml_examples</a></li>
+  <li><a href="#test_loading_bars_fasthtml_examples" id="toc-test_loading_bars_fasthtml_examples" class="nav-link" data-scroll-target="#test_loading_bars_fasthtml_examples">test_loading_bars_fasthtml_examples</a></li>
+  <li><a href="#test_loading_infinity_fasthtml_examples" id="toc-test_loading_infinity_fasthtml_examples" class="nav-link" data-scroll-target="#test_loading_infinity_fasthtml_examples">test_loading_infinity_fasthtml_examples</a></li>
+  <li><a href="#test_loading_with_colors_fasthtml_examples" id="toc-test_loading_with_colors_fasthtml_examples" class="nav-link" data-scroll-target="#test_loading_with_colors_fasthtml_examples">test_loading_with_colors_fasthtml_examples</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="loading.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">components</li><li class="breadcrumb-item"><a href="../../components/feedback/alert.html">feedback</a></li><li class="breadcrumb-item"><a href="../../components/feedback/loading.html">loading</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">loading</h1>
+</div>
+
+<div>
+  <div class="description">
+    Loading shows an animation to indicate that something is loading.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="base-loading" class="level3">
+<h3 class="anchored" data-anchor-id="base-loading">Base Loading</h3>
+<div id="c802d106-49fb-4d34-ba04-5f54c88e165b" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>loading <span class="op">=</span> SingleValueFactory(<span class="st">"loading"</span>, <span class="st">"Base loading component"</span>) <span class="co"># Base loading component</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="loading-styles" class="level3">
+<h3 class="anchored" data-anchor-id="loading-styles">Loading Styles</h3>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L31" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="loadingstyle" class="level3">
+<h3 class="anchored" data-anchor-id="loadingstyle">LoadingStyle</h3>
+<blockquote class="blockquote">
+<pre><code> LoadingStyle (value, names=None, module=None, qualname=None, type=None,
+               start=1, boundary=None)</code></pre>
+</blockquote>
+<p>*str(object=’’) -&gt; str str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or errors is specified, then the object must expose a data buffer that will be decoded using the given encoding and error handler. Otherwise, returns the result of object.__str__() (if defined) or repr(object). encoding defaults to sys.getdefaultencoding(). errors defaults to ‘strict’.*</p>
+<div id="636c6bcd-2176-4191-aa39-c937893243e2" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LoadingStyle(<span class="bu">str</span>, Enum):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    SPINNER <span class="op">=</span> <span class="st">"spinner"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    DOTS <span class="op">=</span> <span class="st">"dots"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    RING <span class="op">=</span> <span class="st">"ring"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    BALL <span class="op">=</span> <span class="st">"ball"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    BARS <span class="op">=</span> <span class="st">"bars"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    INFINITY <span class="op">=</span> <span class="st">"infinity"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>loading_styles <span class="op">=</span> enums_to_simple_factory(loading, [LoadingStyle], <span class="st">"Loading styles"</span>) <span class="co"># Loading styles</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="loading-sizes" class="level3">
+<h3 class="anchored" data-anchor-id="loading-sizes">Loading Sizes</h3>
+<div id="3035ff66-e4e7-410c-8b1e-86a879f66112" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>loading_sizes <span class="op">=</span> enums_to_simple_factory(loading, [DaisyUINamedSize], <span class="st">"Loading size variants from extra small to extra large"</span>) <span class="co"># Loading size variants</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="loading-test-examples" class="level3">
+<h3 class="anchored" data-anchor-id="loading-test-examples">Loading Test Examples</h3>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L45" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_loading_basic_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_loading_basic_examples">test_loading_basic_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_loading_basic_examples ()</code></pre>
+</blockquote>
+<p><em>Test basic loading utilities.</em></p>
+<div id="85d72161-e718-4c66-bc59-a3569b7f7616" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_loading_basic_examples():</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test basic loading utilities."""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Basic loading</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading) <span class="op">==</span> <span class="st">"loading"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading with modifiers</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading.hover) <span class="op">==</span> <span class="st">"hover:loading"</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading.md) <span class="op">==</span> <span class="st">"md:loading"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading.dark) <span class="op">==</span> <span class="st">"dark:loading"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>test_loading_basic_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L59" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_loading_styles_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_loading_styles_examples">test_loading_styles_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_loading_styles_examples ()</code></pre>
+</blockquote>
+<p><em>Test loading style variants.</em></p>
+<div id="214654cc-9758-48f9-92e2-0892029c4512" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_loading_styles_examples():</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test loading style variants."""</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_styles.spinner) <span class="op">==</span> <span class="st">"loading-spinner"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_styles.dots) <span class="op">==</span> <span class="st">"loading-dots"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_styles.ring) <span class="op">==</span> <span class="st">"loading-ring"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_styles.ball) <span class="op">==</span> <span class="st">"loading-ball"</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_styles.bars) <span class="op">==</span> <span class="st">"loading-bars"</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_styles.infinity) <span class="op">==</span> <span class="st">"loading-infinity"</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>test_loading_styles_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L72" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_loading_sizes_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_loading_sizes_examples">test_loading_sizes_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_loading_sizes_examples ()</code></pre>
+</blockquote>
+<p><em>Test loading size variants.</em></p>
+<div id="a9d78aa3-0be8-49e6-8bfb-cb9a232ee1ee" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_loading_sizes_examples():</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test loading size variants."""</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_sizes.xs) <span class="op">==</span> <span class="st">"loading-xs"</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_sizes.sm) <span class="op">==</span> <span class="st">"loading-sm"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_sizes.md) <span class="op">==</span> <span class="st">"loading-md"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_sizes.lg) <span class="op">==</span> <span class="st">"loading-lg"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_sizes.xl) <span class="op">==</span> <span class="st">"loading-xl"</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With responsive modifiers</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_sizes.xs.sm) <span class="op">==</span> <span class="st">"sm:loading-xs"</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(loading_sizes.lg.md) <span class="op">==</span> <span class="st">"md:loading-lg"</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>test_loading_sizes_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L88" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_loading_spinner_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_loading_spinner_fasthtml_examples">test_loading_spinner_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_loading_spinner_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test loading spinner with all sizes from daisyUI v5 documentation.</em></p>
+<div id="665f9596-dd12-494a-8818-84a906fa158d" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_loading_spinner_fasthtml_examples():</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test loading spinner with all sizes from daisyUI v5 documentation."""</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Span, Div</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner extra small</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    spinner_xs <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, loading_sizes.xs))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> spinner_xs.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> spinner_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> spinner_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xs"</span> <span class="kw">in</span> spinner_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner small</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    spinner_sm <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, loading_sizes.sm))</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> spinner_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> spinner_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-sm"</span> <span class="kw">in</span> spinner_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner medium</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    spinner_md <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, loading_sizes.md))</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> spinner_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> spinner_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-md"</span> <span class="kw">in</span> spinner_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner large</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    spinner_lg <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, loading_sizes.lg))</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> spinner_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> spinner_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-lg"</span> <span class="kw">in</span> spinner_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner extra large</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    spinner_xl <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, loading_sizes.xl))</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> spinner_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> spinner_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xl"</span> <span class="kw">in</span> spinner_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all spinners in a Div</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>        spinner_xs,</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>        spinner_sm,</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>        spinner_md,</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>        spinner_lg,</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>        spinner_xl</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>test_loading_spinner_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner loading-xs"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner loading-sm"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner loading-md"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner loading-lg"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner loading-xl"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="vh3d67xc39a" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_loading_spinner_fasthtml_examples</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L136" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_loading_dots_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_loading_dots_fasthtml_examples">test_loading_dots_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_loading_dots_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test loading dots with all sizes from daisyUI v5 documentation.</em></p>
+<div id="f7897ef0-18be-4ba2-b958-e5755caf46e1" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_loading_dots_fasthtml_examples():</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test loading dots with all sizes from daisyUI v5 documentation."""</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Span, Div</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading dots extra small</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    dots_xs <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.dots, loading_sizes.xs))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> dots_xs.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> dots_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-dots"</span> <span class="kw">in</span> dots_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xs"</span> <span class="kw">in</span> dots_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading dots small</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    dots_sm <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.dots, loading_sizes.sm))</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> dots_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-dots"</span> <span class="kw">in</span> dots_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-sm"</span> <span class="kw">in</span> dots_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading dots medium</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    dots_md <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.dots, loading_sizes.md))</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> dots_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-dots"</span> <span class="kw">in</span> dots_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-md"</span> <span class="kw">in</span> dots_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading dots large</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    dots_lg <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.dots, loading_sizes.lg))</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> dots_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-dots"</span> <span class="kw">in</span> dots_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-lg"</span> <span class="kw">in</span> dots_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading dots extra large</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    dots_xl <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.dots, loading_sizes.xl))</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> dots_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-dots"</span> <span class="kw">in</span> dots_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xl"</span> <span class="kw">in</span> dots_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all dots in a Div</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>        dots_xs,</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>        dots_sm,</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>        dots_md,</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>        dots_lg,</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>        dots_xl</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>test_loading_dots_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-dots loading-xs"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-dots loading-sm"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-dots loading-md"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-dots loading-lg"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-dots loading-xl"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="gf1q1e0pbmc" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_loading_dots_fasthtml_examples</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L184" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_loading_ring_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_loading_ring_fasthtml_examples">test_loading_ring_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_loading_ring_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test loading ring with all sizes from daisyUI v5 documentation.</em></p>
+<div id="c6fb7865-05cd-4648-a86a-0bffdf397531" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_loading_ring_fasthtml_examples():</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test loading ring with all sizes from daisyUI v5 documentation."""</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Span, Div</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading ring extra small</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    ring_xs <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.ring, loading_sizes.xs))</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> ring_xs.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> ring_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-ring"</span> <span class="kw">in</span> ring_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xs"</span> <span class="kw">in</span> ring_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading ring small</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    ring_sm <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.ring, loading_sizes.sm))</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> ring_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-ring"</span> <span class="kw">in</span> ring_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-sm"</span> <span class="kw">in</span> ring_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading ring medium</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    ring_md <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.ring, loading_sizes.md))</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> ring_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-ring"</span> <span class="kw">in</span> ring_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-md"</span> <span class="kw">in</span> ring_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading ring large</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>    ring_lg <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.ring, loading_sizes.lg))</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> ring_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-ring"</span> <span class="kw">in</span> ring_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-lg"</span> <span class="kw">in</span> ring_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading ring extra large</span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    ring_xl <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.ring, loading_sizes.xl))</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> ring_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-ring"</span> <span class="kw">in</span> ring_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xl"</span> <span class="kw">in</span> ring_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all rings in a Div</span></span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>        ring_xs,</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>        ring_sm,</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>        ring_md,</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>        ring_lg,</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>        ring_xl</span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a>test_loading_ring_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-ring loading-xs"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-ring loading-sm"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-ring loading-md"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-ring loading-lg"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-ring loading-xl"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="cmp1bsf6h8h" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_loading_ring_fasthtml_examples</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L232" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_loading_ball_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_loading_ball_fasthtml_examples">test_loading_ball_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_loading_ball_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test loading ball with all sizes from daisyUI v5 documentation.</em></p>
+<div id="3db370d6-d69d-401b-a1e3-68262ea82d6b" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_loading_ball_fasthtml_examples():</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test loading ball with all sizes from daisyUI v5 documentation."""</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Span, Div</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading ball extra small</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    ball_xs <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.ball, loading_sizes.xs))</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> ball_xs.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> ball_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-ball"</span> <span class="kw">in</span> ball_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xs"</span> <span class="kw">in</span> ball_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading ball small</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    ball_sm <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.ball, loading_sizes.sm))</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> ball_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-ball"</span> <span class="kw">in</span> ball_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-sm"</span> <span class="kw">in</span> ball_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading ball medium</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    ball_md <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.ball, loading_sizes.md))</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> ball_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-ball"</span> <span class="kw">in</span> ball_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-md"</span> <span class="kw">in</span> ball_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading ball large</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    ball_lg <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.ball, loading_sizes.lg))</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> ball_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-ball"</span> <span class="kw">in</span> ball_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-lg"</span> <span class="kw">in</span> ball_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading ball extra large</span></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>    ball_xl <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.ball, loading_sizes.xl))</span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> ball_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-ball"</span> <span class="kw">in</span> ball_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xl"</span> <span class="kw">in</span> ball_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all balls in a Div</span></span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>        ball_xs,</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>        ball_sm,</span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>        ball_md,</span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>        ball_lg,</span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>        ball_xl</span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>test_loading_ball_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-ball loading-xs"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-ball loading-sm"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-ball loading-md"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-ball loading-lg"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-ball loading-xl"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="kc9ngs1qu7a" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_loading_ball_fasthtml_examples</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L280" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_loading_bars_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_loading_bars_fasthtml_examples">test_loading_bars_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_loading_bars_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test loading bars with all sizes from daisyUI v5 documentation.</em></p>
+<div id="8728e718-6854-4023-adb5-0390c5164ba3" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_loading_bars_fasthtml_examples():</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test loading bars with all sizes from daisyUI v5 documentation."""</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Span, Div</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading bars extra small</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    bars_xs <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.bars, loading_sizes.xs))</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> bars_xs.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> bars_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-bars"</span> <span class="kw">in</span> bars_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xs"</span> <span class="kw">in</span> bars_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading bars small</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    bars_sm <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.bars, loading_sizes.sm))</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> bars_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-bars"</span> <span class="kw">in</span> bars_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-sm"</span> <span class="kw">in</span> bars_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading bars medium</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    bars_md <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.bars, loading_sizes.md))</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> bars_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-bars"</span> <span class="kw">in</span> bars_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-md"</span> <span class="kw">in</span> bars_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading bars large</span></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>    bars_lg <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.bars, loading_sizes.lg))</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> bars_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-bars"</span> <span class="kw">in</span> bars_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-lg"</span> <span class="kw">in</span> bars_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading bars extra large</span></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>    bars_xl <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.bars, loading_sizes.xl))</span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> bars_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-bars"</span> <span class="kw">in</span> bars_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xl"</span> <span class="kw">in</span> bars_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all bars in a Div</span></span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>        bars_xs,</span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>        bars_sm,</span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>        bars_md,</span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>        bars_lg,</span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>        bars_xl</span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a>test_loading_bars_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-bars loading-xs"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-bars loading-sm"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-bars loading-md"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-bars loading-lg"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-bars loading-xl"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="jhd5etikbyl" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_loading_bars_fasthtml_examples</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L328" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_loading_infinity_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_loading_infinity_fasthtml_examples">test_loading_infinity_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_loading_infinity_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test loading infinity with all sizes from daisyUI v5 documentation.</em></p>
+<div id="e168b803-bc6c-4308-8b6c-c9ae8417082e" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_loading_infinity_fasthtml_examples():</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test loading infinity with all sizes from daisyUI v5 documentation."""</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Span, Div</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading infinity extra small</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    infinity_xs <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.infinity, loading_sizes.xs))</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> infinity_xs.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> infinity_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-infinity"</span> <span class="kw">in</span> infinity_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xs"</span> <span class="kw">in</span> infinity_xs.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading infinity small</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    infinity_sm <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.infinity, loading_sizes.sm))</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> infinity_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-infinity"</span> <span class="kw">in</span> infinity_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-sm"</span> <span class="kw">in</span> infinity_sm.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading infinity medium</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>    infinity_md <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.infinity, loading_sizes.md))</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> infinity_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-infinity"</span> <span class="kw">in</span> infinity_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-md"</span> <span class="kw">in</span> infinity_md.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading infinity large</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>    infinity_lg <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.infinity, loading_sizes.lg))</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> infinity_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-infinity"</span> <span class="kw">in</span> infinity_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-lg"</span> <span class="kw">in</span> infinity_lg.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading infinity extra large</span></span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>    infinity_xl <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.infinity, loading_sizes.xl))</span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> infinity_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-infinity"</span> <span class="kw">in</span> infinity_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-xl"</span> <span class="kw">in</span> infinity_xl.attrs[<span class="st">'class'</span>]</span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all infinities in a Div</span></span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>        infinity_xs,</span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>        infinity_sm,</span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>        infinity_md,</span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a>        infinity_lg,</span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>        infinity_xl</span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>test_loading_infinity_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-infinity loading-xs"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-infinity loading-sm"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-infinity loading-md"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-infinity loading-lg"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-infinity loading-xl"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="irt63gjinpp" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_loading_infinity_fasthtml_examples</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/feedback/loading.py#L376" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_loading_with_colors_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_loading_with_colors_fasthtml_examples">test_loading_with_colors_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_loading_with_colors_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test loading with colors from daisyUI v5 documentation.</em></p>
+<div id="a4fcc81f-68f0-44aa-9760-8ef446f463d7" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_loading_with_colors_fasthtml_examples():</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test loading with colors from daisyUI v5 documentation."""</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Span, Div</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.utilities.semantic_colors <span class="im">import</span> text_dui</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner with primary color</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    primary_spinner <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, text_dui.primary))</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> primary_spinner.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> primary_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> primary_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-primary"</span> <span class="kw">in</span> primary_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner with secondary color</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>    secondary_spinner <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, text_dui.secondary))</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> secondary_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> secondary_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-secondary"</span> <span class="kw">in</span> secondary_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner with accent color</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>    accent_spinner <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, text_dui.accent))</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> accent_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> accent_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-accent"</span> <span class="kw">in</span> accent_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner with neutral color</span></span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>    neutral_spinner <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, text_dui.neutral))</span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> neutral_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> neutral_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-neutral"</span> <span class="kw">in</span> neutral_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner with info color</span></span>
+<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a>    info_spinner <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, text_dui.info))</span>
+<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> info_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> info_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-info"</span> <span class="kw">in</span> info_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-37"><a href="#cb36-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner with success color</span></span>
+<span id="cb36-38"><a href="#cb36-38" aria-hidden="true" tabindex="-1"></a>    success_spinner <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, text_dui.success))</span>
+<span id="cb36-39"><a href="#cb36-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> success_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-40"><a href="#cb36-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> success_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-41"><a href="#cb36-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-success"</span> <span class="kw">in</span> success_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-42"><a href="#cb36-42" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-43"><a href="#cb36-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner with warning color</span></span>
+<span id="cb36-44"><a href="#cb36-44" aria-hidden="true" tabindex="-1"></a>    warning_spinner <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, text_dui.warning))</span>
+<span id="cb36-45"><a href="#cb36-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> warning_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-46"><a href="#cb36-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> warning_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-47"><a href="#cb36-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-warning"</span> <span class="kw">in</span> warning_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-48"><a href="#cb36-48" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-49"><a href="#cb36-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loading spinner with error color</span></span>
+<span id="cb36-50"><a href="#cb36-50" aria-hidden="true" tabindex="-1"></a>    error_spinner <span class="op">=</span> Span(cls<span class="op">=</span>combine_classes(loading, loading_styles.spinner, text_dui.error))</span>
+<span id="cb36-51"><a href="#cb36-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading"</span> <span class="kw">in</span> error_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-52"><a href="#cb36-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"loading-spinner"</span> <span class="kw">in</span> error_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-53"><a href="#cb36-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-error"</span> <span class="kw">in</span> error_spinner.attrs[<span class="st">'class'</span>]</span>
+<span id="cb36-54"><a href="#cb36-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all colored spinners in a Div</span></span>
+<span id="cb36-56"><a href="#cb36-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a>        primary_spinner,</span>
+<span id="cb36-58"><a href="#cb36-58" aria-hidden="true" tabindex="-1"></a>        secondary_spinner,</span>
+<span id="cb36-59"><a href="#cb36-59" aria-hidden="true" tabindex="-1"></a>        accent_spinner,</span>
+<span id="cb36-60"><a href="#cb36-60" aria-hidden="true" tabindex="-1"></a>        neutral_spinner,</span>
+<span id="cb36-61"><a href="#cb36-61" aria-hidden="true" tabindex="-1"></a>        info_spinner,</span>
+<span id="cb36-62"><a href="#cb36-62" aria-hidden="true" tabindex="-1"></a>        success_spinner,</span>
+<span id="cb36-63"><a href="#cb36-63" aria-hidden="true" tabindex="-1"></a>        warning_spinner,</span>
+<span id="cb36-64"><a href="#cb36-64" aria-hidden="true" tabindex="-1"></a>        error_spinner</span>
+<span id="cb36-65"><a href="#cb36-65" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb36-66"><a href="#cb36-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-67"><a href="#cb36-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb36-68"><a href="#cb36-68" aria-hidden="true" tabindex="-1"></a>test_loading_with_colors_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner text-primary"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner text-secondary"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner text-accent"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner text-neutral"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner text-info"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner text-success"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner text-warning"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"loading loading-spinner text-error"</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="54lzl5eu6ft" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_loading_with_colors_fasthtml_examples</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cj-mills\.github\.io\/cjm-fasthtml-daisyui");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

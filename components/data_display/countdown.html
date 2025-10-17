@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Countdown gives you a transition effect when you change a number between 0 to 99.">
+
+<title>countdown – cjm-fasthtml-daisyui</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-000f0825b9c55ed21d14970d810c14a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="countdown – cjm-fasthtml-daisyui">
+<meta property="og:description" content="Countdown gives you a transition effect when you change a number between 0 to 99.">
+<meta property="og:site_name" content="cjm-fasthtml-daisyui">
+<meta name="twitter:title" content="countdown – cjm-fasthtml-daisyui">
+<meta name="twitter:description" content="Countdown gives you a transition effect when you change a number between 0 to 99.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">cjm-fasthtml-daisyui</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">components</li><li class="breadcrumb-item"><a href="../../components/data_display/accordion.html">data_display</a></li><li class="breadcrumb-item"><a href="../../components/data_display/countdown.html">countdown</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">cjm-fasthtml-daisyui</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">builders</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../builders/colors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">colors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../builders/sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">sizes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../builders/styles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">styles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">cli</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../cli/cli_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DaisyUI CLI Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../cli/explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DaisyUI Explorer</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">components</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">actions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/button.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">button</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/dropdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dropdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/fab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAB / Speed Dial</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/modal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">modal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/swap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">swap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/theme_controller.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">theme controller</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">data_display</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/accordion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">accordion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/avatar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">avatar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/badge.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">badge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/card.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">card</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/carousel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">carousel</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/chat_bubble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chat bubble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/collapse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">collapse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/countdown.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">countdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/diff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">diff</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/hover_gallery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">hover gallery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/kbd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">kbd</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/list.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">list</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/stat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">stat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/status.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">status</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/timeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">timeline</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">data_input</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/checkbox.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">checkbox</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/fieldset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">fieldset</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/file_input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">file input</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/filter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">filter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/label.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">label</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/radio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">radio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/range.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">range slider</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/rating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">rating</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/select.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">select</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/text_input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">text input</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/textarea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">textarea</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/toggle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">toggle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/validator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">validator</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">feedback</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/alert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">alert</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/loading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">loading</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/progress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">progress</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/radial_progress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">radial progress</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/skeleton.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">skeleton</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/toast.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">toast</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/tooltip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">tooltip</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">layout</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/divider.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">divider</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/drawer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">drawer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/footer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">footer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/hero.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">hero</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/indicator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">indicator</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/join.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">join</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/mask.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">mask</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/stack.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">stack</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">mockup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/browser.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">browser mockup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">code mockup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/phone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">phone mockup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/window.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">window mockup</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">navigation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/breadcrumbs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">breadcrumbs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/dock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dock</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/link.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">link</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/menu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">menu</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/navbar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">navbar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/pagination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">pagination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">steps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/tabs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">tabs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">core</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../core/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../core/testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../core/themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">themes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">utilities</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/border_radius.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Border Radius Utilities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/glass.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glass Effect Utility</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/semantic_colors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semantic Color Utility Classes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/semantic_gradients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient Stop Utilities</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#base-countdown" id="toc-base-countdown" class="nav-link active" data-scroll-target="#base-countdown">Base Countdown</a></li>
+  <li><a href="#countdown-test-examples" id="toc-countdown-test-examples" class="nav-link" data-scroll-target="#countdown-test-examples">Countdown Test Examples</a></li>
+  <li><a href="#test_countdown_basic_examples" id="toc-test_countdown_basic_examples" class="nav-link" data-scroll-target="#test_countdown_basic_examples">test_countdown_basic_examples</a></li>
+  <li><a href="#test_countdown_basic_fasthtml_examples" id="toc-test_countdown_basic_fasthtml_examples" class="nav-link" data-scroll-target="#test_countdown_basic_fasthtml_examples">test_countdown_basic_fasthtml_examples</a></li>
+  <li><a href="#test_countdown_clock_fasthtml_examples" id="toc-test_countdown_clock_fasthtml_examples" class="nav-link" data-scroll-target="#test_countdown_clock_fasthtml_examples">test_countdown_clock_fasthtml_examples</a></li>
+  <li><a href="#test_countdown_labels_fasthtml_examples" id="toc-test_countdown_labels_fasthtml_examples" class="nav-link" data-scroll-target="#test_countdown_labels_fasthtml_examples">test_countdown_labels_fasthtml_examples</a></li>
+  <li><a href="#test_countdown_boxes_fasthtml_examples" id="toc-test_countdown_boxes_fasthtml_examples" class="nav-link" data-scroll-target="#test_countdown_boxes_fasthtml_examples">test_countdown_boxes_fasthtml_examples</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="countdown.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">components</li><li class="breadcrumb-item"><a href="../../components/data_display/accordion.html">data_display</a></li><li class="breadcrumb-item"><a href="../../components/data_display/countdown.html">countdown</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">countdown</h1>
+</div>
+
+<div>
+  <div class="description">
+    Countdown gives you a transition effect when you change a number between 0 to 99.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="base-countdown" class="level3">
+<h3 class="anchored" data-anchor-id="base-countdown">Base Countdown</h3>
+<p>The base countdown component:</p>
+<div id="855e2720-6158-4e7c-8a8a-76cafed3d92a" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>countdown <span class="op">=</span> SingleValueFactory(<span class="st">"countdown"</span>, <span class="st">"Countdown wrapper component for transition effect"</span>) <span class="co"># Countdown wrapper</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="countdown-test-examples" class="level3">
+<h3 class="anchored" data-anchor-id="countdown-test-examples">Countdown Test Examples</h3>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/data_display/countdown.py#L28" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_countdown_basic_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_countdown_basic_examples">test_countdown_basic_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_countdown_basic_examples ()</code></pre>
+</blockquote>
+<p><em>Test basic countdown utilities.</em></p>
+<div id="7eaf329f-681c-4d27-91d4-4ffd3db3c188" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_countdown_basic_examples():</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test basic countdown utilities."""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Basic countdown</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(countdown) <span class="op">==</span> <span class="st">"countdown"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With modifiers</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(countdown.hover) <span class="op">==</span> <span class="st">"hover:countdown"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(countdown.md) <span class="op">==</span> <span class="st">"md:countdown"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(countdown.dark) <span class="op">==</span> <span class="st">"dark:countdown"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>test_countdown_basic_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/data_display/countdown.py#L42" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_countdown_basic_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_countdown_basic_fasthtml_examples">test_countdown_basic_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_countdown_basic_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test basic countdown and large text from daisyUI v5 documentation.</em></p>
+<div id="fec6e204-7a2d-496e-9b08-0920182adac6" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_countdown_basic_fasthtml_examples():</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test basic countdown and large text from daisyUI v5 documentation."""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Span, Div</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.typography <span class="im">import</span> font_size, font_weight, font_family, text_color</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Basic countdown</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    basic_countdown <span class="op">=</span> Span(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        Span(<span class="st">"59"</span>, style<span class="op">=</span><span class="st">"--value:59;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"59"</span>),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span><span class="bu">str</span>(countdown)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> basic_countdown.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> basic_countdown.attrs[<span class="st">'class'</span>] <span class="op">==</span> <span class="st">"countdown"</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(basic_countdown.children) <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    inner_span <span class="op">=</span> basic_countdown.children[<span class="dv">0</span>]</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> inner_span.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> inner_span.attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="st">"--value:59;"</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> inner_span.attrs[<span class="st">'aria-live'</span>] <span class="op">==</span> <span class="st">"polite"</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> inner_span.attrs[<span class="st">'aria-label'</span>] <span class="op">==</span> <span class="st">"59"</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> inner_span.children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"59"</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Large text</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    large_countdown <span class="op">=</span> Span(</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        Span(<span class="st">"59"</span>, style<span class="op">=</span><span class="st">"--value:59;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"59"</span>),</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._6xl)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> large_countdown.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"countdown"</span> <span class="kw">in</span> large_countdown.attrs[<span class="st">'class'</span>]</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"font-mono"</span> <span class="kw">in</span> large_countdown.attrs[<span class="st">'class'</span>]</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-6xl"</span> <span class="kw">in</span> large_countdown.attrs[<span class="st">'class'</span>]</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> large_countdown.children[<span class="dv">0</span>].attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="st">"--value:59;"</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> large_countdown.children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"59"</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all examples in a Div</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        basic_countdown,</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        large_countdown</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>test_countdown_basic_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"59"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:59;"</span><span class="dt">&gt;</span>59<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-6xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"59"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:59;"</span><span class="dt">&gt;</span>59<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="c8b0cf2d-7158-4246-acc9-0ee81d5346ea" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_countdown_basic_fasthtml_examples</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/data_display/countdown.py#L84" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_countdown_clock_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_countdown_clock_fasthtml_examples">test_countdown_clock_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_countdown_clock_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test clock countdown and clock countdown with colons from daisyUI v5 documentation.</em></p>
+<div id="51yf3hspzo" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_countdown_clock_fasthtml_examples():</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test clock countdown and clock countdown with colons from daisyUI v5 documentation."""</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Span, Div</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.typography <span class="im">import</span> font_size, font_weight, font_family, text_color</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Clock countdown</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    clock_countdown <span class="op">=</span> Span(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        Span(<span class="st">"10"</span>, style<span class="op">=</span><span class="st">"--value:10;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"10"</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"h"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        Span(<span class="st">"24"</span>, style<span class="op">=</span><span class="st">"--value:24;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"24"</span>),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"m"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        Span(<span class="st">"59"</span>, style<span class="op">=</span><span class="st">"--value:59;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"59"</span>),</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"s"</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._2xl)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"countdown"</span> <span class="kw">in</span> clock_countdown.attrs[<span class="st">'class'</span>]</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"font-mono"</span> <span class="kw">in</span> clock_countdown.attrs[<span class="st">'class'</span>]</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-2xl"</span> <span class="kw">in</span> clock_countdown.attrs[<span class="st">'class'</span>]</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(clock_countdown.children) <span class="op">==</span> <span class="dv">6</span>  <span class="co"># 3 spans + 3 text nodes</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># First countdown span</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.children[<span class="dv">0</span>].attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="st">"--value:10;"</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"10"</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Text separators</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.children[<span class="dv">1</span>] <span class="op">==</span> <span class="st">"h"</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.children[<span class="dv">3</span>] <span class="op">==</span> <span class="st">"m"</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.children[<span class="dv">5</span>] <span class="op">==</span> <span class="st">"s"</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Other countdown spans</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.children[<span class="dv">2</span>].attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="st">"--value:24;"</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.children[<span class="dv">2</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"24"</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.children[<span class="dv">4</span>].attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="st">"--value:59;"</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_countdown.children[<span class="dv">4</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"59"</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Clock countdown with colons</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    clock_colons <span class="op">=</span> Span(</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>        Span(<span class="st">"10"</span>, style<span class="op">=</span><span class="st">"--value:10;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"10"</span>),</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>        <span class="st">":"</span>,</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>        Span(<span class="st">"24"</span>, style<span class="op">=</span><span class="st">"--value:24;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"24"</span>),</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>        <span class="st">":"</span>,</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>        Span(<span class="st">"59"</span>, style<span class="op">=</span><span class="st">"--value:59;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"59"</span>),</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._2xl)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_colons.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"countdown"</span> <span class="kw">in</span> clock_colons.attrs[<span class="st">'class'</span>]</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"font-mono"</span> <span class="kw">in</span> clock_colons.attrs[<span class="st">'class'</span>]</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-2xl"</span> <span class="kw">in</span> clock_colons.attrs[<span class="st">'class'</span>]</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(clock_colons.children) <span class="op">==</span> <span class="dv">5</span>  <span class="co"># 3 spans + 2 text nodes</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify colons</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_colons.children[<span class="dv">1</span>] <span class="op">==</span> <span class="st">":"</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_colons.children[<span class="dv">3</span>] <span class="op">==</span> <span class="st">":"</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify countdown values</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_colons.children[<span class="dv">0</span>].attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="st">"--value:10;"</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_colons.children[<span class="dv">2</span>].attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="st">"--value:24;"</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> clock_colons.children[<span class="dv">4</span>].attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="st">"--value:59;"</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all examples in a Div</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>        clock_countdown,</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>        clock_colons</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>test_countdown_clock_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-2xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"10"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:10;"</span><span class="dt">&gt;</span>10<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>h<span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:24;"</span><span class="dt">&gt;</span>24<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>m<span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"59"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:59;"</span><span class="dt">&gt;</span>59<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>s<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-2xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"10"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:10;"</span><span class="dt">&gt;</span>10<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>:<span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:24;"</span><span class="dt">&gt;</span>24<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>:<span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"59"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:59;"</span><span class="dt">&gt;</span>59<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="065d4100-8f44-4e74-801b-5cb5ac81c13c" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_countdown_clock_fasthtml_examples</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/data_display/countdown.py#L150" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_countdown_labels_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_countdown_labels_fasthtml_examples">test_countdown_labels_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_countdown_labels_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test large text with labels and labels under from daisyUI v5 documentation.</em></p>
+<div id="37dssx08vs" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_countdown_labels_fasthtml_examples():</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test large text with labels and labels under from daisyUI v5 documentation."""</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Div, Span</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.typography <span class="im">import</span> font_size, font_weight, font_family, text_color, text_align</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.flexbox_and_grid <span class="im">import</span> gap, flex_direction, auto_cols, grid_flow, flex_display, grid_display</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.layout <span class="im">import</span> display_tw</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Large text with labels</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    labels_side <span class="op">=</span> Div(</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"15"</span>, style<span class="op">=</span><span class="st">"--value:15;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"15"</span>),</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._4xl)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"days"</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"10"</span>, style<span class="op">=</span><span class="st">"--value:10;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"10"</span>),</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._4xl)</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"hours"</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"24"</span>, style<span class="op">=</span><span class="st">"--value:24;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"24"</span>),</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._4xl)</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>            <span class="st">"min"</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"59"</span>, style<span class="op">=</span><span class="st">"--value:59;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"59"</span>),</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._4xl)</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"sec"</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span>combine_classes(flex_display, gap._5)</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> labels_side.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"flex"</span> <span class="kw">in</span> labels_side.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"gap-5"</span> <span class="kw">in</span> labels_side.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(labels_side.children) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check each time unit</span></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, (label_text, value) <span class="kw">in</span> <span class="bu">enumerate</span>([(<span class="st">"days"</span>, <span class="st">"15"</span>), (<span class="st">"hours"</span>, <span class="st">"10"</span>), (<span class="st">"min"</span>, <span class="st">"24"</span>), (<span class="st">"sec"</span>, <span class="st">"59"</span>)]):</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>        unit_div <span class="op">=</span> labels_side.children[i]</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> unit_div.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="bu">len</span>(unit_div.children) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check countdown span</span></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>        countdown_span <span class="op">=</span> unit_div.children[<span class="dv">0</span>]</span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> countdown_span.tag <span class="op">==</span> <span class="st">"span"</span></span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"countdown"</span> <span class="kw">in</span> countdown_span.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"font-mono"</span> <span class="kw">in</span> countdown_span.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"text-4xl"</span> <span class="kw">in</span> countdown_span.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> countdown_span.children[<span class="dv">0</span>].attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="ss">f"--value:</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">;"</span></span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> countdown_span.children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> value</span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check label text</span></span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> unit_div.children[<span class="dv">1</span>] <span class="op">==</span> label_text</span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Large text with labels under</span></span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a>    labels_under <span class="op">=</span> Div(</span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"15"</span>, style<span class="op">=</span><span class="st">"--value:15;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"15"</span>),</span>
+<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._5xl)</span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a>            <span class="st">"days"</span>,</span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span>combine_classes(flex_display, flex_direction.col)</span>
+<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"10"</span>, style<span class="op">=</span><span class="st">"--value:10;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"10"</span>),</span>
+<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._5xl)</span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a>            <span class="st">"hours"</span>,</span>
+<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span>combine_classes(flex_display, flex_direction.col)</span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"24"</span>, style<span class="op">=</span><span class="st">"--value:24;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"24"</span>),</span>
+<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._5xl)</span>
+<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>            <span class="st">"min"</span>,</span>
+<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span>combine_classes(flex_display, flex_direction.col)</span>
+<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"59"</span>, style<span class="op">=</span><span class="st">"--value:59;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"59"</span>),</span>
+<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._5xl)</span>
+<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a>            <span class="st">"sec"</span>,</span>
+<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span>combine_classes(flex_display, flex_direction.col)</span>
+<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span>combine_classes(grid_display, auto_cols.<span class="bu">max</span>, grid_flow.col, gap._5, text_align.center)</span>
+<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> labels_under.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"grid"</span> <span class="kw">in</span> labels_under.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"auto-cols-max"</span> <span class="kw">in</span> labels_under.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"grid-flow-col"</span> <span class="kw">in</span> labels_under.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"gap-5"</span> <span class="kw">in</span> labels_under.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-center"</span> <span class="kw">in</span> labels_under.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(labels_under.children) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check each time unit</span></span>
+<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, (label_text, value) <span class="kw">in</span> <span class="bu">enumerate</span>([(<span class="st">"days"</span>, <span class="st">"15"</span>), (<span class="st">"hours"</span>, <span class="st">"10"</span>), (<span class="st">"min"</span>, <span class="st">"24"</span>), (<span class="st">"sec"</span>, <span class="st">"59"</span>)]):</span>
+<span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a>        unit_div <span class="op">=</span> labels_under.children[i]</span>
+<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> unit_div.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"flex"</span> <span class="kw">in</span> unit_div.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"flex-col"</span> <span class="kw">in</span> unit_div.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check countdown span (text-5xl for labels under)</span></span>
+<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a>        countdown_span <span class="op">=</span> unit_div.children[<span class="dv">0</span>]</span>
+<span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"text-5xl"</span> <span class="kw">in</span> countdown_span.attrs[<span class="st">'class'</span>]</span>
+<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> countdown_span.children[<span class="dv">0</span>].attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="ss">f"--value:</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">;"</span></span>
+<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check label text</span></span>
+<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> unit_div.children[<span class="dv">1</span>] <span class="op">==</span> label_text</span>
+<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all examples in a Div</span></span>
+<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a>        labels_side,</span>
+<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a>        labels_under</span>
+<span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a>test_countdown_labels_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"flex gap-5"</span><span class="dt">&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-4xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"15"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:15;"</span><span class="dt">&gt;</span>15<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>days    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-4xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"10"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:10;"</span><span class="dt">&gt;</span>10<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>hours    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-4xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:24;"</span><span class="dt">&gt;</span>24<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>min    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-4xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"59"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:59;"</span><span class="dt">&gt;</span>59<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>sec    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"grid auto-cols-max grid-flow-col gap-5 text-center"</span><span class="dt">&gt;</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"flex flex-col"</span><span class="dt">&gt;</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-5xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"15"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:15;"</span><span class="dt">&gt;</span>15<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>days    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"flex flex-col"</span><span class="dt">&gt;</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-5xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"10"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:10;"</span><span class="dt">&gt;</span>10<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>hours    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"flex flex-col"</span><span class="dt">&gt;</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-5xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:24;"</span><span class="dt">&gt;</span>24<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>min    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"flex flex-col"</span><span class="dt">&gt;</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-5xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"59"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:59;"</span><span class="dt">&gt;</span>59<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>sec    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="1636d484-5b52-48a0-be20-9d90f6cb94fc" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_countdown_labels_fasthtml_examples</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<p><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/blob/main/cjm_fasthtml_daisyui/components/data_display/countdown.py#L275" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="test_countdown_boxes_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_countdown_boxes_fasthtml_examples">test_countdown_boxes_fasthtml_examples</h3>
+<blockquote class="blockquote">
+<pre><code> test_countdown_boxes_fasthtml_examples ()</code></pre>
+</blockquote>
+<p><em>Test countdown in boxes from daisyUI v5 documentation.</em></p>
+<div id="c0pxdr735t4" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_countdown_boxes_fasthtml_examples():</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test countdown in boxes from daisyUI v5 documentation."""</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Div, Span</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.typography <span class="im">import</span> font_size, font_weight, font_family, text_color, text_align</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.flexbox_and_grid <span class="im">import</span> gap, flex_direction, auto_cols, grid_flow, flex_display, grid_display</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.layout <span class="im">import</span> display_tw</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.spacing <span class="im">import</span> p</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.utilities.semantic_colors <span class="im">import</span> bg_dui, text_dui</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.utilities.border_radius <span class="im">import</span> border_radius</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># In boxes</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    in_boxes <span class="op">=</span> Div(</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"15"</span>, style<span class="op">=</span><span class="st">"--value:15;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"15"</span>),</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._5xl)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"days"</span>,</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span>combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, flex_display, flex_direction.col, p._2)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"10"</span>, style<span class="op">=</span><span class="st">"--value:10;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"10"</span>),</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._5xl)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">"hours"</span>,</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span>combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, flex_display, flex_direction.col, p._2)</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"24"</span>, style<span class="op">=</span><span class="st">"--value:24;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"24"</span>),</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._5xl)</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"min"</span>,</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span>combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, flex_display, flex_direction.col, p._2)</span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>        Div(</span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>            Span(</span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>                Span(<span class="st">"59"</span>, style<span class="op">=</span><span class="st">"--value:59;"</span>, aria_live<span class="op">=</span><span class="st">"polite"</span>, aria_label<span class="op">=</span><span class="st">"59"</span>),</span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(countdown, font_family.mono, font_size._5xl)</span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>            <span class="st">"sec"</span>,</span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span>combine_classes(bg_dui.neutral, border_radius.box, text_dui.neutral_content, flex_display, flex_direction.col, p._2)</span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span>combine_classes(grid_display, auto_cols.<span class="bu">max</span>, grid_flow.col, gap._5, text_align.center)</span>
+<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> in_boxes.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"grid"</span> <span class="kw">in</span> in_boxes.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"auto-cols-max"</span> <span class="kw">in</span> in_boxes.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"grid-flow-col"</span> <span class="kw">in</span> in_boxes.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"gap-5"</span> <span class="kw">in</span> in_boxes.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-52"><a href="#cb17-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-center"</span> <span class="kw">in</span> in_boxes.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-53"><a href="#cb17-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(in_boxes.children) <span class="op">==</span> <span class="dv">4</span></span>
+<span id="cb17-54"><a href="#cb17-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check each time unit box</span></span>
+<span id="cb17-55"><a href="#cb17-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, (label_text, value) <span class="kw">in</span> <span class="bu">enumerate</span>([(<span class="st">"days"</span>, <span class="st">"15"</span>), (<span class="st">"hours"</span>, <span class="st">"10"</span>), (<span class="st">"min"</span>, <span class="st">"24"</span>), (<span class="st">"sec"</span>, <span class="st">"59"</span>)]):</span>
+<span id="cb17-56"><a href="#cb17-56" aria-hidden="true" tabindex="-1"></a>        unit_div <span class="op">=</span> in_boxes.children[i]</span>
+<span id="cb17-57"><a href="#cb17-57" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> unit_div.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb17-58"><a href="#cb17-58" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"bg-neutral"</span> <span class="kw">in</span> unit_div.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-59"><a href="#cb17-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"rounded-box"</span> <span class="kw">in</span> unit_div.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-60"><a href="#cb17-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"text-neutral-content"</span> <span class="kw">in</span> unit_div.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-61"><a href="#cb17-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"flex"</span> <span class="kw">in</span> unit_div.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-62"><a href="#cb17-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"flex-col"</span> <span class="kw">in</span> unit_div.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-63"><a href="#cb17-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"p-2"</span> <span class="kw">in</span> unit_div.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-64"><a href="#cb17-64" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check countdown span</span></span>
+<span id="cb17-65"><a href="#cb17-65" aria-hidden="true" tabindex="-1"></a>        countdown_span <span class="op">=</span> unit_div.children[<span class="dv">0</span>]</span>
+<span id="cb17-66"><a href="#cb17-66" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"countdown"</span> <span class="kw">in</span> countdown_span.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-67"><a href="#cb17-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"font-mono"</span> <span class="kw">in</span> countdown_span.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-68"><a href="#cb17-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"text-5xl"</span> <span class="kw">in</span> countdown_span.attrs[<span class="st">'class'</span>]</span>
+<span id="cb17-69"><a href="#cb17-69" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> countdown_span.children[<span class="dv">0</span>].attrs[<span class="st">'style'</span>] <span class="op">==</span> <span class="ss">f"--value:</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">;"</span></span>
+<span id="cb17-70"><a href="#cb17-70" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> countdown_span.children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> value</span>
+<span id="cb17-71"><a href="#cb17-71" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check label text</span></span>
+<span id="cb17-72"><a href="#cb17-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> unit_div.children[<span class="dv">1</span>] <span class="op">==</span> label_text</span>
+<span id="cb17-73"><a href="#cb17-73" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb17-74"><a href="#cb17-74" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return all examples in a Div</span></span>
+<span id="cb17-75"><a href="#cb17-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(</span>
+<span id="cb17-76"><a href="#cb17-76" aria-hidden="true" tabindex="-1"></a>        in_boxes</span>
+<span id="cb17-77"><a href="#cb17-77" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb17-78"><a href="#cb17-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-79"><a href="#cb17-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb17-80"><a href="#cb17-80" aria-hidden="true" tabindex="-1"></a>test_countdown_boxes_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"grid auto-cols-max grid-flow-col gap-5 text-center"</span><span class="dt">&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bg-neutral rounded-box text-neutral-content flex flex-col p-2"</span><span class="dt">&gt;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-5xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"15"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:15;"</span><span class="dt">&gt;</span>15<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>days    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bg-neutral rounded-box text-neutral-content flex flex-col p-2"</span><span class="dt">&gt;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-5xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"10"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:10;"</span><span class="dt">&gt;</span>10<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>hours    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bg-neutral rounded-box text-neutral-content flex flex-col p-2"</span><span class="dt">&gt;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-5xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"24"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:24;"</span><span class="dt">&gt;</span>24<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>min    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bg-neutral rounded-box text-neutral-content flex flex-col p-2"</span><span class="dt">&gt;</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">"countdown font-mono text-5xl"</span><span class="dt">&gt;&lt;</span><span class="kw">span</span><span class="ot"> aria-live</span><span class="op">=</span><span class="st">"polite"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"59"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"--value:59;"</span><span class="dt">&gt;</span>59<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>sec    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="ad805d0b-b088-4506-a3d8-18ec0968d48d" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_countdown_boxes_fasthtml_examples</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cj-mills\.github\.io\/cjm-fasthtml-daisyui");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
