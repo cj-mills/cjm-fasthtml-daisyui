@@ -4,6 +4,6 @@ project:
 website:
   title: "cjm-fasthtml-daisyui"
   site-url: "https://cj-mills.github.io/cjm-fasthtml-daisyui"
-  description: "Python-native daisyUI v5 component and utility class builder providing type-safe, dynamic class generation with full abstraction for FastHTML projects."
+  description: "Python-native daisyUI v5 component and utility class builder providing dynamic class generation with full abstraction for FastHTML projects."
   repo-branch: main
   repo-url: "https://github.com/cj-mills/cjm-fasthtml-daisyui"
