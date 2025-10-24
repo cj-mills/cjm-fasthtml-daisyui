@@ -54,7 +54,7 @@ from cjm_fasthtml_tailwind.cli.cli_config import set_active_config, get_tailwind
 from .cli_config import get_daisyui_config
 
 # %% ../../nbs/cli/explorer.ipynb 7
-def initialize_daisyui_cli():
+def initialize_daisyui_cli() -> LibraryConfig: # Configuration for the CLI
     """Initialize the CLI with DaisyUI configuration."""
     config = get_daisyui_config()
     set_active_config(config)
@@ -63,7 +63,7 @@ def initialize_daisyui_cli():
 # %% ../../nbs/cli/explorer.ipynb 9
 def setup_argument_parser(
     config: Optional[LibraryConfig] = None  # Optional configuration to use
-): # TODO: Add type hint
+) -> argparse.ArgumentParser: # Main argument parser with all subcommands
     """Set up the main argument parser with all subcommands."""
     if config is None:
         config = get_active_config()
@@ -104,7 +104,7 @@ def setup_argument_parser(
     return parser
 
 # %% ../../nbs/cli/explorer.ipynb 12
-def main():
+def main() -> None: # CLI entry point
     """CLI entry point for exploring cjm-fasthtml-daisyui components."""
     # Initialize with DaisyUI configuration
     initialize_daisyui_cli();

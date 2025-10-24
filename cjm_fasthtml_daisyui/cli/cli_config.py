@@ -10,15 +10,8 @@ __all__ = ['get_daisyui_config']
 from cjm_fasthtml_tailwind.cli.cli_config import LibraryConfig, get_tailwind_config
 
 # %% ../../nbs/cli/cli_config.ipynb 5
-def get_daisyui_config() -> LibraryConfig:
-    """Get configuration for cjm-fasthtml-daisyui library.
-    
-    This configuration defines:
-    - Module discovery paths (components and builders)
-    - Core utilities specific to DaisyUI
-    - CLI command name
-    - Import paths
-    """
+def get_daisyui_config() -> LibraryConfig: # Configuration for cjm-fasthtml-daisyui library
+    """Get configuration for cjm-fasthtml-daisyui library."""
 
     tailwind_config = get_tailwind_config()
     

@@ -186,17 +186,17 @@ graph LR
     utilities_semantic_gradients[utilities.semantic_gradients<br/>Gradient Stop Utilities]
 
     cli_explorer --> cli_cli_config
-    components_actions_button --> builders_styles
-    components_actions_button --> core_testing
-    components_actions_button --> builders_colors
     components_actions_button --> core_themes
+    components_actions_button --> builders_styles
+    components_actions_button --> builders_colors
+    components_actions_button --> core_testing
     components_actions_button --> builders_sizes
     components_actions_dropdown --> core_testing
     components_actions_dropdown --> core_themes
-    components_actions_fab --> builders_styles
-    components_actions_fab --> core_testing
-    components_actions_fab --> builders_colors
     components_actions_fab --> core_themes
+    components_actions_fab --> builders_styles
+    components_actions_fab --> builders_colors
+    components_actions_fab --> core_testing
     components_actions_fab --> builders_sizes
     components_actions_modal --> core_testing
     components_actions_modal --> core_themes
@@ -204,108 +204,108 @@ graph LR
     components_actions_swap --> core_themes
     components_actions_theme_controller --> core_testing
     components_actions_theme_controller --> core_themes
-    components_data_display_accordion --> core_testing
     components_data_display_accordion --> components_data_display_collapse
     components_data_display_accordion --> core_themes
-    components_data_display_avatar --> core_testing
+    components_data_display_accordion --> core_testing
     components_data_display_avatar --> core_themes
-    components_data_display_badge --> builders_styles
-    components_data_display_badge --> core_testing
-    components_data_display_badge --> builders_colors
+    components_data_display_avatar --> core_testing
     components_data_display_badge --> core_themes
+    components_data_display_badge --> builders_styles
+    components_data_display_badge --> builders_colors
+    components_data_display_badge --> core_testing
     components_data_display_badge --> builders_sizes
-    components_data_display_card --> builders_styles
-    components_data_display_card --> core_testing
     components_data_display_card --> core_themes
+    components_data_display_card --> core_testing
+    components_data_display_card --> builders_styles
     components_data_display_card --> builders_sizes
-    components_data_display_carousel --> core_testing
     components_data_display_carousel --> core_themes
-    components_data_display_chat_bubble --> core_testing
-    components_data_display_chat_bubble --> builders_colors
+    components_data_display_carousel --> core_testing
     components_data_display_chat_bubble --> core_themes
-    components_data_display_collapse --> core_testing
+    components_data_display_chat_bubble --> builders_colors
+    components_data_display_chat_bubble --> core_testing
     components_data_display_collapse --> core_themes
-    components_data_display_countdown --> core_testing
+    components_data_display_collapse --> core_testing
     components_data_display_countdown --> core_themes
-    components_data_display_diff --> core_testing
+    components_data_display_countdown --> core_testing
     components_data_display_diff --> core_themes
-    components_data_display_hover_gallery --> core_testing
+    components_data_display_diff --> core_testing
     components_data_display_hover_gallery --> core_themes
-    components_data_display_kbd --> core_testing
+    components_data_display_hover_gallery --> core_testing
     components_data_display_kbd --> core_themes
+    components_data_display_kbd --> core_testing
     components_data_display_kbd --> builders_sizes
-    components_data_display_list --> core_testing
     components_data_display_list --> core_themes
-    components_data_display_stat --> core_testing
+    components_data_display_list --> core_testing
     components_data_display_stat --> core_themes
-    components_data_display_status --> core_testing
-    components_data_display_status --> builders_colors
+    components_data_display_stat --> core_testing
     components_data_display_status --> core_themes
+    components_data_display_status --> builders_colors
+    components_data_display_status --> core_testing
     components_data_display_status --> builders_sizes
-    components_data_display_table --> core_testing
     components_data_display_table --> core_themes
+    components_data_display_table --> core_testing
     components_data_display_table --> builders_sizes
-    components_data_display_timeline --> core_testing
     components_data_display_timeline --> core_themes
+    components_data_display_timeline --> core_testing
     components_data_input_calendar --> core_testing
     components_data_input_calendar --> core_themes
     components_data_input_checkbox --> core_testing
+    components_data_input_checkbox --> builders_colors
     components_data_input_checkbox --> core_themes
     components_data_input_checkbox --> builders_sizes
-    components_data_input_checkbox --> builders_colors
     components_data_input_fieldset --> core_testing
     components_data_input_fieldset --> core_themes
-    components_data_input_file_input --> core_testing
-    components_data_input_file_input --> builders_colors
-    components_data_input_file_input --> builders_styles
     components_data_input_file_input --> core_themes
+    components_data_input_file_input --> builders_styles
+    components_data_input_file_input --> builders_colors
+    components_data_input_file_input --> core_testing
     components_data_input_file_input --> builders_sizes
     components_data_input_filter --> core_testing
     components_data_input_filter --> core_themes
     components_data_input_label --> core_testing
     components_data_input_label --> core_themes
     components_data_input_radio --> core_testing
+    components_data_input_radio --> builders_colors
     components_data_input_radio --> core_themes
     components_data_input_radio --> builders_sizes
-    components_data_input_radio --> builders_colors
     components_data_input_range_slider --> core_testing
+    components_data_input_range_slider --> builders_colors
     components_data_input_range_slider --> core_themes
     components_data_input_range_slider --> builders_sizes
-    components_data_input_range_slider --> builders_colors
     components_data_input_rating --> core_testing
     components_data_input_rating --> core_themes
     components_data_input_rating --> builders_sizes
     components_data_input_select --> core_testing
-    components_data_input_select --> core_themes
-    components_data_input_select --> builders_sizes
     components_data_input_select --> builders_colors
+    components_data_input_select --> core_themes
     components_data_input_select --> builders_styles
-    components_data_input_text_input --> core_testing
-    components_data_input_text_input --> builders_colors
-    components_data_input_text_input --> builders_styles
+    components_data_input_select --> builders_sizes
     components_data_input_text_input --> core_themes
+    components_data_input_text_input --> builders_styles
+    components_data_input_text_input --> builders_colors
+    components_data_input_text_input --> core_testing
     components_data_input_text_input --> builders_sizes
     components_data_input_textarea --> core_testing
-    components_data_input_textarea --> core_themes
-    components_data_input_textarea --> builders_sizes
     components_data_input_textarea --> builders_colors
+    components_data_input_textarea --> core_themes
     components_data_input_textarea --> builders_styles
+    components_data_input_textarea --> builders_sizes
     components_data_input_toggle --> core_testing
+    components_data_input_toggle --> builders_colors
     components_data_input_toggle --> core_themes
     components_data_input_toggle --> builders_sizes
-    components_data_input_toggle --> builders_colors
     components_data_input_validator --> core_testing
     components_data_input_validator --> core_themes
-    components_feedback_alert --> builders_styles
     components_feedback_alert --> core_testing
+    components_feedback_alert --> builders_styles
     components_feedback_alert --> core_themes
     components_feedback_alert --> builders_colors
     components_feedback_loading --> core_testing
     components_feedback_loading --> core_themes
     components_feedback_loading --> builders_sizes
     components_feedback_progress --> core_testing
-    components_feedback_progress --> core_themes
     components_feedback_progress --> builders_colors
+    components_feedback_progress --> core_themes
     components_feedback_radial_progress --> core_testing
     components_feedback_radial_progress --> core_themes
     components_feedback_skeleton --> core_testing
@@ -313,15 +313,15 @@ graph LR
     components_feedback_toast --> core_testing
     components_feedback_toast --> core_themes
     components_feedback_tooltip --> core_testing
-    components_feedback_tooltip --> core_themes
     components_feedback_tooltip --> builders_colors
+    components_feedback_tooltip --> core_themes
     components_layout_divider --> core_testing
-    components_layout_divider --> core_themes
     components_layout_divider --> builders_colors
+    components_layout_divider --> core_themes
     components_layout_drawer --> core_testing
     components_layout_drawer --> core_themes
-    components_layout_footer --> core_testing
     components_layout_footer --> core_themes
+    components_layout_footer --> core_testing
     components_layout_hero --> core_testing
     components_layout_hero --> core_themes
     components_layout_indicator --> core_testing
@@ -346,43 +346,43 @@ graph LR
     components_navigation_dock --> core_themes
     components_navigation_dock --> builders_sizes
     components_navigation_link --> core_testing
+    components_navigation_link --> builders_colors
     components_navigation_link --> core_themes
     components_navigation_link --> builders_sizes
-    components_navigation_link --> builders_colors
     components_navigation_menu --> core_testing
     components_navigation_menu --> core_themes
     components_navigation_menu --> builders_sizes
     components_navigation_navbar --> core_testing
     components_navigation_navbar --> core_themes
     components_navigation_pagination --> core_testing
-    components_navigation_pagination --> core_themes
     components_navigation_pagination --> components_layout_join
+    components_navigation_pagination --> core_themes
     components_navigation_steps --> core_testing
-    components_navigation_steps --> core_themes
     components_navigation_steps --> builders_colors
+    components_navigation_steps --> core_themes
     components_navigation_tabs --> core_testing
-    components_navigation_tabs --> builders_styles
     components_navigation_tabs --> core_themes
+    components_navigation_tabs --> builders_styles
     components_navigation_tabs --> builders_sizes
     core_testing --> components_actions_button
     core_testing --> core_themes
-    core_testing --> components_data_display_card
-    core_testing --> utilities_semantic_colors
-    core_testing --> utilities_semantic_gradients
     core_testing --> components_feedback_alert
     core_testing --> core_resources
-    utilities_border_radius --> core_testing
+    core_testing --> utilities_semantic_gradients
+    core_testing --> components_data_display_card
+    core_testing --> utilities_semantic_colors
     utilities_border_radius --> builders_colors
     utilities_border_radius --> core_themes
-    utilities_glass --> core_testing
+    utilities_border_radius --> core_testing
     utilities_glass --> builders_colors
     utilities_glass --> core_themes
-    utilities_semantic_colors --> core_testing
+    utilities_glass --> core_testing
     utilities_semantic_colors --> builders_colors
     utilities_semantic_colors --> core_themes
-    utilities_semantic_gradients --> core_testing
+    utilities_semantic_colors --> core_testing
     utilities_semantic_gradients --> builders_colors
     utilities_semantic_gradients --> core_themes
+    utilities_semantic_gradients --> core_testing
 ```
 
 *198 cross-module dependencies detected*
@@ -1364,16 +1364,8 @@ from cjm_fasthtml_daisyui.cli.cli_config import (
 #### Functions
 
 ``` python
-def get_daisyui_config() -> LibraryConfig
-    """
-    Get configuration for cjm-fasthtml-daisyui library.
-    
-    This configuration defines:
-    - Module discovery paths (components and builders)
-    - Core utilities specific to DaisyUI
-    - CLI command name
-    - Import paths
-    """
+def get_daisyui_config() -> LibraryConfig: # Configuration for cjm-fasthtml-daisyui library
+    "Get configuration for cjm-fasthtml-daisyui library."
 ```
 
 ### code mockup (`code.ipynb`)
@@ -2104,19 +2096,19 @@ from cjm_fasthtml_daisyui.cli.explorer import (
 #### Functions
 
 ``` python
-def initialize_daisyui_cli()
+def initialize_daisyui_cli() -> LibraryConfig: # Configuration for the CLI
     "Initialize the CLI with DaisyUI configuration."
 ```
 
 ``` python
 def setup_argument_parser(
     config: Optional[LibraryConfig] = None  # Optional configuration to use
-): # TODO: Add type hint
+) -> argparse.ArgumentParser: # Main argument parser with all subcommands
     "Set up the main argument parser with all subcommands."
 ```
 
 ``` python
-def main():
+def main() -> None: # CLI entry point
     """CLI entry point for exploring cjm-fasthtml-daisyui components."""
     # Initialize with DaisyUI configuration
     initialize_daisyui_cli();
