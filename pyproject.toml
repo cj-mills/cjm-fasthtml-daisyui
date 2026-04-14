@@ -1,3 +1,34 @@
 [build-system]
-requires = ["setuptools>=64.0"]
+requires = ["setuptools>=64"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "cjm-fasthtml-daisyui"
+dynamic = ["version"]
+description = "Python-native daisyUI v5 component and utility class builder providing dynamic class generation with full abstraction for FastHTML projects."
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "Apache-2.0"}
+authors = [{name = "Christian J. Mills", email = "9126128+cj-mills@users.noreply.github.com"}]
+keywords = ['nbdev', 'jupyter', 'notebook', 'python']
+classifiers = ["Natural Language :: English", "Intended Audience :: Developers", "Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only"]
+dependencies = ['python-fasthtml', 'nbformat', 'cjm_fasthtml_tailwind']
+
+[project.urls]
+Repository = "https://github.com/cj-mills/cjm-fasthtml-daisyui"
+Documentation = "https://cj-mills.github.io/cjm-fasthtml-daisyui"
+
+[project.entry-points.nbdev]
+cjm_fasthtml_daisyui = "cjm_fasthtml_daisyui._modidx:d"
+
+
+[project.scripts]
+cjm-daisyui-explore = "cjm_fasthtml_daisyui.cli.explorer:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "cjm_fasthtml_daisyui.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["cjm_fasthtml_daisyui"]
+
+[tool.nbdev]
