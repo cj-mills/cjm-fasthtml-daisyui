@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
 Script to replace #|export with #|exports in code cells that define test_*_examples() functions.
-Uses the execnb.nbio module to read and write Jupyter notebooks.
+Uses the fastcore.nbio module to read and write Jupyter notebooks.
 """
 
 import argparse
 import re
 from pathlib import Path
-from execnb.nbio import read_nb, write_nb
+from fastcore.nbio import read_nb, write_nb
 
 
 def process_notebook(notebook_path):

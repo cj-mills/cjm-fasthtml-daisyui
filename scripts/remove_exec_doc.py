@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
 Script to remove lines containing #|exec_doc from code cells.
-Uses the execnb.nbio module to read and write Jupyter notebooks.
+Uses the fastcore.nbio module to read and write Jupyter notebooks.
 """
 
 import argparse
 from pathlib import Path
-from execnb.nbio import read_nb, write_nb
+from fastcore.nbio import read_nb, write_nb
 
 
 def process_notebook(notebook_path):
