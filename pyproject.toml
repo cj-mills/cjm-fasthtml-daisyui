@@ -29,6 +29,6 @@ cjm-daisyui-explore = "cjm_fasthtml_daisyui.cli.explorer:main"
 version = {attr = "cjm_fasthtml_daisyui.__version__"}
 
 [tool.setuptools.packages.find]
-include = ["cjm_fasthtml_daisyui"]
+include = ["cjm_fasthtml_daisyui*"]
 
 [tool.nbdev]
