@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="List is a vertical layout to display information in rows.">
+
+<title>list – cjm-fasthtml-daisyui</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-de52dc3353fe04aa4d07820b7139bd46.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="list – cjm-fasthtml-daisyui">
+<meta property="og:description" content="List is a vertical layout to display information in rows.">
+<meta property="og:site_name" content="cjm-fasthtml-daisyui">
+<meta name="twitter:title" content="list – cjm-fasthtml-daisyui">
+<meta name="twitter:description" content="List is a vertical layout to display information in rows.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">cjm-fasthtml-daisyui</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">components</li><li class="breadcrumb-item"><a href="../../components/data_display/accordion.html">data_display</a></li><li class="breadcrumb-item"><a href="../../components/data_display/list.html">list</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">cjm-fasthtml-daisyui</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">builders</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../builders/colors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">colors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../builders/sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">sizes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../builders/styles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">styles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">cli</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../cli/cli_config.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DaisyUI CLI Configuration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../cli/explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DaisyUI Explorer</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">components</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">actions</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/button.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">button</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/dropdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dropdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/fab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">FAB / Speed Dial</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/modal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">modal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/swap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">swap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/actions/theme_controller.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">theme controller</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">data_display</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/accordion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">accordion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/avatar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">avatar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/badge.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">badge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/card.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">card</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/carousel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">carousel</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/chat_bubble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">chat bubble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/collapse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">collapse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/countdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">countdown</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/diff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">diff</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/hover_gallery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">hover gallery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/kbd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">kbd</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/list.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">list</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/stat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">stat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/status.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">status</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_display/timeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">timeline</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">data_input</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/calendar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">calendar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/checkbox.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">checkbox</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/fieldset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">fieldset</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/file_input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">file input</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/filter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">filter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/label.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">label</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/radio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">radio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/range.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">range slider</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/rating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">rating</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/select.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">select</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/text_input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">text input</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/textarea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">textarea</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/toggle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">toggle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/data_input/validator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">validator</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+ <span class="menu-text">feedback</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/alert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">alert</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/loading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">loading</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/progress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">progress</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/radial_progress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">radial progress</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/skeleton.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">skeleton</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/toast.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">toast</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/feedback/tooltip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">tooltip</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">layout</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/divider.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">divider</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/drawer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">drawer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/footer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">footer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/hero.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">hero</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/indicator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">indicator</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/join.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">join</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/mask.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">mask</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/layout/stack.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">stack</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">mockup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/browser.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">browser mockup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">code mockup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/phone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">phone mockup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/mockup/window.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">window mockup</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false">
+ <span class="menu-text">navigation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/breadcrumbs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">breadcrumbs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/dock.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dock</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/link.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">link</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/menu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">menu</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/navbar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">navbar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/pagination.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">pagination</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">steps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../components/navigation/tabs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">tabs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">core</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../core/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../core/testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">testing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../core/themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">themes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">utilities</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/border_radius.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Border Radius Utilities</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/glass.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glass Effect Utility</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/semantic_colors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semantic Color Utility Classes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../utilities/semantic_gradients.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient Stop Utilities</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#base-list" id="toc-base-list" class="nav-link active" data-scroll-target="#base-list">Base List</a></li>
+  <li><a href="#list-modifiers" id="toc-list-modifiers" class="nav-link" data-scroll-target="#list-modifiers">List Modifiers</a></li>
+  <li><a href="#list-test-examples" id="toc-list-test-examples" class="nav-link" data-scroll-target="#list-test-examples">List Test Examples</a></li>
+  <li><a href="#test_list_basic_examples" id="toc-test_list_basic_examples" class="nav-link" data-scroll-target="#test_list_basic_examples">test_list_basic_examples</a></li>
+  <li><a href="#test_list_modifiers_examples" id="toc-test_list_modifiers_examples" class="nav-link" data-scroll-target="#test_list_modifiers_examples">test_list_modifiers_examples</a></li>
+  <li><a href="#test_list_basic_fasthtml_examples" id="toc-test_list_basic_fasthtml_examples" class="nav-link" data-scroll-target="#test_list_basic_fasthtml_examples">test_list_basic_fasthtml_examples</a></li>
+  <li><a href="#test_list_column_grow_fasthtml_examples" id="toc-test_list_column_grow_fasthtml_examples" class="nav-link" data-scroll-target="#test_list_column_grow_fasthtml_examples">test_list_column_grow_fasthtml_examples</a></li>
+  <li><a href="#test_list_column_wrap_fasthtml_examples" id="toc-test_list_column_wrap_fasthtml_examples" class="nav-link" data-scroll-target="#test_list_column_wrap_fasthtml_examples">test_list_column_wrap_fasthtml_examples</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="list.html.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">components</li><li class="breadcrumb-item"><a href="../../components/data_display/accordion.html">data_display</a></li><li class="breadcrumb-item"><a href="../../components/data_display/list.html">list</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">list</h1>
+</div>
+
+<div>
+  <div class="description">
+    List is a vertical layout to display information in rows.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="base-list" class="level3">
+<h3 class="anchored" data-anchor-id="base-list">Base List</h3>
+<p>The base list components:</p>
+<div id="855e2720-6158-4e7c-8a8a-76cafed3d92a" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>list_ui <span class="op">=</span> SingleValueFactory(<span class="st">"list"</span>, <span class="st">"A vertical flex layout to include list rows"</span>) <span class="co"># List container</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>list_row <span class="op">=</span> SingleValueFactory(<span class="st">"list-row"</span>, <span class="st">"The item inside list - a horizontal grid layout to include data"</span>) <span class="co"># List row</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="list-modifiers" class="level3">
+<h3 class="anchored" data-anchor-id="list-modifiers">List Modifiers</h3>
+<p>List modifier utilities for controlling column layout:</p>
+<div id="eabb5061-a49d-49f5-a975-6e1f34cf90b7" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>list_modifiers <span class="op">=</span> SimpleFactory(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"col_wrap"</span>: <span class="st">"list-col-wrap"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"col_grow"</span>: <span class="st">"list-col-grow"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"List modifiers for column layout (wrap to next line, fill remaining space)"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>) <span class="co"># List modifiers</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="list-test-examples" class="level3">
+<h3 class="anchored" data-anchor-id="list-test-examples">List Test Examples</h3>
+<hr>
+</section>
+<section id="test_list_basic_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_list_basic_examples">test_list_basic_examples</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_list_basic_examples(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Test basic list utilities.</em></p>
+<div id="7eaf329f-681c-4d27-91d4-4ffd3db3c188" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_list_basic_examples():</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test basic list utilities."""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Basic components</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(list_ui) <span class="op">==</span> <span class="st">"list"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(list_row) <span class="op">==</span> <span class="st">"list-row"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With modifiers</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(list_ui.hover) <span class="op">==</span> <span class="st">"hover:list"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(list_row.md) <span class="op">==</span> <span class="st">"md:list-row"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(list_ui.dark) <span class="op">==</span> <span class="st">"dark:list"</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>test_list_basic_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<hr>
+</section>
+<section id="test_list_modifiers_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_list_modifiers_examples">test_list_modifiers_examples</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_list_modifiers_examples(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Test list modifier utilities.</em></p>
+<div id="f3264d21-dc04-4807-a494-dce4c9fe99bd" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_list_modifiers_examples():</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test list modifier utilities."""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(list_modifiers.col_wrap) <span class="op">==</span> <span class="st">"list-col-wrap"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(list_modifiers.col_grow) <span class="op">==</span> <span class="st">"list-col-grow"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># With responsive modifiers</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(list_modifiers.col_wrap.hover) <span class="op">==</span> <span class="st">"hover:list-col-wrap"</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">str</span>(list_modifiers.col_grow.md) <span class="op">==</span> <span class="st">"md:list-col-grow"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>test_list_modifiers_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<hr>
+</section>
+<section id="test_list_basic_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_list_basic_fasthtml_examples">test_list_basic_fasthtml_examples</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_list_basic_fasthtml_examples(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Test basic list example: second column grows (default behavior) from daisyUI v5 documentation.</em></p>
+<div id="fec6e204-7a2d-496e-9b08-0920182adac6" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_list_basic_fasthtml_examples():</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test basic list example: second column grows (default behavior) from daisyUI v5 documentation."""</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Ul, Li, Div, Img, Button</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.svg <span class="im">import</span> Svg, Path, G</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.sizing <span class="im">import</span> size_util</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.spacing <span class="im">import</span> p</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.typography <span class="im">import</span> font_size, font_weight, font_family, text_color, tracking, uppercase</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.effects <span class="im">import</span> opacity, shadow</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.utilities.semantic_colors <span class="im">import</span> bg_dui</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.utilities.border_radius <span class="im">import</span> border_radius</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.components.actions.button <span class="im">import</span> btn, btn_modifiers, btn_styles</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create SVG icons as reusable components</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    play_icon <span class="op">=</span> Svg(</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        G(</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>            Path(d<span class="op">=</span><span class="st">"M6 3L20 12 6 21 6 3z"</span>),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>            stroke_linejoin<span class="op">=</span><span class="st">"round"</span>,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            stroke_linecap<span class="op">=</span><span class="st">"round"</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>            stroke_width<span class="op">=</span><span class="st">"2"</span>,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>            fill<span class="op">=</span><span class="st">"none"</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>            stroke<span class="op">=</span><span class="st">"currentColor"</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span><span class="bu">str</span>(size_util(<span class="st">"[1.2em]"</span>)),</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        xmlns<span class="op">=</span><span class="st">"http://www.w3.org/2000/svg"</span>,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        viewBox<span class="op">=</span><span class="st">"0 0 24 24"</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    heart_icon <span class="op">=</span> Svg(</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>        G(</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>            Path(d<span class="op">=</span><span class="st">"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"</span>),</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>            stroke_linejoin<span class="op">=</span><span class="st">"round"</span>,</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>            stroke_linecap<span class="op">=</span><span class="st">"round"</span>,</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>            stroke_width<span class="op">=</span><span class="st">"2"</span>,</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>            fill<span class="op">=</span><span class="st">"none"</span>,</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>            stroke<span class="op">=</span><span class="st">"currentColor"</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span><span class="bu">str</span>(size_util(<span class="st">"[1.2em]"</span>)),</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>        xmlns<span class="op">=</span><span class="st">"http://www.w3.org/2000/svg"</span>,</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>        viewBox<span class="op">=</span><span class="st">"0 0 24 24"</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># List with second column growing (default behavior)</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>    list_second_column_grows <span class="op">=</span> Ul(</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>        Li(<span class="st">"Most played songs this week"</span>, cls<span class="op">=</span>combine_classes(p._4, p.b._2, font_size.xs, opacity._60, tracking.wide)),</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>        Li(</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>                Img(</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>                    src<span class="op">=</span><span class="st">"https://img.daisyui.com/images/profile/demo/1@94.webp"</span>,</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>                    cls<span class="op">=</span>combine_classes(size_util(<span class="dv">10</span>), border_radius.box)</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Dio Lupa"</span>),</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Remaining Reason"</span>, cls<span class="op">=</span>combine_classes(font_size.xs, uppercase, font_weight.semibold, opacity._60))</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>                play_icon,</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>                heart_icon,</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span><span class="bu">str</span>(list_row)</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>        Li(</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>                Img(</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>                    src<span class="op">=</span><span class="st">"https://img.daisyui.com/images/profile/demo/4@94.webp"</span>,</span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>                    cls<span class="op">=</span>combine_classes(size_util(<span class="dv">10</span>), border_radius.box)</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Ellie Beilish"</span>),</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Bears of a fever"</span>, cls<span class="op">=</span>combine_classes(font_size.xs, uppercase, font_weight.semibold, opacity._60))</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>                play_icon,</span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>                heart_icon,</span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span><span class="bu">str</span>(list_row)</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>        Li(</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>                Img(</span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>                    src<span class="op">=</span><span class="st">"https://img.daisyui.com/images/profile/demo/3@94.webp"</span>,</span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>                    cls<span class="op">=</span>combine_classes(size_util(<span class="dv">10</span>), border_radius.box)</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Sabrino Gardener"</span>),</span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Cappuccino"</span>, cls<span class="op">=</span>combine_classes(font_size.xs, uppercase, font_weight.semibold, opacity._60))</span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a>                play_icon,</span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a>                heart_icon,</span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span><span class="bu">str</span>(list_row)</span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span>combine_classes(list_ui, bg_dui.base_100, border_radius.box, shadow.md)</span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify list structure</span></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list"</span> <span class="kw">in</span> list_second_column_grows.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"bg-base-100"</span> <span class="kw">in</span> list_second_column_grows.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"rounded-box"</span> <span class="kw">in</span> list_second_column_grows.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"shadow-md"</span> <span class="kw">in</span> list_second_column_grows.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify header</span></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>    header <span class="op">=</span> list_second_column_grows.children[<span class="dv">0</span>]</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> header.tag <span class="op">==</span> <span class="st">"li"</span></span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"p-4"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"pb-2"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-xs"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"opacity-60"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"tracking-wide"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> header.children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Most played songs this week"</span></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify first song row</span></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>    first_row <span class="op">=</span> list_second_column_grows.children[<span class="dv">1</span>]</span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> first_row.tag <span class="op">==</span> <span class="st">"li"</span></span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-row"</span> <span class="kw">in</span> first_row.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(first_row.children) <span class="op">==</span> <span class="dv">4</span>  <span class="co"># Image, text content, play button, heart button</span></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify image column</span></span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a>    image_col <span class="op">=</span> first_row.children[<span class="dv">0</span>]</span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> image_col.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> image_col.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"img"</span></span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"size-10"</span> <span class="kw">in</span> image_col.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"rounded-box"</span> <span class="kw">in</span> image_col.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> image_col.children[<span class="dv">0</span>].attrs[<span class="st">'src'</span>] <span class="op">==</span> <span class="st">"https://img.daisyui.com/images/profile/demo/1@94.webp"</span></span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify text column (second column that grows by default)</span></span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a>    text_col <span class="op">=</span> first_row.children[<span class="dv">1</span>]</span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(text_col.children) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Dio Lupa"</span></span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">1</span>].tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">1</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Remaining Reason"</span></span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-xs"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"uppercase"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"font-semibold"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"opacity-60"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify play button</span></span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a>    play_btn <span class="op">=</span> first_row.children[<span class="dv">2</span>]</span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> play_btn.tag <span class="op">==</span> <span class="st">"button"</span></span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn"</span> <span class="kw">in</span> play_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn-square"</span> <span class="kw">in</span> play_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn-ghost"</span> <span class="kw">in</span> play_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> play_btn.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"svg"</span></span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"size-[1.2em]"</span> <span class="kw">in</span> play_btn.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify heart button</span></span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a>    heart_btn <span class="op">=</span> first_row.children[<span class="dv">3</span>]</span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> heart_btn.tag <span class="op">==</span> <span class="st">"button"</span></span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn"</span> <span class="kw">in</span> heart_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn-square"</span> <span class="kw">in</span> heart_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn-ghost"</span> <span class="kw">in</span> heart_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> heart_btn.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"svg"</span></span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"size-[1.2em]"</span> <span class="kw">in</span> heart_btn.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify second song row has different content</span></span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a>    second_row <span class="op">=</span> list_second_column_grows.children[<span class="dv">2</span>]</span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-row"</span> <span class="kw">in</span> second_row.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> second_row.children[<span class="dv">1</span>].children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Ellie Beilish"</span></span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> second_row.children[<span class="dv">1</span>].children[<span class="dv">1</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Bears of a fever"</span></span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify third song row has different content  </span></span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a>    third_row <span class="op">=</span> list_second_column_grows.children[<span class="dv">3</span>]</span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-row"</span> <span class="kw">in</span> third_row.attrs[<span class="st">'class'</span>]</span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> third_row.children[<span class="dv">1</span>].children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Sabrino Gardener"</span></span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> third_row.children[<span class="dv">1</span>].children[<span class="dv">1</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Cappuccino"</span></span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the created element in a Div</span></span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(list_second_column_grows)</span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a>test_list_basic_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div><ul class="list bg-base-100 rounded-box shadow-md"><li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Most played songs this week</li><li class="list-row"><div><img src="https://img.daisyui.com/images/profile/demo/1@94.webp" class="size-10 rounded-box"></div><div><div>Dio Lupa</div><div class="text-xs uppercase font-semibold opacity-60">Remaining Reason</div></div><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg></button><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></g></svg></button></li><li class="list-row"><div><img src="https://img.daisyui.com/images/profile/demo/4@94.webp" class="size-10 rounded-box"></div><div><div>Ellie Beilish</div><div class="text-xs uppercase font-semibold opacity-60">Bears of a fever</div></div><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg></button><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></g></svg></button></li><li class="list-row"><div><img src="https://img.daisyui.com/images/profile/demo/3@94.webp" class="size-10 rounded-box"></div><div><div>Sabrino Gardener</div><div class="text-xs uppercase font-semibold opacity-60">Cappuccino</div></div><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg></button><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></g></svg></button></li></ul></div>
+</div>
+</div>
+<div id="5dbc2188-4267-4391-86e0-5b75c6fb66d2" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_list_basic_fasthtml_examples</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="test_list_column_grow_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_list_column_grow_fasthtml_examples">test_list_column_grow_fasthtml_examples</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_list_column_grow_fasthtml_examples(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Test list example: third column grows from daisyUI v5 documentation.</em></p>
+<div id="aqsby4hjmpm" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_list_column_grow_fasthtml_examples():</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test list example: third column grows from daisyUI v5 documentation."""</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Ul, Li, Div, Img, Button</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.svg <span class="im">import</span> Svg, Path, G</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.sizing <span class="im">import</span> size_util</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.spacing <span class="im">import</span> p</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.typography <span class="im">import</span> font_size, font_weight, font_family, text_color, tracking, tabular_nums, font_weight, uppercase</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.effects <span class="im">import</span> opacity, shadow</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.utilities.semantic_colors <span class="im">import</span> bg_dui</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.utilities.border_radius <span class="im">import</span> border_radius</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.components.actions.button <span class="im">import</span> btn, btn_modifiers, btn_styles</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create reusable play icon</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    play_icon <span class="op">=</span> Svg(</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        G(</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>            Path(d<span class="op">=</span><span class="st">"M6 3L20 12 6 21 6 3z"</span>),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>            stroke_linejoin<span class="op">=</span><span class="st">"round"</span>,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>            stroke_linecap<span class="op">=</span><span class="st">"round"</span>,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>            stroke_width<span class="op">=</span><span class="st">"2"</span>,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>            fill<span class="op">=</span><span class="st">"none"</span>,</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>            stroke<span class="op">=</span><span class="st">"currentColor"</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span><span class="bu">str</span>(size_util(<span class="st">"[1.2em]"</span>)),</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>        xmlns<span class="op">=</span><span class="st">"http://www.w3.org/2000/svg"</span>,</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        viewBox<span class="op">=</span><span class="st">"0 0 24 24"</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># List with third column growing using list-col-grow</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    list_third_column_grows <span class="op">=</span> Ul(</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>        Li(<span class="st">"Most played songs this week"</span>, cls<span class="op">=</span>combine_classes(p._4, p.b._2, font_size.xs, opacity._60, tracking.wide)),</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>        Li(</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>            Div(<span class="st">"01"</span>, cls<span class="op">=</span>combine_classes(font_size._4xl, font_weight.thin, opacity._30, tabular_nums)),</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>                Img(</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>                    src<span class="op">=</span><span class="st">"https://img.daisyui.com/images/profile/demo/1@94.webp"</span>,</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>                    cls<span class="op">=</span>combine_classes(size_util(<span class="dv">10</span>), border_radius.box)</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Dio Lupa"</span>),</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Remaining Reason"</span>, cls<span class="op">=</span>combine_classes(font_size.xs, uppercase, font_weight.semibold, opacity._60)),</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span><span class="bu">str</span>(list_modifiers.col_grow)</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>                play_icon,</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span><span class="bu">str</span>(list_row)</span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>        Li(</span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>            Div(<span class="st">"02"</span>, cls<span class="op">=</span>combine_classes(font_size._4xl, font_weight.thin, opacity._30, tabular_nums)),</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>                Img(</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>                    src<span class="op">=</span><span class="st">"https://img.daisyui.com/images/profile/demo/4@94.webp"</span>,</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>                    cls<span class="op">=</span>combine_classes(size_util(<span class="dv">10</span>), border_radius.box)</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Ellie Beilish"</span>),</span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Bears of a fever"</span>, cls<span class="op">=</span>combine_classes(font_size.xs, uppercase, font_weight.semibold, opacity._60)),</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span><span class="bu">str</span>(list_modifiers.col_grow)</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>                play_icon,</span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span><span class="bu">str</span>(list_row)</span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>        Li(</span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>            Div(<span class="st">"03"</span>, cls<span class="op">=</span>combine_classes(font_size._4xl, font_weight.thin, opacity._30, tabular_nums)),</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>                Img(</span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a>                    src<span class="op">=</span><span class="st">"https://img.daisyui.com/images/profile/demo/3@94.webp"</span>,</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a>                    cls<span class="op">=</span>combine_classes(size_util(<span class="dv">10</span>), border_radius.box)</span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Sabrino Gardener"</span>),</span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Cappuccino"</span>, cls<span class="op">=</span>combine_classes(font_size.xs, uppercase, font_weight.semibold, opacity._60)),</span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span><span class="bu">str</span>(list_modifiers.col_grow)</span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a>                play_icon,</span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span><span class="bu">str</span>(list_row)</span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span>combine_classes(list_ui, bg_dui.base_100, border_radius.box, shadow.md)</span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify list structure</span></span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list"</span> <span class="kw">in</span> list_third_column_grows.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"bg-base-100"</span> <span class="kw">in</span> list_third_column_grows.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"rounded-box"</span> <span class="kw">in</span> list_third_column_grows.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"shadow-md"</span> <span class="kw">in</span> list_third_column_grows.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify header</span></span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>    header <span class="op">=</span> list_third_column_grows.children[<span class="dv">0</span>]</span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> header.tag <span class="op">==</span> <span class="st">"li"</span></span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"p-4"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"pb-2"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-xs"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"opacity-60"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> header.children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Most played songs this week"</span></span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify first song row</span></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>    first_row <span class="op">=</span> list_third_column_grows.children[<span class="dv">1</span>]</span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> first_row.tag <span class="op">==</span> <span class="st">"li"</span></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-row"</span> <span class="kw">in</span> first_row.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(first_row.children) <span class="op">==</span> <span class="dv">4</span>  <span class="co"># Number, image, text content (with col-grow), play button</span></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify number column (first column)</span></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>    number_col <span class="op">=</span> first_row.children[<span class="dv">0</span>]</span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> number_col.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> number_col.children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"01"</span></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-4xl"</span> <span class="kw">in</span> number_col.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"font-thin"</span> <span class="kw">in</span> number_col.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"opacity-30"</span> <span class="kw">in</span> number_col.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"tabular-nums"</span> <span class="kw">in</span> number_col.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify image column (second column)</span></span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a>    image_col <span class="op">=</span> first_row.children[<span class="dv">1</span>]</span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> image_col.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> image_col.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"img"</span></span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"size-10"</span> <span class="kw">in</span> image_col.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"rounded-box"</span> <span class="kw">in</span> image_col.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> image_col.children[<span class="dv">0</span>].attrs[<span class="st">'src'</span>] <span class="op">==</span> <span class="st">"https://img.daisyui.com/images/profile/demo/1@94.webp"</span></span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify text column (third column that grows with list-col-grow)</span></span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a>    text_col <span class="op">=</span> first_row.children[<span class="dv">2</span>]</span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-col-grow"</span> <span class="kw">in</span> text_col.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(text_col.children) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Dio Lupa"</span></span>
+<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">1</span>].tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">1</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Remaining Reason"</span></span>
+<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-xs"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"uppercase"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"font-semibold"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"opacity-60"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify play button (fourth column)</span></span>
+<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a>    play_btn <span class="op">=</span> first_row.children[<span class="dv">3</span>]</span>
+<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> play_btn.tag <span class="op">==</span> <span class="st">"button"</span></span>
+<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn"</span> <span class="kw">in</span> play_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn-square"</span> <span class="kw">in</span> play_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn-ghost"</span> <span class="kw">in</span> play_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> play_btn.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"svg"</span></span>
+<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"size-[1.2em]"</span> <span class="kw">in</span> play_btn.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify second song row structure</span></span>
+<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a>    second_row <span class="op">=</span> list_third_column_grows.children[<span class="dv">2</span>]</span>
+<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-row"</span> <span class="kw">in</span> second_row.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> second_row.children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"02"</span></span>
+<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-col-grow"</span> <span class="kw">in</span> second_row.children[<span class="dv">2</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> second_row.children[<span class="dv">2</span>].children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Ellie Beilish"</span></span>
+<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> second_row.children[<span class="dv">2</span>].children[<span class="dv">1</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Bears of a fever"</span></span>
+<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify third song row structure</span></span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a>    third_row <span class="op">=</span> list_third_column_grows.children[<span class="dv">3</span>]</span>
+<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-row"</span> <span class="kw">in</span> third_row.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> third_row.children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"03"</span></span>
+<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-col-grow"</span> <span class="kw">in</span> third_row.children[<span class="dv">2</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> third_row.children[<span class="dv">2</span>].children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Sabrino Gardener"</span></span>
+<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> third_row.children[<span class="dv">2</span>].children[<span class="dv">1</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Cappuccino"</span></span>
+<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify all rows have the col-grow modifier on the text column</span></span>
+<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>):  <span class="co"># Rows 1, 2, 3 (skip header)</span></span>
+<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a>        row <span class="op">=</span> list_third_column_grows.children[i]</span>
+<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a>        text_column <span class="op">=</span> row.children[<span class="dv">2</span>]  <span class="co"># Third column (index 2)</span></span>
+<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"list-col-grow"</span> <span class="kw">in</span> text_column.attrs[<span class="st">'class'</span>]</span>
+<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the created element in a Div</span></span>
+<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(list_third_column_grows)</span>
+<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a>test_list_column_grow_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div><ul class="list bg-base-100 rounded-box shadow-md"><li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Most played songs this week</li><li class="list-row"><div class="text-4xl font-thin opacity-30 tabular-nums">01</div><div><img src="https://img.daisyui.com/images/profile/demo/1@94.webp" class="size-10 rounded-box"></div><div class="list-col-grow"><div>Dio Lupa</div><div class="text-xs uppercase font-semibold opacity-60">Remaining Reason</div></div><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg></button></li><li class="list-row"><div class="text-4xl font-thin opacity-30 tabular-nums">02</div><div><img src="https://img.daisyui.com/images/profile/demo/4@94.webp" class="size-10 rounded-box"></div><div class="list-col-grow"><div>Ellie Beilish</div><div class="text-xs uppercase font-semibold opacity-60">Bears of a fever</div></div><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg></button></li><li class="list-row"><div class="text-4xl font-thin opacity-30 tabular-nums">03</div><div><img src="https://img.daisyui.com/images/profile/demo/3@94.webp" class="size-10 rounded-box"></div><div class="list-col-grow"><div>Sabrino Gardener</div><div class="text-xs uppercase font-semibold opacity-60">Cappuccino</div></div><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg></button></li></ul></div>
+</div>
+</div>
+<div id="789a58fc-3382-4cb1-b458-da8523960607" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_list_column_grow_fasthtml_examples</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="test_list_column_wrap_fasthtml_examples" class="level3">
+<h3 class="anchored" data-anchor-id="test_list_column_wrap_fasthtml_examples">test_list_column_wrap_fasthtml_examples</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_list_column_wrap_fasthtml_examples(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Test list example: third column wraps to next row from daisyUI v5 documentation.</em></p>
+<div id="rvx3mizy73b" class="cell">
+<details open="" class="code-fold">
+<summary>Exported source</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_list_column_wrap_fasthtml_examples():</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Test list example: third column wraps to next row from daisyUI v5 documentation."""</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.common <span class="im">import</span> Ul, Li, Div, Img, Button, P</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> fasthtml.svg <span class="im">import</span> Svg, Path, G</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.sizing <span class="im">import</span> size_util</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.spacing <span class="im">import</span> p</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.typography <span class="im">import</span> font_size, font_weight, font_family, text_color, tracking, uppercase</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_tailwind.utilities.effects <span class="im">import</span> opacity, shadow</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.utilities.semantic_colors <span class="im">import</span> bg_dui</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.utilities.border_radius <span class="im">import</span> border_radius</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> cjm_fasthtml_daisyui.components.actions.button <span class="im">import</span> btn, btn_modifiers, btn_styles</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create reusable SVG icons</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    play_icon <span class="op">=</span> Svg(</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        G(</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>            Path(d<span class="op">=</span><span class="st">"M6 3L20 12 6 21 6 3z"</span>),</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>            stroke_linejoin<span class="op">=</span><span class="st">"round"</span>,</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>            stroke_linecap<span class="op">=</span><span class="st">"round"</span>,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>            stroke_width<span class="op">=</span><span class="st">"2"</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>            fill<span class="op">=</span><span class="st">"none"</span>,</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>            stroke<span class="op">=</span><span class="st">"currentColor"</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span><span class="bu">str</span>(size_util(<span class="st">"[1.2em]"</span>)),</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>        xmlns<span class="op">=</span><span class="st">"http://www.w3.org/2000/svg"</span>,</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>        viewBox<span class="op">=</span><span class="st">"0 0 24 24"</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    heart_icon <span class="op">=</span> Svg(</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>        G(</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>            Path(d<span class="op">=</span><span class="st">"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"</span>),</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>            stroke_linejoin<span class="op">=</span><span class="st">"round"</span>,</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>            stroke_linecap<span class="op">=</span><span class="st">"round"</span>,</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>            stroke_width<span class="op">=</span><span class="st">"2"</span>,</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>            fill<span class="op">=</span><span class="st">"none"</span>,</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>            stroke<span class="op">=</span><span class="st">"currentColor"</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span><span class="bu">str</span>(size_util(<span class="st">"[1.2em]"</span>)),</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>        xmlns<span class="op">=</span><span class="st">"http://www.w3.org/2000/svg"</span>,</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>        viewBox<span class="op">=</span><span class="st">"0 0 24 24"</span></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># List with third column wrapping to next row using list-col-wrap</span></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>    list_column_wraps <span class="op">=</span> Ul(</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>        Li(<span class="st">"Most played songs this week"</span>, cls<span class="op">=</span>combine_classes(p._4, p.b._2, font_size.xs, opacity._60, tracking.wide)),</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>        Li(</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>                Img(</span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>                    src<span class="op">=</span><span class="st">"https://img.daisyui.com/images/profile/demo/1@94.webp"</span>,</span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>                    cls<span class="op">=</span>combine_classes(size_util(<span class="dv">10</span>), border_radius.box)</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Dio Lupa"</span>),</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Remaining Reason"</span>, cls<span class="op">=</span>combine_classes(font_size.xs, uppercase, font_weight.semibold, opacity._60))</span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>            P(</span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>                <span class="st">'"Remaining Reason" became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa</span><span class="ch">\'</span><span class="st">s most iconic tracks.'</span>,</span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(list_modifiers.col_wrap, font_size.xs)</span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>                play_icon,</span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>                heart_icon,</span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span><span class="bu">str</span>(list_row)</span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a>        Li(</span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>                Img(</span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>                    src<span class="op">=</span><span class="st">"https://img.daisyui.com/images/profile/demo/4@94.webp"</span>,</span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a>                    cls<span class="op">=</span>combine_classes(size_util(<span class="dv">10</span>), border_radius.box)</span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Ellie Beilish"</span>),</span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Bears of a fever"</span>, cls<span class="op">=</span>combine_classes(font_size.xs, uppercase, font_weight.semibold, opacity._60))</span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>            P(</span>
+<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a>                <span class="st">'"Bears of a Fever" captivated audiences with its intense energy and mysterious lyrics. Its popularity skyrocketed after fans shared it widely online, earning Ellie critical acclaim.'</span>,</span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(list_modifiers.col_wrap, font_size.xs)</span>
+<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a>                play_icon,</span>
+<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a>                heart_icon,</span>
+<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span><span class="bu">str</span>(list_row)</span>
+<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a>        Li(</span>
+<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a>                Img(</span>
+<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a>                    src<span class="op">=</span><span class="st">"https://img.daisyui.com/images/profile/demo/3@94.webp"</span>,</span>
+<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a>                    cls<span class="op">=</span>combine_classes(size_util(<span class="dv">10</span>), border_radius.box)</span>
+<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a>            Div(</span>
+<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Sabrino Gardener"</span>),</span>
+<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a>                Div(<span class="st">"Cappuccino"</span>, cls<span class="op">=</span>combine_classes(font_size.xs, uppercase, font_weight.semibold, opacity._60))</span>
+<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a>            P(</span>
+<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a>                <span class="st">'"Cappuccino" quickly gained attention for its smooth melody and relatable themes. The song</span><span class="ch">\'</span><span class="st">s success propelled Sabrino into the spotlight, solidifying their status as a rising star.'</span>,</span>
+<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(list_modifiers.col_wrap, font_size.xs)</span>
+<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb14-111"><a href="#cb14-111" aria-hidden="true" tabindex="-1"></a>                play_icon,</span>
+<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb14-113"><a href="#cb14-113" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-114"><a href="#cb14-114" aria-hidden="true" tabindex="-1"></a>            Button(</span>
+<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a>                heart_icon,</span>
+<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a>                cls<span class="op">=</span>combine_classes(btn, btn_modifiers.square, btn_styles.ghost)</span>
+<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a>            cls<span class="op">=</span><span class="bu">str</span>(list_row)</span>
+<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a>        cls<span class="op">=</span>combine_classes(list_ui, bg_dui.base_100, border_radius.box, shadow.md)</span>
+<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-122"><a href="#cb14-122" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-123"><a href="#cb14-123" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify list structure</span></span>
+<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list"</span> <span class="kw">in</span> list_column_wraps.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-125"><a href="#cb14-125" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"bg-base-100"</span> <span class="kw">in</span> list_column_wraps.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-126"><a href="#cb14-126" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"rounded-box"</span> <span class="kw">in</span> list_column_wraps.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-127"><a href="#cb14-127" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"shadow-md"</span> <span class="kw">in</span> list_column_wraps.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-128"><a href="#cb14-128" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-129"><a href="#cb14-129" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify header</span></span>
+<span id="cb14-130"><a href="#cb14-130" aria-hidden="true" tabindex="-1"></a>    header <span class="op">=</span> list_column_wraps.children[<span class="dv">0</span>]</span>
+<span id="cb14-131"><a href="#cb14-131" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> header.tag <span class="op">==</span> <span class="st">"li"</span></span>
+<span id="cb14-132"><a href="#cb14-132" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"p-4"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-133"><a href="#cb14-133" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"pb-2"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-134"><a href="#cb14-134" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-xs"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-135"><a href="#cb14-135" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"opacity-60"</span> <span class="kw">in</span> header.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> header.children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Most played songs this week"</span></span>
+<span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-138"><a href="#cb14-138" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify first song row</span></span>
+<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a>    first_row <span class="op">=</span> list_column_wraps.children[<span class="dv">1</span>]</span>
+<span id="cb14-140"><a href="#cb14-140" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> first_row.tag <span class="op">==</span> <span class="st">"li"</span></span>
+<span id="cb14-141"><a href="#cb14-141" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-row"</span> <span class="kw">in</span> first_row.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-142"><a href="#cb14-142" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(first_row.children) <span class="op">==</span> <span class="dv">5</span>  <span class="co"># Image, text content, description (col-wrap), play button, heart button</span></span>
+<span id="cb14-143"><a href="#cb14-143" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-144"><a href="#cb14-144" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify image column (first column)</span></span>
+<span id="cb14-145"><a href="#cb14-145" aria-hidden="true" tabindex="-1"></a>    image_col <span class="op">=</span> first_row.children[<span class="dv">0</span>]</span>
+<span id="cb14-146"><a href="#cb14-146" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> image_col.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb14-147"><a href="#cb14-147" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> image_col.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"img"</span></span>
+<span id="cb14-148"><a href="#cb14-148" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"size-10"</span> <span class="kw">in</span> image_col.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-149"><a href="#cb14-149" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"rounded-box"</span> <span class="kw">in</span> image_col.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-150"><a href="#cb14-150" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> image_col.children[<span class="dv">0</span>].attrs[<span class="st">'src'</span>] <span class="op">==</span> <span class="st">"https://img.daisyui.com/images/profile/demo/1@94.webp"</span></span>
+<span id="cb14-151"><a href="#cb14-151" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-152"><a href="#cb14-152" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify text column (second column)</span></span>
+<span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a>    text_col <span class="op">=</span> first_row.children[<span class="dv">1</span>]</span>
+<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(text_col.children) <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Dio Lupa"</span></span>
+<span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">1</span>].tag <span class="op">==</span> <span class="st">"div"</span></span>
+<span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> text_col.children[<span class="dv">1</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Remaining Reason"</span></span>
+<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-xs"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"uppercase"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"font-semibold"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-163"><a href="#cb14-163" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"opacity-60"</span> <span class="kw">in</span> text_col.children[<span class="dv">1</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-164"><a href="#cb14-164" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-165"><a href="#cb14-165" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify description column (third column that wraps with list-col-wrap)</span></span>
+<span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a>    desc_col <span class="op">=</span> first_row.children[<span class="dv">2</span>]</span>
+<span id="cb14-167"><a href="#cb14-167" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> desc_col.tag <span class="op">==</span> <span class="st">"p"</span></span>
+<span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-col-wrap"</span> <span class="kw">in</span> desc_col.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"text-xs"</span> <span class="kw">in</span> desc_col.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">'"Remaining Reason" became an instant hit'</span> <span class="kw">in</span> desc_col.children[<span class="dv">0</span>]</span>
+<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"making it one of Dio Lupa's most iconic tracks."</span> <span class="kw">in</span> desc_col.children[<span class="dv">0</span>]</span>
+<span id="cb14-172"><a href="#cb14-172" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-173"><a href="#cb14-173" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify play button (fourth column)</span></span>
+<span id="cb14-174"><a href="#cb14-174" aria-hidden="true" tabindex="-1"></a>    play_btn <span class="op">=</span> first_row.children[<span class="dv">3</span>]</span>
+<span id="cb14-175"><a href="#cb14-175" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> play_btn.tag <span class="op">==</span> <span class="st">"button"</span></span>
+<span id="cb14-176"><a href="#cb14-176" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn"</span> <span class="kw">in</span> play_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-177"><a href="#cb14-177" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn-square"</span> <span class="kw">in</span> play_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-178"><a href="#cb14-178" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn-ghost"</span> <span class="kw">in</span> play_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-179"><a href="#cb14-179" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> play_btn.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"svg"</span></span>
+<span id="cb14-180"><a href="#cb14-180" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"size-[1.2em]"</span> <span class="kw">in</span> play_btn.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-181"><a href="#cb14-181" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-182"><a href="#cb14-182" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify heart button (fifth column)</span></span>
+<span id="cb14-183"><a href="#cb14-183" aria-hidden="true" tabindex="-1"></a>    heart_btn <span class="op">=</span> first_row.children[<span class="dv">4</span>]</span>
+<span id="cb14-184"><a href="#cb14-184" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> heart_btn.tag <span class="op">==</span> <span class="st">"button"</span></span>
+<span id="cb14-185"><a href="#cb14-185" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn"</span> <span class="kw">in</span> heart_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-186"><a href="#cb14-186" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn-square"</span> <span class="kw">in</span> heart_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-187"><a href="#cb14-187" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"btn-ghost"</span> <span class="kw">in</span> heart_btn.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-188"><a href="#cb14-188" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> heart_btn.children[<span class="dv">0</span>].tag <span class="op">==</span> <span class="st">"svg"</span></span>
+<span id="cb14-189"><a href="#cb14-189" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"size-[1.2em]"</span> <span class="kw">in</span> heart_btn.children[<span class="dv">0</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-190"><a href="#cb14-190" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-191"><a href="#cb14-191" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify second song row structure</span></span>
+<span id="cb14-192"><a href="#cb14-192" aria-hidden="true" tabindex="-1"></a>    second_row <span class="op">=</span> list_column_wraps.children[<span class="dv">2</span>]</span>
+<span id="cb14-193"><a href="#cb14-193" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-row"</span> <span class="kw">in</span> second_row.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-194"><a href="#cb14-194" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> second_row.children[<span class="dv">1</span>].children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Ellie Beilish"</span></span>
+<span id="cb14-195"><a href="#cb14-195" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> second_row.children[<span class="dv">1</span>].children[<span class="dv">1</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Bears of a fever"</span></span>
+<span id="cb14-196"><a href="#cb14-196" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-col-wrap"</span> <span class="kw">in</span> second_row.children[<span class="dv">2</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">'"Bears of a Fever" captivated audiences'</span> <span class="kw">in</span> second_row.children[<span class="dv">2</span>].children[<span class="dv">0</span>]</span>
+<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"earning Ellie critical acclaim."</span> <span class="kw">in</span> second_row.children[<span class="dv">2</span>].children[<span class="dv">0</span>]</span>
+<span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify third song row structure</span></span>
+<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a>    third_row <span class="op">=</span> list_column_wraps.children[<span class="dv">3</span>]</span>
+<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-row"</span> <span class="kw">in</span> third_row.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> third_row.children[<span class="dv">1</span>].children[<span class="dv">0</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Sabrino Gardener"</span></span>
+<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> third_row.children[<span class="dv">1</span>].children[<span class="dv">1</span>].children[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"Cappuccino"</span></span>
+<span id="cb14-205"><a href="#cb14-205" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"list-col-wrap"</span> <span class="kw">in</span> third_row.children[<span class="dv">2</span>].attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-206"><a href="#cb14-206" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">'"Cappuccino" quickly gained attention'</span> <span class="kw">in</span> third_row.children[<span class="dv">2</span>].children[<span class="dv">0</span>]</span>
+<span id="cb14-207"><a href="#cb14-207" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"solidifying their status as a rising star."</span> <span class="kw">in</span> third_row.children[<span class="dv">2</span>].children[<span class="dv">0</span>]</span>
+<span id="cb14-208"><a href="#cb14-208" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-209"><a href="#cb14-209" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Verify all rows have the col-wrap modifier on the description column</span></span>
+<span id="cb14-210"><a href="#cb14-210" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>):  <span class="co"># Rows 1, 2, 3 (skip header)</span></span>
+<span id="cb14-211"><a href="#cb14-211" aria-hidden="true" tabindex="-1"></a>        row <span class="op">=</span> list_column_wraps.children[i]</span>
+<span id="cb14-212"><a href="#cb14-212" aria-hidden="true" tabindex="-1"></a>        desc_column <span class="op">=</span> row.children[<span class="dv">2</span>]  <span class="co"># Third column (index 2)</span></span>
+<span id="cb14-213"><a href="#cb14-213" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"list-col-wrap"</span> <span class="kw">in</span> desc_column.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-214"><a href="#cb14-214" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> <span class="st">"text-xs"</span> <span class="kw">in</span> desc_column.attrs[<span class="st">'class'</span>]</span>
+<span id="cb14-215"><a href="#cb14-215" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> desc_column.tag <span class="op">==</span> <span class="st">"p"</span></span>
+<span id="cb14-216"><a href="#cb14-216" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-217"><a href="#cb14-217" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the created element in a Div</span></span>
+<span id="cb14-218"><a href="#cb14-218" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Div(list_column_wraps)</span>
+<span id="cb14-219"><a href="#cb14-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-220"><a href="#cb14-220" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the tests</span></span>
+<span id="cb14-221"><a href="#cb14-221" aria-hidden="true" tabindex="-1"></a>test_list_column_wrap_fasthtml_examples()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div><ul class="list bg-base-100 rounded-box shadow-md"><li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Most played songs this week</li><li class="list-row"><div><img src="https://img.daisyui.com/images/profile/demo/1@94.webp" class="size-10 rounded-box"></div><div><div>Dio Lupa</div><div class="text-xs uppercase font-semibold opacity-60">Remaining Reason</div></div><p class="list-col-wrap text-xs">"Remaining Reason" became an instant hit, praised for its haunting sound and emotional depth. A viral performance brought it widespread recognition, making it one of Dio Lupa's most iconic tracks.</p><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg></button><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></g></svg></button></li><li class="list-row"><div><img src="https://img.daisyui.com/images/profile/demo/4@94.webp" class="size-10 rounded-box"></div><div><div>Ellie Beilish</div><div class="text-xs uppercase font-semibold opacity-60">Bears of a fever</div></div><p class="list-col-wrap text-xs">"Bears of a Fever" captivated audiences with its intense energy and mysterious lyrics. Its popularity skyrocketed after fans shared it widely online, earning Ellie critical acclaim.</p><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg></button><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></g></svg></button></li><li class="list-row"><div><img src="https://img.daisyui.com/images/profile/demo/3@94.webp" class="size-10 rounded-box"></div><div><div>Sabrino Gardener</div><div class="text-xs uppercase font-semibold opacity-60">Cappuccino</div></div><p class="list-col-wrap text-xs">"Cappuccino" quickly gained attention for its smooth melody and relatable themes. The song's success propelled Sabrino into the spotlight, solidifying their status as a rising star.</p><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg></button><button class="btn btn-square btn-ghost"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="size-[1.2em]"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></g></svg></button></li></ul></div>
+</div>
+</div>
+<div id="047f593b-f6ea-44a1-8aec-46d32d656e6a" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>test_func <span class="op">=</span> test_list_column_wrap_fasthtml_examples</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>app, rt <span class="op">=</span> create_test_app(theme<span class="op">=</span>DaisyUITheme.LIGHT)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">@rt</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> create_test_page(test_func.__doc__.title().replace(<span class="st">'.'</span>, <span class="st">''</span>), test_func())</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> start_test_server(app)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>display(HTMX())</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>server.stop()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cj-mills\.github\.io\/cjm-fasthtml-daisyui");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cj-mills/cjm-fasthtml-daisyui/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
